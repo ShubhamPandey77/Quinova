@@ -21,14 +21,7 @@ function ContactUs({ navigate }) {
   return (
     <div className="pt-24 bg-white">
       {/* Hero */}
-      <section className="py-20 px-6 bg-Linear-to-br from-black to-gray-900 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to start your project? Fill out the form below and we'll get back to you within 24 hours
-          </p>
-        </div>
-      </section>
+     
 
       {/* Contact Form & Info */}
       <section className="py-20 px-6">
