@@ -44,7 +44,7 @@ export function ServiceCard({ icon, title, description, features, price, onGetSt
         <ul className="space-y-3 mb-6">
           {features.map((feature, idx) => (
             <li key={idx} className="flex items-center gap-2 text-gray-700">
-              <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+              <CheckCircle className="w-5 h-5 text-black shrink-0" />
               <span className="text-sm">{feature}</span>
             </li>
           ))}
@@ -179,7 +179,7 @@ export function TextAreaField({ label, required = false, value, onChange, placeh
 export function ContactInfoCard({ icon, title, info, className = '' }) {
   return (
     <div className={`flex items-start gap-4 ${className}`}>
-      <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0">
+      <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center shrink-0">
         {icon}
       </div>
       <div>
