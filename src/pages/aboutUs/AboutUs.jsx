@@ -13,7 +13,7 @@ function AboutUs({ navigate }) {
   {
     name: "Ashish Dueby",
     role: "Full Stack Developer",
-    image: "", 
+    image: "Ashish.jpg", 
   },
   {
     name: "Shubham Pandey",
@@ -29,6 +29,11 @@ function AboutUs({ navigate }) {
     name: "Jigyasa Pandey",
     role: "Social Media Manager And Content Writer",
     image: "Jigyasa.jpg",
+  },
+  {
+    name: "Ashutosh Singh",
+    role: "Full Stack Developer",
+    image: "",
   },
 ];
 

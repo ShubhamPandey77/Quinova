@@ -62,9 +62,9 @@ function Navbar({ navigate, currentPage }) {
               </div>
               <div>
                 <div className="text-white text-2xl font-bold tracking-tight">
-                  IT Solutions
+                  Quinova
                 </div>
-                <div className="text-gray-400 text-xs">Digital Excellence</div>
+                <div className="text-white text-xs"> IT Solutions </div>
               </div>
             </button>
 
@@ -229,10 +229,10 @@ function Navbar({ navigate, currentPage }) {
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-white"
                   >
                     <option value="">Select budget range</option>
-                    <option value="500-1000">$500 - $1,000</option>
-                    <option value="1000-5000">$1,000 - $5,000</option>
-                    <option value="5000-10000">$5,000 - $10,000</option>
-                    <option value="10000+">$10,000+</option>
+                    <option value="499-5000">₹499 - ₹5,000</option>
+                    <option value="5000-9999">₹5,000 - ₹9,999</option>
+                    <option value="9999-19999">₹9,999 - ₹19,999</option>
+                    <option value="19999+">₹19,999+</option>
                   </select>
                 </div>
 
