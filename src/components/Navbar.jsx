@@ -57,7 +57,7 @@ function Navbar({ navigate, currentPage }) {
               onClick={() => handleNavClick("home")}
               className="flex items-center gap-3 group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-900 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 bg-linear-to-br from-gray-600 to-gray-900 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-7 h-7 text-white" />
               </div>
               <div>
@@ -83,7 +83,7 @@ function Navbar({ navigate, currentPage }) {
                   {item.name}
                   {/* Animated underline */}
                   <span
-                    className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-gray-300 to-white rounded-full transition-all duration-500 ease-out ${
+                    className={`absolute left-0 -bottom-1 h-0.5 bg-linear-to-r from-gray-300 to-white rounded-full transition-all duration-500 ease-out ${
                       currentPage === item.page
                         ? "w-full opacity-100"
                         : "w-0 group-hover:w-full group-hover:opacity-100 opacity-0"
@@ -97,7 +97,7 @@ function Navbar({ navigate, currentPage }) {
                 onClick={handleGetStartedClick}
                 className="relative px-6 py-2.5 font-semibold text-black bg-white rounded-full overflow-hidden group transition-all duration-300 hover:shadow-lg hover:scale-105"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-200 via-white to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="absolute inset-0 bg-linear-to-r from-gray-200 via-white to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                 <span className="relative flex items-center gap-2">
                   Get Started
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -140,7 +140,7 @@ function Navbar({ navigate, currentPage }) {
 
       {/* Contact Form Popup */}
       {showContactForm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fadeIn">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 animate-fadeIn">
           {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
@@ -258,7 +258,7 @@ function Navbar({ navigate, currentPage }) {
                   type="submit"
                   className="relative w-full overflow-hidden bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-xl group"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-gray-700 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                  <span className="absolute inset-0 bg-linear-to-r from-gray-700 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                   <span className="relative flex items-center justify-center gap-2">
                     Send Message
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

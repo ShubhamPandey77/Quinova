@@ -1,5 +1,4 @@
-// pages/home.jsx
-import { motion } from "framer-motion";
+
 import {
   Code,
   Globe,
@@ -69,7 +68,7 @@ function Home({ navigate }) {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      <section className="pt-32 pb-20 px-6 bg-linear-to-br from-black via-gray-900 to-black relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute w-96 h-96 bg-gray-800/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
           <div
@@ -88,7 +87,7 @@ function Home({ navigate }) {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <div className="inline-block">
-                <span className="bg-gradient-to-r from-gray-700 to-gray-900 text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-700">
+                <span className="bg-linear-to-r from-gray-700 to-gray-900 text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-700">
                   ⚡ Premium IT Solutions
                 </span>
               </div>
@@ -100,7 +99,7 @@ function Home({ navigate }) {
                 transition={{ delay: 0.3, duration: 1 }}
               >
                 Elevate Your
-                <span className="block mt-2 bg-gradient-to-r from-gray-300 via-white to-gray-400 bg-clip-text text-transparent">
+                <span className="block mt-2 bg-linear-to-r from-gray-300 via-white to-gray-400 bg-clip-text text-transparent">
                   Digital Presence
                 </span>
               </motion.h1>
@@ -171,10 +170,10 @@ function Home({ navigate }) {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.05, rotate: 1 }}
-                    className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-gray-600 transition-all cursor-pointer"
+                    className="bg-linear-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-gray-600 transition-all cursor-pointer"
                   >
                     <div
-                      className={`w-12 h-12 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center text-white mb-4`}
+                      className={`w-12 h-12 bg-linear-to-br ${service.color} rounded-xl flex items-center justify-center text-white mb-4`}
                     >
                       {service.icon}
                     </div>

@@ -33,12 +33,7 @@ function AboutUs({ navigate }) {
 ];
 
 
-    const milestones = [
-        { year: "2019", title: "Company Founded", desc: "Started with a vision to transform digital presence" },
-        { year: "2020", title: "50+ Clients", desc: "Expanded services and client base significantly" },
-        { year: "2022", title: "Award Winner", desc: "Recognized for excellence in web development" },
-        { year: "2024", title: "Global Reach", desc: "Serving clients across multiple countries" }
-    ];
+   
 
     return (
         <div className="pt-24 bg-white">

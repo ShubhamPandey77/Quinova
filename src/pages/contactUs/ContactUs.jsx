@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Award, Users, Clock, Shield, ArrowRight } from 'lucide-react';
 
-function ContactUs({ navigate }) {
+function ContactUs() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
