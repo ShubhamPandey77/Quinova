@@ -50,21 +50,21 @@ function Navbar({ navigate, currentPage }) {
     <>
       {/* Navbar */}
       <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md shadow-2xl z-50 border-b border-gray-800 transition-all">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-1.5 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <button
               onClick={() => handleNavClick("home")}
               className="flex items-center gap-3 group"
             >
-              <div className="w-12 h-12 bg-linear-to-br from-gray-600 to-gray-900 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Code className="w-7 h-7 text-white" />
+              <div className="w-15 h-13 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <img src="Logo.png" alt="" />
               </div>
               <div>
-                <div className="text-white text-2xl font-bold tracking-tight">
+                <div className="text-white text-3xl font-bold tracking-tight">
                   Quinova
                 </div>
-                <div className="text-white text-xs"> IT Solutions </div>
+                <div className="text-white text-xs ml-13"> IT Solutions </div>
               </div>
             </button>
 
