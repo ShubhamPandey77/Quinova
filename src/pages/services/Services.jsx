@@ -8,42 +8,42 @@ function Services({ navigate }) {
       title: "Website Development",
       description: "Custom websites tailored to your business needs with modern design, responsive layouts, and powerful functionality that drives results.",
       features: ["Responsive Design", "SEO Optimized", "Fast Loading Speed", "E-commerce Integration", "CMS Integration", "Custom Functionality"],
-      price: "Starting at $999"
+      price: "Starting at ₹9999"
     },
     {
       icon: <TrendingUp className="w-12 h-12" />,
       title: "Social Media Management",
       description: "Grow your online presence with strategic social media marketing, engaging content creation, and data-driven campaign management.",
       features: ["Content Strategy", "Daily Posting", "Community Management", "Analytics & Reporting", "Paid Advertising", "Influencer Outreach"],
-      price: "Starting at $499/mo"
+      price: "Starting at ₹9999/mo"
     },
     {
       icon: <Film className="w-12 h-12" />,
       title: "Video Editing",
       description: "Professional video editing services for YouTube, social media, promotional content, and corporate videos that captivate your audience.",
       features: ["Color Grading", "Motion Graphics", "Sound Design", "Subtitles & Captions", "Quick Turnaround", "Multiple Formats"],
-      price: "Starting at $299"
+      price: "Starting at ₹1999"
     },
     {
       icon: <Palette className="w-12 h-12" />,
       title: "Graphic Design",
       description: "Eye-catching designs including logos, posters, marketing materials, and brand identity that make your business stand out.",
       features: ["Logo Design", "Brand Identity", "Marketing Materials", "Social Media Graphics", "Print Design", "Packaging Design"],
-      price: "Starting at $199"
+      price: "Starting at ₹499"
     },
     {
       icon: <MessageSquare className="w-12 h-12" />,
       title: "Content Writing",
       description: "Engaging, SEO-optimized content that resonates with your audience and drives conversions across all platforms.",
       features: ["Blog Posts", "Web Copy", "Product Descriptions", "SEO Content", "Email Campaigns", "Technical Writing"],
-      price: "Starting at $149"
+      price: "Starting at ₹499/article"
     },
     {
       icon: <Globe className="w-12 h-12" />,
       title: "Digital Marketing",
       description: "Comprehensive digital marketing strategies including SEO, PPC, email marketing, and conversion optimization.",
       features: ["PPC Campaigns", "Email Marketing", "SEO Strategy", "Conversion Optimization", "Marketing Automation", "Analytics Setup"],
-      price: "Starting at $699/mo"
+      price: "Starting at ₹19999/mo*"
     }
   ];
 
