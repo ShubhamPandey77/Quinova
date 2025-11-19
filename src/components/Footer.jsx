@@ -1,8 +1,7 @@
-// components/Footer.jsx
 import { useState } from 'react';
-import { Code, Mail, Facebook, Twitter, Instagram, Linkedin, Youtube, ArrowRight, X } from 'lucide-react';
+import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Sparkles, Heart } from 'lucide-react';
 
-function Footer({ navigate }) {
+function Footer({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -28,104 +27,138 @@ function Footer({ navigate }) {
     setShowContactForm(false);
   };
 
+  const socialLinks = [
+    { Icon: Facebook, link: '#', color: 'hover:bg-blue-600' },
+    { Icon: Instagram, link: 'https://www.instagram.com/quinova.official/', color: 'hover:bg-pink-600' },
+    { Icon: Linkedin, link: '#', color: 'hover:bg-blue-500' },
+  ];
+
   return (
     <>
-      <footer className="bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-500 rounded-full blur-3xl animate-blob"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl animate-blob-delayed"></div>
+        </div>
+
+        {/* Dotted Pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'radial-gradient(circle, #10b981 1px, transparent 1px)',
+          backgroundSize: '30px 30px'
+        }}></div>
+
+        <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Company Info */}
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-linear-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center">
-                  <Code className="w-7 h-7 text-white" />
+            <div className="md:col-span-2 animate-fade-in-up">
+              <div className="flex items-center gap-3 mb-4 group">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity animate-pulse-glow"></div>
+                  <img 
+                    className="relative h-14 w-16 rounded-2xl shadow-2xl group-hover:scale-110 transition-transform duration-300" 
+                    src="Logo.png" 
+                    alt="logo" 
+                  />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold"> Quinova </div>
-                  <div className="text-gray-500 text-sm">Digital Excellence</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent animate-gradient-x">
+                    Quinova
+                  </div>
+                  <div className="text-emerald-400 text-sm font-semibold">Digital Excellence</div>
                 </div>
               </div>
-              <p className="text-gray-400 mb-6 max-w-md">
+              <p className="text-slate-400 mb-6 max-w-md leading-relaxed animate-fade-in-up animation-delay-100">
                 Your trusted partner for comprehensive IT solutions. We transform businesses through innovative web development, social media management, video editing, and graphic design services.
               </p>
-              <div className="flex gap-4">
-                {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, index) => (
-                  <div key={index} className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors cursor-pointer border border-gray-800">
-                    <Icon className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
-                  </div>
+              <div className="flex gap-4 animate-fade-in-up animation-delay-200">
+                {socialLinks.map(({ Icon, link, color }, index) => (
+                  <a
+                    key={index}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`social-icon-container ${color}`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="social-icon-glow"></div>
+                    <Icon className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                  </a>
                 ))}
               </div>
             </div>
 
             {/* Quick Links */}
-            <div>
-              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+            <div className="animate-fade-in-up animation-delay-300">
+              <h3 className="font-bold text-lg mb-4 text-emerald-400 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 animate-pulse" />
+                Quick Links
+              </h3>
               <ul className="space-y-3">
-                <li>
-                  <button onClick={() => navigate('home')} className="text-gray-400 hover:text-white transition-colors">
-                    Home
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => navigate('services')} className="text-gray-400 hover:text-white transition-colors">
-                    Services
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => navigate('about')} className="text-gray-400 hover:text-white transition-colors">
-                    About Us
-                  </button>
-                </li>
-                <li>
-                  <button onClick={handleContactClick} className="text-gray-400 hover:text-white transition-colors">
-                    Contact
-                  </button>
-                </li>
+                {[
+                  { name: 'Home', page: 'home' },
+                  { name: 'Services', page: 'services' },
+                  { name: 'About Us', page: 'about' },
+                  { name: 'Contact', action: handleContactClick }
+                ].map((item, index) => (
+                  <li key={index} className="animate-slide-in-left" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <button 
+                      onClick={item.action || (() => navigate(item.page))} 
+                      className="footer-link group"
+                    >
+                      <span className="link-arrow">→</span>
+                      {item.name}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Services */}
-            <div>
-              <h3 className="font-bold text-lg mb-4">Our Services</h3>
+            <div className="animate-fade-in-up animation-delay-400">
+              <h3 className="font-bold text-lg mb-4 text-emerald-400 flex items-center gap-2">
+                <Heart className="w-5 h-5 animate-pulse" />
+                Our Services
+              </h3>
               <ul className="space-y-3">
-                <li className="text-gray-400 hover:text-white transition-colors cursor-pointer">Website Development</li>
-                <li className="text-gray-400 hover:text-white transition-colors cursor-pointer">Social Media Management</li>
-                <li className="text-gray-400 hover:text-white transition-colors cursor-pointer">Video Editing</li>
-                <li className="text-gray-400 hover:text-white transition-colors cursor-pointer">Graphic Design</li>
-                <li className="text-gray-400 hover:text-white transition-colors cursor-pointer">Content Writing</li>
-                <li className="text-gray-400 hover:text-white transition-colors cursor-pointer">Digital Marketing</li>
+                {[
+                  'Website Development',
+                  'Social Media Management',
+                  'Video Editing',
+                  'Graphic Design',
+                  'Content Writing',
+                  'Digital Marketing'
+                ].map((service, index) => (
+                  <li 
+                    key={index} 
+                    className="footer-link cursor-pointer animate-slide-in-left"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <span className="link-arrow">→</span>
+                    {service}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          {/* Newsletter Section */}
-          <div className="border-t border-gray-800 pt-8 pb-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className="font-bold text-xl mb-2">Subscribe to Our Newsletter</h3>
-                <p className="text-gray-400">Get the latest updates on projects, offers, and industry insights</p>
-              </div>
-              <div className="flex gap-2 w-full md:w-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 md:w-80 px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 focus:border-gray-700 outline-none text-white placeholder-gray-500"
-                />
-                <button className="bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all whitespace-nowrap">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
-
           {/* Bottom Bar */}
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 text-sm">
-              © 2024 IT Solutions. All rights reserved. Built with excellence.
+          <div className="border-t border-slate-700/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 animate-fade-in-up animation-delay-500">
+            <div className="text-slate-400 text-sm">
+              © 2024 Quinova. All rights reserved. Built with{' '}
+              <Heart className="inline w-4 h-4 text-emerald-500 animate-pulse" />{' '}
+              and excellence.
             </div>
-            <div className="flex gap-6 text-sm text-gray-400">
-              <button className="hover:text-white transition-colors">Privacy Policy</button>
-              <button className="hover:text-white transition-colors">Terms of Service</button>
-              <button className="hover:text-white transition-colors">Cookie Policy</button>
+            <div className="flex gap-6 text-sm">
+              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((policy, index) => (
+                <button 
+                  key={index}
+                  className="text-slate-400 hover:text-emerald-400 transition-colors relative group"
+                >
+                  {policy}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -133,85 +166,68 @@ function Footer({ navigate }) {
         {/* Floating Action Button */}
         <button
           onClick={handleContactClick}
-          className="fixed bottom-8 right-8 bg-white text-black w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center z-40 border-4 border-black"
+          className="floating-action-button"
           title="Contact Us"
         >
-          <Mail className="w-6 h-6" />
+          <div className="fab-glow"></div>
+          <Mail className="w-6 h-6 relative z-10 animate-wiggle" />
+          <div className="fab-ripple"></div>
         </button>
       </footer>
 
       {/* Contact Form Popup */}
       {showContactForm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fadeIn">
-          {/* Backdrop */}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-modal-fade-in">
           <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm animate-backdrop-blur"
             onClick={handleCloseForm}
           ></div>
 
-          {/* Form Container */}
-          <div className="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-slideUp">
-            {/* Close Button */}
+          <div className="modal-container animate-modal-bounce">
+            <div className="modal-glow-green"></div>
+            
             <button
               onClick={handleCloseForm}
-              className="absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10"
+              className="close-button-green"
             >
-              <X className="w-5 h-5 text-gray-700" />
+              <X className="w-5 h-5 text-emerald-700" />
             </button>
 
-            {/* Form Content */}
-            <div className="p-8 md:p-10">
+            <div className="relative p-8 md:p-10">
               <div className="mb-8">
-                <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-4">
-                  <Mail className="w-8 h-8 text-white" />
+                <div className="icon-container-green">
+                  <Mail className="w-8 h-8 text-white animate-wiggle" />
                 </div>
-                <h2 className="text-3xl font-bold text-black mb-2">Let's Get Started</h2>
-                <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours</p>
+                <h2 className="text-3xl font-bold text-slate-900 mb-2 animate-fade-in-up">Let's Get Started</h2>
+                <p className="text-slate-600 animate-fade-in-up animation-delay-100">Fill out the form below and we'll get back to you within 24 hours</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-white"
-                    placeholder="John Doe"
-                  />
-                </div>
+              <div className="space-y-6">
+                {[
+                  { name: 'name', label: 'Full Name *', type: 'text', placeholder: 'John Doe' },
+                  { name: 'email', label: 'Email Address *', type: 'email', placeholder: 'john@example.com' },
+                  { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+91 98765 43210' }
+                ].map((field, index) => (
+                  <div key={field.name} className="animate-slide-in-left" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <label className="block text-sm font-semibold text-slate-900 mb-2">{field.label}</label>
+                    <input
+                      type={field.type}
+                      required={field.label.includes('*')}
+                      value={formData[field.name]}
+                      onChange={(e) => setFormData({...formData, [field.name]: e.target.value})}
+                      className="form-input-green"
+                      placeholder={field.placeholder}
+                    />
+                  </div>
+                ))}
 
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Email Address *</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-white"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Phone Number</label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-white"
-                    placeholder="+1 (555) 123-4567"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Service Interested In *</label>
+                <div className="animate-slide-in-left animation-delay-300">
+                  <label className="block text-sm font-semibold text-slate-900 mb-2">Service Interested In *</label>
                   <select 
                     required
                     value={formData.service}
                     onChange={(e) => setFormData({...formData, service: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-white"
+                    className="form-input-green"
                   >
                     <option value="">Select a service</option>
                     <option value="website">Website Development</option>
@@ -223,12 +239,12 @@ function Footer({ navigate }) {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Project Budget</label>
+                <div className="animate-slide-in-left animation-delay-400">
+                  <label className="block text-sm font-semibold text-slate-900 mb-2">Project Budget</label>
                   <select 
                     value={formData.budget}
                     onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-white"
+                    className="form-input-green"
                   >
                     <option value="">Select budget range</option>
                     <option value="499-5000">₹499 - ₹5,000</option>
@@ -238,46 +254,302 @@ function Footer({ navigate }) {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Project Details *</label>
+                <div className="animate-slide-in-left animation-delay-500">
+                  <label className="block text-sm font-semibold text-slate-900 mb-2">Project Details *</label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors resize-none bg-white"
+                    className="form-input-green resize-none"
                     placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                   ></textarea>
                 </div>
 
                 <button
-                  type="submit"
-                  className="w-full bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2"
+                  onClick={handleSubmit}
+                  className="submit-button-green"
                 >
-                  Send Message
-                  <ArrowRight className="w-5 h-5" />
+                  <span className="relative z-10">Send Message</span>
+                  <ArrowRight className="w-5 h-5 relative z-10" />
+                  <div className="submit-ripple-green"></div>
                 </button>
 
-                <p className="text-sm text-gray-600 text-center">
+                <p className="text-sm text-slate-600 text-center animate-fade-in-up animation-delay-600">
                   We'll respond within 24 hours. Your information is kept confidential.
                 </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       )}
 
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
+        /* Social Icons */
+        .social-icon-container {
+          position: relative;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: rgba(15, 23, 42, 0.8);
+          border: 2px solid rgba(16, 185, 129, 0.3);
+          border-radius: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          overflow: hidden;
+          animation: bounce-in 0.6s ease-out;
+        }
+
+        .social-icon-container:hover {
+          transform: translateY(-5px) scale(1.1) rotate(5deg);
+          border-color: #10b981;
+          box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .social-icon-glow {
+          position: absolute;
+          inset: -10px;
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .social-icon-container:hover .social-icon-glow {
+          opacity: 1;
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Footer Links */
+        .footer-link {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #94a3b8;
+          transition: all 0.3s ease;
+          position: relative;
+          padding-left: 0;
+        }
+
+        .footer-link:hover {
+          color: #10b981;
+          padding-left: 0.5rem;
+        }
+
+        .link-arrow {
+          opacity: 0;
+          transform: translateX(-10px);
+          transition: all 0.3s ease;
+          color: #10b981;
+        }
+
+        .footer-link:hover .link-arrow {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        /* Floating Action Button */
+        .floating-action-button {
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          width: 3.5rem;
+          height: 3.5rem;
+          background: linear-gradient(135deg, #10b981, #14b8a6);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          z-index: 40;
+          overflow: hidden;
+          animation: fab-bounce 2s ease-in-out infinite;
+        }
+
+        .floating-action-button:hover {
+          transform: scale(1.15) rotate(10deg);
+          box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
+        }
+
+        .fab-glow {
+          position: absolute;
+          inset: -20px;
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.5), transparent);
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .fab-ripple {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(0);
+          animation: ripple-pulse 2s ease-out infinite;
+        }
+
+        @keyframes fab-bounce {
+          0%, 100% {
+            transform: translateY(0);
           }
-          to {
-            opacity: 1;
+          50% {
+            transform: translateY(-10px);
           }
         }
 
-        @keyframes slideUp {
+        @keyframes ripple-pulse {
+          0% {
+            transform: scale(0.8);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+
+        /* Background Animations */
+        @keyframes blob {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          25% {
+            transform: translate(50px, -50px) scale(1.1);
+          }
+          50% {
+            transform: translate(-30px, 50px) scale(0.9);
+          }
+          75% {
+            transform: translate(40px, 30px) scale(1.05);
+          }
+        }
+
+        .animate-blob {
+          animation: blob 20s ease-in-out infinite;
+        }
+
+        .animate-blob-delayed {
+          animation: blob 20s ease-in-out infinite;
+          animation-delay: 5s;
+        }
+
+        /* Modal Styles */
+        .modal-container {
+          position: relative;
+          background: linear-gradient(135deg, white, rgba(209, 250, 229, 0.3));
+          border-radius: 1.5rem;
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+          max-width: 42rem;
+          width: 100%;
+          max-height: 90vh;
+          overflow-y: auto;
+          border: 2px solid #d1fae5;
+        }
+
+        .modal-glow-green {
+          position: absolute;
+          inset: -30px;
+          background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(20, 184, 166, 0.3));
+          border-radius: 1.5rem;
+          filter: blur(40px);
+          z-index: -1;
+          animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .close-button-green {
+          position: absolute;
+          top: 1.5rem;
+          right: 1.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: white;
+          border: 2px solid #d1fae5;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          z-index: 10;
+        }
+
+        .close-button-green:hover {
+          background: #d1fae5;
+          transform: scale(1.1) rotate(90deg);
+          border-color: #10b981;
+        }
+
+        .icon-container-green {
+          width: 4rem;
+          height: 4rem;
+          background: linear-gradient(135deg, #10b981, #14b8a6);
+          border-radius: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1rem;
+          box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+          animation: icon-float 3s ease-in-out infinite;
+        }
+
+        .form-input-green {
+          width: 100%;
+          padding: 0.75rem 1rem;
+          border-radius: 0.75rem;
+          border: 2px solid #d1fae5;
+          outline: none;
+          transition: all 0.3s ease;
+          background: white;
+        }
+
+        .form-input-green:focus {
+          border-color: #10b981;
+          box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+          transform: translateY(-2px);
+        }
+
+        .form-input-green:hover {
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+
+        .submit-button-green {
+          position: relative;
+          width: 100%;
+          background: linear-gradient(135deg, #10b981, #14b8a6);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 0.75rem;
+          font-weight: bold;
+          font-size: 1.125rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-button-green:hover {
+          transform: scale(1.05);
+          box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+        }
+
+        .submit-ripple-green {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, #14b8a6, #10b981);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .submit-button-green:hover .submit-ripple-green {
+          opacity: 1;
+        }
+
+        /* General Animations */
+        @keyframes fade-in-up {
           from {
             opacity: 0;
             transform: translateY(20px);
@@ -288,12 +560,161 @@ function Footer({ navigate }) {
           }
         }
 
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out;
+        @keyframes slide-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
 
-        .animate-slideUp {
-          animation: slideUp 0.3s ease-out;
+        @keyframes bounce-in {
+          0% {
+            opacity: 0;
+            transform: scale(0.3);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes pulse-glow {
+          0%, 100% {
+            opacity: 0.5;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes icon-float {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes wiggle {
+          0%, 100% {
+            transform: rotate(0deg);
+          }
+          25% {
+            transform: rotate(-5deg);
+          }
+          75% {
+            transform: rotate(5deg);
+          }
+        }
+
+        @keyframes gradient-x {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        @keyframes modal-fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes backdrop-blur {
+          from {
+            backdrop-filter: blur(0px);
+          }
+          to {
+            backdrop-filter: blur(8px);
+          }
+        }
+
+        @keyframes modal-bounce {
+          0% {
+            transform: scale(0.3) translateY(100px);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.6s ease-out;
+        }
+
+        .animate-slide-in-left {
+          animation: slide-in-left 0.6s ease-out;
+        }
+
+        .animate-bounce-in {
+          animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .animate-pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .animate-wiggle {
+          animation: wiggle 1s ease-in-out infinite;
+        }
+
+        .animate-gradient-x {
+          background-size: 200% auto;
+          animation: gradient-x 3s ease infinite;
+        }
+
+        .animate-modal-fade-in {
+          animation: modal-fade-in 0.3s ease-out;
+        }
+
+        .animate-backdrop-blur {
+          animation: backdrop-blur 0.3s ease-out;
+        }
+
+        .animate-modal-bounce {
+          animation: modal-bounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .animation-delay-100 {
+          animation-delay: 0.1s;
+        }
+
+        .animation-delay-200 {
+          animation-delay: 0.2s;
+        }
+
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+
+        .animation-delay-400 {
+          animation-delay: 0.4s;
+        }
+
+        .animation-delay-500 {
+          animation-delay: 0.5s;
+        }
+
+        .animation-delay-600 {
+          animation-delay: 0.6s;
         }
       `}</style>
     </>
