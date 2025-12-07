@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Code, TrendingUp, Film, Palette, MessageSquare, Globe, CheckCircle, ArrowRight, Mail, X, Sparkles, Rocket, Zap, Target } from 'lucide-react';
+import { services, processSteps } from '../../const';
 
 function Services({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -58,63 +59,15 @@ function Services({ navigate = () => {} }) {
     setShowContactForm(false);
   };
 
-  const services = [
-    {
-      icon: <Code className="w-12 h-12" />,
-      title: "Website Development",
-      description: "Custom websites tailored to your business needs with modern design, responsive layouts, and powerful functionality that drives results.",
-      features: ["Responsive Design", "SEO Optimized", "Fast Loading Speed", "E-commerce Integration", "CMS Integration", "Custom Functionality"],
-      price: "Starting at ₹9999",
-      color: "from-emerald-500 to-teal-600"
-    },
-    {
-      icon: <TrendingUp className="w-12 h-12" />,
-      title: "Social Media Management",
-      description: "Grow your online presence with strategic social media marketing, engaging content creation, and data-driven campaign management.",
-      features: ["Content Strategy", "Daily Posting", "Community Management", "Analytics & Reporting", "Paid Advertising", "Influencer Outreach"],
-      price: "Starting at ₹9999/mo",
-      color: "from-green-500 to-emerald-600"
-    },
-    {
-      icon: <Film className="w-12 h-12" />,
-      title: "Video Editing",
-      description: "Professional video editing services for YouTube, social media, promotional content, and corporate videos that captivate your audience.",
-      features: ["Color Grading", "Motion Graphics", "Sound Design", "Subtitles & Captions", "Quick Turnaround", "Multiple Formats"],
-      price: "Starting at ₹1999",
-      color: "from-teal-500 to-cyan-600"
-    },
-    {
-      icon: <Palette className="w-12 h-12" />,
-      title: "Graphic Design",
-      description: "Eye-catching designs including logos, posters, marketing materials, and brand identity that make your business stand out.",
-      features: ["Logo Design", "Brand Identity", "Marketing Materials", "Social Media Graphics", "Print Design", "Packaging Design"],
-      price: "Starting at ₹499",
-      color: "from-lime-500 to-green-600"
-    },
-    {
-      icon: <MessageSquare className="w-12 h-12" />,
-      title: "Content Writing",
-      description: "Engaging, SEO-optimized content that resonates with your audience and drives conversions across all platforms.",
-      features: ["Blog Posts", "Web Copy", "Product Descriptions", "SEO Content", "Email Campaigns", "Technical Writing"],
-      price: "Starting at ₹499/article",
-      color: "from-emerald-500 to-teal-600"
-    },
-    {
-      icon: <Globe className="w-12 h-12" />,
-      title: "Digital Marketing",
-      description: "Comprehensive digital marketing strategies including SEO, PPC, email marketing, and conversion optimization.",
-      features: ["PPC Campaigns", "Email Marketing", "SEO Strategy", "Conversion Optimization", "Marketing Automation", "Analytics Setup"],
-      price: "Starting at ₹19999/mo",
-      color: "from-green-500 to-emerald-600"
-    }
-  ];
+  const servicesWithIcons = services.map((service, index) => ({
+    ...service,
+    icon: [<Code className="w-12 h-12" />, <TrendingUp className="w-12 h-12" />, <Film className="w-12 h-12" />, <Palette className="w-12 h-12" />, <MessageSquare className="w-12 h-12" />, <Globe className="w-12 h-12" />][index]
+  }));
 
-  const processSteps = [
-    { step: "01", title: "Consultation", desc: "We discuss your needs and goals", icon: <Target className="w-6 h-6" /> },
-    { step: "02", title: "Planning", desc: "We create a detailed project plan", icon: <Zap className="w-6 h-6" /> },
-    { step: "03", title: "Execution", desc: "We bring your vision to life", icon: <Rocket className="w-6 h-6" /> },
-    { step: "04", title: "Delivery", desc: "We deliver and support your project", icon: <Sparkles className="w-6 h-6" /> }
-  ];
+  const processStepsWithIcons = processSteps.map((step, index) => ({
+    ...step,
+    icon: [<Target className="w-6 h-6" />, <Zap className="w-6 h-6" />, <Rocket className="w-6 h-6" />, <Sparkles className="w-6 h-6" />][index]
+  }));
 
   return (
     <>
@@ -187,7 +140,7 @@ function Services({ navigate = () => {} }) {
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
+              {servicesWithIcons.map((service, index) => (
                 <div
                   key={index}
                   className={`service-card-detail ${isVisible['services-grid'] ? 'animate-scale-in' : 'opacity-0'}`}
@@ -249,7 +202,7 @@ function Services({ navigate = () => {} }) {
             </div>
 
             <div className="grid md:grid-cols-4 gap-8">
-              {processSteps.map((item, index) => (
+              {processStepsWithIcons.map((item, index) => (
                 <div 
                   key={index} 
                   className={`process-card ${isVisible['process-section'] ? 'animate-scale-in' : 'opacity-0'}`}
