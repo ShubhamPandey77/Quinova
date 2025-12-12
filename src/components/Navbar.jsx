@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Mail, ArrowRight, Sparkles } from "lucide-react";
-import { menuItems } from "../const";
 
 function Navbar({ navigate = () => {}, currentPage = 'home' }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,6 +47,12 @@ function Navbar({ navigate = () => {}, currentPage = 'home' }) {
     });
     setShowContactForm(false);
   };
+
+  const menuItems = [
+    { name: "Home", page: "home" },
+    { name: "Services", page: "services" },
+    { name: "About", page: "about" },
+  ];
 
   return (
     <>

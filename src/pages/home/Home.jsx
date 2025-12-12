@@ -1,7 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Code, Globe, TrendingUp, Film, Palette, Zap, ArrowRight, Star, Mail, X, CheckCircle, Users, Award, Target, Sparkles, Rocket, Clock, Heart } from 'lucide-react';
-import { stats, services, testimonials, features } from '../../const';
 
 function Home({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -60,22 +59,31 @@ function Home({ navigate = () => {} }) {
     setShowContactForm(false);
   };
 
-  const statsWithIcons = stats.map((stat, index) => ({
-    ...stat,
-    icon: [<Target className="w-5 h-5" />, <Users className="w-5 h-5" />, <Award className="w-5 h-5" />, <CheckCircle className="w-5 h-5" />][index]
-  }));
-
-  const servicesWithIcons = [
-    { ...services[0], icon: <Code className="w-6 h-6" />, title: "Web Development" },
-    { ...services[1], icon: <TrendingUp className="w-6 h-6" />, title: "Social Media" },
-    { ...services[2], icon: <Film className="w-6 h-6" />, title: "Video Editing" },
-    { ...services[3], icon: <Palette className="w-6 h-6" />, title: "Graphic Design" },
+  const stats = [
+    { number: "10+", label: "Projects Completed", icon: <Target className="w-5 h-5" /> },
+    { number: "10+", label: "Happy Clients", icon: <Users className="w-5 h-5" /> },
+    { number: "1+", label: "Years Experience", icon: <Award className="w-5 h-5" /> },
+    { number: "98%", label: "Client Satisfaction", icon: <CheckCircle className="w-5 h-5" /> }
   ];
 
-  const featuresWithIcons = features.map((feature, index) => ({
-    ...feature,
-    icon: [<Rocket className="w-6 h-6" />, <Clock className="w-6 h-6" />, <Heart className="w-6 h-6" />][index]
-  }));
+  const services = [
+    { icon: <Code className="w-6 h-6" />, title: "Web Development", color: "from-emerald-500 to-teal-600" },
+    { icon: <TrendingUp className="w-6 h-6" />, title: "Social Media", color: "from-green-500 to-emerald-600" },
+    { icon: <Film className="w-6 h-6" />, title: "Video Editing", color: "from-teal-500 to-cyan-600" },
+    { icon: <Palette className="w-6 h-6" />, title: "Graphic Design", color: "from-lime-500 to-green-600" },
+  ];
+
+  const testimonials = [
+    { name: "Aarav Gupta", company: "Studio.labs", text: "They transformed our online presence completely. Our website looks amazing!", rating: 5, avatar: "AG" },
+    { name: "Dipanshu Parashar", company: "Virtual Cyber Labs", text: "Professional, creative, and always on time. Highly recommended!", rating: 5, avatar: "DP" },
+    { name: "Yuvraj Singh", company: "Comparely", text: "The team understood our vision perfectly. Excellent work!", rating: 5, avatar: "YS" }
+  ];
+
+  const features = [
+    { icon: <Rocket className="w-6 h-6" />, text: "Fast Delivery" },
+    { icon: <Clock className="w-6 h-6" />, text: "24/7 Support" },
+    { icon: <Heart className="w-6 h-6" />, text: "Client Focused" }
+  ];
 
   return (
     <>
@@ -139,7 +147,7 @@ function Home({ navigate = () => {} }) {
               
               {/* Animated Features */}
               <div className="flex flex-wrap gap-4 animate-fade-in-up animation-delay-300">
-                {featuresWithIcons.map((feature, index) => (
+                {features.map((feature, index) => (
                   <div 
                     key={index}
                     className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-200 animate-bounce-in"
@@ -171,7 +179,7 @@ function Home({ navigate = () => {} }) {
 
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
-                {statsWithIcons.map((stat, index) => (
+                {stats.map((stat, index) => (
                   <div 
                     key={index} 
                     className="stat-card"
@@ -196,7 +204,7 @@ function Home({ navigate = () => {} }) {
             <div className="relative animate-slide-in-right">
               <div className="floating-gradient"></div>
               <div className="relative grid grid-cols-2 gap-4">
-                {servicesWithIcons.map((service, index) => (
+                {services.map((service, index) => (
                   <div
                     key={index}
                     className="service-card"

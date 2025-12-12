@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Sparkles, Heart } from 'lucide-react';
-import { socialLinks } from '../const';
 
 function Footer({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -28,10 +27,11 @@ function Footer({ navigate = () => {} }) {
     setShowContactForm(false);
   };
 
-  const socialLinksWithIcons = socialLinks.map((link, index) => ({
-    ...link,
-    Icon: [Facebook, Instagram, Linkedin][index]
-  }));
+  const socialLinks = [
+    { Icon: Facebook, link: '#', color: 'hover:bg-blue-600' },
+    { Icon: Instagram, link: 'https://www.instagram.com/quinova.official/', color: 'hover:bg-pink-600' },
+    { Icon: Linkedin, link: '#', color: 'hover:bg-blue-500' },
+  ];
 
   return (
     <>
@@ -72,7 +72,7 @@ function Footer({ navigate = () => {} }) {
                 Your trusted partner for comprehensive IT solutions. We transform businesses through innovative web development, social media management, video editing, and graphic design services.
               </p>
               <div className="flex gap-4 animate-fade-in-up animation-delay-200">
-                {socialLinksWithIcons.map(({ Icon, link, color }, index) => (
+                {socialLinks.map(({ Icon, link, color }, index) => (
                   <a
                     key={index}
                     href={link}
