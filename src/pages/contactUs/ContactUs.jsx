@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Award, Users, Clock, Shield, ArrowRight, Sparkles, MessageSquare, Zap } from 'lucide-react';
+import { faqs } from '../../const';
 
 function ContactUs({ navigate = () => {} }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -47,48 +48,13 @@ function ContactUs({ navigate = () => {} }) {
     setFormData({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email Us",
-      details: ["info@itsolutions.com", "support@itsolutions.com"],
-      color: "from-emerald-500 to-teal-600"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
-      details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"],
-      color: "from-green-500 to-emerald-600"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Us",
-      details: ["123 Business Street", "New York, NY 10001"],
-      color: "from-teal-500 to-cyan-600"
-    }
-  ];
 
-  const whyChooseUs = [
-    { icon: <Award className="w-5 h-5" />, text: "1+ Years of Experience", color: "from-emerald-500 to-teal-600" },
-    { icon: <Users className="w-5 h-5" />, text: "10+ Happy Clients", color: "from-green-500 to-emerald-600" },
-    { icon: <Clock className="w-5 h-5" />, text: "24/7 Support Available", color: "from-teal-500 to-cyan-600" },
-    { icon: <Shield className="w-5 h-5" />, text: "100% Satisfaction Guaranteed", color: "from-lime-500 to-green-600" }
-  ];
 
-  const faqs = [
-    { q: "How long does a typical project take?", a: "Project timelines vary based on scope. A website typically takes 2-4 weeks, while social media management is ongoing. We'll provide a detailed timeline during consultation." },
-    { q: "What is your pricing structure?", a: "We offer transparent pricing based on project scope. Check our Services page for starting prices, or contact us for a custom quote tailored to your needs." },
-    { q: "Do you offer ongoing support?", a: "Yes! We provide post-launch support and maintenance packages for all our services. We're committed to your long-term success." },
-    { q: "Can I see examples of your work?", a: "Absolutely! Check our Portfolio page to see recent projects across all service categories. We can also provide case studies during consultation." }
-  ];
 
-  const socialIcons = [
-    { Icon: Facebook, color: "from-emerald-500 to-teal-600" },
-    { Icon: Twitter, color: "from-green-500 to-emerald-600" },
-    { Icon: Instagram, color: "from-teal-500 to-cyan-600" },
-    { Icon: Linkedin, color: "from-lime-500 to-green-600" },
-    { Icon: Youtube, color: "from-emerald-500 to-teal-600" }
-  ];
+
+
+
+
 
   return (
     <>
@@ -176,8 +142,12 @@ function ContactUs({ navigate = () => {} }) {
                 </div>
 
                 <div className="space-y-6">
-                  {contactInfo.map((item, index) => (
-                    <div 
+                  {[
+                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["info@itsolutions.com", "support@itsolutions.com"], color: "from-emerald-500 to-teal-600" },
+                    { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"], color: "from-green-500 to-emerald-600" },
+                    { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["123 Business Street", "New York, NY 10001"], color: "from-teal-500 to-cyan-600" }
+                  ].map((item, index) => (
+                    <div
                       key={index}
                       className="contact-info-card"
                       style={{ animationDelay: `${index * 0.1}s` }}
@@ -202,13 +172,13 @@ function ContactUs({ navigate = () => {} }) {
                 <div className="pt-8 border-t border-emerald-200">
                   <div className="font-semibold text-slate-900 mb-4 text-lg">Follow Us</div>
                   <div className="flex gap-4">
-                    {socialIcons.map(({ Icon, color }, index) => (
-                      <div 
+                    {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, index) => (
+                      <div
                         key={index}
                         className="social-icon-wrapper"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <div className={`social-icon bg-gradient-to-br ${color}`}>
+                        <div className={`social-icon bg-gradient-to-br ${socialIcons[index].color}`}>
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
@@ -225,9 +195,14 @@ function ContactUs({ navigate = () => {} }) {
                       Why Choose Us?
                     </h3>
                     <div className="space-y-4">
-                      {whyChooseUs.map((item, index) => (
-                        <div 
-                          key={index} 
+                      {[
+                        { icon: <Award className="w-5 h-5" />, text: "1+ Years of Experience", color: "from-emerald-500 to-teal-600" },
+                        { icon: <Users className="w-5 h-5" />, text: "10+ Happy Clients", color: "from-green-500 to-emerald-600" },
+                        { icon: <Clock className="w-5 h-5" />, text: "24/7 Support Available", color: "from-teal-500 to-cyan-600" },
+                        { icon: <Shield className="w-5 h-5" />, text: "100% Satisfaction Guaranteed", color: "from-lime-500 to-green-600" }
+                      ].map((item, index) => (
+                        <div
+                          key={index}
                           className="flex items-center gap-3 text-slate-700 animate-slide-in-left"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >

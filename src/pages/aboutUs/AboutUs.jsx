@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Award, Users, Target, Heart, Zap, Shield, Sparkles, Rocket, Clock, TrendingUp } from 'lucide-react';
+import { values, team, stats } from '../../const';
 
 function AboutUs({ navigate = () => {} }) {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -33,27 +34,15 @@ function AboutUs({ navigate = () => {} }) {
         return () => observer.disconnect();
     }, []);
 
-    const values = [
-        { icon: <Target className="w-8 h-8" />, title: "Mission-Driven", desc: "We're committed to delivering excellence in every project", color: "from-emerald-500 to-teal-600" },
-        { icon: <Heart className="w-8 h-8" />, title: "Client-Focused", desc: "Your success is our success, always putting clients first", color: "from-green-500 to-emerald-600" },
-        { icon: <Zap className="w-8 h-8" />, title: "Innovation", desc: "Staying ahead with cutting-edge technologies and methods", color: "from-teal-500 to-cyan-600" },
-        { icon: <Shield className="w-8 h-8" />, title: "Reliability", desc: "Consistent quality and on-time delivery you can count on", color: "from-lime-500 to-green-600" }
-    ];
+    const valuesWithIcons = values.map((value, index) => ({
+        ...value,
+        icon: [<Target className="w-8 h-8" />, <Heart className="w-8 h-8" />, <Zap className="w-8 h-8" />, <Shield className="w-8 h-8" />][index]
+    }));
 
-    const team = [
-        { name: "Ashish Dueby", role: "Full Stack Developer", image: "Ashish.jpg" },
-        { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg" },
-        { name: "Priyesh Singh", role: "Python Developer And Marketing Expert", image: "Priyesh.jpg" },
-        { name: "Jigyasa Pandey", role: "Social Media Manager And Content Writer", image: "Jigyasa.jpg" },
-        { name: "Ashutosh Singh", role: "Full Stack Developer", image: "" }
-    ];
-
-    const stats = [
-        { number: "10+", label: "Projects Completed", icon: <Target className="w-5 h-5" /> },
-        { number: "10+", label: "Happy Clients", icon: <Users className="w-5 h-5" /> },
-        { number: "1+", label: "Years Experience", icon: <Award className="w-5 h-5" /> },
-        { number: "98%", label: "Satisfaction Rate", icon: <TrendingUp className="w-5 h-5" /> }
-    ];
+    const statsWithIcons = stats.map((stat, index) => ({
+        ...stat,
+        icon: [<Target className="w-5 h-5" />, <Users className="w-5 h-5" />, <Award className="w-5 h-5" />, <TrendingUp className="w-5 h-5" />][index]
+    }));
 
     return (
         <>
@@ -148,7 +137,7 @@ function AboutUs({ navigate = () => {} }) {
                             </div>
                             
                             <div className={`grid grid-cols-2 gap-6 ${isVisible['story-section'] ? 'animate-slide-in-right' : 'opacity-0'}`}>
-                                {stats.map((stat, index) => (
+                                {statsWithIcons.map((stat, index) => (
                                     <div 
                                         key={index}
                                         className="stat-card"
@@ -194,7 +183,7 @@ function AboutUs({ navigate = () => {} }) {
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {values.map((value, index) => (
+                            {valuesWithIcons.map((value, index) => (
                                 <div 
                                     key={index} 
                                     className={`feature-card ${isVisible['values-section'] ? 'animate-scale-in' : 'opacity-0'}`}
