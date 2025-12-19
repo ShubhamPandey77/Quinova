@@ -134,7 +134,7 @@ export const team = [
   { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg" },
   { name: "Priyesh Singh", role: "Python Developer And Marketing Expert", image: "Priyesh.jpg" },
   { name: "Jigyasa Pandey", role: "Social Media Manager And Content Writer", image: "Jigyasa.jpg" },
-  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "" }
+  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh.jpg" }
 ];
 
 // Process Steps

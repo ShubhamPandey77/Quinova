@@ -74,7 +74,7 @@ function Footer() {
     <>
       <footer className="bg-slate-950 text-slate-100">
         {/* Newsletter & CTA Section */}
-        <div className="bg-gradient-to-r from-slate-900 to-slate-800 border-b border-slate-800">
+        <div className="bg-linear-to-r from-slate-900 to-slate-800 border-b border-slate-800">
           <div className="max-w-7xl mx-auto px-6 py-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
@@ -205,7 +205,7 @@ function Footer() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {footerContactInfo.map((info, index) => (
               <div key={index} className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   {info.icon === 'phone' && <Phone className="w-6 h-6 text-white" />}
                   {info.icon === 'email' && <Mail className="w-6 h-6 text-white" />}
                   {info.icon === 'location' && <MapPin className="w-6 h-6 text-white" />}
@@ -249,7 +249,7 @@ function Footer() {
       </footer>
 
       {showContactForm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
           <div 
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={handleCloseForm}

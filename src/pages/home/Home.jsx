@@ -65,11 +65,7 @@ function Home({ navigate = () => {} }) {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block bg-emerald-50 text-emerald-700 px-4 py-2 rounded-lg text-sm font-semibold">
-                    ✓ Trusted by 100+ Businesses
-                  </span>
-                </div>
+               
                 <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
                   Transform Your Business with Professional Digital Solutions
                 </h1>
@@ -213,7 +209,11 @@ function Home({ navigate = () => {} }) {
 
             <div className="grid md:grid-cols-3 gap-8">
               {caseStudies.map((study, index) => (
-                <div key={index} className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl transition-all group">
+                <div 
+                  key={index} 
+                  className={`bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl transition-all group ${study.link ? 'cursor-pointer' : ''}`}
+                  onClick={() => study.link && window.open(study.link, '_blank')}
+                >
                   <div className="p-8">
                     <div className="mb-6">
                       <div className="inline-block bg-slate-100 text-slate-900 px-4 py-2 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">

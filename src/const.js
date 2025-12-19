@@ -423,25 +423,52 @@ export const testimonials = [
 // Case Studies
 export const caseStudies = [
   {
-    title: "E-commerce Website Redesign",
-    client: "Online Fashion Store",
-    result: "280% increase in sales",
-    description: "We redesigned their outdated e-commerce platform with modern design and improved UX. Result: conversion rate jumped from 2% to 5.6%.",
-    metrics: ["280% Sales Increase", "3.6% Conversion Rate Lift", "45% Bounce Rate Reduction", "₹50L+ Revenue Impact"]
+    title: "Nagomi - Premium Lifestyle Brand",
+    client: "Nagomi",
+    result: "Enhanced online presence",
+    description: "Created a sophisticated e-commerce platform for premium lifestyle products with seamless user experience and secure payment integration. Optimized for conversions and brand storytelling.",
+    metrics: ["E-commerce Platform", "Premium Design", "Secure Checkout", "Mobile Optimized"],
+    link: "https://nagomi.co.in/"
   },
   {
-    title: "Social Media Growth Campaign",
-    client: "Tech Startup",
-    result: "50K new followers in 90 days",
-    description: "Implemented comprehensive social media strategy with content calendar and paid campaigns. Built engaged community from scratch.",
-    metrics: ["50K Followers", "12% Engagement Rate", "8K Monthly Website Traffic", "15% Conversion from Social"]
+    title: "TJF Digital - Digital Marketing Agency",
+    client: "TJF Digital",
+    result: "Professional agency website",
+    description: "Developed a comprehensive digital marketing agency website showcasing services, case studies, and team expertise. Built with modern design and SEO optimization for maximum visibility.",
+    metrics: ["Agency Portfolio", "Service Showcase", "Lead Generation", "SEO Optimized"],
+    link: "https://tjfdigital.com/"
   },
   {
-    title: "Brand Identity & Launch",
-    client: "D2C Beauty Brand",
-    result: "Successful market launch",
-    description: "Complete brand identity design including logo, packaging, and marketing materials. Helped position as premium brand in competitive market.",
-    metrics: ["Complete Brand Kit", "500+ Positive Reviews", "₹1Cr+ First Year Revenue", "Top 3 in Category"]
+    title: "Ambrd Welfare - Non-Profit Organization",
+    client: "Ambrd Welfare",
+    result: "Community impact platform",
+    description: "Built a mission-driven website for non-profit organization focused on social welfare. Features donation integration, impact tracking, and volunteer management capabilities.",
+    metrics: ["Non-Profit Platform", "Donation System", "Community Engagement", "Impact Tracking"],
+    link: "https://ambrdwelfare.org/"
+  },
+  {
+    title: "Studio Labs - Creative Agency Website",
+    client: "Studio Labs",
+    result: "Professional digital presence",
+    description: "Built a modern, visually stunning website for Studio Labs showcasing their creative portfolio and services. Features responsive design, smooth animations, and optimized performance.",
+    metrics: ["Modern Design", "Fast Loading", "Portfolio Showcase", "Lead Generation"],
+    link: "https://www.studiolabs.in/"
+  },
+  {
+    title: "Comparely - B2B Comparison Platform",
+    client: "Comparely",
+    result: "Scalable web application",
+    description: "Developed a comprehensive B2B comparison platform enabling businesses to compare services and products effectively. Built with modern tech stack for reliability and scalability.",
+    metrics: ["B2B Platform", "High Performance", "User-Friendly Interface", "Secure & Scalable"],
+    link: "https://app.comparely.co.in/"
+  },
+  {
+    title: "Virtual Cyber Labs - Cybersecurity Platform",
+    client: "Virtual Cyber Labs",
+    result: "Secure cyber learning platform",
+    description: "Developed an advanced cybersecurity training and lab platform offering hands-on learning experiences. Features secure sandbox environments, interactive courses, and real-world scenario simulations.",
+    metrics: ["Cybersecurity Labs", "Interactive Training", "Secure Environment", "Real-World Scenarios"],
+    link: "https://virtualcyberlabs.com/"
   }
 ];
 
@@ -503,10 +530,10 @@ export const values = [
 // Team
 export const team = [
   { name: "Ashish Dueby", role: "Full Stack Developer", image: "Ashish.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "8+ years building scalable web applications" },
-  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg", expertise: ["Vue.js", "Python", "AWS"], bio: "7+ years delivering enterprise solutions" },
-  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "9+ years in development and digital strategy" },
+  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg", expertise: ["Vue.js", "Python", "AWS"], bio: "7+ years delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
+  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "9+ years in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
   { name: "Jigyasa Pandey", role: "Social Media Manager & Content Writer", image: "Jigyasa.jpg", expertise: ["Content Strategy", "Community Building", "Copywriting"], bio: "6+ years creating engaging digital narratives" },
-  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "5+ years crafting user-centric digital experiences" }
+  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "5+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
 ];
 
 // Process Steps

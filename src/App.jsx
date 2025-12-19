@@ -25,7 +25,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen gradient-bg">
       <ScrollToTop />
       <Navbar navigate={handleNavigate} />
       <AnimatePresence mode="wait">

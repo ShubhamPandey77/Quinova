@@ -174,7 +174,12 @@ function AboutUs({ navigate = () => {} }) {
                                 >
                                     <div className="bg-slate-200 aspect-square flex items-center justify-center overflow-hidden relative">
                                         {member.image ? (
-                                            <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                            <img 
+                                                src={member.image} 
+                                                alt={member.name} 
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                                onClick={() => member.linkedin && window.open(member.linkedin, '_blank')}
+                                            />
                                         ) : (
                                             <div className="text-slate-400 text-sm text-center p-4 w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">No Photo</div>
                                         )}

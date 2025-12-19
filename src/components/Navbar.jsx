@@ -59,8 +59,8 @@ function Navbar() {
               to="/"
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
-              <div className="w-10 h-9 bg-slate-900 rounded-lg flex items-center justify-center">
-                <img src="Logo.png" alt="Logo" className="w-full h-full object-contain p-1" />
+              <div className="w-16 h-14 flex items-center justify-center">
+                <img src="Logo.png" alt="Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <div className="text-slate-900 text-xl font-bold tracking-tight">
