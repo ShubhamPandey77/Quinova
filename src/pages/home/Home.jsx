@@ -1,26 +1,19 @@
-
 import { useState, useEffect, useRef } from 'react';
-import { Code, Globe, TrendingUp, Film, Palette, Zap, ArrowRight, Star, Mail, X, CheckCircle, Users, Award, Target, Sparkles, Rocket, Clock, Heart, Layers } from 'lucide-react';
+import { Code, Globe, Zap, Film, Palette, Target, Users, Award, CheckCircle, ArrowRight, Star, Mail, X, TrendingUp, Sparkles, Rocket, Shield } from 'lucide-react';
+import { stats, services, testimonials, caseStudies, faqs } from '../../const';
+import FAQSection from '../../components/FAQSection';
 
 function Home({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            observer.unobserve(entry.target);
+            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
           }
         });
       },
@@ -58,343 +51,572 @@ function Home({ navigate = () => {} }) {
     setShowContactForm(false);
   };
 
-  const stats = [
-    { number: "10+", label: "Projects Completed", icon: <Target className="w-6 h-6" /> },
-    { number: "10+", label: "Happy Clients", icon: <Users className="w-6 h-6" /> },
-    { number: "1+", label: "Years Experience", icon: <Award className="w-6 h-6" /> },
-    { number: "98%", label: "Client Satisfaction", icon: <CheckCircle className="w-6 h-6" /> }
-  ];
-
-  const services = [
-    { icon: <Code className="w-8 h-8" />, title: "Web Development", description: "Custom, responsive websites built with modern technologies", color: "from-gray-800 to-gray-700" },
-    { icon: <TrendingUp className="w-8 h-8" />, title: "Social Media Management", description: "Strategic content and campaigns that engage your audience", color: "from-gray-700 to-gray-800" },
-    { icon: <Film className="w-8 h-8" />, title: "Video Editing", description: "Professional video production and content creation", color: "from-gray-800 to-gray-700" },
-    { icon: <Palette className="w-8 h-8" />, title: "Graphic Design", description: "Eye-catching designs that make your brand stand out", color: "from-gray-700 to-gray-800" },
-  ];
-
-  const testimonials = [
-    { name: "Aarav Gupta", company: "Studio.labs", text: "They transformed our online presence completely. Our website looks amazing!", rating: 5, avatar: "AG" },
-    { name: "Dipanshu Parashar", company: "Virtual Cyber Labs", text: "Professional, creative, and always on time. Highly recommended!", rating: 5, avatar: "DP" },
-    { name: "Yuvraj Singh", company: "Comparely", text: "The team understood our vision perfectly. Excellent work!", rating: 5, avatar: "YS" }
-  ];
-
-  const features = [
-    { icon: <Rocket className="w-6 h-6" />, text: "Fast Delivery" },
-    { icon: <Clock className="w-6 h-6" />, text: "24/7 Support" },
-    { icon: <Heart className="w-6 h-6" />, text: "Client Focused" }
-  ];
+  const statsWithIcons = stats.map((stat, index) => ({
+    ...stat,
+    icon: [<Target className="w-5 h-5" />, <Users className="w-5 h-5" />, <Award className="w-5 h-5" />, <CheckCircle className="w-5 h-5" />][index]
+  }));
 
   return (
     <>
-      {/* Cursor Follower */}
-      <div 
-        className="cursor-glow"
-        style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
-        }}
-      ></div>
+      <div className="pt-16 bg-white">
+        {/* Hero Section */}
+        <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block bg-emerald-50 text-emerald-700 px-4 py-2 rounded-lg text-sm font-semibold">
+                    ✓ Trusted by 100+ Businesses
+                  </span>
+                </div>
+                <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+                  Transform Your Business with Professional Digital Solutions
+                </h1>
+                <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
+                  With 10+ years of proven expertise, we deliver comprehensive IT solutions—from custom web development to strategic digital marketing—that drive measurable business growth and lasting results.
+                </p>
+                
+                <div className="flex flex-wrap gap-4">
+                  <button 
+                    onClick={() => navigate('/services')}
+                    className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2"
+                  >
+                    Explore Services
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                  <button 
+                    onClick={handleGetStartedClick}
+                    className="border-2 border-slate-900 text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
+                  >
+                    Contact Us
+                  </button>
+                </div>
 
-      {/* Hero Section - Card Based with Tech Background */}
-      <section className="pt-28 pb-16 px-6 relative min-h-screen flex items-center" style={{
-        backgroundImage: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
-        backgroundSize: '200% 200%',
-      }}>
-        {/* Tech Grid Background Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(37, 99, 235, 0.5) 25%, rgba(37, 99, 235, 0.5) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.5) 75%, rgba(37, 99, 235, 0.5) 76%, transparent 77%, transparent),
-                            linear-gradient(90deg, transparent 24%, rgba(37, 99, 235, 0.5) 25%, rgba(37, 99, 235, 0.5) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.5) 75%, rgba(37, 99, 235, 0.5) 76%, transparent 77%, transparent)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-
-        {/* Animated Blobs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gray-800 rounded-full blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-600 rounded-full blur-3xl opacity-10 animate-blob" style={{ animationDelay: '2s' }}></div>
-
-        <div className="max-w-7xl mx-auto relative z-10 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              {/* Badge */}
-              <div className="inline-block">
-                <div className="flex items-center gap-2 bg-gray-800/20 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-600/30">
-                  <Sparkles className="w-4 h-4 text-yellow-400" />
-                  <span className="text-yellow-400 font-semibold text-sm">Premium IT Solutions</span>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
+                  {statsWithIcons.map((stat, index) => (
+                    <div key={index} className="text-center md:text-left">
+                      <div className="text-slate-600 mb-2">{stat.icon}</div>
+                      <div className="text-2xl font-bold text-slate-900">{stat.number}</div>
+                      <div className="text-sm text-slate-600">{stat.label}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Main Heading */}
-              <div>
-                <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-                  Transform Your
-                  <span className="block bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent">
-                    Digital Presence
-                  </span>
-                </h1>
-              </div>
-
-              {/* Description */}
-              <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
-                Elevate your business with cutting-edge web development, social media management, video editing, and graphic design solutions crafted for success.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => navigate('services')}
-                  className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-yellow-400/50 transition-all duration-300"
-                >
-                  Explore Services
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button 
-                  onClick={handleGetStartedClick}
-                  className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-gray-600/50 text-white rounded-lg font-semibold hover:bg-white/20 transition-all duration-300"
-                >
-                  Get Free Consultation
-                </button>
-              </div>
-
-              {/* Feature Badges */}
-              <div className="flex flex-wrap gap-3 pt-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/10 hover:border-yellow-400/30 transition-all">
-                    <div className="text-yellow-400">{feature.icon}</div>
-                    <span className="text-sm text-gray-300">{feature.text}</span>
-                  </div>
-                ))}
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: <Code className="w-6 h-6" />, title: "Web Development", color: "bg-blue-50" },
+                    { icon: <Zap className="w-6 h-6" />, title: "Digital Marketing", color: "bg-amber-50" },
+                    { icon: <Film className="w-6 h-6" />, title: "Video Editing", color: "bg-red-50" },
+                    { icon: <Palette className="w-6 h-6" />, title: "Graphic Design", color: "bg-purple-50" }
+                  ].map((item, index) => (
+                    <div key={index} className={`${item.color} rounded-lg p-6 text-center hover:shadow-lg transition-shadow`}>
+                      <div className="text-slate-900 mb-3 flex justify-center">{item.icon}</div>
+                      <div className="text-sm font-semibold text-slate-900">{item.title}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Right Side - Stats Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat, index) => (
+        {/* Services Section */}
+        <section 
+          id="services-section"
+          ref={(el) => (observerRefs.current[0] = el)}
+          className="py-20 px-6 bg-white"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block text-slate-600 font-semibold mb-2">Our Expertise</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                Comprehensive Services That Drive Results
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                We offer end-to-end digital solutions backed by 10+ years of industry expertise and 100+ successful projects delivered across all sectors.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { 
+                  icon: <Globe className="w-8 h-8" />, 
+                  title: "Web Development", 
+                  desc: "Custom-built, high-performance websites optimized for conversions. From responsive design to SEO-ready architecture, we create digital experiences that work.",
+                  highlight: "blue",
+                  highlight_bg: "#EFF6FF"
+                },
+                { 
+                  icon: <Zap className="w-8 h-8" />, 
+                  title: "Digital Marketing", 
+                  desc: "Data-driven strategies across SEO, PPC, and content marketing. We track every metric and optimize for real business outcomes, not just vanity numbers.",
+                  highlight: "amber",
+                  highlight_bg: "#FFFBEB"
+                },
+                { 
+                  icon: <Film className="w-8 h-8" />, 
+                  title: "Creative Services", 
+                  desc: "Professional video editing, graphic design, and content creation that elevates your brand. We combine technical excellence with creative strategy.",
+                  highlight: "red",
+                  highlight_bg: "#FEF2F2"
+                }
+              ].map((item, index) => (
                 <div 
-                  key={index}
-                  className="bg-white/5 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 hover:border-yellow-400/50 hover:bg-white/10 transition-all duration-300 group"
+                  key={index} 
+                  className="border border-slate-200 rounded-lg p-8 hover:border-slate-900 hover:shadow-lg transition-all group"
                 >
-                  <div className="text-yellow-400 mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {stat.icon}
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-slate-900`} style={{
+                    backgroundColor: item.highlight_bg
+                  }}>
+                    {item.icon}
                   </div>
-                  <div className="text-3xl font-bold text-yellow-400 mb-1">{stat.number}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+                  <p className="text-slate-600 mb-4">{item.desc}</p>
+                  <button 
+                    onClick={() => navigate('services')}
+                    className="text-slate-900 font-semibold flex items-center gap-2 hover:gap-4 transition-all group"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <button 
+                onClick={() => navigate('services')}
+                className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors inline-flex items-center gap-2"
+              >
+                Explore All 6 Services
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies */}
+        <section className="py-20 px-6 bg-slate-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block text-slate-600 font-semibold mb-2">Real Client Results</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                Proven Track Record of Success
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                These case studies demonstrate the measurable impact we deliver. From revenue growth to audience expansion, we produce tangible results that matter.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {caseStudies.map((study, index) => (
+                <div key={index} className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-xl transition-all group">
+                  <div className="p-8">
+                    <div className="mb-6">
+                      <div className="inline-block bg-slate-100 text-slate-900 px-4 py-2 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
+                        {study.client}
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-800 transition-colors">{study.title}</h3>
+                      <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-slate-900 bg-clip-text text-transparent mb-2">
+                        {study.result}
+                      </div>
+                      <p className="text-sm text-slate-600 font-semibold uppercase tracking-wide">Final Result</p>
+                    </div>
+                    
+                    <p className="text-slate-700 mb-6 leading-relaxed">{study.description}</p>
+                    
+                    <div className="space-y-3 border-t border-slate-200 pt-6">
+                      <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Key Metrics</p>
+                      {study.metrics.map((metric, idx) => (
+                        <div key={idx} className="flex items-center gap-3 text-slate-700">
+                          <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
+                          <span className="font-medium">{metric}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services Section - Card Layout */}
-      <section 
-        id="services-section"
-        ref={(el) => (observerRefs.current[0] = el)}
-        className="py-20 px-6 relative bg-slate-950" style={{
-          backgroundImage: 'linear-gradient(135deg, #0f172a 0%, #1a1f3a 50%, #0f172a 100%)',
-        }}
-      >
-        {/* Tech Background Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(37, 99, 235, 0.5) 25%, rgba(37, 99, 235, 0.5) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.5) 75%, rgba(37, 99, 235, 0.5) 76%, transparent 77%, transparent),
-                            linear-gradient(90deg, transparent 24%, rgba(37, 99, 235, 0.5) 25%, rgba(37, 99, 235, 0.5) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.5) 75%, rgba(37, 99, 235, 0.5) 76%, transparent 77%, transparent)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="text-yellow-400 font-semibold text-lg">What We Offer</span>
+        {/* Why Choose Us - Detailed */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block text-slate-600 font-semibold mb-2">Our Commitment</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                Why Businesses Choose Quinova
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                We combine strategic thinking with technical excellence to deliver solutions that not only meet expectations but exceed them. Here's what makes us different.
+              </p>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our Core Services
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Comprehensive IT solutions designed to accelerate your business growth
-            </p>
-          </div>
 
-          {/* Services Cards Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group bg-white/5 backdrop-blur-sm border border-gray-600/20 rounded-xl p-8 hover:border-yellow-400/50 hover:bg-white/10 transition-all duration-300 cursor-pointer"
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <div className="text-white">{service.icon}</div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  icon: <Award className="w-8 h-8" />,
+                  title: "10+ Years of Expertise",
+                  desc: "A decade of proven success across web development, marketing, design, and digital strategy. We've evolved with the industry."
+                },
+                {
+                  icon: <TrendingUp className="w-8 h-8" />,
+                  title: "100+ Successful Projects",
+                  desc: "Every project completed on-time and on-budget. We've worked with startups, SMEs, and enterprises across diverse industries."
+                },
+                {
+                  icon: <Rocket className="w-8 h-8" />,
+                  title: "Rapid Execution",
+                  desc: "Agile processes and experienced team mean faster delivery without sacrificing quality or attention to detail."
+                },
+                {
+                  icon: <Users className="w-8 h-8" />,
+                  title: "Always Available",
+                  desc: "24/7 support means your questions are answered and issues are resolved whenever you need us, anywhere in the world."
+                },
+                {
+                  icon: <CheckCircle className="w-8 h-8" />,
+                  title: "98% Satisfaction Rate",
+                  desc: "Your success is genuinely our success. We back our work with a 100% satisfaction guarantee and money-back promise."
+                },
+                {
+                  icon: <Shield className="w-8 h-8" />,
+                  title: "Results-Driven Approach",
+                  desc: "Every recommendation backed by data and analytics. We measure success by your business growth, not vanity metrics."
+                }
+              ].map((item, index) => (
+                <div key={index} className="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-all group">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-900 mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-gray-400 mb-6">{service.description}</p>
-                <button 
-                  onClick={() => navigate('services')}
-                  className="flex items-center gap-2 text-yellow-400 font-semibold hover:gap-3 transition-all group"
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-xl p-12 text-white text-center shadow-lg">
+              <h3 className="text-3xl font-bold mb-4">Transform Your Digital Future</h3>
+              <p className="text-slate-200 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+                Join 100+ successful businesses that have accelerated their growth with our proven digital solutions. Get started with a free 30-minute strategy session.
+              </p>
+              <button 
+                onClick={handleGetStartedClick}
+                className="bg-white text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors inline-flex items-center gap-2"
+              >
+                Schedule Free Consultation
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section 
+          id="testimonials-section"
+          ref={(el) => (observerRefs.current[1] = el)}
+          className="py-20 px-6 bg-slate-50"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block text-slate-600 font-semibold mb-2">Client Testimonials</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                Trusted by Leading Businesses
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Hear directly from companies that have experienced transformative results with Quinova. Their success stories speak to our commitment to excellence.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-xl transition-all group"
                 >
-                  Learn More
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* View All Button */}
-          <div className="text-center mt-12">
-            <button 
-              onClick={() => navigate('services')}
-              className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 rounded-lg font-semibold hover:shadow-lg hover:shadow-yellow-400/50 transition-all duration-300"
-            >
-              View All Services
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section 
-        id="testimonials-section"
-        ref={(el) => (observerRefs.current[1] = el)}
-        className="py-20 px-6 relative" style={{
-          backgroundImage: 'linear-gradient(135deg, #1a1f3a 0%, #0f172a 50%, #1a1f3a 100%)',
-        }}
-      >
-        {/* Tech Background Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(37, 99, 235, 0.5) 25%, rgba(37, 99, 235, 0.5) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.5) 75%, rgba(37, 99, 235, 0.5) 76%, transparent 77%, transparent),
-                            linear-gradient(90deg, transparent 24%, rgba(37, 99, 235, 0.5) 25%, rgba(37, 99, 235, 0.5) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.5) 75%, rgba(37, 99, 235, 0.5) 76%, transparent 77%, transparent)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="text-yellow-400 font-semibold text-lg">Success Stories</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              What Our Clients Say
-            </h2>
-          </div>
-
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className="group bg-white/5 backdrop-blur-sm border border-gray-600/20 rounded-xl p-8 hover:border-yellow-400/50 hover:bg-white/10 transition-all duration-300"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-slate-700 mb-6 leading-relaxed text-lg">
+                    "{testimonial.text}"
+                  </p>
+                  
+                  {testimonial.result && (
+                    <div className="bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200 text-emerald-900 rounded-lg p-4 mb-6 text-center font-semibold">
+                      <div className="text-xs uppercase tracking-wider mb-1">Achieved Result</div>
+                      <div className="text-xl">📈 {testimonial.result}</div>
+                    </div>
+                  )}
+                  
+                  <div className="flex items-center gap-4 pt-6 border-t border-slate-200">
+                    <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900">{testimonial.name}</div>
+                      <div className="text-sm text-slate-600 font-medium">{testimonial.company}</div>
+                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                {/* Quote */}
-                <p className="text-gray-300 mb-6 italic">"{testimonial.text}"</p>
+        {/* How We Work */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block text-slate-600 font-semibold mb-2">Proven Methodology</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                Our Transparent, Collaborative Process
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Four clear phases designed to ensure your vision becomes reality. We keep you informed every step of the way.
+              </p>
+            </div>
 
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center text-slate-900 font-bold">
-                    {testimonial.avatar}
+            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {[
+                {
+                  step: "1",
+                  title: "Strategic Discovery",
+                  desc: "We conduct a thorough consultation to understand your business goals, target audience, and challenges. This foundation determines everything that follows."
+                },
+                {
+                  step: "2",
+                  title: "Custom Strategy",
+                  desc: "Based on our analysis, we create a detailed roadmap with clear milestones, timelines, and deliverables tailored specifically to your objectives."
+                },
+                {
+                  step: "3",
+                  title: "Expert Execution",
+                  desc: "Our experienced team brings your vision to life with regular updates, transparent communication, and your full involvement throughout the project."
+                },
+                {
+                  step: "4",
+                  title: "Launch & Optimize",
+                  desc: "We don't stop at launch. Continuous support, monitoring, and optimization ensure sustained success and measurable business impact."
+                }
+              ].map((item, index) => (
+                <div key={index} className="relative">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg">
+                      {item.step}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                    <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
+                  </div>
+                  {index < 3 && (
+                    <div className="hidden md:block absolute top-8 -right-3 w-6 h-0.5 bg-gradient-to-r from-slate-900 to-transparent"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Trust & Credibility */}
+        <section className="py-20 px-6 bg-slate-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                Proven Excellence. Trusted by Industry Leaders.
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                With 10+ years in the industry and 100+ successful projects, our track record speaks for itself.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
+              <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+                <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">100+</div>
+                <p className="text-slate-700 font-semibold text-lg">Projects Delivered</p>
+                <p className="text-sm text-slate-600 mt-2">Across all sectors and scales</p>
+              </div>
+              <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+                <div className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-slate-900 bg-clip-text text-transparent mb-2">98%</div>
+                <p className="text-slate-700 font-semibold text-lg">Client Satisfaction</p>
+                <p className="text-sm text-slate-600 mt-2">Consistently exceeding expectations</p>
+              </div>
+              <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+                <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">10+</div>
+                <p className="text-slate-700 font-semibold text-lg">Years Experience</p>
+                <p className="text-sm text-slate-600 mt-2">Evolved expertise in digital solutions</p>
+              </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Why Companies Choose Quinova</h3>
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
                   </div>
                   <div>
-                    <div className="font-bold text-white">{testimonial.name}</div>
-                    <div className="text-sm text-gray-400">{testimonial.company}</div>
+                    <p className="font-semibold text-slate-900">Certified Professionals</p>
+                    <p className="text-slate-600 text-sm">Expert team with proven expertise</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Transparent Communication</p>
+                    <p className="text-slate-600 text-sm">Clear updates throughout your project</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">On-Time Delivery</p>
+                    <p className="text-slate-600 text-sm">100+ projects completed on schedule</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">24/7 Support</p>
+                    <p className="text-slate-600 text-sm">Always here when you need us</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Results-Driven</p>
+                    <p className="text-slate-600 text-sm">Every action backed by data and ROI</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Money-Back Guarantee</p>
+                    <p className="text-slate-600 text-sm">100% satisfaction or your money back</p>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(251, 191, 36, 0.3) 25%, rgba(251, 191, 36, 0.3) 26%, transparent 27%, transparent 74%, rgba(251, 191, 36, 0.3) 75%, rgba(251, 191, 36, 0.3) 76%, transparent 77%, transparent),
-                            linear-gradient(90deg, transparent 24%, rgba(251, 191, 36, 0.3) 25%, rgba(251, 191, 36, 0.3) 26%, transparent 27%, transparent 74%, rgba(251, 191, 36, 0.3) 75%, rgba(251, 191, 36, 0.3) 76%, transparent 77%, transparent)`,
-          backgroundSize: '50px 50px'
-        }}></div>
+        {/* FAQ Section */}
+        <FAQSection faqs={faqs} />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how we can help accelerate your growth with our IT solutions
-          </p>
-          <button 
-            onClick={handleGetStartedClick}
-            className="px-8 py-3 bg-yellow-400 text-slate-900 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/50"
-          >
-            Get Free Consultation
-          </button>
-        </div>
-      </section>
+        {/* CTA Section */}
+        <section className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <span className="inline-block bg-emerald-500/20 text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">Limited Time Offer</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Ready to Accelerate Your Business Growth?
+            </h2>
+            <p className="text-xl text-slate-200 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Join 100+ successful companies that have transformed their digital presence and accelerated growth with Quinova's proven strategies and expert execution.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center mb-8">
+              <button 
+                onClick={handleGetStartedClick}
+                className="bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold hover:bg-slate-50 transition-colors inline-flex items-center gap-2 shadow-lg"
+              >
+                Schedule Free Strategy Session
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={() => navigate('services')}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-slate-700/50 transition-colors"
+              >
+                Explore All Services
+              </button>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-700">
+              <div>
+                <p className="text-slate-400 text-sm mb-2">✓ No credit card required</p>
+              </div>
+              <div>
+                <p className="text-slate-400 text-sm mb-2">✓ Free 30-minute consultation</p>
+              </div>
+              <div>
+                <p className="text-slate-400 text-sm mb-2">✓ No obligations whatsoever</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* Contact Form Popup */}
       {showContactForm && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={handleCloseForm}
           ></div>
 
-          <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-2xl shadow-2xl max-w-2xl w-full relative z-10 border border-gray-700 overflow-hidden">
-            <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'}}></div>
-            
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
             <button
               onClick={handleCloseForm}
-              className="absolute top-6 right-6 p-2 hover:bg-gray-800 rounded-lg transition-all duration-300 z-20"
+              className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-lg transition-colors z-10"
             >
-              <X className="w-6 h-6 text-gray-400 hover:text-gray-200" />
+              <X className="w-5 h-5 text-slate-600" />
             </button>
 
-            <div className="relative z-10 p-8 md:p-12">
-              <div className="mb-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-14 h-14 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg shadow-yellow-500/20">
-                    <Mail className="w-7 h-7 text-black" />
-                  </div>
-                  <div>
-                    <h2 className="text-4xl font-bold text-white">Schedule Consultation</h2>
-                  </div>
+            <div className="p-8 md:p-10">
+              <div className="mb-8">
+                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-gray-400 text-lg">Tell us about your project and let's create something amazing together</p>
+                <h2 className="text-3xl font-bold text-slate-900 mb-2">Get Started</h2>
+                <p className="text-slate-600">Fill out the form and we'll get back to you within 24 hours</p>
               </div>
 
               <div className="space-y-5">
                 {[
-                  { name: 'name', label: 'Full Name', type: 'text', placeholder: 'John Doe', required: true },
-                  { name: 'email', label: 'Email Address', type: 'email', placeholder: 'john@example.com', required: true },
-                  { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+91 98765 43210', required: false }
-                ].map((field) => (
-                  <div key={field.name}>
-                    <label className="block text-sm font-semibold text-gray-200 mb-2.5 flex items-center gap-1">
-                      {field.label}
-                      {field.required && <span className="text-yellow-500">*</span>}
-                    </label>
+                  { id: "name", label: "Full Name *", type: "text", placeholder: "John Doe" },
+                  { id: "email", label: "Email Address *", type: "email", placeholder: "john@example.com" },
+                  { id: "phone", label: "Phone Number", type: "tel", placeholder: "+91 98765 43210" },
+                ].map(({ id, label, type, placeholder }) => (
+                  <div key={id}>
+                    <label className="block text-sm font-medium text-slate-900 mb-2">{label}</label>
                     <input
-                      type={field.type}
-                      required={field.required}
-                      value={formData[field.name]}
-                      onChange={(e) => setFormData({...formData, [field.name]: e.target.value})}
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
-                      placeholder={field.placeholder}
+                      type={type}
+                      required={label.includes("*")}
+                      value={formData[id]}
+                      onChange={(e) =>
+                        setFormData({ ...formData, [id]: e.target.value })
+                      }
+                      className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
+                      placeholder={placeholder}
                     />
                   </div>
                 ))}
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-200 mb-2.5 flex items-center gap-1">
-                    Service Interested In
-                    <span className="text-yellow-500">*</span>
+                  <label className="block text-sm font-medium text-slate-900 mb-2">
+                    Service Interested In *
                   </label>
-                  <select 
+                  <select
                     required
                     value={formData.service}
-                    onChange={(e) => setFormData({...formData, service: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
+                    onChange={(e) =>
+                      setFormData({ ...formData, service: e.target.value })
+                    }
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors bg-white"
                   >
                     <option value="">Select a service</option>
                     <option value="website">Website Development</option>
@@ -407,11 +629,15 @@ function Home({ navigate = () => {} }) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-200 mb-2.5">Project Budget</label>
-                  <select 
+                  <label className="block text-sm font-medium text-slate-900 mb-2">
+                    Project Budget
+                  </label>
+                  <select
                     value={formData.budget}
-                    onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
+                    onChange={(e) =>
+                      setFormData({ ...formData, budget: e.target.value })
+                    }
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors bg-white"
                   >
                     <option value="">Select budget range</option>
                     <option value="499-5000">₹499 - ₹5,000</option>
@@ -422,29 +648,31 @@ function Home({ navigate = () => {} }) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-200 mb-2.5 flex items-center gap-1">
-                    Project Details
-                    <span className="text-yellow-500">*</span>
+                  <label className="block text-sm font-medium text-slate-900 mb-2">
+                    Project Details *
                   </label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 resize-none"
-                    placeholder="Tell us about your project, timeline, and goals..."
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors resize-none"
+                    placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full py-3.5 bg-yellow-500 text-black rounded-lg font-bold text-lg hover:bg-yellow-400 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30"
+                  className="w-full bg-slate-900 text-white py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"
                 >
-                  Schedule Consultation
+                  <span>Send Message</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
 
-                <p className="text-xs text-gray-500 text-center">
-                  We'll review your request and get back to you within 24 hours. Your information is secure.
+                <p className="text-sm text-slate-600 text-center">
+                  We'll respond within 24 hours. Your information is confidential.
                 </p>
               </div>
             </div>

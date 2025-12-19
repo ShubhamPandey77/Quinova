@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Award, Users, Clock, Shield, ArrowRight, Sparkles, MessageSquare, Zap } from 'lucide-react';
+import { faqs } from '../../const';
 
-function ContactUs() {
+function ContactUs({ navigate = () => {} }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);
@@ -47,48 +48,13 @@ function ContactUs() {
     setFormData({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email Us",
-      details: ["info@itsolutions.com", "support@itsolutions.com"],
-      color: "from-gray-800 to-gray-700"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
-      details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"],
-      color: "from-gray-700 to-gray-800"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Us",
-      details: ["123 Business Street", "New York, NY 10001"],
-      color: "from-indigo-500 to-indigo-700"
-    }
-  ];
 
-  const whyChooseUs = [
-    { icon: <Award className="w-5 h-5" />, text: "1+ Years of Experience", color: "from-gray-800 to-gray-700" },
-    { icon: <Users className="w-5 h-5" />, text: "10+ Happy Clients", color: "from-gray-700 to-gray-800" },
-    { icon: <Clock className="w-5 h-5" />, text: "24/7 Support Available", color: "from-gray-700 to-gray-800" },
-    { icon: <Shield className="w-5 h-5" />, text: "100% Satisfaction Guaranteed", color: "from-gray-800 to-gray-700" }
-  ];
 
-  const faqs = [
-    { q: "How long does a typical project take?", a: "Project timelines vary based on scope. A website typically takes 2-4 weeks, while social media management is ongoing. We'll provide a detailed timeline during consultation." },
-    { q: "What is your pricing structure?", a: "We offer transparent pricing based on project scope. Check our Services page for starting prices, or contact us for a custom quote tailored to your needs." },
-    { q: "Do you offer ongoing support?", a: "Yes! We provide post-launch support and maintenance packages for all our services. We're committed to your long-term success." },
-    { q: "Can I see examples of your work?", a: "Absolutely! Check our Portfolio page to see recent projects across all service categories. We can also provide case studies during consultation." }
-  ];
 
-  const socialIcons = [
-    { Icon: Facebook, color: "from-gray-800 to-gray-700" },
-    { Icon: Twitter, color: "from-gray-700 to-gray-800" },
-    { Icon: Instagram, color: "from-gray-700 to-gray-800" },
-    { Icon: Linkedin, color: "from-gray-800 to-gray-700" },
-    { Icon: Youtube, color: "from-gray-800 to-gray-700" }
-  ];
+
+
+
+
 
   return (
     <>
@@ -103,7 +69,7 @@ function ContactUs() {
 
       <div className="pt-24 bg-white">
         {/* Hero Section */}
-        <section className="py-20 px-6 bg-gradient-to-br from-gray-50 via-gray-50 to-gray-50 relative overflow-hidden">
+        <section className="py-20 px-6 bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 relative overflow-hidden">
           {/* Animated Particles */}
           <div className="particles-container">
             {[...Array(20)].map((_, i) => (
@@ -121,7 +87,7 @@ function ContactUs() {
           
           {/* Dotted Pattern */}
           <div className="absolute inset-0 animate-dots-scroll" style={{
-            backgroundImage: 'radial-gradient(circle, #2563eb40 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, #10b98140 1px, transparent 1px)',
             backgroundSize: '30px 30px'
           }}></div>
           
@@ -133,19 +99,19 @@ function ContactUs() {
           </div>
 
           <div className="max-w-7xl mx-auto text-center relative z-10">
-            <div className="inline-block mb-6">
-              <span className="bg-gradient-to-r from-gray-900 to-gray-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm border border-emerald-400/30 flex items-center gap-2 w-fit mx-auto animate-pulse-glow">
+            <div className="inline-block animate-bounce-slow mb-6">
+              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm border border-emerald-400/30 flex items-center gap-2 w-fit mx-auto animate-pulse-glow">
                 <MessageSquare className="w-4 h-4 animate-wiggle" />
                 Get In Touch
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6 animate-fade-in-up">
               <span className="block">Contact</span>
-              <span className="block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-800 bg-clip-text text-transparent animate-gradient-x">
+              <span className="block bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent animate-gradient-x">
                 Our Team
               </span>
             </h1>
-            <p className="text-xl text-slate-700 max-w-3xl mx-auto animation-delay-200">
+            <p className="text-xl text-slate-700 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
               Let's discuss how we can help transform your business with our IT solutions
             </p>
           </div>
@@ -166,7 +132,7 @@ function ContactUs() {
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                     Let's Talk About 
-                    <span className="block mt-2 bg-gradient-to-r from-gray-900 to-gray-800 bg-clip-text text-transparent">
+                    <span className="block mt-2 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                       Your Project
                     </span>
                   </h2>
@@ -176,8 +142,12 @@ function ContactUs() {
                 </div>
 
                 <div className="space-y-6">
-                  {contactInfo.map((item, index) => (
-                    <div 
+                  {[
+                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["info@itsolutions.com", "support@itsolutions.com"], color: "from-emerald-500 to-teal-600" },
+                    { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"], color: "from-green-500 to-emerald-600" },
+                    { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["123 Business Street", "New York, NY 10001"], color: "from-teal-500 to-cyan-600" }
+                  ].map((item, index) => (
+                    <div
                       key={index}
                       className="contact-info-card"
                       style={{ animationDelay: `${index * 0.1}s` }}
@@ -202,20 +172,17 @@ function ContactUs() {
                 <div className="pt-8 border-t border-emerald-200">
                   <div className="font-semibold text-slate-900 mb-4 text-lg">Follow Us</div>
                   <div className="flex gap-4">
-                    {socialIcons.map(({ Icon, color }, index) => {
-                      const IconComponent = Icon;
-                      return (
-                      <div 
+                    {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, index) => (
+                      <div
                         key={index}
                         className="social-icon-wrapper"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <div className={`social-icon bg-gradient-to-br ${color}`}>
-                          <IconComponent className="w-5 h-5 text-white" />
+                        <div className={`social-icon bg-gradient-to-br ${socialIcons[index].color}`}>
+                          <Icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
-                    );
-                    })}
+                    ))}
                   </div>
                 </div>
 
@@ -224,13 +191,18 @@ function ContactUs() {
                   <div className="why-choose-shine"></div>
                   <div className="relative z-10">
                     <h3 className="font-bold text-slate-900 text-xl mb-6 flex items-center gap-2">
-                      <Zap className="w-6 h-6 text-gray-700" />
+                      <Zap className="w-6 h-6 text-emerald-600" />
                       Why Choose Us?
                     </h3>
                     <div className="space-y-4">
-                      {whyChooseUs.map((item, index) => (
-                        <div 
-                          key={index} 
+                      {[
+                        { icon: <Award className="w-5 h-5" />, text: "1+ Years of Experience", color: "from-emerald-500 to-teal-600" },
+                        { icon: <Users className="w-5 h-5" />, text: "10+ Happy Clients", color: "from-green-500 to-emerald-600" },
+                        { icon: <Clock className="w-5 h-5" />, text: "24/7 Support Available", color: "from-teal-500 to-cyan-600" },
+                        { icon: <Shield className="w-5 h-5" />, text: "100% Satisfaction Guaranteed", color: "from-lime-500 to-green-600" }
+                      ].map((item, index) => (
+                        <div
+                          key={index}
                           className="flex items-center gap-3 text-slate-700 animate-slide-in-left"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
@@ -331,7 +303,7 @@ function ContactUs() {
                       <div className="submit-ripple"></div>
                     </button>
 
-                    <p className="text-sm text-slate-600 text-center animation-delay-600">
+                    <p className="text-sm text-slate-600 text-center animate-fade-in-up animation-delay-600">
                       We'll respond within 24 hours. Your information is kept confidential.
                     </p>
                   </form>
@@ -345,7 +317,7 @@ function ContactUs() {
         <section 
           id="faq-section"
           ref={(el) => (observerRefs.current[1] = el)}
-          className="py-20 px-6 bg-gradient-to-br from-gray-50 via-gray-50 to-gray-50 relative overflow-hidden"
+          className="py-20 px-6 bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 relative overflow-hidden"
         >
           <div className="wave-container">
             <div className="wave"></div>
@@ -354,7 +326,7 @@ function ContactUs() {
 
           <div className="max-w-4xl mx-auto relative z-10">
             <div className={`text-center mb-12 ${isVisible['faq-section'] ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <span className="text-gray-700 font-semibold text-lg">FAQ</span>
+              <span className="text-emerald-600 font-semibold text-lg">FAQ</span>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Frequently Asked Questions</h2>
               <p className="text-xl text-slate-600">Quick answers to common questions</p>
             </div>
@@ -378,7 +350,7 @@ function ContactUs() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-800 text-white relative overflow-hidden">
+        <section className="py-20 px-6 bg-gradient-to-br from-emerald-600 via-teal-600 to-green-600 text-white relative overflow-hidden">
           <div className="rays-container">
             {[...Array(12)].map((_, i) => (
               <div key={i} className="ray" style={{ transform: `rotate(${i * 30}deg)` }}></div>
@@ -389,7 +361,7 @@ function ContactUs() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-text-shimmer">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-emerald-100 mb-8">
               Fill out the form above or give us a call. We're here to help!
             </p>
             <button 
@@ -409,7 +381,7 @@ function ContactUs() {
           position: fixed;
           width: 300px;
           height: 300px;
-          background: radial-gradient(circle, rgba(37, 99, 235, 0.15), transparent 70%);
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);
           border-radius: 50%;
           pointer-events: none;
           transform: translate(-50%, -50%);
@@ -428,7 +400,7 @@ function ContactUs() {
           position: absolute;
           width: 4px;
           height: 4px;
-          background: linear-gradient(135deg, #2563eb, #4f46e5);
+          background: linear-gradient(135deg, #10b981, #14b8a6);
           border-radius: 50%;
           animation: float-particle 20s infinite;
           opacity: 0.6;
@@ -463,7 +435,7 @@ function ContactUs() {
         .blob-1 {
           width: 500px;
           height: 500px;
-          background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(79, 70, 229, 0.3));
+          background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(20, 184, 166, 0.3));
           top: -200px;
           left: -200px;
         }
@@ -471,7 +443,7 @@ function ContactUs() {
         .blob-2 {
           width: 400px;
           height: 400px;
-          background: linear-gradient(135deg, rgba(29, 78, 216, 0.3), rgba(37, 99, 235, 0.3));
+          background: linear-gradient(135deg, rgba(5, 150, 105, 0.3), rgba(16, 185, 129, 0.3));
           bottom: -200px;
           right: -200px;
           animation-delay: 5s;
@@ -480,7 +452,7 @@ function ContactUs() {
         .blob-3 {
           width: 350px;
           height: 350px;
-          background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(6, 182, 212, 0.2));
+          background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(6, 182, 212, 0.2));
           top: 50%;
           left: 50%;
           animation-delay: 10s;
@@ -519,8 +491,8 @@ function ContactUs() {
           position: absolute;
           inset: 0;
           background-image: 
-            linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+            linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
           background-size: 50px 50px;
           animation: grid-move 20s linear infinite;
         }
@@ -538,7 +510,7 @@ function ContactUs() {
         .contact-info-card {
           position: relative;
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(209, 250, 229, 0.5));
-          border: 2px solid #bfdbfe;
+          border: 2px solid #d1fae5;
           border-radius: 1.25rem;
           padding: 1.5rem;
           animation: scale-in 0.6s ease-out;
@@ -548,14 +520,14 @@ function ContactUs() {
 
         .contact-info-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
-          border-color: #2563eb;
+          box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
+          border-color: #10b981;
         }
 
         .contact-info-glow {
           position: absolute;
           inset: -20px;
-          background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(79, 70, 229, 0.1));
+          background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1));
           border-radius: 1.25rem;
           filter: blur(20px);
           opacity: 0;
@@ -581,7 +553,7 @@ function ContactUs() {
 
         .contact-info-card:hover .contact-icon {
           transform: scale(1.1) rotate(-5deg);
-          box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+          box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
         }
 
         .icon-float {
@@ -616,7 +588,7 @@ function ContactUs() {
 
         .social-icon:hover {
           transform: translateY(-5px) scale(1.1) rotate(5deg);
-          box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+          box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
         }
 
         @keyframes bounce-in {
@@ -637,7 +609,7 @@ function ContactUs() {
         .why-choose-card {
           position: relative;
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(209, 250, 229, 0.5));
-          border: 2px solid #bfdbfe;
+          border: 2px solid #d1fae5;
           border-radius: 1.5rem;
           padding: 2rem;
           animation: scale-in 0.6s ease-out;
@@ -647,8 +619,8 @@ function ContactUs() {
 
         .why-choose-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
-          border-color: #2563eb;
+          box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+          border-color: #10b981;
         }
 
         .why-choose-shine {
@@ -705,7 +677,7 @@ function ContactUs() {
         .form-container {
           position: relative;
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(209, 250, 229, 0.5));
-          border: 2px solid #bfdbfe;
+          border: 2px solid #d1fae5;
           border-radius: 1.5rem;
           animation: scale-in 0.6s ease-out;
           transition: all 0.5s ease;
@@ -713,14 +685,14 @@ function ContactUs() {
         }
 
         .form-container:hover {
-          box-shadow: 0 25px 50px rgba(37, 99, 235, 0.3);
-          border-color: #2563eb;
+          box-shadow: 0 25px 50px rgba(16, 185, 129, 0.3);
+          border-color: #10b981;
         }
 
         .form-glow {
           position: absolute;
           inset: -30px;
-          background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(79, 70, 229, 0.2));
+          background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.2));
           border-radius: 1.5rem;
           filter: blur(30px);
           opacity: 0;
@@ -736,7 +708,7 @@ function ContactUs() {
           inset: 0;
           border-radius: 1.5rem;
           padding: 2px;
-          background: linear-gradient(135deg, #2563eb, #4f46e5, #2563eb);
+          background: linear-gradient(135deg, #10b981, #14b8a6, #10b981);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -761,13 +733,13 @@ function ContactUs() {
         .form-icon-container {
           width: 4rem;
           height: 4rem;
-          background: linear-gradient(135deg, #2563eb, #4f46e5);
+          background: linear-gradient(135deg, #10b981, #14b8a6);
           border-radius: 1rem;
           display: flex;
           align-items: center;
           justify-content: center;
           margin-bottom: 1rem;
-          box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+          box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
           animation: icon-bounce 1s ease-in-out infinite;
         }
 
@@ -800,26 +772,26 @@ function ContactUs() {
           width: 100%;
           padding: 0.75rem 1rem;
           border-radius: 0.75rem;
-          border: 2px solid #bfdbfe;
+          border: 2px solid #d1fae5;
           outline: none;
           transition: all 0.3s ease;
           background: white;
         }
 
         .form-input:focus {
-          border-color: #2563eb;
-          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+          border-color: #10b981;
+          box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
           transform: translateY(-2px);
         }
 
         .form-input:hover {
-          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
         }
 
         .submit-button {
           position: relative;
           width: 100%;
-          background: linear-gradient(135deg, #2563eb, #4f46e5);
+          background: linear-gradient(135deg, #10b981, #14b8a6);
           color: white;
           padding: 1rem 2rem;
           border-radius: 0.75rem;
@@ -831,20 +803,20 @@ function ContactUs() {
           gap: 0.5rem;
           overflow: hidden;
           transition: all 0.3s ease;
-          box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+          box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
           border: none;
           cursor: pointer;
         }
 
         .submit-button:hover {
           transform: scale(1.05);
-          box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+          box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
         }
 
         .submit-ripple {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, #4f46e5, #2563eb);
+          background: linear-gradient(135deg, #14b8a6, #10b981);
           opacity: 0;
           transition: opacity 0.3s ease;
         }
@@ -857,7 +829,7 @@ function ContactUs() {
         .faq-card {
           position: relative;
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(209, 250, 229, 0.5));
-          border: 2px solid #bfdbfe;
+          border: 2px solid #d1fae5;
           border-radius: 1.5rem;
           padding: 1.5rem;
           animation: scale-in 0.6s ease-out;
@@ -867,8 +839,8 @@ function ContactUs() {
 
         .faq-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
-          border-color: #2563eb;
+          box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
+          border-color: #10b981;
         }
 
         .faq-shine {
@@ -902,7 +874,7 @@ function ContactUs() {
           left: 0;
           width: 200%;
           height: 100%;
-          background: linear-gradient(90deg, rgba(37, 99, 235, 0.1), rgba(79, 70, 229, 0.1));
+          background: linear-gradient(90deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1));
           border-radius: 1000px 1000px 0 0;
           animation: wave 15s infinite linear;
         }
@@ -952,7 +924,7 @@ function ContactUs() {
         .cta-button {
           position: relative;
           background: white;
-          color: #2563eb;
+          color: #10b981;
           padding: 1.25rem 3rem;
           border-radius: 1rem;
           font-weight: bold;
@@ -981,7 +953,7 @@ function ContactUs() {
         .cta-ripple {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(79, 70, 229, 0.1));
+          background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1));
           transform: scale(0);
           border-radius: 1rem;
         }
@@ -1091,10 +1063,10 @@ function ContactUs() {
 
         @keyframes pulse-glow-badge {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
           }
           50% {
-            box-shadow: 0 0 40px rgba(37, 99, 235, 0.8);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
           }
         }
 
