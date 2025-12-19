@@ -4,7 +4,7 @@ import { Film, CheckCircle, ArrowRight, X, Mail, ChevronLeft } from 'lucide-reac
 import BeforeAfterComparison from '../../components/BeforeAfterComparison';
 import { services } from '../../const';
 
-function VideoEditing({ navigate = () => {} }) {
+function VideoEditing() {
   const routerNavigate = useNavigate();
   const service = services[2];
   const [showContactForm, setShowContactForm] = useState(false);

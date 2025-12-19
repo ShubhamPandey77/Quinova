@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Code, Globe, Zap, Film, Palette, Target, Users, Award, CheckCircle, ArrowRight, Star, Mail, X, TrendingUp, Sparkles, Rocket, Shield } from 'lucide-react';
-import { stats, services, testimonials, caseStudies, faqs } from '../../const';
+import { stats, testimonials, caseStudies, faqs } from '../../const';
 import FAQSection from '../../components/FAQSection';
 
 function Home({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);
 

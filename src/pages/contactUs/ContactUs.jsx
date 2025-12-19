@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Award, Users, Clock, Shield, ArrowRight, Sparkles, MessageSquare, Zap } from 'lucide-react';
-import { faqs } from '../../const';
+import { faqs, socialIcons } from '../../const';
 
-function ContactUs({ navigate = () => {} }) {
+function ContactUs() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);

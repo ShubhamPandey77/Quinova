@@ -4,7 +4,7 @@ import { Palette, CheckCircle, ArrowRight, X, Mail, ChevronLeft } from 'lucide-r
 import BeforeAfterComparison from '../../components/BeforeAfterComparison';
 import { services } from '../../const';
 
-function GraphicDesign({ navigate = () => {} }) {
+function GraphicDesign() {
   const routerNavigate = useNavigate();
   const service = services[3];
   const [showContactForm, setShowContactForm] = useState(false);

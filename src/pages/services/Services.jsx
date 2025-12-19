@@ -4,7 +4,7 @@ import { Code, TrendingUp, Film, Palette, MessageSquare, Globe, CheckCircle, Arr
 import { services, processSteps, faqs } from '../../const';
 import FAQSection from '../../components/FAQSection';
 
-function Services({ navigate = () => {} }) {
+function Services() {
   const routerNavigate = useNavigate();
   const servicePaths = [
     '/services/website-development',
@@ -15,6 +15,7 @@ function Services({ navigate = () => {} }) {
     '/services/digital-marketing'
   ];
   const [showContactForm, setShowContactForm] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);
   

@@ -4,7 +4,7 @@ import { Globe, CheckCircle, ArrowRight, X, Mail, Code, Zap, Smartphone, Chevron
 import BeforeAfterComparison from '../../components/BeforeAfterComparison';
 import { services } from '../../const';
 
-function WebsiteDevelopment({ navigate = () => {} }) {
+function WebsiteDevelopment() {
   const routerNavigate = useNavigate();
   const service = services[0];
   const [showContactForm, setShowContactForm] = useState(false);

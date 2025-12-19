@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Mail, ArrowRight } from "lucide-react";
 import { menuItems } from "../const";
 
-function Navbar({ navigate = () => {} }) {
+function Navbar() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
@@ -24,11 +24,6 @@ function Navbar({ navigate = () => {} }) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleNavClick = (path) => {
-    navigate(path);
-    setMobileMenuOpen(false);
-  };
 
   const handleGetStartedClick = () => {
     setShowContactForm(true);

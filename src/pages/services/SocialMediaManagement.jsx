@@ -4,7 +4,7 @@ import { Share2, CheckCircle, ArrowRight, X, Mail, Smartphone, BarChart3, Users,
 import BeforeAfterComparison from '../../components/BeforeAfterComparison';
 import { services } from '../../const';
 
-function SocialMediaManagement({ navigate = () => {} }) {
+function SocialMediaManagement() {
   const routerNavigate = useNavigate();
   const service = services[1];
   const [showContactForm, setShowContactForm] = useState(false);

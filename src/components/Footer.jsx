@@ -126,7 +126,9 @@ function Footer() {
                 {footerCompanyInfo.description}
               </p>
               <div className="flex gap-3">
-                {socialLinksWithIcons.map(({ Icon, link }, index) => (
+                {
+                  // eslint-disable-next-line no-unused-vars
+                  socialLinksWithIcons.map(({ Icon, link }, index) => (
                   <a
                     key={index}
                     href={link}
