@@ -105,9 +105,9 @@ function AboutUs({ navigate = () => {} }) {
 
                 {/* Values Section */}
                 {/* Values Section */}
-<section className="py-20 px-6 bg-slate-50 relative">
+<section className="py-20 px-6 bg-slate-50">
     <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 relative z-10">
+        <div className="text-center mb-16">
             <span className="inline-block text-slate-600 font-semibold mb-2">Our Core Values</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                 What Drives Our Excellence
@@ -117,26 +117,12 @@ function AboutUs({ navigate = () => {} }) {
             </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {valuesWithIcons.map((value, index) => (
                 <div 
                     key={index}
-                    className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-xl hover:border-slate-400 transition-all group cursor-pointer relative overflow-hidden"
+                    className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-xl hover:border-slate-400 transition-all group cursor-pointer"
                 >
-                    {/* Particles Background */}
-                    {/* Particles */}
-{/* <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
-
-                        <Particles 
-                            className="w-full h-full"
-                            quantity={100}
-        ease={80}
-staticity={10}
-// ease={40}
-
-                            color={color}
-                        />
-                    </div> */}
                     
                     {/* Content */}
                     <div className="relative z-10">
