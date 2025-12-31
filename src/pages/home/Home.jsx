@@ -2,12 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import { Code, Globe, Zap, Film, Palette, Target, Users, Award, CheckCircle, ArrowRight, Star, Mail, X, TrendingUp, Sparkles, Rocket, Shield } from 'lucide-react';
 import { stats, testimonials, caseStudies, faqs } from '../../const';
 import FAQSection from '../../components/FAQSection';
+import { Particles } from "@/components/ui/particles";
+
 
 function Home({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);
+  const [particleColor] = useState("#1660cd"); // slate-400
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -60,9 +64,24 @@ function Home({ navigate = () => {} }) {
   return (
     <>
       <div className="pt-16 bg-white">
+
         {/* Hero Section */}
-        <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
-          <div className="max-w-7xl mx-auto">
+        <section className="relative py-24 px-6  bg-gradient-to-b from-slate-50 to-white">
+          {/* Particles Background */}
+<div className="absolute inset-0 z-0 pointer-events-none">
+  <Particles
+    className="w-full h-full"
+    quantity={80}
+    vx={0.2}
+    vy={0.5}
+    staticity={40}
+    size={0.8}
+    ease={30}
+    color={particleColor}
+  />
+</div>
+
+          <div className="max-w-7xl  relative z-10 mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                
@@ -123,7 +142,7 @@ function Home({ navigate = () => {} }) {
         <section 
           id="services-section"
           ref={(el) => (observerRefs.current[0] = el)}
-          className="py-20 px-6 bg-white"
+          className="py-20 px-6 bg-gradient-to-b from-white to-blue-50"
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
