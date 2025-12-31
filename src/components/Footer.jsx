@@ -73,42 +73,27 @@ function Footer() {
   return (
     <>
       <footer className="bg-slate-950 text-slate-100">
-        {/* Newsletter & CTA Section */}
-        <div className="bg-linear-to-r from-slate-900 to-slate-800 border-b border-slate-800">
-          <div className="max-w-7xl mx-auto px-6 py-12">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Stay Updated</h3>
-                <p className="text-slate-300">Get the latest insights on digital transformation delivered to your inbox monthly.</p>
-              </div>
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="flex-1 px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-slate-500 transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-2"
-                >
-                  Subscribe
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-              {newsletterSubmitted && (
-                <div className="md:col-span-2 flex items-center gap-2 text-green-400 text-sm">
-                  <CheckCircle className="w-4 h-4" />
-                  Thanks for subscribing! Check your email for confirmation.
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        
 
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-6 py-16">
+           {/* Contact Info Section */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {footerContactInfo.map((info, index) => (
+              <div key={index} className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+                <div className="shrink-0">
+                  {info.icon === 'phone' && <Phone className="w-6 h-6 text-white" />}
+                  {info.icon === 'email' && <Mail className="w-6 h-6 text-white" />}
+                  {info.icon === 'location' && <MapPin className="w-6 h-6 text-white" />}
+                </div>
+                <div>
+                  <h4 className="font-bold text-white mb-1">{info.title}</h4>
+                  <p className="text-slate-300 text-sm font-semibold">{info.value}</p>
+                  <p className="text-slate-400 text-xs">{info.subtext}</p>
+                </div>
+              </div>
+            ))}
+          </div>
           {/* Top Section - Company Info & Contact */}
           <div className="grid md:grid-cols-5 gap-8 mb-12">
             {/* Company Info */}
@@ -187,37 +172,7 @@ function Footer() {
             </div>
           </div>
 
-          {/* Trust Badges Section */}
-          <div className="border-t border-slate-800 pt-12 mb-12">
-            <h3 className="text-center text-lg font-bold text-white mb-8">Why Clients Trust Us</h3>
-            <div className="grid md:grid-cols-4 gap-6">
-              {footerTrustBadges.map((badge, index) => (
-                <div key={index} className="text-center p-4 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all">
-                  <div className="text-3xl mb-2">{badge.icon}</div>
-                  <h4 className="font-bold text-white mb-1">{badge.label}</h4>
-                  <p className="text-slate-400 text-sm">{badge.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact Info Section */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {footerContactInfo.map((info, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
-                <div className="shrink-0">
-                  {info.icon === 'phone' && <Phone className="w-6 h-6 text-white" />}
-                  {info.icon === 'email' && <Mail className="w-6 h-6 text-white" />}
-                  {info.icon === 'location' && <MapPin className="w-6 h-6 text-white" />}
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-1">{info.title}</h4>
-                  <p className="text-slate-300 text-sm font-semibold">{info.value}</p>
-                  <p className="text-slate-400 text-xs">{info.subtext}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+         
 
           {/* Bottom Section - Copyright & Legal Links */}
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
