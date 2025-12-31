@@ -260,36 +260,6 @@ function Services() {
 
         {/* FAQ Section */}
         <FAQSection faqs={faqs} />
-
-        {/* CTA Section */}
-        <section className="py-20 px-6 bg-slate-900 text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-slate-300 mb-8">
-              Schedule a free consultation today and discover how we can transform your business
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button 
-                onClick={handleGetStartedClick}
-                className="bg-white text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors inline-flex items-center gap-2"
-              >
-                Get Free Consultation
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={() => routerNavigate('/about')}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors"
-              >
-                Learn About Us
-              </button>
-            </div>
-            <p className="text-slate-400 text-sm mt-6">
-              No credit card required • Free 30-minute strategy session
-            </p>
-          </div>
-        </section>
       </div>
 
       {/* Contact Form Popup */}
