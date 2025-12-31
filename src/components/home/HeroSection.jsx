@@ -1,9 +1,27 @@
+import { useState } from 'react';
 import { ArrowRight, Code, Zap, Film, Palette } from 'lucide-react';
+import { Particles } from "@/components/ui/particles";
 
 function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
+  const [particleColor] = useState("#1660cd");
+
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
+      {/* Particles Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles
+          className="w-full h-full"
+          quantity={80}
+          vx={0.2}
+          vy={0.5}
+          staticity={40}
+          size={0.8}
+          ease={30}
+          color={particleColor}
+        />
+      </div>
+
+      <div className="max-w-7xl relative z-10 mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
