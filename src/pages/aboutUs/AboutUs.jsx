@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Award, Users, Target, Heart, Zap, Shield, ArrowRight, Star } from 'lucide-react';
 import { values, team, stats, trustTestimonials } from '../../const';
-import { Particles } from "@/components/ui/particles"
+// import { Particles } from "@/components/ui/particles"
 
 function AboutUs({ navigate = () => {} }) {
     const [isVisible, setIsVisible] = useState({});
     const observerRefs = useRef([]);
-     const [color, setColor] = useState("rgba(15,23,42,0.6)")
+    //  const [color, setColor] = useState("rgba(15,23,42,0.6)")
 
 
     useEffect(() => {
@@ -125,7 +125,7 @@ function AboutUs({ navigate = () => {} }) {
                 >
                     {/* Particles Background */}
                     {/* Particles */}
-<div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+{/* <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
 
                         <Particles 
                             className="w-full h-full"
@@ -136,7 +136,7 @@ staticity={10}
 
                             color={color}
                         />
-                    </div>
+                    </div> */}
                     
                     {/* Content */}
                     <div className="relative z-10">
