@@ -28,7 +28,7 @@ function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
               Transform Your Business with Professional Digital Solutions
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
-              With 10+ years of proven expertise, we deliver comprehensive IT solutions—from custom web development to strategic digital marketing—that drive measurable business growth and lasting results.
+              With 1+ years of proven expertise, we deliver comprehensive IT solutions—from custom web development to strategic digital marketing—that drive measurable business growth and lasting results.
             </p>
             
             <div className="flex flex-wrap gap-4">

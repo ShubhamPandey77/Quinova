@@ -12,6 +12,9 @@ import VideoEditing from './pages/services/VideoEditing';
 import GraphicDesign from './pages/services/GraphicDesign';
 import ContentWriting from './pages/services/ContentWriting';
 import DigitalMarketing from './pages/services/DigitalMarketing';
+import PrivacyPolicy from './pages/policies/PrivacyPolicy';
+import TermsOfService from './pages/policies/TermsOfService';
+import RefundPolicy from './pages/policies/RefundPolicy';
 import ScrollToTop from './components/ScrollToTop';
 import PageTransition from './components/PageTransition';
 
@@ -40,6 +43,9 @@ function App() {
           <Route path="/services/graphic-design" element={<PageTransition><GraphicDesign navigate={handleNavigate} /></PageTransition>} />
           <Route path="/services/content-writing" element={<PageTransition><ContentWriting navigate={handleNavigate} /></PageTransition>} />
           <Route path="/services/digital-marketing" element={<PageTransition><DigitalMarketing navigate={handleNavigate} /></PageTransition>} />
+          <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+          <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
+          <Route path="/refund" element={<PageTransition><RefundPolicy /></PageTransition>} />
         </Routes>
       </AnimatePresence>
       <Footer navigate={handleNavigate} />

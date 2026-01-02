@@ -21,8 +21,8 @@ function TrustSection() {
       desc: "Every action backed by data and ROI"
     },
     {
-      title: "Money-Back Guarantee",
-      desc: "100% satisfaction or your money back"
+      title: "Satisfaction Guarantee",
+      desc: "100% client satisfaction"
     }
   ];
 
@@ -34,13 +34,13 @@ function TrustSection() {
             Proven Excellence. Trusted by Industry Leaders.
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            With 10+ years in the industry and 100+ successful projects, our track record speaks for itself.
+            With 1+ years in the industry and 100+ successful projects, our track record speaks for itself.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
           <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
-            <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">100+</div>
+            <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">10+</div>
             <p className="text-slate-700 font-semibold text-lg">Projects Delivered</p>
             <p className="text-sm text-slate-600 mt-2">Across all sectors and scales</p>
           </div>
@@ -50,7 +50,7 @@ function TrustSection() {
             <p className="text-sm text-slate-600 mt-2">Consistently exceeding expectations</p>
           </div>
           <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
-            <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">10+</div>
+            <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">1+</div>
             <p className="text-slate-700 font-semibold text-lg">Years Experience</p>
             <p className="text-sm text-slate-600 mt-2">Evolved expertise in digital solutions</p>
           </div>

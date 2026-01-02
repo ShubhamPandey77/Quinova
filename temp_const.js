@@ -4,19 +4,19 @@ export const contactInfo = [
   {
     icon: null, 
     title: "Email Us",
-    details: ["info@itsolutions.com", "support@itsolutions.com"],
+    details: ["QuinovaITSolutions@gmail.com"],
     color: "from-emerald-500 to-teal-600"
   },
   {
     icon: null, 
     title: "Call Us",
-    details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"],
+    details: ["+91 7991214170", "Mon-Sun, 9AM - 9PM ISM"],
     color: "from-green-500 to-emerald-600"
   },
   {
     icon: null, 
     title: "Visit Us",
-    details: ["123 Business Street", "New York, NY 10001"],
+    details: ["Quinova IT Solutions", "Lucknow, India"],
     color: "from-teal-500 to-cyan-600"
   }
 ];

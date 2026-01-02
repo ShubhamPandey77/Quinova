@@ -143,9 +143,9 @@ function ContactUs() {
 
                 <div className="space-y-6">
                   {[
-                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["info@itsolutions.com", "support@itsolutions.com"], color: "from-emerald-500 to-teal-600" },
-                    { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"], color: "from-green-500 to-emerald-600" },
-                    { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["123 Business Street", "New York, NY 10001"], color: "from-teal-500 to-cyan-600" }
+                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["QuinovaITSolutions@gmail.com"], color: "from-emerald-500 to-teal-600" },
+                    { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+91 7991214170", "Mon-Fri, 9AM - 9PM ISM"], color: "from-green-500 to-emerald-600" },
+                    { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["Quinova IT Solutions", "Lucknow, India"], color: "from-teal-500 to-cyan-600" }
                   ].map((item, index) => (
                     <div
                       key={index}

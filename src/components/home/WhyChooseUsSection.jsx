@@ -4,7 +4,7 @@ function WhyChooseUsSection({ handleGetStartedClick }) {
   const reasons = [
     {
       icon: <Award className="w-8 h-8" />,
-      title: "10+ Years of Expertise",
+      title: "1+ Years of Expertise",
       desc: "A decade of proven success across web development, marketing, design, and digital strategy. We've evolved with the industry."
     },
     {
@@ -25,7 +25,7 @@ function WhyChooseUsSection({ handleGetStartedClick }) {
     {
       icon: <CheckCircle className="w-8 h-8" />,
       title: "98% Satisfaction Rate",
-      desc: "Your success is genuinely our success. We back our work with a 100% satisfaction guarantee and money-back promise."
+      desc: "Your success is genuinely our success. We back our work with a 100% satisfaction guarantee"
     },
     {
       icon: <Shield className="w-8 h-8" />,
