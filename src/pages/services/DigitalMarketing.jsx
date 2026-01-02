@@ -4,7 +4,7 @@ import { TrendingUp, CheckCircle, ArrowRight, X, Mail, ChevronLeft } from 'lucid
 import BeforeAfterComparison from '../../components/BeforeAfterComparison';
 import { services } from '../../const';
 
-function DigitalMarketing({ navigate = () => {} }) {
+function DigitalMarketing() {
   const routerNavigate = useNavigate();
   const service = services[5];
   const [showContactForm, setShowContactForm] = useState(false);
@@ -21,13 +21,13 @@ function DigitalMarketing({ navigate = () => {} }) {
 
   return (
     <>
-      <div className="pt-16 bg-white">
+      <div className="pt-16 min-h-screen bg-gradient-to-b from-white via-gray-50 to-black text-gray-900">
         {/* Back Button */}
-        <div className="px-6 py-4 bg-white border-b border-slate-200">
+        <div className="px-6 py-4 border-b border-gray-200">
           <div className="max-w-6xl mx-auto">
             <button
               onClick={() => routerNavigate('/services')}
-              className="flex items-center gap-2 text-slate-900 font-semibold hover:text-orange-600 transition-colors"
+              className="flex items-center gap-2 text-gray-700 font-semibold hover:text-black transition-all duration-300 hover:-translate-x-1"
             >
               <ChevronLeft className="w-5 h-5" />
               Back to Services
@@ -35,30 +35,33 @@ function DigitalMarketing({ navigate = () => {} }) {
           </div>
         </div>
 
-        <section className="py-20 px-6 bg-gradient-to-r from-orange-50 to-red-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg text-sm font-semibold mb-6">
+        <section className="py-24 px-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-black/5 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="space-y-6 animate-fadeIn">
+                <div className="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold border border-gray-300">
                   📊 Digital Marketing
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
                   Grow Your Business with Data-Driven Marketing
                 </h1>
-                <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-600 leading-relaxed">
                   Comprehensive digital marketing that combines SEO, paid ads, content, and analytics to create predictable revenue growth.
                 </p>
                 <button
                   onClick={() => setShowContactForm(true)}
-                  className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-700 transition-colors inline-flex items-center gap-2 text-lg"
+                  className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-lg shadow-lg"
                 >
                   Start Growing Now
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
-              <div className="hidden md:flex justify-center">
-                <div className="w-full h-96 bg-gradient-to-br from-orange-200 to-red-200 rounded-2xl flex items-center justify-center">
-                  <TrendingUp className="w-40 h-40 text-orange-700" />
+              <div className="hidden md:flex justify-center animate-slideUp">
+                <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center border border-gray-300 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <TrendingUp className="w-40 h-40 text-gray-500 hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
             </div>
@@ -70,40 +73,40 @@ function DigitalMarketing({ navigate = () => {} }) {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">{service.content}</h2>
-              <p className="text-xl text-slate-600 leading-relaxed">{service.longDescription}</p>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">{service.content}</h2>
+              <p className="text-xl text-gray-600 leading-relaxed">{service.longDescription}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">✨ Our Services</h3>
+                <h3 className="text-2xl font-bold mb-6">✨ Our Services</h3>
                 <ul className="space-y-4">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-orange-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-lg text-slate-700">{feature}</span>
+                      <CheckCircle className="w-6 h-6 text-orange-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-lg text-white/80">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">📈 Business Benefits</h3>
+                <h3 className="text-2xl font-bold mb-6">📈 Business Benefits</h3>
                 <ul className="space-y-4">
                   {service.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-white text-sm font-bold">→</span>
+                      <div className="w-6 h-6 bg-orange-500/40 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-orange-400/30">
+                        <span className="text-orange-300 text-sm font-bold">→</span>
                       </div>
-                      <span className="text-lg text-slate-700">{benefit}</span>
+                      <span className="text-lg text-white/80">{benefit}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="bg-slate-50 rounded-lg p-8 border border-slate-200 mb-16">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">🎯 Marketing Channels</h3>
+            <div className="bg-white/5 rounded-lg p-8 border border-white/10 mb-16 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6">🎯 Marketing Channels</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
                   {
@@ -137,17 +140,17 @@ function DigitalMarketing({ navigate = () => {} }) {
                     timeline: "Ongoing"
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-slate-200 rounded-lg p-4">
-                    <h4 className="font-bold text-slate-900 mb-2">{item.channel}</h4>
-                    <p className="text-sm text-slate-600 mb-2">{item.desc}</p>
-                    <div className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded inline-block">{item.timeline}</div>
+                  <div key={idx} className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all">
+                    <h4 className="font-bold mb-2">{item.channel}</h4>
+                    <p className="text-sm text-white/60 mb-2">{item.desc}</p>
+                    <div className="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded inline-block border border-orange-500/30">{item.timeline}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="mb-16">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8">🚀 Our Integrated Approach</h3>
+              <h3 className="text-2xl font-bold mb-8">🚀 Our Integrated Approach</h3>
               <div className="grid md:grid-cols-4 gap-6">
                 {[
                   {
@@ -187,12 +190,12 @@ function DigitalMarketing({ navigate = () => {} }) {
                     ]
                   }
                 ].map((phase, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-orange-50 to-red-50 border border-orange-200 rounded-lg p-6">
-                    <h4 className="font-bold text-slate-900 mb-4">{phase.phase}</h4>
+                  <div key={idx} className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-6 hover:bg-orange-500/20 transition-all">
+                    <h4 className="font-bold mb-4">{phase.phase}</h4>
                     <ul className="space-y-2">
                       {phase.activities.map((activity, pidx) => (
-                        <li key={pidx} className="text-slate-700 text-sm flex items-center gap-2">
-                          <span className="text-orange-600">•</span> {activity}
+                        <li key={pidx} className="text-white/70 text-sm flex items-center gap-2">
+                          <span className="text-orange-400">•</span> {activity}
                         </li>
                       ))}
                     </ul>
@@ -201,35 +204,35 @@ function DigitalMarketing({ navigate = () => {} }) {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg p-12 text-white mb-16">
+            <div className="bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-lg p-12 border border-orange-500/30 mb-16 backdrop-blur-sm">
               <h3 className="text-3xl font-bold mb-6">📊 Case Study: {service.caseStudy.client}</h3>
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
-                  <p className="text-xl mb-6 leading-relaxed">
+                  <p className="text-xl mb-6 leading-relaxed text-white/80">
                     We implemented an integrated digital marketing strategy combining SEO, paid ads, and email marketing. The result was an unprecedented increase in qualified leads and revenue.
                   </p>
-                  <div className="text-5xl font-bold mb-2">{service.caseStudy.results}</div>
-                  <p className="text-red-100">Annual Recurring Revenue</p>
+                  <div className="text-5xl font-bold mb-2 text-orange-300">{service.caseStudy.results}</div>
+                  <p className="text-white/60">Annual Recurring Revenue</p>
                 </div>
-                <div className="bg-white/20 rounded-lg p-6 backdrop-blur">
+                <div className="bg-white/5 rounded-lg p-6 border border-white/10">
                   <h4 className="font-bold mb-4">Key Metrics</h4>
                   {service.caseStudy.metrics.map((metric, idx) => (
                     <div key={idx} className="flex items-center gap-3 mb-4">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                      <span>{metric}</span>
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span className="text-white/80">{metric}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="bg-slate-50 rounded-lg p-8 border border-slate-200 text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Start Your Growth</h3>
-              <div className="text-4xl font-bold text-orange-600 mb-6">{service.price}</div>
-              <p className="text-slate-600 mb-8">Monthly retainer • Full management • Transparent reporting</p>
+            <div className="bg-white/5 rounded-lg p-8 border border-white/10 text-center backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-4">Start Your Growth</h3>
+              <div className="text-4xl font-bold text-orange-300 mb-6">{service.price}</div>
+              <p className="text-white/60 mb-8">Monthly retainer • Full management • Transparent reporting</p>
               <button
                 onClick={() => setShowContactForm(true)}
-                className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-700 transition-colors inline-flex items-center gap-2"
+                className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-700 transition-all hover:scale-105 inline-flex items-center gap-2"
               >
                 Get Free Marketing Audit
                 <ArrowRight className="w-5 h-5" />
@@ -238,24 +241,24 @@ function DigitalMarketing({ navigate = () => {} }) {
           </div>
         </section>
 
-        <section className="py-20 px-6 bg-orange-900 text-white">
+        <section className="py-20 px-6 border-t border-white/10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Turn Leads into Revenue
             </h2>
-            <p className="text-xl text-orange-100 mb-8">
+            <p className="text-xl text-white/60 mb-8">
               Implement an integrated digital marketing strategy that generates predictable revenue growth. Let's discuss your goals.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={() => setShowContactForm(true)}
-                className="bg-white text-orange-900 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors"
+                className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-all hover:scale-105"
               >
                 Get Free Audit
               </button>
               <button
-                onClick={() => navigate('services')}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-800 transition-colors"
+                onClick={() => routerNavigate('/services')}
+                className="border-2 border-orange-400/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600/20 transition-colors"
               >
                 View Other Services
               </button>
@@ -266,10 +269,10 @@ function DigitalMarketing({ navigate = () => {} }) {
 
       {showContactForm && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowContactForm(false)}></div>
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
-            <button onClick={() => setShowContactForm(false)} className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-lg transition-colors z-10">
-              <X className="w-5 h-5 text-slate-600" />
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowContactForm(false)}></div>
+          <div className="bg-slate-900/95 border border-white/10 rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative backdrop-blur-sm">
+            <button onClick={() => setShowContactForm(false)} className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-lg transition-colors z-10 text-white">
+              <X className="w-5 h-5" />
             </button>
 
             <div className="p-8 md:p-10">
@@ -277,25 +280,25 @@ function DigitalMarketing({ navigate = () => {} }) {
                 <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-2">Start Growing Today</h2>
-                <p className="text-slate-600">Get a free marketing audit and custom growth strategy tailored to your business.</p>
+                <h2 className="text-3xl font-bold text-white mb-2">Start Growing Today</h2>
+                <p className="text-white/60">Get a free marketing audit and custom growth strategy tailored to your business.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <input type="text" placeholder="Your Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-orange-600" required />
-                  <input type="email" placeholder="Your Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-orange-600" required />
+                  <input type="text" placeholder="Your Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-400 transition-colors" required />
+                  <input type="email" placeholder="Your Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-400 transition-colors" required />
                 </div>
-                <input type="tel" placeholder="Phone Number" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-orange-600" />
-                <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-orange-600" required>
-                  <option value="">Select Budget Range</option>
-                  <option value="under-25k">Under ₹25K/mo</option>
-                  <option value="25k-50k">₹25K - ₹50K/mo</option>
-                  <option value="50k-100k">₹50K - ₹100K/mo</option>
-                  <option value="100k+">₹100K+/mo</option>
+                <input type="tel" placeholder="Phone Number" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-400 transition-colors" />
+                <select value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-orange-400 transition-colors" required>
+                  <option value="" className="bg-slate-900">Select Budget Range</option>
+                  <option value="under-25k" className="bg-slate-900">Under ₹25K/mo</option>
+                  <option value="25k-50k" className="bg-slate-900">₹25K - ₹50K/mo</option>
+                  <option value="50k-100k" className="bg-slate-900">₹50K - ₹100K/mo</option>
+                  <option value="100k+" className="bg-slate-900">₹100K+/mo</option>
                 </select>
-                <textarea placeholder="Tell us about your business and goals..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows="4" className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-orange-600 resize-none"></textarea>
-                <button type="submit" className="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors">Send Message</button>
+                <textarea placeholder="Tell us about your business and goals..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows="4" className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-400 transition-colors resize-none"></textarea>
+                <button type="submit" className="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-all hover:scale-105">Send Message</button>
               </form>
             </div>
           </div>

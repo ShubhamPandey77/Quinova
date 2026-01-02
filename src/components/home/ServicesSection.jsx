@@ -26,7 +26,7 @@ function ServicesSection({ navigate }) {
   ];
 
   return (
-    <section id="services-section" className="py-20 px-6 bg-white">
+    <section id="services-section" className="py-20 px-6 bg-gradient-to-b from-white to-blue-50/35">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block text-slate-600 font-semibold mb-2">Our Expertise</span>
@@ -34,7 +34,7 @@ function ServicesSection({ navigate }) {
             Comprehensive Services That Drive Results
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            We offer end-to-end digital solutions backed by 10+ years of industry expertise and 100+ successful projects delivered across all sectors.
+            We offer end-to-end digital solutions backed by 1+ years of industry expertise and 10+ successful projects delivered across all sectors.
           </p>
         </div>
 

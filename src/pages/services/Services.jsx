@@ -76,7 +76,7 @@ function Services() {
     <>
       <div className="pt-16 bg-white">
         {/* Hero Section */}
-        <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
+        <section className="py-16 px-6 bg-linear-to-b from-slate-50 to-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-block bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold mb-4">
@@ -105,10 +105,10 @@ function Services() {
                 {
                   icon: "👥",
                   title: "Expert Team",
-                  desc: "Certified professionals with 10+ years of experience"
+                  desc: "Certified professionals with 3+ years of experience"
                 }
               ].map((item, index) => (
-                <div key={index} className="bg-white border border-slate-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+                <div key={index} className="bg-white border-slate-200 rounded-xl p-8 h-full border  shadow-lg group-hover:shadow-2lg group-hover:border-slate-200 transition-all duration-300 hover:-translate-y-2">
                   <div className="text-4xl mb-3">{item.icon}</div>
                   <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
                   <p className="text-sm text-slate-600">{item.desc}</p>
@@ -122,7 +122,7 @@ function Services() {
         <section 
           id="all-services"
           ref={(el) => (observerRefs.current[0] = el)}
-          className="py-20 px-6 bg-white"
+          className="py-10 px-6 bg-white"
         >
           <div className="max-w-7xl mx-auto">
             <div className="space-y-12">
@@ -164,7 +164,7 @@ function Services() {
                         <ul className="space-y-3">
                           {service.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-3 text-slate-700">
-                              <CheckCircle className="w-5 h-5 text-slate-900 flex-shrink-0 mt-0.5" />
+                              <CheckCircle className="w-5 h-5 text-slate-900 shrink-0 mt-0.5" />
                               <span>{feature}</span>
                             </li>
                           ))}
@@ -181,44 +181,63 @@ function Services() {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 px-6 bg-slate-50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="inline-block text-slate-600 font-semibold mb-2">Our Approach</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                Our Process
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                A streamlined approach to delivering excellence
-              </p>
-            </div>
+       <section className="py-16 px-6 bg-gradient-to-b from-white to-blue-50">
+  <div className="max-w-6xl mx-auto">
+    {/* Heading */}
+    <div className="text-center mb-20">
+      <span className="text-gray-500 font-medium tracking-wide uppercase">
+        Our Approach
+      </span>
+      <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mt-3">
+        Our Process
+      </h2>
+      <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
+        A refined workflow that ensures clarity, quality, and seamless delivery.
+      </p>
+    </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-              {processStepsWithIcons.map((step, index) => (
-                <div key={index} className="relative">
-                  <div className="bg-white border border-slate-200 rounded-lg p-8 text-center h-full">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-slate-900 text-white rounded-full mb-4 font-bold">
-                      {step.step}
-                    </div>
-                    <div className="text-slate-900 mb-3 flex justify-center">{step.icon}</div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                    <p className="text-slate-600">{step.desc}</p>
-                  </div>
-                  {index < 3 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-slate-300 transform -translate-y-1/2"></div>
-                  )}
-                </div>
-              ))}
-            </div>
+    {/* Steps */}
+    <div className="grid md:grid-cols-4 gap-10">
+      {processStepsWithIcons.map((step, index) => (
+        <div
+          key={index}
+          className="relative flex flex-col items-center text-center"
+        >
+          {/* Step Number */}
+          <div className="bg-gradient-to-br from-black to-gray-800 text-white rounded-full w-14 h-14 flex items-center justify-center text-lg font-semibold shadow-md">
+            {step.step}
           </div>
-        </section>
+
+          {/* Icon */}
+          <div className="mt-6 mb-4 text-gray-800 flex justify-center">
+            {step.icon}
+          </div>
+
+          {/* Text */}
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            {step.title}
+          </h3>
+          <p className="text-gray-600 leading-relaxed">
+            {step.desc}
+          </p>
+
+          {/* Line Indicator */}
+          {index < processStepsWithIcons.length - 1 && (
+            <div className="hidden md:block absolute top-1/2 right-[-2rem] w-10 h-[1px] bg-gradient-to-r from-gray-300 to-gray-100"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
         {/* Client Benefits */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-14 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block text-slate-600 font-semibold mb-2">Why Clients Choose Us</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              <span className="inline-block text-slate-600 font-semibold mb-4">Why Clients Choose Us</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
                 Partnership That Delivers
               </h2>
             </div>
@@ -264,7 +283,7 @@ function Services() {
 
       {/* Contact Form Popup */}
       {showContactForm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
           <div 
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={handleCloseForm}

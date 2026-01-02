@@ -4,19 +4,19 @@ export const contactInfo = [
   {
     icon: null, 
     title: "Email Us",
-    details: ["info@itsolutions.com", "support@itsolutions.com"],
+    details: ["QuinovaITSolutions@gmail.com"],
     color: "from-emerald-500 to-teal-600"
   },
   {
     icon: null, 
     title: "Call Us",
-    details: ["+1 (555) 123-4567", "Mon-Fri, 9AM - 6PM EST"],
+    details: ["+91 7991214170", "Mon-Sun, 9AM - 9PM ISM"],
     color: "from-green-500 to-emerald-600"
   },
   {
     icon: null, 
     title: "Visit Us",
-    details: ["123 Business Street", "New York, NY 10001"],
+    details: ["Quinova IT Solutions", "Lucknow, India"],
     color: "from-teal-500 to-cyan-600"
   }
 ];
@@ -26,7 +26,7 @@ export const whyChooseUs = [
   { icon: null, text: "1+ Years of Experience", color: "from-emerald-500 to-teal-600" },
   { icon: null, text: "10+ Happy Clients", color: "from-green-500 to-emerald-600" },
   { icon: null, text: "24/7 Support Available", color: "from-teal-500 to-cyan-600" },
-  { icon: null, text: "100% Satisfaction Guaranteed", color: "from-lime-500 to-green-600" }
+  { icon: null, text: "98% Satisfaction Guaranteed", color: "from-lime-500 to-green-600" }
 ];
 
 // FAQs
@@ -56,7 +56,7 @@ export const faqs = [
       },
       {
         q: "Do you offer a satisfaction guarantee?",
-        a: "Yes! We're confident in our work:\n• 100% Satisfaction Guarantee\n• Money-Back Promise\n• Free Revisions\n• Unlimited Support\n\nIf you're not satisfied with the results, we'll refund or redo the work at no cost."
+        a: "Yes! We're confident in our work:\n• 100% Satisfaction Guarantee"
       }
     ]
   },
@@ -476,13 +476,13 @@ export const caseStudies = [
 export const whyChooseUsDetailed = [
   { 
     icon: null, 
-    title: "10+ Years Experience", 
+    title: "1+ Years Experience", 
     description: "Decade of proven expertise across multiple industries",
     color: "from-emerald-500 to-teal-600" 
   },
   { 
     icon: null, 
-    title: "100+ Successful Projects", 
+    title: "10+ Successful Projects", 
     description: "Delivered excellence across diverse project types and scales",
     color: "from-green-500 to-emerald-600" 
   },
@@ -532,7 +532,7 @@ export const team = [
   { name: "Ashish Dueby", role: "Full Stack Developer", image: "Ashish.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "8+ years building scalable web applications" },
   { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg", expertise: ["Vue.js", "Python", "AWS"], bio: "7+ years delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
   { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "9+ years in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
-  { name: "Jigyasa Pandey", role: "Social Media Manager & Content Writer", image: "Jigyasa.jpg", expertise: ["Content Strategy", "Community Building", "Copywriting"], bio: "6+ years creating engaging digital narratives" },
+  { name: "Vinayak Singh", role: "Social Media Manager & Content Writer", image: "", expertise: ["Content Strategy", "Community Building", "Copywriting"], bio: "6+ years creating engaging digital narratives" },
   { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "5+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
 ];
 
@@ -607,30 +607,29 @@ export const footerLinks = {
     { label: "Home", path: "/", icon: null },
     { label: "Services", path: "/services", icon: null },
     { label: "About Us", path: "/about", icon: null },
-    { label: "Portfolio", path: "/portfolio", icon: null },
-    { label: "Blog", path: "/blog", icon: null },
-    { label: "Contact", path: "/contact", icon: null }
+    // { label: "Portfolio", path: "/portfolio", icon: null },
+    // { label: "Blog", path: "/blog", icon: null },
+    // { label: "Contact", path: "/contact", icon: null }
   ],
   services: [
     { label: "Website Development", path: "/services/website-development", description: "Custom responsive websites" },
     { label: "Social Media Management", path: "/services/social-media-management", description: "Strategic growth campaigns" },
-    { label: "Video Editing", path: "/services/video-editing", description: "Professional video production" },
-    { label: "Graphic Design", path: "/services/graphic-design", description: "Brand identity design" },
-    { label: "Content Writing", path: "/services/content-writing", description: "Engaging copy & SEO content" },
+    // { label: "Video Editing", path: "/services/video-editing", description: "Professional video production" },
+    // { label: "Graphic Design", path: "/services/graphic-design", description: "Brand identity design" },
+    // { label: "Content Writing", path: "/services/content-writing", description: "Engaging copy & SEO content" },
     { label: "Digital Marketing", path: "/services/digital-marketing", description: "ROI-focused campaigns" }
   ],
   resources: [
-    { label: "Blog", path: "/blog" },
-    { label: "Case Studies", path: "/case-studies" },
-    { label: "Documentation", path: "/docs" },
-    { label: "FAQ", path: "/faq" },
-    { label: "Sitemap", path: "/sitemap" }
+     { label: "Privacy Policy", path: "/privacy" },
+    { label: "Terms of Service", path: "/terms" },
+    // { label: "Cookie Policy", path: "/cookies" },
+    { label: "Refund Policy", path: "/refund" }
   ],
   legal: [
-    { label: "Privacy Policy", path: "/privacy" },
-    { label: "Terms of Service", path: "/terms" },
-    { label: "Cookie Policy", path: "/cookies" },
-    { label: "Refund Policy", path: "/refund" }
+    // { label: "Privacy Policy", path: "/privacy" },
+    // { label: "Terms of Service", path: "/terms" },
+    // { label: "Cookie Policy", path: "/cookies" },
+    // { label: "Refund Policy", path: "/refund" }
   ]
 };
 
@@ -645,19 +644,19 @@ export const footerContactInfo = [
   {
     icon: "phone",
     title: "Call Us",
-    value: "+1 (555) 123-4567",
-    subtext: "Mon-Fri, 9 AM - 6 PM EST"
+    value: "+91 7991214170",
+    subtext: "Mon-Sun, 9 AM - 9 PM ISM"
   },
   {
     icon: "email",
     title: "Email Us",
-    value: "info@quinova.com",
+    value: "QuinovaITSolutions@gmail.com",
     subtext: "Response within 24 hours"
   },
   {
     icon: "location",
     title: "Visit Us",
-    value: "123 Business Street",
-    subtext: "New York, NY 10001"
+    value: "Quinova IT Solutions",
+    subtext: "Lucknow, India"
   }
 ];
