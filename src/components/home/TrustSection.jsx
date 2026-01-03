@@ -10,7 +10,7 @@ function TrustSection() {
     },
     {
       title: "On-Time Delivery",
-      desc: "100+ projects completed on schedule"
+      desc: "10+ projects completed on schedule"
     },
     {
       title: "24/7 Support",
@@ -22,7 +22,7 @@ function TrustSection() {
     },
     {
       title: "Satisfaction Guarantee",
-      desc: "100% client satisfaction"
+      desc: "98% client satisfaction"
     }
   ];
 

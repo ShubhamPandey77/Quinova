@@ -176,9 +176,19 @@ export function TextAreaField({ label, required = false, value, onChange, placeh
   );
 }
 
-export function ContactInfoCard({ icon, title, info, className = '' }) {
+export function ContactInfoCard({ icon, title, info, className = '', href = '' }) {
+  const Component = href ? 'a' : 'div';
+  const props = href ? {
+    href,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    className: `flex items-start gap-4 ${className} hover:opacity-80 transition-opacity cursor-pointer`
+  } : {
+    className: `flex items-start gap-4 ${className}`
+  };
+
   return (
-    <div className={`flex items-start gap-4 ${className}`}>
+    <Component {...props}>
       <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center shrink-0">
         {icon}
       </div>
@@ -188,7 +198,7 @@ export function ContactInfoCard({ icon, title, info, className = '' }) {
           <div key={index} className="text-gray-600">{item}</div>
         ))}
       </div>
-    </div>
+    </Component>
   );
 }
 

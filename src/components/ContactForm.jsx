@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from '@emailjs/browser';
 import { 
   Mail, ArrowRight, User, Phone, MessageSquare, 
@@ -12,7 +12,7 @@ const ServiceDropdown = ({ value, onChange, label, required, options, disabled }
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const handleOptionClick = (optionValue, optionLabel) => {
+  const handleOptionClick = (optionValue) => {
     onChange(optionValue);
     setIsOpen(false);
   };
@@ -110,6 +110,10 @@ const ContactForm = ({
   const SERVICE_ID = 'service_u3b22ps';
   const TEMPLATE_ID = 'template_36xnu7f';
   const PUBLIC_KEY = 'oQs_jZRCMrC3szklC';
+
+  useEffect(() => {
+    emailjs.init(PUBLIC_KEY);
+  }, []);
 
   // Service options with icons and descriptions
   const serviceOptions = [

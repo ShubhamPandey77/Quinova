@@ -10,7 +10,7 @@ import TestimonialsSection from '../../components/home/TestimonialsSection';
 import ProcessSection from '../../components/home/ProcessSection';
 import TrustSection from '../../components/home/TrustSection';
 import CTASection from '../../components/home/CTASection';
-import ContactForm from '../../components/home/ContactForm';
+import ContactForm from '../../components/ContactForm';
 
 function Home({ navigate = () => {} }) {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -37,27 +37,11 @@ function Home({ navigate = () => {} }) {
     return () => observer.disconnect();
   }, []);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    budget: '',
-    message: ''
-  });
-
   const handleGetStartedClick = () => {
     setShowContactForm(true);
   };
 
   const handleCloseForm = () => {
-    setShowContactForm(false);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you! We will contact you soon.');
-    setFormData({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
     setShowContactForm(false);
   };
 
@@ -90,7 +74,7 @@ function Home({ navigate = () => {} }) {
 
         <TrustSection />
 
-        <FAQSection faqs={faqs} />
+        <FAQSection faqs={faqs} handleGetStartedClick={handleGetStartedClick} />
 
         {/* <CTASection 
           navigate={navigate} 
@@ -98,13 +82,22 @@ function Home({ navigate = () => {} }) {
         /> */}
       </div>
 
-      <ContactForm 
-        showContactForm={showContactForm} 
-        handleCloseForm={handleCloseForm} 
-        formData={formData} 
-        setFormData={setFormData} 
-        handleSubmit={handleSubmit} 
-      />
+      {showContactForm && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            onClick={handleCloseForm}
+          ></div>
+          <div className="relative z-50">
+            <ContactForm 
+              onClose={handleCloseForm}
+              defaultService=""
+              showCloseButton={true}
+              compact={false}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
