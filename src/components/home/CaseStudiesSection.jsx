@@ -42,13 +42,13 @@ function CaseStudiesSection({ caseStudies }) {
   }, [currentIndex]);
 
   return (
-    <section className="py-20 px-6 bg-white overflow-hidden relative">
+    <section className="py-16 px-6 bg-white overflow-hidden relative">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-emerald-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -56,7 +56,14 @@ function CaseStudiesSection({ caseStudies }) {
           >
             <Trophy className="w-3.5 h-3.5" />
             <span>Success Stories</span>
-          </motion.div>
+          </motion.div> */}
+           <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <span className="text-base font-semibold text-slate-600 tracking-normal">
+              SUCCESS STORIES
+            </span>
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

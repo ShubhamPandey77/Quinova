@@ -79,7 +79,7 @@ function Home({ navigate = () => {} }) {
 
         <CaseStudiesSection caseStudies={caseStudies} />
 
-        <WhyChooseUsSection handleGetStartedClick={handleGetStartedClick} />
+        {/* <WhyChooseUsSection handleGetStartedClick={handleGetStartedClick} /> */}
 
         <TestimonialsSection 
           ref={(el) => (observerRefs.current[1] = el)} 

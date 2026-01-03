@@ -32,10 +32,17 @@ function FAQSection({ faqs }) {
     <section className="py-20 px-6 bg-slate-50">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block text-slate-600 font-semibold mb-2">Common Questions</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <div className="inline-flex items-center gap-3 mb-4">
+                                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                                <span className="text-base font-semibold text-slate-600 tracking-normal">COMMON QUESTIONS</span>
+                                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                            </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
             Frequently Asked Questions
           </h2>
+                              <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full mb-4"></div>
+
           <p className="text-xl text-slate-600">
             Have questions about our services? Find answers below.
           </p>
