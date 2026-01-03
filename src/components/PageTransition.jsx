@@ -3,23 +3,23 @@ import { motion } from 'framer-motion';
 
 const pageVariants = {
   initial: {
-    opacity: 1,
-    y: 0
+    opacity: 0,
+    y: 20
   },
   in: {
     opacity: 1,
     y: 0
   },
   out: {
-    opacity: 1,
-    y: 0
+    opacity: 0,
+    y: -20
   }
 };
 
 const pageTransition = {
   type: "tween",
-  ease: "easeInOut",
-  duration: 0
+  ease: "anticipate",
+  duration: 0.5
 };
 
 function PageTransition({ children }) {

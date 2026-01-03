@@ -3,11 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Code, TrendingUp, Film, Palette, MessageSquare, Globe, CheckCircle, ArrowRight, Mail, X, Target, Zap, Rocket } from 'lucide-react';
 import { services, processSteps, faqs } from '../../const';
 import FAQSection from '../../components/FAQSection';
-import { Particles } from "@/components/ui/particles";
 
 function Services() {
   const routerNavigate = useNavigate();
-  const [particleColor] = useState("#1660cd");
   const servicePaths = [
     '/services/website-development',
     '/services/social-media-management',
@@ -78,129 +76,42 @@ function Services() {
     <>
       <div className="pt-16 bg-white">
         {/* Hero Section */}
-        <section className="relative py-40 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-          {/* Particles Background */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <Particles
-              className="w-full h-full"
-              quantity={80}
-              vx={0.2}
-              vy={0.5}
-              staticity={40}
-              size={0.8}
-              ease={30}
-              color={particleColor}
-            />
-          </div>
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center mb-16 space-y-8 max-w-3xl mx-auto">
-              <style>{`
-                @keyframes slideInUp {
-                  from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                  }
-                  to {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
-                }
-                .line-1 {
-                  animation: slideInUp 1s ease-out 0.1s forwards;
-                  opacity: 0;
-                }
-                .line-2 {
-                  animation: slideInUp 1s ease-out 0.3s forwards;
-                  opacity: 0;
-                }
-                .line-3 {
-                  animation: slideInUp 1s ease-out 0.5s forwards;
-                  opacity: 0;
-                }
-                .line-4 {
-                  animation: slideInUp 1s ease-out 0.7s forwards;
-                  opacity: 0;
-                }
-                .gradient-text {
-                  background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 100%);
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  background-clip: text;
-                }
-                .fill-button {
-                  position: relative;
-                  overflow: hidden;
-                  border: 2px solid #1e293b;
-                  background-color: transparent;
-                  color: #1e293b;
-                  transition: color 0.3s ease;
-                }
-                .fill-button::before {
-                  content: '';
-                  position: absolute;
-                  top: 0;
-                  left: -100%;
-                  width: 100%;
-                  height: 100%;
-                  background-color: #1e293b;
-                  transition: left 0.6s ease;
-                  z-index: -1;
-                }
-                .fill-button:hover {
-                  color: white;
-                }
-                .fill-button:hover::before {
-                  left: 0;
-                }
-              `}</style>
-              
-              <div className="line-1">
-                <span className="inline-block bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold mb-4">
-                  Our Services
-                </span>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 leading-tight tracking-tight line-2">
-                <span className="gradient-text">Professional IT Solutions</span>
-                <span className="block">That Drive Results</span>
+        <section className="py-16 px-6 bg-linear-to-b from-slate-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="inline-block bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold mb-4">
+                Our Services
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+                Professional IT Solutions <span className="block">That Drive Results</span>
               </h1>
-              
-              <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed line-3">
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
                 Whether you need a stunning website, powerful marketing strategy, or creative brand identity, we have the expertise to deliver excellence across all disciplines.
               </p>
-
-              <div className="flex justify-center line-4">
-                <button 
-                  onClick={handleGetStartedClick}
-                  className="fill-button px-8 py-3 rounded-lg font-semibold flex items-center gap-2"
-                >
-                  Start Your Project
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto line-4" style={{ animationDelay: '0.9s' }}>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
                 {
                   icon: "🎯",
                   title: "Results-Focused",
-                  color: "bg-blue-50"
+                  desc: "Every service designed to drive measurable business results"
                 },
                 {
                   icon: "⚡",
                   title: "Lightning Fast",
-                  color: "bg-amber-50"
+                  desc: "Efficient processes without compromising on quality"
                 },
                 {
                   icon: "👥",
                   title: "Expert Team",
-                  color: "bg-purple-50"
+                  desc: "Certified professionals with 3+ years of experience"
                 }
               ].map((item, index) => (
-                <div key={index} className={`${item.color} rounded-lg p-6 text-center hover:shadow-lg transition-shadow`}>
-                  <div className="text-2xl mb-3 flex justify-center">{item.icon}</div>
-                  <div className="text-sm font-semibold text-slate-900">{item.title}</div>
+                <div key={index} className="bg-white border-slate-200 rounded-xl p-8 h-full border  shadow-lg group-hover:shadow-2lg group-hover:border-slate-200 transition-all duration-300 hover:-translate-y-2">
+                  <div className="text-4xl mb-3">{item.icon}</div>
+                  <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -231,14 +142,14 @@ function Services() {
                         <div className="flex gap-2">
                           <button 
                             onClick={() => routerNavigate(servicePaths[index])}
-                            className="fill-button px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
+                            className="bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition-colors flex items-center gap-2"
                           >
                             Learn More
                             <ArrowRight className="w-4 h-4" />
                           </button>
                           <button 
                             onClick={handleGetStartedClick}
-                            className="fill-button px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
+                            className="bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2"
                           >
                             Get Started
                             <ArrowRight className="w-4 h-4" />
