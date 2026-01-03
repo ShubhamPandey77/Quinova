@@ -46,7 +46,7 @@ function RefundPolicy() {
       subsections: [
         {
           heading: 'Step 1: Submit Request',
-          content: 'Contact us at QuinovaITSolutions@gmail.com with your project details and reason for the refund request.'
+          content: 'Contact us at QuinovaITSolutions@gmail.com or solutions@quinova.tech with your project details and reason for the refund request.'
         },
         {
           heading: 'Step 2: Review',
@@ -153,7 +153,7 @@ function RefundPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'Have questions? Contact us:',
       contact: {
-        email: 'QuinovaITSolutions@gmail.com',
+        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }
@@ -234,8 +234,21 @@ function RefundPolicy() {
 
               {section.contact && (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <p className="text-slate-800 font-semibold mb-3">Email: {section.contact.email}</p>
-                  <p className="text-slate-800 font-semibold">Phone: {section.contact.phone}</p>
+                  <p className="text-slate-800 font-semibold mb-3">
+                    Email: {Array.isArray(section.contact.email) ? (
+                      section.contact.email.map((email, idx) => (
+                        <span key={idx}>
+                          <a href={`mailto:${email}`} className="text-green-600 hover:text-green-800 hover:underline">{email}</a>
+                          {idx < section.contact.email.length - 1 && " / "}
+                        </span>
+                      ))
+                    ) : (
+                      <a href={`mailto:${section.contact.email}`} className="text-green-600 hover:text-green-800 hover:underline">{section.contact.email}</a>
+                    )}
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-green-600 hover:text-green-800 hover:underline">{section.contact.phone}</a>
+                  </p>
                 </div>
               )}
             </div>

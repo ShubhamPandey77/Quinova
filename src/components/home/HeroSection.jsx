@@ -34,16 +34,16 @@ function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
             <div className="flex flex-wrap gap-4">
               <button 
                 onClick={() => navigate('/services')}
-                className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2"
+                className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800   flex items-center gap-2 cursor-pointer"
               >
                 Explore Services
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button 
                 onClick={handleGetStartedClick}
-                className="border-2 border-slate-900 text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
+                className="border-2 border-slate-900 text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50  transition-colors cursor-pointer"
               >
-                Contact Us
+                Get Started
               </button>
             </div>
 
@@ -61,12 +61,12 @@ function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: <Code className="w-6 h-6" />, title: "Web Development", color: "bg-blue-50" },
-                { icon: <Zap className="w-6 h-6" />, title: "Digital Marketing", color: "bg-amber-50" },
-                { icon: <Film className="w-6 h-6" />, title: "Video Editing", color: "bg-red-50" },
-                { icon: <Palette className="w-6 h-6" />, title: "Graphic Design", color: "bg-purple-50" }
+                { icon: <Code className="w-6 h-6" />, title: "Web Development", color: "bg-blue-50",navigateTo:"/services/website-development" },
+                { icon: <Zap className="w-6 h-6" />, title: "Digital Marketing", color: "bg-amber-50",navigateTo:"/services/digital-marketing" },
+                { icon: <Film className="w-6 h-6" />, title: "Video Editing", color: "bg-red-50",navigateTo:"/services/video-editing" },
+                { icon: <Palette className="w-6 h-6" />, title: "Graphic Design", color: "bg-purple-50",navigateTo:"/services/graphic-design" },
               ].map((item, index) => (
-                <div key={index} className={`${item.color} rounded-lg p-6 text-center hover:shadow-lg transition-shadow`}>
+                <div key={index} onClick={() => item.navigateTo && navigate(item.navigateTo)} className={`${item.color} rounded-lg p-6 text-center hover:shadow-lg transition-shadow cursor-pointer`}>
                   <div className="text-slate-900 mb-3 flex justify-center">{item.icon}</div>
                   <div className="text-sm font-semibold text-slate-900">{item.title}</div>
                 </div>

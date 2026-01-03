@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-function FAQSection({ faqs }) {
+function FAQSection({ faqs, handleGetStartedClick }) {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('General');
 
@@ -142,14 +142,12 @@ function FAQSection({ faqs }) {
           <p className="text-slate-200 mb-6 text-lg">
             Our team is here to help. Reach out with any questions about our services.
           </p>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block bg-white text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
-          >
-            Contact Us
-          </motion.a>
+          <button 
+                onClick={handleGetStartedClick}
+                className="border-2 bg-gray-100 border-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors cursor-pointer"
+              >
+                Contact Us
+              </button>
         </motion.div>
       </div>
     </section>

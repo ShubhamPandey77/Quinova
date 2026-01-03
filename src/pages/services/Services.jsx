@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Code, TrendingUp, Film, Palette, MessageSquare, Globe, CheckCircle, ArrowRight, Mail, X, Target, Zap, Rocket } from 'lucide-react';
+import { Code, TrendingUp, Film, Palette, MessageSquare, Globe, CheckCircle, ArrowRight, Mail, Target, Zap, Rocket } from 'lucide-react';
 import { services, processSteps, faqs } from '../../const';
 import FAQSection from '../../components/FAQSection';
+import ContactForm from '../../components/ContactForm';
 
 function Services() {
   const routerNavigate = useNavigate();
@@ -18,15 +19,6 @@ function Services() {
   // eslint-disable-next-line no-unused-vars
   const [isVisible, setIsVisible] = useState({});
   const observerRefs = useRef([]);
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    budget: '',
-    message: ''
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,13 +47,6 @@ function Services() {
     setShowContactForm(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you! We will contact you soon.');
-    setFormData({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
-    setShowContactForm(false);
-  };
-
   const servicesWithIcons = services.map((service, index) => ({
     ...service,
     icon: [<Code className="w-12 h-12" />, <TrendingUp className="w-12 h-12" />, <Film className="w-12 h-12" />, <Palette className="w-12 h-12" />, <MessageSquare className="w-12 h-12" />, <Globe className="w-12 h-12" />][index]
@@ -76,20 +61,18 @@ function Services() {
     <>
       <div className="pt-16 bg-white">
         {/* Hero Section */}
-        <section className="py-16 px-6 bg-linear-to-b from-slate-50 to-white">
+        <section className="py-20 px-6 bg-linear-to-b from-slate-50 to-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold mb-4">
-                Our Services
-              </span>
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                Professional IT Solutions <span className="block">That Drive Results</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-2">
+                Professional IT Solutions 
               </h1>
+                                            <div className="w-28 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
+
               <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
                 Whether you need a stunning website, powerful marketing strategy, or creative brand identity, we have the expertise to deliver excellence across all disciplines.
               </p>
             </div>
-
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
                 {
@@ -105,7 +88,7 @@ function Services() {
                 {
                   icon: "👥",
                   title: "Expert Team",
-                  desc: "Certified professionals with 3+ years of experience"
+                  desc: "Certified professionals with 1+ years of experience"
                 }
               ].map((item, index) => (
                 <div key={index} className="bg-white border-slate-200 rounded-xl p-8 h-full border  shadow-lg group-hover:shadow-2lg group-hover:border-slate-200 transition-all duration-300 hover:-translate-y-2">
@@ -136,9 +119,9 @@ function Services() {
                       <p className="text-slate-700 leading-relaxed mb-6">{service.longDescription}</p>
                       
                       <div className="flex items-center justify-between pt-4 border-t border-slate-200">
-                        <div>
+                        {/* <div>
                           <div className="text-3xl font-bold text-slate-900">{service.price}</div>
-                        </div>
+                        </div> */}
                         <div className="flex gap-2">
                           <button 
                             onClick={() => routerNavigate(servicePaths[index])}
@@ -185,13 +168,17 @@ function Services() {
   <div className="max-w-6xl mx-auto">
     {/* Heading */}
     <div className="text-center mb-20">
-      <span className="text-gray-500 font-medium tracking-wide uppercase">
-        Our Approach
-      </span>
-      <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mt-3">
+       <div className="inline-flex items-center gap-3 mb-4">
+                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                                <span className="text-base font-semibold text-slate-600 tracking-normal">OUR APPROACH</span>
+                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                            </div>
+      <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mt-3 mb-3">
         Our Process
       </h2>
-      <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
+                                    <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full mb-4"></div>
+
+      <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
         A refined workflow that ensures clarity, quality, and seamless delivery.
       </p>
     </div>
@@ -236,10 +223,16 @@ function Services() {
         <section className="py-14 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block text-slate-600 font-semibold mb-4">Why Clients Choose Us</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
+              <div className="inline-flex items-center gap-3 mb-4">
+                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                                <span className="text-base font-semibold text-slate-600 tracking-normal">WHY CLIENTS CHOOSE US</span>
+                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                            </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-5">
                 Partnership That Delivers
               </h2>
+                                            <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full mb-4"></div>
+
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -278,125 +271,23 @@ function Services() {
         </section>
 
         {/* FAQ Section */}
-        <FAQSection faqs={faqs} />
+        <FAQSection faqs={faqs} handleGetStartedClick={handleGetStartedClick} />
       </div>
 
-      {/* Contact Form Popup */}
+      {/* Contact Form Modal */}
       {showContactForm && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div 
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={handleCloseForm}
           ></div>
-
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
-            <button
-              onClick={handleCloseForm}
-              className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-lg transition-colors z-10"
-            >
-              <X className="w-5 h-5 text-slate-600" />
-            </button>
-
-            <div className="p-8 md:p-10">
-              <div className="mb-8">
-                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-4">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-2">Get Started</h2>
-                <p className="text-slate-600">Fill out the form and we'll get back to you within 24 hours</p>
-              </div>
-
-              <div className="space-y-5">
-                {[
-                  { id: "name", label: "Full Name *", type: "text", placeholder: "John Doe" },
-                  { id: "email", label: "Email Address *", type: "email", placeholder: "john@example.com" },
-                  { id: "phone", label: "Phone Number", type: "tel", placeholder: "+91 98765 43210" },
-                ].map(({ id, label, type, placeholder }) => (
-                  <div key={id}>
-                    <label className="block text-sm font-medium text-slate-900 mb-2">{label}</label>
-                    <input
-                      type={type}
-                      required={label.includes("*")}
-                      value={formData[id]}
-                      onChange={(e) =>
-                        setFormData({ ...formData, [id]: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
-                      placeholder={placeholder}
-                    />
-                  </div>
-                ))}
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 mb-2">
-                    Service Interested In *
-                  </label>
-                  <select
-                    required
-                    value={formData.service}
-                    onChange={(e) =>
-                      setFormData({ ...formData, service: e.target.value })
-                    }
-                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors bg-white"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="website">Website Development</option>
-                    <option value="social-media">Social Media Management</option>
-                    <option value="video">Video Editing</option>
-                    <option value="design">Graphic Design</option>
-                    <option value="content">Content Writing</option>
-                    <option value="marketing">Digital Marketing</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 mb-2">
-                    Project Budget
-                  </label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) =>
-                      setFormData({ ...formData, budget: e.target.value })
-                    }
-                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors bg-white"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="499-5000">₹499 - ₹5,000</option>
-                    <option value="5000-9999">₹5,000 - ₹9,999</option>
-                    <option value="9999-19999">₹9,999 - ₹19,999</option>
-                    <option value="19999+">₹19,999+</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 mb-2">
-                    Project Details *
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors resize-none"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
-                </div>
-
-                <button
-                  onClick={handleSubmit}
-                  className="w-full bg-slate-900 text-white py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"
-                >
-                  <span>Send Message</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <p className="text-sm text-slate-600 text-center">
-                  We'll respond within 24 hours. Your information is confidential.
-                </p>
-              </div>
-            </div>
+          <div className="relative z-50">
+            <ContactForm 
+              onClose={handleCloseForm}
+              defaultService=""
+              showCloseButton={true}
+              compact={false}
+            />
           </div>
         </div>
       )}

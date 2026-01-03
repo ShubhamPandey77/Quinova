@@ -114,7 +114,7 @@ function TermsOfService() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For questions regarding these Terms of Service:',
       contact: {
-        email: 'QuinovaITSolutions@gmail.com',
+        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }
@@ -195,8 +195,21 @@ function TermsOfService() {
 
               {section.contact && (
                 <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                  <p className="text-slate-800 font-semibold mb-3">Email: {section.contact.email}</p>
-                  <p className="text-slate-800 font-semibold">Phone: {section.contact.phone}</p>
+                  <p className="text-slate-800 font-semibold mb-3">
+                    Email: {Array.isArray(section.contact.email) ? (
+                      section.contact.email.map((email, idx) => (
+                        <span key={idx}>
+                          <a href={`mailto:${email}`} className="text-purple-600 hover:text-purple-800 hover:underline">{email}</a>
+                          {idx < section.contact.email.length - 1 && " / "}
+                        </span>
+                      ))
+                    ) : (
+                      <a href={`mailto:${section.contact.email}`} className="text-purple-600 hover:text-purple-800 hover:underline">{section.contact.email}</a>
+                    )}
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-purple-600 hover:text-purple-800 hover:underline">{section.contact.phone}</a>
+                  </p>
                 </div>
               )}
             </div>

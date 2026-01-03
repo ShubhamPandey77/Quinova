@@ -85,7 +85,7 @@ function PrivacyPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For privacy-related inquiries or to exercise your rights, contact us at:',
       contact: {
-        email: 'QuinovaITSolutions@gmail.com',
+        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }
@@ -166,8 +166,21 @@ function PrivacyPolicy() {
 
               {section.contact && (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                  <p className="text-slate-800 font-semibold mb-3">Email: {section.contact.email}</p>
-                  <p className="text-slate-800 font-semibold">Phone: {section.contact.phone}</p>
+                  <p className="text-slate-800 font-semibold mb-3">
+                    Email: {Array.isArray(section.contact.email) ? (
+                      section.contact.email.map((email, idx) => (
+                        <span key={idx}>
+                          <a href={`mailto:${email}`} className="text-blue-600 hover:text-blue-800 hover:underline">{email}</a>
+                          {idx < section.contact.email.length - 1 && " / "}
+                        </span>
+                      ))
+                    ) : (
+                      <a href={`mailto:${section.contact.email}`} className="text-blue-600 hover:text-blue-800 hover:underline">{section.contact.email}</a>
+                    )}
+                  </p>
+                  <p className="text-slate-800 font-semibold">
+                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-blue-600 hover:text-blue-800 hover:underline">{section.contact.phone}</a>
+                  </p>
                 </div>
               )}
             </div>

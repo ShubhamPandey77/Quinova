@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Phone, MapPin, CheckCircle, MessageSquareDot, Send } from 'lucide-react';
 import { socialLinks, footerCompanyInfo, footerLinks, footerTrustBadges, footerContactInfo } from '../const';
 import ContactForm from '../components/ContactForm';
 
@@ -80,20 +80,32 @@ function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-16">
            {/* Contact Info Section */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {footerContactInfo.map((info, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
-                <div className="shrink-0">
-                  {info.icon === 'phone' && <Phone className="w-6 h-6 text-white" />}
-                  {info.icon === 'email' && <Mail className="w-6 h-6 text-white" />}
-                  {info.icon === 'location' && <MapPin className="w-6 h-6 text-white" />}
-                </div>
-                <div>
-                  <h4 className="font-bold text-white mb-1">{info.title}</h4>
-                  <p className="text-slate-300 text-sm font-semibold">{info.value}</p>
-                  <p className="text-slate-400 text-xs">{info.subtext}</p>
-                </div>
-              </div>
-            ))}
+            {footerContactInfo.map((info, index) => {
+              let href = '#';
+              if (info.icon === 'phone') href = `tel:${info.value.replace(/\s/g, '')}`;
+              if (info.icon === 'email') href = `mailto:${info.value}`;
+              
+              return (
+                <a
+                  key={index}
+                  href={href}
+                  target={info.icon === 'location' ? undefined : '_blank'}
+                  rel={info.icon === 'location' ? undefined : 'noopener noreferrer'}
+                  className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:bg-slate-800 transition-all cursor-pointer"
+                >
+                  <div className="shrink-0">
+                    {info.icon === 'phone' && <Phone className="w-6 h-6 text-white hover:text-emerald-400 transition-colors" />}
+                    {info.icon === 'email' && <Mail className="w-6 h-6 text-white hover:text-emerald-400 transition-colors" />}
+                    {info.icon === 'location' && <MapPin className="w-6 h-6 text-white" />}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white mb-1">{info.title}</h4>
+                    <p className="text-slate-300 text-sm font-semibold">{info.value}</p>
+                    <p className="text-slate-400 text-xs">{info.subtext}</p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
           {/* Top Section - Company Info & Contact */}
           <div className="grid md:grid-cols-5 gap-8 mb-12">
@@ -195,13 +207,54 @@ function Footer() {
         </div>
 
         {/* Floating Contact Button */}
-        <button
-          onClick={handleContactClick}
-          className="fixed bottom-6 right-6 w-14 h-14 bg-white text-slate-900 rounded-full flex items-center justify-center hover:bg-slate-100 transition-all shadow-xl hover:scale-110 z-40"
-          title="Contact Us"
-        >
-          <Mail className="w-6 h-6" />
-        </button>
+       <div className="fixed bottom-6 right-6 z-50 group">
+
+  {/* Expanded Options */}
+  <div className="absolute bottom-16 right-0 flex flex-col gap-3 
+                  opacity-0 scale-95 
+                  group-hover:opacity-100 group-hover:scale-100
+                  transition-all duration-300 pointer-events-none">
+
+    {/* WhatsApp */}
+    <a
+      href="https://wa.me/917991214170"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="pointer-events-auto w-12 h-12 rounded-full bg-green-500 
+                 flex items-center justify-center shadow-lg 
+                 hover:scale-110 transition"
+      title="WhatsApp"
+    >
+      <Send className="w-5 h-5 text-white" />
+    </a>
+
+    {/* Mail */}
+    <a
+      href="mailto:QuinovaITSolutions@gmail.com?cc=solutions@quinova.tech"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="pointer-events-auto w-12 h-12 rounded-full bg-blue-600 
+                 flex items-center justify-center shadow-lg 
+                 hover:scale-110 transition"
+      title="Email"
+    >
+      <Mail className="w-5 h-5 text-white" />
+    </a>
+  </div>
+
+  {/* Main Floating Button */}
+  <button
+    className="w-14 h-14 rounded-full bg-white text-slate-900 
+               flex items-center justify-center shadow-xl 
+               hover:scale-110 transition border-2 border-gray-700"
+    title="Contact Us"
+  >
+    <MessageSquareDot className="w-6 h-6 " />
+  </button>
+
+</div>
+
+        
       </footer>
 
                       {/* Contact Form Modal */}

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck } from 'lucide-react';
 import { FaRegUser } from "react-icons/fa";
@@ -31,7 +31,7 @@ const TestimonialCard = ({ testimonial }) => {
             <h4 className="font-bold text-slate-900 text-sm truncate">{testimonial.name}</h4>
             <ShieldCheck className="w-3.5 h-3.5 text-blue-500 shrink-0" />
           </div>
-          <p className="text-[12px] text-slate-500 font-medium truncate">@{testimonial.name.toLowerCase().replace(/\s+/g, '')}</p>
+          <p className="text-[12px] text-slate-500 font-medium truncate">@{testimonial.company.toLowerCase().replace(/\s+/g, '')}</p>
         </div>
         {/* <div className="ml-auto flex gap-0.5">
           {[...Array(5)].map((_, i) => (
@@ -56,7 +56,7 @@ const TestimonialCard = ({ testimonial }) => {
   );
 };
 
-const MarqueeColumn = ({ items, duration = 25, reverse = false }) => (
+const MarqueeColumn = ({ items, duration = 35, reverse = false, delay = 0 }) => (
   <div className="relative h-[500px] overflow-hidden">
     <motion.div
       animate={{
@@ -66,7 +66,9 @@ const MarqueeColumn = ({ items, duration = 25, reverse = false }) => (
         duration: duration,
         ease: "linear",
         repeat: Infinity,
+        delay
       }}
+        whileHover={{ animationPlayState: "paused" }}
       className="flex flex-col"
     >
       {[...items, ...items].map((item, index) => (
@@ -79,7 +81,7 @@ const MarqueeColumn = ({ items, duration = 25, reverse = false }) => (
 
 
 const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
-  // Distribute testimonials into 3 columns
+  // Distribute testimonials into 3 columns  or we can show 3 different in each colomn.
   const col1 = testimonials.slice(0, Math.ceil(testimonials.length / 3));
   const col2 = testimonials.slice(Math.ceil(testimonials.length / 3), Math.ceil(testimonials.length * 2 / 3));
   const col3 = testimonials.slice(Math.ceil(testimonials.length * 2 / 3));
@@ -94,6 +96,13 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
       <div className="max-w-7xl mx-auto relative z-10">
         {eventType!=="About" &&
         <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <span className="text-base font-semibold text-slate-600 tracking-normal">
+              TESTIMONIALS
+            </span>
+            <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,10 +122,10 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
 
           <MarqueeColumn items={[...col1, ...col2]} duration={30} />
           <div className="hidden md:block">
-            <MarqueeColumn items={[...col2, ...col3, ...col1]} duration={35} reverse={true} />
+            <MarqueeColumn items={[...col3, ...col1]} duration={35} reverse={true} />
           </div>
           <div className="hidden lg:block">
-            <MarqueeColumn items={[...col3, ...col1, ...col2]} duration={25} />
+            <MarqueeColumn items={[...col2, ...col3]} duration={25} />
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ export const contactInfo = [
   {
     icon: null, 
     title: "Email Us",
-    details: ["QuinovaITSolutions@gmail.com"],
+    details: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
     color: "from-emerald-500 to-teal-600"
   },
   {
@@ -38,10 +38,10 @@ export const faqs = [
         q: "How long does a typical project take?",
         a: "Project timelines vary based on scope and complexity:\n• Website Development: 2-4 weeks\n• Social Media Strategy: Ongoing (results in 4-8 weeks)\n• Video Editing: 3-7 days per video\n• Graphic Design: 1-2 weeks per project\n• Content Writing: 2-5 days per article\n• Digital Marketing: 4-12 weeks for full results\n\nWe provide a detailed timeline during your consultation."
       },
-      {
-        q: "What is your pricing structure?",
-        a: "We offer transparent, project-based pricing:\n• Website Development: ₹9,999+\n• Social Media: ₹9,999/month\n• Video Editing: ₹1,999+\n• Graphic Design: ₹499+\n• Content Writing: ₹499/article\n• Digital Marketing: ₹19,999/month\n\nAll prices are starting rates. We provide custom quotes based on your specific needs and goals."
-      },
+      // {
+      //   q: "What is your pricing structure?",
+      //   a: "We offer transparent, project-based pricing:\n• Website Development: ₹9,999+\n• Social Media: ₹9,999/month\n• Video Editing: ₹1,999+\n• Graphic Design: ₹499+\n• Content Writing: ₹499/article\n• Digital Marketing: ₹19,999/month\n\nAll prices are starting rates. We provide custom quotes based on your specific needs and goals."
+      // },
       {
         q: "Do you offer ongoing support?",
         a: "Yes! We provide comprehensive post-launch support:\n• 24/7 Technical Support\n• Monthly Performance Reports\n• Maintenance & Updates\n• Optimization Recommendations\n• Content Refreshes\n• Bug Fixes & Improvements\n\nYour success doesn't end at delivery—we're committed to your long-term growth."
@@ -52,11 +52,11 @@ export const faqs = [
       },
       {
         q: "What is your team's experience?",
-        a: "Our team brings 10+ years of combined expertise:\n• Certified Web Developers\n• Digital Marketing Specialists\n• Professional Video Editors\n• Award-winning Designers\n• Content Strategists\n• Project Managers\n\nEach team member is thoroughly vetted and continuously trained."
+        a: "Our team brings professional and diverse expertise:\n• Certified Web Developers\n• Digital Marketing Specialists\n• Professional Video Editors\n• Award-winning Designers\n• Content Strategists\n• Project Managers\n\nEach team member is thoroughly vetted and continuously trained."
       },
       {
         q: "Do you offer a satisfaction guarantee?",
-        a: "Yes! We're confident in our work:\n• 100% Satisfaction Guarantee"
+        a: "Yes! We're confident in our work:\n• We have 98% Client Satisfaction Rate"
       }
     ]
   },
@@ -65,7 +65,7 @@ export const faqs = [
     questions: [
       {
         q: "What technologies do you use?",
-        a: "We use modern, industry-standard technologies:\n• React & Vue for frontend\n• Node.js & Python for backend\n• MongoDB & PostgreSQL for databases\n• AWS for hosting\n• Tailwind CSS for responsive design\n• SEO-optimized architecture\n\nWe choose the right tech stack for your specific needs."
+        a: "We use modern, industry-standard technologies:\n• React & Nextjs for frontend\n• Node.js & Python for backend\n• MongoDB & PostgreSQL for databases\n• Vercel,Hostinger for hosting\n• Tailwind CSS for responsive design\n• SEO-optimized architecture\n\nWe choose the right tech stack for your specific needs."
       },
       {
         q: "Will my website be mobile-friendly?",
@@ -73,7 +73,7 @@ export const faqs = [
       },
       {
         q: "Is SEO included?",
-        a: "Yes! Every website includes:\n• On-page SEO optimization\n• Meta tags & descriptions\n• Keyword research & implementation\n• XML sitemaps\n• Fast load speeds (critical for ranking)\n• Mobile optimization\n• Schema markup\n• Technical SEO best practices\n\nYour website will be built to rank."
+        a: "Yes! Every website includes:\n• On-page SEO optimization\n• Meta tags & descriptions\n• Fast load speeds (critical for ranking)\n• Mobile optimization\n• Schema markup\n• Technical SEO best practices\n\nYour website will be built to rank."
       },
       {
         q: "Can you integrate e-commerce?",
@@ -86,7 +86,7 @@ export const faqs = [
     questions: [
       {
         q: "Which platforms do you manage?",
-        a: "We manage all major platforms:\n• Instagram\n• Facebook\n• LinkedIn\n• Twitter\n• YouTube\n• TikTok\n• Pinterest\n• Custom combinations based on your audience\n\nWe focus on platforms where YOUR audience is active."
+        a: "We manage all major platforms:\n• Instagram\n• Facebook\n• LinkedIn\n• Twitter\n• YouTube\n Custom combinations based on your audience\n\nWe focus on platforms where YOUR audience is active."
       },
       {
         q: "How many posts will I get?",
@@ -145,12 +145,12 @@ export const faqs = [
       },
       {
         q: "What's included in the price?",
-        a: "Our pricing includes:\n• All revisions until satisfied\n• Unlimited support\n• Project management\n• Quality assurance\n• Deployment/Launch\n• Initial training (if needed)\n\nNo hidden charges. Transparent pricing."
+        a: "Our pricing includes:\n• Project management\n• Quality assurance\n• Deployment/Launch\n• Initial training (if needed)\n\nNo hidden charges. Transparent pricing."
       },
-      {
-        q: "Can you provide a refund?",
-        a: "Our refund policy:\n• 100% satisfaction guarantee\n• Full refund if not satisfied\n• Or we redo the work free\n• Refund within 30 days\n• No questions asked\n\nYour satisfaction is our priority."
-      }
+      // {
+      //   q: "Can you provide a refund?",
+      //   a: "Our refund policy:\n• 100% satisfaction guarantee\n• Full refund if not satisfied\n• Or we redo the work free\n• Refund within 30 days\n• No questions asked\n\nYour satisfaction is our priority."
+      // }
     ]
   }
 ];
@@ -395,80 +395,154 @@ export const services = [
 // Testimonials
 export const testimonials = [
   { 
-    name: "Aarav Gupta", 
-    company: "Studio.labs", 
-    text: "Quinova transformed our entire online presence. Our website traffic increased by 350% in just 3 months. Their team is professional, creative, and truly understands business goals.",
-    rating: 5, 
-    avatar: "AG",
-    result: "350% increase in traffic"
+    name: "Nikesh Sharma",
+    company: "Snifora",
+    text: "Working with Quinova was a smooth experience from start to finish. They handled our website design and performance optimization really well. The site now loads faster, looks premium, and converts better than before.",
+    rating: 5,
+    avatar: "NS",
+    result: "Improved conversions & performance"
   },
   { 
-    name: "Dipanshu Parashar", 
-    company: "Virtual Cyber Labs", 
-    text: "The social media strategy they implemented generated over 500K impressions monthly. Professional, creative, and always deliver before deadlines. Highly recommended!",
-    rating: 5, 
-    avatar: "DP",
-    result: "500K monthly impressions"
+    name: "Mahesh Rao",
+    company: "Gharsingaar",
+    text: "The team understood our brand aesthetic perfectly. From design consistency to user experience, everything felt well thought out. Our customers frequently appreciate the new look of the website.",
+    rating: 5,
+    avatar: "MR",
+    result: "Stronger brand identity"
   },
   { 
-    name: "Yuvraj Singh", 
-    company: "Comparely", 
-    text: "Their graphic design work elevated our brand identity significantly. The team understood our vision perfectly and delivered exceptional quality at every step.",
-    rating: 5, 
-    avatar: "YS",
-    result: "Brand transformation"
+    name: "Team Nagomi",
+    company: "Nagomi",
+    text: "Quinova helped us refine our online presence with a clean and minimal approach. Their attention to detail and timely delivery made the collaboration extremely effective.",
+    rating: 5,
+    avatar: "NG",
+    result: "Clean & modern digital presence"
+  },
+  { 
+    name: "Suraj Singh",
+    company: "Tripsy Holidays",
+    text: "Our travel website needed better structure and clarity for users. Quinova redesigned key sections and improved the overall flow, which directly helped us get more inquiries.",
+    rating: 5,
+    avatar: "SS",
+    result: "Increase in travel inquiries"
+  },
+  { 
+    name: "Abdul Khan",
+    company: "TJF Digital",
+    text: "Reliable, creative, and easy to work with. Whether it was development or design support, the team consistently delivered quality work without unnecessary back and forth.",
+    rating: 5,
+    avatar: "AK",
+    result: "Reliable long-term collaboration"
+  },
+  { 
+    name: "Vivek Gupta",
+    company: "ElectroStore",
+    text: "Quinova helped us optimize our e-commerce experience and UI flow. The improvements made checkout simpler and reduced customer drop-offs significantly.",
+    rating: 5,
+    avatar: "VG",
+    result: "Reduced cart abandonment"
+  },
+  { 
+    name: "Management Team",
+    company: "Seva Shiksha",
+    text: "They were able to clearly understand our educational objectives and translate them into a simple, user-friendly website. Communication was clear and the project was delivered on time.",
+    rating: 5,
+    avatar: "SS",
+    result: "Clear communication & timely delivery"
+  },
+  { 
+    name: "Priyanshu Verma",
+    company: "GoHomies",
+    text: "From UI design to functionality, Quinova delivered exactly what we needed. Their suggestions genuinely improved the product and user experience.",
+    rating: 5,
+    avatar: "PV",
+    result: "Enhanced user experience"
   }
 ];
+
 
 // Case Studies
 export const caseStudies = [
   {
-    title: "Nagomi - Premium Lifestyle Brand",
+    title: "Nagomi - Wellness & Beauty Salon",
     client: "Nagomi",
-    result: "Enhanced online presence",
-    description: "Created a sophisticated e-commerce platform for premium lifestyle products with seamless user experience and secure payment integration. Optimized for conversions and brand storytelling.",
-    metrics: ["E-commerce Platform", "Premium Design", "Secure Checkout", "Mobile Optimized"],
-    link: "https://nagomi.co.in/"
+    result: "Premium wellness booking platform",
+    description: "Developed a sophisticated Japanese-inspired wellness sanctuary website showcasing spa, salon, and makeup services. Built with premium design aesthetics and complete service showcase.",
+    metrics: ["Service Booking System", "Premium Design", "Service Gallery", "Contact Integration"],
+    link: "https://nagomi.co.in/",
+    image: "/CaseStudy/nagomi.png"
+  },
+  {
+    title: "Gharsingaar - Interior Design Services",
+    client: "Gharsingaar",
+    result: "Professional portfolio website",
+    description: "Created a comprehensive interior design services website showcasing residential and commercial design projects. Features portfolio gallery, consultation booking, and design expertise highlights.",
+    metrics: ["Portfolio Gallery", "Consultation Forms", "Project Showcase", "Service Details"],
+    link: "https://www.gharsingaar.com/",
+    image: "/CaseStudy/gharsingaar.png"
+  },
+  {
+    title: "Snifora - Pet Accessories E-commerce",
+    client: "Snifora",
+    result: "Fully functional e-commerce store",
+    description: "Built a modern pet accessories e-commerce platform featuring harnesses, collars, toys, and custom products. Integrated secure payments, product catalog, and brand storytelling.",
+    metrics: ["Product Catalog", "Secure Checkout", "Custom Orders", "Product Categories"],
+    link: "https://www.snifora.uk/",
+    image: "/CaseStudy/snifora.png"
+  },
+  {
+    title: "Tripsy Holidays - Travel Agency Platform",
+    client: "Tripsy Holidays",
+    result: "Travel booking & package platform",
+    description: "Developed a comprehensive travel booking platform with destination packages, itinerary management, and support system. Features package listings, customer testimonials, and booking forms.",
+    metrics: ["Package Listings", "Booking System", "Destination Guide", "Customer Reviews"],
+    link: "https://tripsyholidays.com/",
+    image: "/CaseStudy/tripsyholiday.png"
+  },
+  {
+    title: "Seva Shiksha - Educational Trust Platform",
+    client: "Seva Shiksha",
+    result: "Scholarship enrollment platform",
+    description: "Created an educational scholarship and enrollment platform for deserving students. Features scholarship information, university partnerships, student portal, and application system.",
+    metrics: ["Scholarship Management", "Application Portal", "Partner Universities", "Student Dashboard"],
+    link: "https://sevashiksha.in/",
+    image: "/CaseStudy/sevashiksha.png"
+  },
+  {
+    title: 'ElectroStore - Electronics E-commerce',
+    client: "ElectroStore",
+    result: "Premium electronics marketplace",
+    description: "Developed a premium electronics e-commerce platform with quality products, fast delivery, and customer support. Features product catalog, secure payments, and order tracking.",
+    metrics: ["Product Catalog", "Secure Payment", "Order Tracking", "Customer Support"],
+    link: "https://electro-storee.vercel.app/",
+    image: "/CaseStudy/electrostore.png"
   },
   {
     title: "TJF Digital - Digital Marketing Agency",
     client: "TJF Digital",
-    result: "Professional agency website",
-    description: "Developed a comprehensive digital marketing agency website showcasing services, case studies, and team expertise. Built with modern design and SEO optimization for maximum visibility.",
-    metrics: ["Agency Portfolio", "Service Showcase", "Lead Generation", "SEO Optimized"],
-    link: "https://tjfdigital.com/"
+    result: "Agency services showcase website",
+    description: "Built a comprehensive digital marketing agency website showcasing WordPress development, custom coding, SEO, and advertising services. Features service details, portfolio, and contact forms.",
+    metrics: ["Service Showcase", "Portfolio Display", "Testimonials", "Contact Forms"],
+    link: "https://tjfdigital.com/",
+    image: "/CaseStudy/tjfdigital.png"
   },
   {
-    title: "Ambrd Welfare - Non-Profit Organization",
-    client: "Ambrd Welfare",
-    result: "Community impact platform",
-    description: "Built a mission-driven website for non-profit organization focused on social welfare. Features donation integration, impact tracking, and volunteer management capabilities.",
-    metrics: ["Non-Profit Platform", "Donation System", "Community Engagement", "Impact Tracking"],
-    link: "https://ambrdwelfare.org/"
-  },
-  {
-    title: "Studio Labs - Creative Agency Website",
+    title: "Studio Labs - Creative Design Agency",
     client: "Studio Labs",
-    result: "Professional digital presence",
-    description: "Built a modern, visually stunning website for Studio Labs showcasing their creative portfolio and services. Features responsive design, smooth animations, and optimized performance.",
-    metrics: ["Modern Design", "Fast Loading", "Portfolio Showcase", "Lead Generation"],
-    link: "https://www.studiolabs.in/"
+    result: "Creative portfolio website",
+    description: "Created a modern creative agency website showcasing design portfolio, services, and team expertise. Built with smooth animations, responsive design, and optimized performance.",
+    metrics: ["Portfolio Gallery", "Service Details", "Team Profile", "Project Showcase"],
+    link: "https://www.studiolabs.in/",
+    image: "/CaseStudy/studiolabs.png"
   },
   {
-    title: "Comparely - B2B Comparison Platform",
-    client: "Comparely",
-    result: "Scalable web application",
-    description: "Developed a comprehensive B2B comparison platform enabling businesses to compare services and products effectively. Built with modern tech stack for reliability and scalability.",
-    metrics: ["B2B Platform", "High Performance", "User-Friendly Interface", "Secure & Scalable"],
-    link: "https://app.comparely.co.in/"
-  },
-  {
-    title: "Virtual Cyber Labs - Cybersecurity Platform",
+    title: "Virtual Cyber Labs - Cybersecurity Academy",
     client: "Virtual Cyber Labs",
-    result: "Secure cyber learning platform",
-    description: "Developed an advanced cybersecurity training and lab platform offering hands-on learning experiences. Features secure sandbox environments, interactive courses, and real-world scenario simulations.",
-    metrics: ["Cybersecurity Labs", "Interactive Training", "Secure Environment", "Real-World Scenarios"],
-    link: "https://virtualcyberlabs.com/"
+    result: "Cybersecurity courses platform",
+    description: "Developed a cybersecurity training platform offering specialized courses, hands-on labs, and learning resources. Features course catalog, enrollment system, and student community.",
+    metrics: ["Course Listings", "Enrollment System", "Lab Access", "Community Forum"],
+    link: "https://virtualcyberlabs.com/",
+    image: "/CaseStudy/virtuallab.png"
   }
 ];
 
@@ -553,9 +627,9 @@ export const menuItems = [
 
 // Social Links
 export const socialLinks = [
-  { Icon: null, link: '#', color: 'hover:bg-blue-600' },
+  { Icon: null, link: 'https://www.facebook.com/quinova.official/', color: 'hover:bg-blue-600' },
   { Icon: null, link: 'https://www.instagram.com/quinova.official/', color: 'hover:bg-pink-600' },
-  { Icon: null, link: '#', color: 'hover:bg-blue-500' }
+  { Icon: null, link: 'https://www.linkedin.com/company/quinova/', color: 'hover:bg-blue-500' }
 ];
 
 // Testimonials for About Page
@@ -650,7 +724,7 @@ export const footerContactInfo = [
   {
     icon: "email",
     title: "Email Us",
-    value: "QuinovaITSolutions@gmail.com",
+    value: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
     subtext: "Response within 24 hours"
   },
   {
