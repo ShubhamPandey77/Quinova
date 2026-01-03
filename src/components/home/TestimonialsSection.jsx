@@ -76,19 +76,23 @@ const MarqueeColumn = ({ items, duration = 25, reverse = false }) => (
   </div>
 );
 
-const TestimonialsSection = forwardRef(({ testimonials }, ref) => {
+
+
+const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
   // Distribute testimonials into 3 columns
   const col1 = testimonials.slice(0, Math.ceil(testimonials.length / 3));
   const col2 = testimonials.slice(Math.ceil(testimonials.length / 3), Math.ceil(testimonials.length * 2 / 3));
   const col3 = testimonials.slice(Math.ceil(testimonials.length * 2 / 3));
 
+  console.log("about2",eventType)
   return (
     <section 
       id="testimonials-section"
       ref={ref}
-      className="py-16 px-6 bg-[#FAFAFA] relative overflow-hidden"
+      className={`px-6  relative overflow-hidden ${eventType === "About" ? "py-12" : "bg-[#FAFAFA] py-16"}`}
     >
       <div className="max-w-7xl mx-auto relative z-10">
+        {eventType!=="About" &&
         <div className="text-center mb-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -100,6 +104,7 @@ const TestimonialsSection = forwardRef(({ testimonials }, ref) => {
           </motion.h2>
           <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full"></div>
         </div>
+}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           {/* Top and Bottom Fades for smooth entry/exit */}
