@@ -3,9 +3,11 @@ import { Award, Users, Target, Heart, Zap, Shield, ArrowRight, Star, ChevronRigh
 import { values, team, stats, testimonials } from '../../const';
 import ContactForm from "../../components/ContactForm";
 import TestimonialsSection from '@/components/home/TestimonialsSection';
+import { Particles } from "@/components/ui/particles";
 
 function AboutUs({ navigate = () => {} }) {
     const [isVisible, setIsVisible] = useState({});
+    const [particleColor] = useState("#1660cd");
     const [showContactForm, setShowContactForm] = useState(false);
     const [expandedValueIndex, setExpandedValueIndex] = useState(null); // Add state for expanded value
     const observerRefs = useRef([]);
@@ -57,35 +59,108 @@ function AboutUs({ navigate = () => {} }) {
         <>
             <div className="pt-16 bg-white overflow-hidden">
                 {/* Hero Section - Premium */}
-                <section className="relative py-32 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                    <div className="max-w-7xl mx-auto relative">
-                        <div className="text-center max-w-4xl mx-auto">
-                            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-100 to-white px-6 py-3 rounded-full shadow-lg mb-8 border border-slate-200">
-                                <Sparkles className="w-4 h-4 text-slate-600" />
-                                <span className="text-sm font-semibold text-slate-700 tracking-wide">ABOUT US</span>
+                <section className="relative py-40 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+                    {/* Particles Background */}
+                    <div className="absolute inset-0 z-0 pointer-events-none">
+                        <Particles
+                            className="w-full h-full"
+                            quantity={80}
+                            vx={0.2}
+                            vy={0.5}
+                            staticity={40}
+                            size={0.8}
+                            ease={30}
+                            color={particleColor}
+                        />
+                    </div>
+                    <div className="max-w-7xl mx-auto relative z-10">
+                        <div className="text-center max-w-3xl mx-auto space-y-8">
+                            <style>{`
+                                @keyframes slideInUp {
+                                  from {
+                                    opacity: 0;
+                                    transform: translateY(30px);
+                                  }
+                                  to {
+                                    opacity: 1;
+                                    transform: translateY(0);
+                                  }
+                                }
+                                .line-1 {
+                                  animation: slideInUp 1s ease-out 0.1s forwards;
+                                  opacity: 0;
+                                }
+                                .line-2 {
+                                  animation: slideInUp 1s ease-out 0.3s forwards;
+                                  opacity: 0;
+                                }
+                                .line-3 {
+                                  animation: slideInUp 1s ease-out 0.5s forwards;
+                                  opacity: 0;
+                                }
+                                .line-4 {
+                                  animation: slideInUp 1s ease-out 0.7s forwards;
+                                  opacity: 0;
+                                }
+                                .gradient-text {
+                                  background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 100%);
+                                  -webkit-background-clip: text;
+                                  -webkit-text-fill-color: transparent;
+                                  background-clip: text;
+                                }
+                                .fill-button {
+                                  position: relative;
+                                  overflow: hidden;
+                                  border: 2px solid #1e293b;
+                                  background-color: transparent;
+                                  color: #1e293b;
+                                  transition: color 0.3s ease;
+                                }
+                                .fill-button::before {
+                                  content: '';
+                                  position: absolute;
+                                  top: 0;
+                                  left: -100%;
+                                  width: 100%;
+                                  height: 100%;
+                                  background-color: #1e293b;
+                                  transition: left 0.6s ease;
+                                  z-index: -1;
+                                }
+                                .fill-button:hover {
+                                  color: white;
+                                }
+                                .fill-button:hover::before {
+                                  left: 0;
+                                }
+                            `}</style>
+
+                            <div className="line-1">
+                                <div className="inline-flex items-center gap-2 bg-slate-100 px-6 py-3 rounded-full mb-4">
+                                    <Sparkles className="w-4 h-4 text-slate-600" />
+                                    <span className="text-sm font-semibold text-slate-700 tracking-wide uppercase">About Us</span>
+                                </div>
                             </div>
-                            <h1 className="text-6xl md:text-7xl font-bold text-slate-900 leading-tight mb-6">
-                                Crafting Digital
-                                <span className="block bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                                    Excellence
-                                </span>
+
+                            <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 leading-tight tracking-tight line-2">
+                                Crafting <span className="gradient-text">Digital Excellence</span>
                             </h1>
-                            <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-                                Where strategic innovation meets exceptional execution to transform businesses through digital mastery
+
+                            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed line-3">
+                                Where strategic innovation meets exceptional execution to transform businesses through digital mastery.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center line-4">
                                 <button 
                                     onClick={() => navigate('/services')}
-                                    className="group bg-gradient-to-r from-slate-900 to-slate-800 text-white px-10 py-4 rounded-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 shadow-lg cursor-pointer"
+                                    className="fill-button px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all duration-300 shadow-lg cursor-pointer"
                                 >
                                     Explore Our Services
                                     <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                                 </button>
-                                {/* Updated Schedule Consultation button */}
                                 <button 
                                     onClick={handleScheduleConsultation}
-                                    className="border-2 border-slate-200 text-slate-800 px-10 py-4 rounded-xl font-semibold cursor-pointer hover:border-slate-300 hover:shadow-xl hover:-translate-y-1 hover:bg-slate-50 transition-all duration-300"
+                                    className="fill-button px-8 py-3 rounded-lg font-semibold cursor-pointer shadow-lg transition-all duration-300"
                                 >
                                     Schedule Consultation
                                 </button>
