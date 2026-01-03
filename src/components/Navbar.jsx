@@ -301,9 +301,9 @@ function Navbar() {
 
               <button
                 onClick={handleGetStartedClick}
-                className="bg-slate-900 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-medium hover:bg-slate-800 transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                Get Started
+                Contact Us
               </button>
             </div>
 
@@ -336,7 +336,7 @@ function Navbar() {
                 onClick={handleGetStartedClick}
                 className="w-full bg-slate-900 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors"
               >
-                Get Started
+                Contact Us
               </button>
             </div>
           )}

@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import { Award, Users, Target, Heart, Zap, Shield, ArrowRight, Star, ChevronRight, Sparkles, TrendingUp, Globe, Clock, CheckCircle } from 'lucide-react';
-import { values, team, stats, trustTestimonials } from '../../const';
+import { Award, Users, Target, Heart, Zap, Shield, ArrowRight, Star, ChevronRight, Sparkles, TrendingUp, Globe, Clock, CheckCircle, ChevronDown } from 'lucide-react';
+import { values, team, stats, testimonials } from '../../const';
+import ContactForm from "../../components/ContactForm";
+import TestimonialsSection from '@/components/home/TestimonialsSection';
 
 function AboutUs({ navigate = () => {} }) {
     const [isVisible, setIsVisible] = useState({});
+    const [showContactForm, setShowContactForm] = useState(false);
+    const [expandedValueIndex, setExpandedValueIndex] = useState(null); // Add state for expanded value
     const observerRefs = useRef([]);
 
     useEffect(() => {
@@ -30,6 +34,25 @@ function AboutUs({ navigate = () => {} }) {
         icon: [<Target className="w-6 h-6" />, <Heart className="w-6 h-6" />, <Zap className="w-6 h-6" />, <Shield className="w-6 h-6" />][index]
     }));
 
+    // Toggle value expansion
+    const handleToggle = (index) => {
+        if (expandedValueIndex === index) {
+            setExpandedValueIndex(null); // Collapse if already expanded
+        } else {
+            setExpandedValueIndex(index); // Expand new one
+        }
+    };
+
+    // Handle Schedule Consultation click
+    const handleScheduleConsultation = () => {
+        setShowContactForm(true);
+    };
+
+    // Handle form close
+    const handleCloseForm = () => {
+        setShowContactForm(false);
+    };
+
     return (
         <>
             <div className="pt-16 bg-white overflow-hidden">
@@ -54,14 +77,15 @@ function AboutUs({ navigate = () => {} }) {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <button 
                                     onClick={() => navigate('/services')}
-                                    className="group bg-gradient-to-r from-slate-900 to-slate-800 text-white px-10 py-4 rounded-xl font-semibold hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 shadow-lg"
+                                    className="group bg-gradient-to-r from-slate-900 to-slate-800 text-white px-10 py-4 rounded-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 shadow-lg cursor-pointer"
                                 >
                                     Explore Our Services
                                     <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                                 </button>
+                                {/* Updated Schedule Consultation button */}
                                 <button 
-                                    onClick={() => navigate('/contact')}
-                                    className="border-2 border-slate-200 text-slate-800 px-10 py-4 rounded-xl font-semibold hover:border-slate-300 hover:bg-slate-50 transition-all duration-300"
+                                    onClick={handleScheduleConsultation}
+                                    className="border-2 border-slate-200 text-slate-800 px-10 py-4 rounded-xl font-semibold cursor-pointer hover:border-slate-300 hover:shadow-xl hover:-translate-y-1 hover:bg-slate-50 transition-all duration-300"
                                 >
                                     Schedule Consultation
                                 </button>
@@ -70,6 +94,22 @@ function AboutUs({ navigate = () => {} }) {
                     </div>
                 </section>
 
+                {/* Contact Form Modal */}
+                {showContactForm && (
+                    <div 
+                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+                        onClick={handleCloseForm}
+                    >
+                        <div className="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity duration-300"></div>
+                        <ContactForm 
+                            onClose={handleCloseForm}
+                            // You can optionally pre-select a service if needed:
+                            // defaultService="website"
+                        />
+                    </div>
+                )}
+
+                {/* Rest of your existing AboutUs code remains the same */}
                 {/* Stats Bar - Premium */}
                 <section className="relative -mt-10 px-6">
                     <div className="max-w-7xl mx-auto">
@@ -79,7 +119,6 @@ function AboutUs({ navigate = () => {} }) {
                                     <div key={index} className="text-center group">
                                         <div className="text-5xl font-bold text-slate-900 mb-2 relative">
                                             {stat.number}
-                                            {/* <div className="absolute -top-2 -right-2 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div> */}
                                         </div>
                                         <div className="text-sm text-slate-600 font-medium tracking-wide">{stat.label}</div>
                                         <div className="h-0.5 w-8 bg-gradient-to-r from-slate-200 to-transparent mx-auto mt-3 group-hover:w-16 transition-all duration-300"></div>
@@ -131,11 +170,11 @@ function AboutUs({ navigate = () => {} }) {
                                     <div className="h-1 w-16 bg-gradient-to-r from-white/30 to-transparent mt-4 group-hover:w-24 transition-all duration-300"></div>
                                 </div>
                                 <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                                    <div className="text-5xl font-bold text-slate-900 mb-3">10+</div>
+                                    <div className="text-5xl font-bold text-slate-900 mb-3">1+</div>
                                     <p className="text-slate-600 font-medium">Years Excellence</p>
                                 </div>
                                 <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                                    <div className="text-5xl font-bold text-slate-900 mb-3">100+</div>
+                                    <div className="text-5xl font-bold text-slate-900 mb-3">10+</div>
                                     <p className="text-slate-600 font-medium">Projects Delivered</p>
                                 </div>
                             </div>
@@ -143,49 +182,88 @@ function AboutUs({ navigate = () => {} }) {
                     </div>
                 </section>
 
-                {/* Values Section - Premium */}
-                <section className="py-24 px-6 bg-slate-50">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-20">
-                            <div className="inline-flex items-center gap-3 mb-4">
-                                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-                                <span className="text-sm font-semibold text-slate-600 tracking-wider">OUR PHILOSOPHY</span>
-                                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+{/* Values Section - Accordion Version - SIMPLER */}
+<section className="py-16 px-6 bg-slate-50">
+    <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3">
+                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                <span className="text-sm font-semibold text-slate-600 tracking-wider">OUR PHILOSOPHY</span>
+                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            </div>
+            <h2 className="text-5xl font-bold text-slate-900 mb-6 mt-4">
+                Core Values That Define
+                <span className="block bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                    Our Excellence
+                </span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+                Fundamental principles guiding every decision, partnership, and solution we deliver
+            </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto space-y-4">
+            {valuesWithIcons.map((value, index) => (
+                <div 
+                    key={index}
+                    className={`group relative overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-white to-slate-50 shadow-lg transition-all duration-300 ${
+                        expandedValueIndex === index ? 'shadow-2xl border-slate-300' : 'hover:border-slate-200'
+                    }`}
+                >
+                    <button
+                        onClick={() => handleToggle(index)}
+                        className="w-full p-8 text-left flex items-start gap-6 transition-all duration-300"
+                    >
+                        {/* Icon Container */}
+                        <div className={`flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-100 transition-all duration-300 ${
+                            expandedValueIndex === index ? 'scale-110 ring-2 ring-slate-200' : 'group-hover:scale-105'
+                        }`}>
+                            <div className="text-slate-900 text-2xl">
+                                {value.icon}
                             </div>
-                            <h2 className="text-5xl font-bold text-slate-900 mb-6">
-                                Core Values That Define
-                                <span className="block bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                                    Our Excellence
-                                </span>
-                            </h2>
-                            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
-                                Fundamental principles guiding every decision, partnership, and solution we deliver
-                            </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {valuesWithIcons.map((value, index) => (
-                                <div 
-                                    key={index}
-                                    className="group relative"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-100 group-hover:border-slate-300 transition-all duration-300 shadow-lg group-hover:shadow-2xl transform group-hover:-translate-y-2"></div>
-                                    <div className="relative p-8 rounded-2xl">
-                                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-100 mb-8 group-hover:scale-110 transition-transform duration-300">
-                                            <div className="text-slate-900">{value.icon}</div>
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4">{value.title}</h3>
-                                        <p className="text-slate-600 leading-relaxed mb-6">{value.desc}</p>
-                                        <div className="flex items-center text-slate-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            Learn more
-                                            <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                                        </div>
+                        {/* Content */}
+                        <div className="flex-1">
+                            <div className="flex items-center justify-center ">
+                                <div className="flex-1 mr-6">
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                                        {value.title}
+                                    </h3>
+                                    
+                                    {/* Smooth text transition */}
+                                    <div className={`transition-all duration-300 overflow-hidden ${
+                                        expandedValueIndex === index ? 'max-h-96' : 'max-h-6'
+                                    }`}>
+                                        <p className={`text-slate-600 transition-opacity duration-300 ${
+                                            expandedValueIndex === index 
+                                                ? 'opacity-100 leading-relaxed' 
+                                                : 'opacity-80 truncate'
+                                        }`}>
+                                            {expandedValueIndex === index 
+                                                ? value.desc 
+                                                : `${value.desc.substring(0, 80)}...`
+                                            }
+                                        </p>
                                     </div>
                                 </div>
-                            ))}
+                                
+                                {/* Arrow that shrinks when expanded */}
+                                <div className="flex-shrink-0 items-center justify-center">
+                                    <ChevronDown className={`w-6 h-6 text-slate-500 transition-all duration-300 ${
+                                        expandedValueIndex === index 
+                                            ? 'rotate-180 scale-75 opacity-70' 
+                                            : 'group-hover:scale-110'
+                                    }`} />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </button>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
 
                 {/* Team Section - Premium */}
                 <section 
@@ -278,62 +356,29 @@ function AboutUs({ navigate = () => {} }) {
                 </section>
 
                 {/* Testimonials Section - Premium */}
-                <section className="py-32 px-6 bg-gradient-to-b from-slate-50 to-white">
+                <section className="py-12 px-6 bg-gradient-to-b from-slate-50 to-white">
                     <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-20">
+                        <div className="text-center ">
                             <div className="inline-flex items-center gap-3 mb-4">
                                 <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
                                 <span className="text-sm font-semibold text-slate-600 tracking-wider">CLIENT TESTIMONIALS</span>
                                 <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
                             </div>
-                            <h2 className="text-5xl font-bold text-slate-900 mb-6">
+                            <h2 className="text-5xl font-bold text-slate-900">
                                 Trusted Partnerships,
                                 <span className="block text-slate-700">Proven Results</span>
                             </h2>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {trustTestimonials.map((testimonial, index) => (
-                                <div 
-                                    key={index} 
-                                    className="group relative"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-100 group-hover:border-slate-300 transition-all duration-300 shadow-lg group-hover:shadow-2xl transform group-hover:-translate-y-2"></div>
-                                    <div className="relative p-10 rounded-2xl">
-                                        <div className="flex items-start justify-between mb-8">
-                                            <div className="flex gap-1">
-                                                {[...Array(testimonial.rating)].map((_, i) => (
-                                                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                                                ))}
-                                            </div>
-                                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white flex items-center justify-center font-bold text-xl shadow-lg">
-                                                {testimonial.image}
-                                            </div>
-                                        </div>
-                                        <div className="relative mb-10">
-                                            <div className="text-6xl text-slate-200 absolute -top-8 -left-4 opacity-50">"</div>
-                                            <p className="text-lg text-slate-600 leading-relaxed italic relative z-10">
-                                                {testimonial.text}
-                                            </p>
-                                        </div>
-                                        <div className="pt-6 border-t border-slate-100">
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h4 className="font-bold text-slate-900 text-lg">{testimonial.name}</h4>
-                                                    <p className="text-sm text-slate-600">{testimonial.role} • {testimonial.company}</p>
-                                                </div>
-                                                <CheckCircle className="w-6 h-6 text-emerald-500" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <TestimonialsSection 
+                                  ref={(el) => (observerRefs.current[2] = el)} 
+                                  testimonials={testimonials} 
+                                  eventType="About"
+                                />
+                        <div className="h-[3px] bg-slate-900 w-full rounded-full max-w-[394px] mx-auto"/>
                     </div>
                 </section>
-
-
-               </div>
+            </div>
         </>
     );
 }

@@ -529,11 +529,11 @@ export const values = [
 
 // Team
 export const team = [
-  { name: "Ashish Dueby", role: "Full Stack Developer", image: "Ashish.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "8+ years building scalable web applications" },
-  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg", expertise: ["Vue.js", "Python", "AWS"], bio: "7+ years delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
-  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "9+ years in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
-  { name: "Vinayak Singh", role: "Social Media Manager & Content Writer", image: "", expertise: ["Content Strategy", "Community Building", "Copywriting"], bio: "6+ years creating engaging digital narratives" },
-  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "5+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
+  { name: "Ashish Dueby", role: "Full Stack Developer", image: "Ashish.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "1+ years building scalable web applications" },
+  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg", expertise: ["Vue.js", "Python", "AWS"], bio: "Expert in delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
+  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "Expert in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
+  { name: "Vinayak Singh", role: "Social Media Manager & Content Writer", image: "", expertise: ["Content Strategy", "Community Building", "Copywriting"], bio: "Expert in creating engaging digital narratives" },
+  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "1+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
 ];
 
 // Process Steps
