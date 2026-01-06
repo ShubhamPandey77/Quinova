@@ -1,5 +1,5 @@
-import { forwardRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { forwardRef } from 'react';
+import { motion as Motion } from 'framer-motion';
 import { Star, ShieldCheck } from 'lucide-react';
 import { FaRegUser } from "react-icons/fa";
 
@@ -58,7 +58,7 @@ const TestimonialCard = ({ testimonial }) => {
 
 const MarqueeColumn = ({ items, duration = 35, reverse = false, delay = 0 }) => (
   <div className="relative h-[500px] overflow-hidden">
-    <motion.div
+    <Motion.div
       animate={{
         y: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
       }}
@@ -74,7 +74,7 @@ const MarqueeColumn = ({ items, duration = 35, reverse = false, delay = 0 }) => 
       {[...items, ...items].map((item, index) => (
         <TestimonialCard key={index} testimonial={item} />
       ))}
-    </motion.div>
+    </Motion.div>
   </div>
 );
 
@@ -103,14 +103,14 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
             </span>
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
-          <motion.h2 
+          <Motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
           >
             What our clients think !!
-          </motion.h2>
+          </Motion.h2>
           <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full"></div>
         </div>
 }

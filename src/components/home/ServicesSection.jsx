@@ -1,89 +1,80 @@
-import { Globe, Zap, Film, ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone, Globe, Zap, Film, Palette, MessageSquare, TrendingUp, GraduationCap, BookOpen } from "lucide-react";
+import { services as servicesData } from "../../const";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 function ServicesSection({ navigate }) {
-  const services = [
-    {
-      icon: <Globe className="w-8 h-8" />,
-      title: "Web Development",
-      desc: "Custom-built, high-performance websites optimized for conversions. From responsive design to SEO-ready architecture, we create digital experiences that work.",
-      highlight: "blue",
-      highlight_bg: "#EFF6FF",
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Digital Marketing",
-      desc: "Data-driven strategies across SEO, PPC, and content marketing. We track every metric and optimize for real business outcomes, not just vanity numbers.",
-      highlight: "amber",
-      highlight_bg: "#FFFBEB",
-    },
-    {
-      icon: <Film className="w-8 h-8" />,
-      title: "Creative Services",
-      desc: "Professional video editing, graphic design, and content creation that elevates your brand. We combine technical excellence with creative strategy.",
-      highlight: "red",
-      highlight_bg: "#FEF2F2",
-    },
-  ];
+  const getIcon = (title) => {
+    switch (title) {
+      case "Website Development": return <Globe className="w-8 h-8" />;
+      case "Social Media Management": return <TrendingUp className="w-8 h-8" />;
+      case "Video Editing": return <Film className="w-8 h-8" />;
+      case "Graphic Design": return <Palette className="w-8 h-8" />;
+      case "Content Writing": return <MessageSquare className="w-8 h-8" />;
+      case "Digital Marketing": return <Zap className="w-8 h-8" />;
+      case "Android & iOS Development": return <Smartphone className="w-8 h-8" />;
+      case "Academic Projects": return <GraduationCap className="w-8 h-8" />;
+      default: return <Globe className="w-8 h-8" />;
+    }
+  };
 
   return (
     <section
       id="services-section"
-      className="py-20 px-6 bg-gradient-to-b from-white to-blue-50/35"
+      className="py-24 px-6 bg-white"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-            <span className="text-base font-semibold text-slate-600 tracking-normal">
-              OUR EXPERTISE
-            </span>
-            <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+            <div className="w-12 h-px bg-slate-300"></div>
+            
+            <div className="w-12 h-px bg-slate-300"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Digital Solutions That Perform
           </h2>
-          <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full mb-4"></div>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Modern solutions designed to scale your business.{" "}
-          </p>
+          <div className="w-20 h-1 bg-slate-900 mx-auto rounded-full mb-8"></div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {services.map((item, index) => (
-            <div
-              key={index}
-              className="border border-slate-200 rounded-lg p-8 hover:border-slate-900 hover:shadow-lg transition-all group"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {servicesData.slice(0, 3).map((service, index) => (
+            <Card 
+              key={index} 
+              className="group border-white/10 hover:border-white transition-all duration-300 shadow-none hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] flex flex-col h-full overflow-hidden bg-black"
             >
-              <div
-                className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-slate-900"
-                style={{
-                  backgroundColor: item.highlight_bg,
-                }}
-              >
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                {item.title}
-              </h3>
-              <p className="text-slate-600 mb-4">{item.desc}</p>
-              <button
-                onClick={() => navigate("services")}
-                className="text-slate-900 font-semibold flex items-center gap-2 hover:gap-4 transition-all group cursor-pointer"
-              >
-                Learn More
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                  {getIcon(service.title)}
+                </div>
+                <CardTitle className="text-xl font-bold text-white relative inline-block">
+                  {service.title}
+                  <div className="absolute -bottom-1 left-0 w-1/2 h-[1px] bg-white opacity-20"></div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col flex-grow pt-0">
+                <div className="flex flex-col h-full justify-between">
+                  <div className="text-lg font-medium text-white/50 mb-6">
+                    {service.price}
+                  </div>
+                  <button
+                    onClick={() => navigate("services")}
+                    className="text-white font-bold flex items-center gap-2 hover:gap-4 transition-all w-fit cursor-pointer mt-auto"
+                  >
+                    Details
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <button
             onClick={() => navigate("services")}
-            className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors inline-flex items-center gap-2 cursor-pointer"
+            className="bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-slate-800 transition-all active:scale-95 inline-flex items-center gap-2 cursor-pointer shadow-lg shadow-slate-200"
           >
-            Explore All 6 Services
-            <ArrowRight className="w-4 h-4" />
+            View All Services
+            <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </div>

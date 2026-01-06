@@ -116,9 +116,9 @@ function VideoEditing() {
                   { type: "Commercials", desc: "30-60 second ads that sell your message" },
                   { type: "Corporate Videos", desc: "Company culture, training, and promotional content" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <h4 className="font-bold text-gray-900 mb-2">{item.type}</h4>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-2">{item.type}</h4>
+                    <p className="text-sm text-white/60">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -133,9 +133,9 @@ function VideoEditing() {
                   { name: "After Effects", desc: "Motion graphics and visual effects" },
                   { name: "4K & 8K Support", desc: "Future-proof your video content" }
                 ].map((tool, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                    <h4 className="font-bold text-gray-900 mb-3 text-lg">{tool.name}</h4>
-                    <p className="text-gray-600">{tool.desc}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-8 hover:border-white transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                    <h4 className="font-bold text-white mb-3 text-lg">{tool.name}</h4>
+                    <p className="text-white/60">{tool.desc}</p>
                   </div>
                 ))}
               </div>

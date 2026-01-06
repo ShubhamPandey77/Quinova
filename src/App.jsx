@@ -6,12 +6,6 @@ import Home from './pages/home/Home';
 import Services from './pages/services/Services';
 import AboutUs from './pages/aboutUs/AboutUs';
 import ContactUs from './pages/contactUs/ContactUs';
-import WebsiteDevelopment from './pages/services/WebsiteDevelopment';
-import SocialMediaManagement from './pages/services/SocialMediaManagement';
-import VideoEditing from './pages/services/VideoEditing';
-import GraphicDesign from './pages/services/GraphicDesign';
-import ContentWriting from './pages/services/ContentWriting';
-import DigitalMarketing from './pages/services/DigitalMarketing';
 import PrivacyPolicy from './pages/policies/PrivacyPolicy';
 import TermsOfService from './pages/policies/TermsOfService';
 import RefundPolicy from './pages/policies/RefundPolicy';
@@ -37,12 +31,6 @@ function App() {
           <Route path="/services" element={<PageTransition><Services navigate={handleNavigate} /></PageTransition>} />
           <Route path="/about" element={<PageTransition><AboutUs navigate={handleNavigate} /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><ContactUs navigate={handleNavigate} /></PageTransition>} />
-          <Route path="/services/website-development" element={<PageTransition><WebsiteDevelopment navigate={handleNavigate} /></PageTransition>} />
-          <Route path="/services/social-media-management" element={<PageTransition><SocialMediaManagement navigate={handleNavigate} /></PageTransition>} />
-          <Route path="/services/video-editing" element={<PageTransition><VideoEditing navigate={handleNavigate} /></PageTransition>} />
-          <Route path="/services/graphic-design" element={<PageTransition><GraphicDesign navigate={handleNavigate} /></PageTransition>} />
-          <Route path="/services/content-writing" element={<PageTransition><ContentWriting navigate={handleNavigate} /></PageTransition>} />
-          <Route path="/services/digital-marketing" element={<PageTransition><DigitalMarketing navigate={handleNavigate} /></PageTransition>} />
           <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
           <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
           <Route path="/refund" element={<PageTransition><RefundPolicy /></PageTransition>} />

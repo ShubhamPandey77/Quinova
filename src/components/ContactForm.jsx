@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { 
   Mail, ArrowRight, User, Phone, MessageSquare, 
   Briefcase, ChevronDown, Check, Globe, Smartphone, 
-  Video, Palette, PenTool, BarChart, Loader2, X 
+  Video, Palette, PenTool, BarChart, Loader2, X, GraduationCap, BookOpen 
 } from "lucide-react";
 import toast from 'react-hot-toast';
 
@@ -158,6 +158,13 @@ const ContactForm = ({
       icon: BarChart,
       bgColor: "bg-indigo-500",
       description: "Campaigns & analytics"
+    },
+    { 
+      value: "academic-project", 
+      label: "Academic Projects", 
+      icon: GraduationCap,
+      bgColor: "bg-blue-400",
+      description: "Mini & Major project solutions"
     },
   ];
 

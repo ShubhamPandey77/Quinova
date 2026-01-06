@@ -116,9 +116,9 @@ function SocialMediaManagement() {
                   { platform: "Twitter", reach: "Real-time conversations and trends" },
                   { platform: "YouTube", reach: "Long-form video and authority" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <h4 className="font-bold text-gray-900 mb-2">{item.platform}</h4>
-                    <p className="text-sm text-gray-600">{item.reach}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-2">{item.platform}</h4>
+                    <p className="text-sm text-white/60">{item.reach}</p>
                   </div>
                 ))}
               </div>
@@ -135,9 +135,9 @@ function SocialMediaManagement() {
                   { title: "Analytics & Reports", desc: "Monthly performance insights and optimization" },
                   { title: "Crisis Management", desc: "Protect your reputation with fast response" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                    <h4 className="font-bold text-gray-900 mb-3 text-lg">{item.title}</h4>
-                    <p className="text-gray-600">{item.desc}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-8 hover:border-white transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                    <h4 className="font-bold text-white mb-3 text-lg">{item.title}</h4>
+                    <p className="text-white/60">{item.desc}</p>
                   </div>
                 ))}
               </div>

@@ -181,10 +181,10 @@ function WebsiteDevelopment() {
                     icon: "📚"
                   }
                 ].map((type, idx) => (
-                  <div key={idx} className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
                     <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">{type.icon}</div>
-                    <h4 className="font-bold text-gray-900 mb-3 text-lg">{type.title}</h4>
-                    <p className="text-gray-600">{type.desc}</p>
+                    <h4 className="font-bold text-white mb-3 text-lg">{type.title}</h4>
+                    <p className="text-gray-400">{type.desc}</p>
                   </div>
                 ))}
               </div>

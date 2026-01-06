@@ -83,7 +83,7 @@ function DigitalMarketing() {
                 <ul className="space-y-4">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-orange-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-6 h-6 text-white/40 flex-shrink-0 mt-0.5" />
                       <span className="text-lg text-white/80">{feature}</span>
                     </li>
                   ))}
@@ -95,8 +95,8 @@ function DigitalMarketing() {
                 <ul className="space-y-4">
                   {service.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-orange-500/40 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-orange-400/30">
-                        <span className="text-orange-300 text-sm font-bold">→</span>
+                      <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/20">
+                        <span className="text-white/60 text-sm font-bold">→</span>
                       </div>
                       <span className="text-lg text-white/80">{benefit}</span>
                     </li>
@@ -140,10 +140,10 @@ function DigitalMarketing() {
                     timeline: "Ongoing"
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all">
-                    <h4 className="font-bold mb-2">{item.channel}</h4>
-                    <p className="text-sm text-white/60 mb-2">{item.desc}</p>
-                    <div className="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded inline-block border border-orange-500/30">{item.timeline}</div>
+                  <div key={idx} className="bg-black border border-white/10 rounded-lg p-6 hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-2">{item.channel}</h4>
+                    <p className="text-sm text-white/60 mb-4">{item.desc}</p>
+                    <div className="text-xs bg-white/10 text-white/80 px-2 py-1 rounded inline-block border border-white/20">{item.timeline}</div>
                   </div>
                 ))}
               </div>
@@ -190,12 +190,12 @@ function DigitalMarketing() {
                     ]
                   }
                 ].map((phase, idx) => (
-                  <div key={idx} className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-6 hover:bg-orange-500/20 transition-all">
-                    <h4 className="font-bold mb-4">{phase.phase}</h4>
+                  <div key={idx} className="bg-black border border-white/10 rounded-lg p-6 hover:border-white transition-all duration-300">
+                    <h4 className="font-bold text-white mb-4">{phase.phase}</h4>
                     <ul className="space-y-2">
                       {phase.activities.map((activity, pidx) => (
                         <li key={pidx} className="text-white/70 text-sm flex items-center gap-2">
-                          <span className="text-orange-400">•</span> {activity}
+                          <span className="text-white/40">•</span> {activity}
                         </li>
                       ))}
                     </ul>
@@ -204,21 +204,21 @@ function DigitalMarketing() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-lg p-12 border border-orange-500/30 mb-16 backdrop-blur-sm">
+            <div className="bg-gradient-to-r from-white/10 to-transparent rounded-lg p-12 border border-white/20 mb-16 backdrop-blur-sm">
               <h3 className="text-3xl font-bold mb-6">📊 Case Study: {service.caseStudy.client}</h3>
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
                   <p className="text-xl mb-6 leading-relaxed text-white/80">
                     We implemented an integrated digital marketing strategy combining SEO, paid ads, and email marketing. The result was an unprecedented increase in qualified leads and revenue.
                   </p>
-                  <div className="text-5xl font-bold mb-2 text-orange-300">{service.caseStudy.results}</div>
+                  <div className="text-5xl font-bold mb-2 text-white">{service.caseStudy.results}</div>
                   <p className="text-white/60">Annual Recurring Revenue</p>
                 </div>
                 <div className="bg-white/5 rounded-lg p-6 border border-white/10">
                   <h4 className="font-bold mb-4">Key Metrics</h4>
                   {service.caseStudy.metrics.map((metric, idx) => (
                     <div key={idx} className="flex items-center gap-3 mb-4">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-white/40 rounded-full"></div>
                       <span className="text-white/80">{metric}</span>
                     </div>
                   ))}
@@ -228,11 +228,11 @@ function DigitalMarketing() {
 
             <div className="bg-white/5 rounded-lg p-8 border border-white/10 text-center backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-4">Start Your Growth</h3>
-              <div className="text-4xl font-bold text-orange-300 mb-6">{service.price}</div>
+              <div className="text-4xl font-bold text-white mb-6">{service.price}</div>
               <p className="text-white/60 mb-8">Monthly retainer • Full management • Transparent reporting</p>
               <button
                 onClick={() => setShowContactForm(true)}
-                className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-700 transition-all hover:scale-105 inline-flex items-center gap-2"
+                className="bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-slate-200 transition-all hover:scale-105 inline-flex items-center gap-2"
               >
                 Get Free Marketing Audit
                 <ArrowRight className="w-5 h-5" />
@@ -252,13 +252,13 @@ function DigitalMarketing() {
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={() => setShowContactForm(true)}
-                className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-all hover:scale-105"
+                className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-slate-200 transition-all hover:scale-105"
               >
                 Get Free Audit
               </button>
               <button
                 onClick={() => routerNavigate('/services')}
-                className="border-2 border-orange-400/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600/20 transition-colors"
+                className="border-2 border-white/20 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
               >
                 View Other Services
               </button>

@@ -116,9 +116,9 @@ function GraphicDesign() {
                   { category: "Marketing Materials", desc: "Posters, banners, and promotional designs" },
                   { category: "Packaging Design", desc: "Product packaging that stands out on shelves" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <h4 className="font-bold text-gray-900 mb-2">{item.category}</h4>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-2">{item.category}</h4>
+                    <p className="text-sm text-white/60">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -133,9 +133,9 @@ function GraphicDesign() {
                   { step: "3. Refinement", desc: "Perfect your chosen design based on feedback" },
                   { step: "4. Delivery", desc: "Final files in all formats and resolutions" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-                    <h4 className="font-bold text-gray-900 mb-2">{item.step}</h4>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 text-center hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-2">{item.step}</h4>
+                    <p className="text-sm text-white/60">{item.desc}</p>
                   </div>
                 ))}
               </div>

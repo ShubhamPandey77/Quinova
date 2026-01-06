@@ -175,220 +175,124 @@ export const stats = [
 // Services
 export const services = [
   {
-    icon: null,
     title: "Website Development",
-    description: "Build a stunning, high-performance website that converts visitors into customers. We create responsive, SEO-optimized websites that work perfectly on all devices.",
-    longDescription: "Your website is your digital storefront. We develop custom websites with modern design principles, blazing-fast loading speeds, and intuitive user experiences. Whether you need an e-commerce platform, portfolio site, or complex web application, we deliver excellence.",
-    features: ["Fully Responsive Design", "SEO Optimized", "Fast Loading Speed (<3s)", "Mobile-First Approach", "E-commerce Integration", "CMS Integration", "Custom Functionality", "SSL Security", "Performance Optimization"],
-    benefits: ["Increase online visibility", "Better user engagement", "Higher conversion rates", "Professional brand image"],
     price: "Starting at ₹9999",
-    color: "from-emerald-500 to-teal-600",
-    beforeAfter: {
-      before: {
-        title: "Without a Professional Website",
-        stats: [
-          { label: "Online Visibility", value: "10%", icon: "👁️" },
-          { label: "Customer Inquiries", value: "2-3/mo", icon: "📧" },
-          { label: "Credibility Score", value: "Low", icon: "⭐" },
-          { label: "Lost Sales", value: "60%+", icon: "📉" }
-        ]
-      },
-      after: {
-        title: "With Our Website Solution",
-        stats: [
-          { label: "Online Visibility", value: "90%", icon: "👁️" },
-          { label: "Customer Inquiries", value: "20-30/mo", icon: "📧" },
-          { label: "Credibility Score", value: "High", icon: "⭐" },
-          { label: "Captured Sales", value: "85%+", icon: "📈" }
-        ]
-      }
-    },
-    content: "A professional website establishes your presence 24/7, converts visitors into customers, and ranks you higher on Google. Without one, you're losing credibility and revenue every single day.",
-    caseStudy: {
-      client: "E-commerce Store",
-      results: "280% Sales Increase",
-      metrics: ["3.6% Conversion Rate", "45% Bounce Rate Reduction", "8 Position Google Ranking"]
-    }
+    process: [
+      { step: "01", title: "Initial Meeting", desc: "Discuss Requirements", icon: "Users" },
+      { step: "02", title: "Project Planning", desc: "Define Deliverables", icon: "ClipboardList" },
+      { step: "03", title: "UI Design", desc: "Create Wireframes & Mockups", icon: "Palette" },
+      { step: "04", title: "Raw Website Development", desc: "Build Initial Version", icon: "Layout" },
+      { step: "05", title: "Frontend Development", desc: "Develop User Interface", icon: "Code" },
+      { step: "06", title: "Backend Development", desc: "Set Up Server & Database", icon: "Database" },
+      { step: "07", title: "AI Integration", desc: "Implement AI Features", icon: "Cpu" },
+      { step: "08", title: "Testing & Deployment", desc: "Launch the Website", icon: "Rocket" },
+      { step: "09", title: "Go Live!", desc: "Connect Domain & Launch Online", icon: "Globe" }
+    ]
   },
   {
-    icon: null,
     title: "Social Media Management",
-    description: "Turn your social media into a powerful marketing tool. We create engaging content, manage communities, and run targeted campaigns that drive real results.",
-    longDescription: "In today's social-first world, your brand needs a strong social media presence. We handle everything from content creation to community management, ensuring your brand stands out and connects with your audience.",
-    features: ["Content Strategy & Planning", "Daily Engaging Posts", "Community Management", "Analytics & Reporting", "Paid Advertising Campaigns", "Influencer Outreach", "Trend Monitoring", "Crisis Management", "Competitor Analysis"],
-    benefits: ["Increased brand awareness", "Loyal community building", "Higher engagement rates", "Cost-effective marketing"],
     price: "Starting at ₹9999/mo",
-    color: "from-green-500 to-emerald-600",
-    beforeAfter: {
-      before: {
-        title: "Without Social Media Strategy",
-        stats: [
-          { label: "Brand Awareness", value: "5%", icon: "🔍" },
-          { label: "Monthly Reach", value: "1K", icon: "📱" },
-          { label: "Engagement Rate", value: "0.5%", icon: "💬" },
-          { label: "Customer Cost", value: "₹500+", icon: "💰" }
-        ]
-      },
-      after: {
-        title: "With Our Social Management",
-        stats: [
-          { label: "Brand Awareness", value: "75%", icon: "🔍" },
-          { label: "Monthly Reach", value: "500K+", icon: "📱" },
-          { label: "Engagement Rate", value: "12%", icon: "💬" },
-          { label: "Customer Cost", value: "₹50", icon: "💰" }
-        ]
-      }
-    },
-    content: "Strategic social media management builds loyal communities, increases brand reach exponentially, and generates qualified leads at a fraction of traditional marketing costs.",
-    caseStudy: {
-      client: "Tech Startup",
-      results: "50K Followers in 90 Days",
-      metrics: ["12% Engagement Rate", "500K Monthly Impressions", "15% Social to Sales"]
-    }
+    process: [
+      { step: "01", title: "Strategy Session", desc: "Define Goals & Audience", icon: "Target" },
+      { step: "02", title: "Platform Audit", desc: "Analyze Existing Presence", icon: "Search" },
+      { step: "03", title: "Content Calendar", desc: "Plan Monthly Content", icon: "Calendar" },
+      { step: "04", title: "Creative Design", desc: "Create Visual Assets", icon: "Palette" },
+      { step: "05", title: "Copywriting", desc: "Write Engaging Captions", icon: "PenTool" },
+      { step: "06", title: "Posting & Scheduling", desc: "Automate Content Delivery", icon: "Zap" },
+      { step: "07", title: "Community Management", desc: "Interact with Audience", icon: "MessageSquare" },
+      { step: "08", title: "Analytics & Reporting", desc: "Track KPI Performance", icon: "BarChart3" },
+      { step: "09", title: "Growth Optimization", desc: "Refine Strategy for ROI", icon: "TrendingUp" }
+    ]
   },
   {
-    icon: null,
     title: "Video Editing",
-    description: "Bring your message to life with professional video editing. From YouTube to TikTok, we create compelling videos that capture attention.",
-    longDescription: "Video content drives engagement like nothing else. Our expert editors transform raw footage into polished, professional videos that tell your story and keep audiences engaged.",
-    features: ["Professional Color Grading", "Motion Graphics & Animations", "Sound Design & Music", "Subtitles & Captions", "Quick Turnaround", "Multiple Format Export", "Special Effects", "Thumbnail Design", "4K Video Editing"],
-    benefits: ["Higher engagement", "Better storytelling", "Professional quality", "Save production time"],
     price: "Starting at ₹1999",
-    color: "from-teal-500 to-cyan-600",
-    beforeAfter: {
-      before: {
-        title: "Without Professional Video Editing",
-        stats: [
-          { label: "Video Views", value: "500", icon: "🎬" },
-          { label: "Watch Time", value: "1 min", icon: "⏱️" },
-          { label: "Click-Through Rate", value: "0.2%", icon: "👆" },
-          { label: "Share Rate", value: "0%", icon: "📤" }
-        ]
-      },
-      after: {
-        title: "With Professional Video Editing",
-        stats: [
-          { label: "Video Views", value: "50K+", icon: "🎬" },
-          { label: "Watch Time", value: "12 min", icon: "⏱️" },
-          { label: "Click-Through Rate", value: "8%", icon: "👆" },
-          { label: "Share Rate", value: "35%", icon: "📤" }
-        ]
-      }
-    },
-    content: "Professional video editing transforms raw footage into compelling stories that captivate audiences, increase engagement by 1200%, and drive conversions.",
-    caseStudy: {
-      client: "YouTube Channel",
-      results: "1M Views Monthly",
-      metrics: ["12% Engagement", "8 Min Avg Watch Time", "35% Share Rate"]
-    }
+    process: [
+      { step: "01", title: "Footage Transfer", desc: "Receive & Organize Clips", icon: "Upload" },
+      { step: "02", title: "Storyboarding", desc: "Define Video Narrative", icon: "Film" },
+      { step: "03", title: "Rough Cut", desc: "Initial Assembly of Clips", icon: "Scissors" },
+      { step: "04", title: "Advanced Editing", desc: "Pacing & Transitions", icon: "Video" },
+      { step: "05", title: "Color Grading", desc: "Visual Tone & Correction", icon: "Sun" },
+      { step: "06", title: "Sound Design", desc: "Music & Audio Effects", icon: "Music" },
+      { step: "07", title: "Motion Graphics", desc: "Titles & Animations", icon: "Layers" },
+      { step: "08", title: "Review & Feedback", desc: "Collaborative Revisions", icon: "CheckSquare" },
+      { step: "09", title: "Final Export", desc: "High-Quality Delivery", icon: "Download" }
+    ]
   },
   {
-    icon: null,
     title: "Graphic Design",
-    description: "Create a memorable brand identity with stunning visual designs. From logos to marketing materials, we make your brand unforgettable.",
-    longDescription: "Great design isn't just beautiful—it's strategic. We create designs that communicate your brand values, resonate with your audience, and drive business results.",
-    features: ["Logo Design & Branding", "Brand Identity Development", "Marketing Materials", "Social Media Graphics", "Print Design", "Packaging Design", "UI/UX Design", "Illustration", "Brand Guidelines"],
-    benefits: ["Stronger brand recognition", "Professional appearance", "Consistent messaging", "Stand out from competitors"],
     price: "Starting at ₹499",
-    color: "from-lime-500 to-green-600",
-    beforeAfter: {
-      before: {
-        title: "Without Professional Design",
-        stats: [
-          { label: "Brand Recognition", value: "15%", icon: "🎨" },
-          { label: "Customer Trust", value: "Low", icon: "🤝" },
-          { label: "Design Consistency", value: "0%", icon: "✓" },
-          { label: "Market Positioning", value: "Generic", icon: "🎯" }
-        ]
-      },
-      after: {
-        title: "With Professional Design",
-        stats: [
-          { label: "Brand Recognition", value: "92%", icon: "🎨" },
-          { label: "Customer Trust", value: "High", icon: "🤝" },
-          { label: "Design Consistency", value: "100%", icon: "✓" },
-          { label: "Market Positioning", value: "Premium", icon: "🎯" }
-        ]
-      }
-    },
-    content: "Professional design establishes brand credibility, makes your business memorable, and increases customer trust by 80%. First impressions matter—make yours count.",
-    caseStudy: {
-      client: "D2C Beauty Brand",
-      results: "₹1 Cr Revenue",
-      metrics: ["500+ Positive Reviews", "Top 3 Category", "92% Brand Recognition"]
-    }
+    process: [
+      { step: "01", title: "Design Brief", desc: "Understand Visual Needs", icon: "FileText" },
+      { step: "02", title: "Research", desc: "Competitor & Trend Analysis", icon: "Search" },
+      { step: "03", title: "Concept Sketching", desc: "Initial Design Ideas", icon: "Edit3" },
+      { step: "04", title: "Digital Creation", desc: "Execute in Design Tools", icon: "Monitor" },
+      { step: "05", title: "Color & Typography", desc: "Define Brand Aesthetics", icon: "Type" },
+      { step: "06", title: "Draft Presentation", desc: "Review Design Options", icon: "Presentation" },
+      { step: "07", title: "Refinements", desc: "Fine-tune Details", icon: "Sliders" },
+      { step: "08", title: "Client Approval", desc: "Finalize Selected Design", icon: "ThumbsUp" },
+      { step: "09", title: "Asset Delivery", desc: "Provide Source Files", icon: "Package" }
+    ]
   },
   {
-    icon: null,
     title: "Content Writing",
-    description: "Captivate your audience with compelling, SEO-optimized content that drives traffic and conversions.",
-    longDescription: "Words matter. Our experienced writers craft content that not only ranks well in search engines but also resonates with your audience and inspires action.",
-    features: ["Blog Posts & Articles", "Web Copy & Landing Pages", "Product Descriptions", "SEO-Optimized Content", "Email Campaigns", "Technical Writing", "Case Studies", "Whitepapers", "Social Media Copy"],
-    benefits: ["Better search rankings", "Increased organic traffic", "Higher conversion rates", "Thought leadership"],
     price: "Starting at ₹499/article",
-    color: "from-emerald-500 to-teal-600",
-    beforeAfter: {
-      before: {
-        title: "Without SEO Content Strategy",
-        stats: [
-          { label: "Organic Traffic", value: "100/mo", icon: "📊" },
-          { label: "Google Ranking", value: "Page 5+", icon: "🔍" },
-          { label: "Bounce Rate", value: "75%", icon: "👈" },
-          { label: "Conversion Rate", value: "0.5%", icon: "📉" }
-        ]
-      },
-      after: {
-        title: "With SEO Content Writing",
-        stats: [
-          { label: "Organic Traffic", value: "10K+/mo", icon: "📊" },
-          { label: "Google Ranking", value: "Position 3", icon: "🔍" },
-          { label: "Bounce Rate", value: "25%", icon: "👈" },
-          { label: "Conversion Rate", value: "5%+", icon: "📈" }
-        ]
-      }
-    },
-    content: "SEO-optimized content is the engine that drives organic traffic to your business. Strategic content writing generates 10x more leads at minimal cost.",
-    caseStudy: {
-      client: "B2B SaaS",
-      results: "10K Monthly Organic Traffic",
-      metrics: ["Top 3 Google Rankings", "5% Conversion Rate", "₹50L MRR"]
-    }
+    process: [
+      { step: "01", title: "Topic Research", desc: "Identify Key Themes", icon: "BookOpen" },
+      { step: "02", title: "SEO Strategy", desc: "Keyword Integration Plan", icon: "Target" },
+      { step: "03", title: "Outlining", desc: "Structure the Article", icon: "List" },
+      { step: "04", title: "First Draft", desc: "Write Initial Content", icon: "Pen" },
+      { step: "05", title: "Fact Checking", desc: "Verify Information", icon: "ShieldCheck" },
+      { step: "06", title: "Editing", desc: "Improve Clarity & Flow", icon: "AlignLeft" },
+      { step: "07", title: "Proofreading", desc: "Fix Grammar & Typos", icon: "SearchCheck" },
+      { step: "08", title: "Formatting", desc: "Add Headers & Images", icon: "Image" },
+      { step: "09", title: "Final Delivery", desc: "Ready to Publish", icon: "Send" }
+    ]
   },
   {
-    icon: null,
     title: "Digital Marketing",
-    description: "Comprehensive digital marketing strategies that drive real business growth. From SEO to paid ads, we cover all channels.",
-    longDescription: "Maximize your online visibility and ROI with our integrated digital marketing approach. We combine SEO, PPC, content marketing, and analytics to create a cohesive strategy.",
-    features: ["SEO Strategy & Optimization", "PPC Campaigns (Google, Facebook)", "Email Marketing Campaigns", "Conversion Rate Optimization", "Marketing Automation", "Analytics & Reporting", "Market Research", "Competitor Analysis", "Growth Hacking"],
-    benefits: ["Measurable results", "Better ROI", "Increased sales", "Data-driven decisions"],
     price: "Starting at ₹19999/mo",
-    color: "from-green-500 to-emerald-600",
-    beforeAfter: {
-      before: {
-        title: "Without Digital Marketing",
-        stats: [
-          { label: "Monthly Leads", value: "5-10", icon: "🎯" },
-          { label: "Cost Per Lead", value: "₹5000+", icon: "💸" },
-          { label: "Sales Pipeline", value: "Weak", icon: "📉" },
-          { label: "Market Share", value: "2%", icon: "📊" }
-        ]
-      },
-      after: {
-        title: "With Integrated Digital Marketing",
-        stats: [
-          { label: "Monthly Leads", value: "200+", icon: "🎯" },
-          { label: "Cost Per Lead", value: "₹300", icon: "💸" },
-          { label: "Sales Pipeline", value: "Strong", icon: "📈" },
-          { label: "Market Share", value: "25%", icon: "📊" }
-        ]
-      }
-    },
-    content: "Integrated digital marketing multiplies your leads, reduces customer acquisition cost by 95%, and creates a predictable revenue engine for sustainable growth.",
-    caseStudy: {
-      client: "SaaS Company",
-      results: "₹2 Cr ARR",
-      metrics: ["200+ Monthly Leads", "20% Conversion Rate", "95% ROI on Ads"]
-    }
+    process: [
+      { step: "01", title: "Market Research", desc: "Analyze Competition", icon: "BarChart" },
+      { step: "02", title: "Campaign Strategy", desc: "Define Ad Objectives", icon: "Compass" },
+      { step: "03", title: "Audience Targeting", desc: "Segment Demographics", icon: "Users" },
+      { step: "04", title: "Ad Creation", desc: "Design Visuals & Copy", icon: "Sparkles" },
+      { step: "05", title: "Landing Page", desc: "Optimize for Conversions", icon: "MousePointer" },
+      { step: "06", title: "Campaign Launch", desc: "Go Live on Ad Networks", icon: "Play" },
+      { step: "07", title: "A/B Testing", desc: "Test Different Variations", icon: "FlaskConical" },
+      { step: "08", title: "Real-time Monitoring", desc: "Track Spend & Leads", icon: "Eye" },
+      { step: "09", title: "Performance Report", desc: "ROI Analysis & Review", icon: "PieChart" }
+    ]
+  },
+  {
+    title: "Android & iOS Development",
+    price: "Starting at ₹25999",
+    process: [
+      { step: "01", title: "Concept Discovery", desc: "Define App Features", icon: "Lightbulb" },
+      { step: "02", title: "Wireframing", desc: "Map User Journey", icon: "Map" },
+      { step: "03", title: "UI/UX Design", desc: "Create App Interfaces", icon: "Smartphone" },
+      { step: "04", title: "Architecture", desc: "Define Tech Stack", icon: "Layers" },
+      { step: "05", title: "App Development", desc: "Core Logic Coding", icon: "Code2" },
+      { step: "06", title: "API Integration", desc: "Connect with Servers", icon: "Link" },
+      { step: "07", title: "App Testing", desc: "QA & Bug Fixing", icon: "Shield" },
+      { step: "08", title: "Store Submission", desc: "Play/App Store Launch", icon: "AppWindow" },
+      { step: "09", title: "Maintenance", desc: "Updates & Support", icon: "LifeBuoy" }
+    ]
+  },
+  {
+    title: "Academic Projects",
+    price: "Mini: ₹4999 | Major: ₹9999",
+    process: [
+      { step: "01", title: "Requirement Analysis", desc: "Understand Guidelines", icon: "FileQuestion" },
+      { step: "02", title: "Literature Survey", desc: "Existing Work Review", icon: "Search" },
+      { step: "03", title: "Design Phase", desc: "UML & Flowcharts", icon: "GitBranch" },
+      { step: "04", title: "Environment Setup", desc: "Tool Installation", icon: "Settings" },
+      { step: "05", title: "Implementation", desc: "Core Module Coding", icon: "Terminal" },
+      { step: "06", title: "Module Testing", desc: "Verify Functionality", icon: "Check" },
+      { step: "07", title: "Project Integration", desc: "Merge All Modules", icon: "Combine" },
+      { step: "08", title: "Documentation", desc: "Write Project Report", icon: "FileText" },
+      { step: "09", title: "Project Viva Prep", desc: "Demonstration Ready", icon: "HelpCircle" }
+    ]
   }
 ];
 
@@ -603,11 +507,11 @@ export const values = [
 
 // Team
 export const team = [
-  { name: "Ashish Dueby", role: "Full Stack Developer", image: "Ashish.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "1+ years building scalable web applications" },
-  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham.jpg", expertise: ["Vue.js", "Python", "AWS"], bio: "Expert in delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
-  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "Expert in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
-  { name: "Vinayak Singh", role: "Social Media Manager & Content Writer", image: "", expertise: ["Content Strategy", "Community Building", "Copywriting"], bio: "Expert in creating engaging digital narratives" },
-  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "1+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
+  { name: "Ashish Dubey", role: "Full Stack Developer", image: "Ashish Quinova.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "1+ years building scalable web applications" },
+  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham Quinova.jpg", expertise: ["MongoDb", "React.Js", "Gentic Ai"], bio: "Expert in delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
+  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh Quinova.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "Expert in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
+  { name: "Vinayak Singh", role: "Social Media Manager & Content Writer", image: "Vinayak Quinova.jpg", expertise: ["Cyber Security", "AWS", "Block Chain"], bio: "Expert in creating Blockchain-based solutions", linkedin: "https://www.linkedin.com/in/vinayak-singh-a9aa5b26" },
+  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh Quinova.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "1+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
 ];
 
 // Process Steps
@@ -686,12 +590,12 @@ export const footerLinks = {
     // { label: "Contact", path: "/contact", icon: null }
   ],
   services: [
-    { label: "Website Development", path: "/services/website-development", description: "Custom responsive websites" },
-    { label: "Social Media Management", path: "/services/social-media-management", description: "Strategic growth campaigns" },
-    // { label: "Video Editing", path: "/services/video-editing", description: "Professional video production" },
-    // { label: "Graphic Design", path: "/services/graphic-design", description: "Brand identity design" },
-    // { label: "Content Writing", path: "/services/content-writing", description: "Engaging copy & SEO content" },
-    { label: "Digital Marketing", path: "/services/digital-marketing", description: "ROI-focused campaigns" }
+    { label: "Website Development", path: "/services" },
+    { label: "App Development", path: "/services" },
+    { label: "Digital Marketing", path: "/services" },
+    { label: "Social Media", path: "/services" },
+    { label: "Video Editing", path: "/services" },
+    { label: "Graphic Design", path: "/services" }
   ],
   resources: [
      { label: "Privacy Policy", path: "/privacy" },

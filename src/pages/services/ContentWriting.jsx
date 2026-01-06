@@ -116,9 +116,9 @@ function ContentWriting() {
                   { type: "Social Media Content", desc: "Platform-optimized posts and captions" },
                   { type: "Web Copy", desc: "Homepage, services, and About page content" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <h4 className="font-bold text-gray-900 mb-2">{item.type}</h4>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-2">{item.type}</h4>
+                    <p className="text-sm text-white/60">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -156,12 +156,12 @@ function ContentWriting() {
                     ]
                   }
                 ].map((stage, idx) => (
-                  <div key={idx} className="bg-white border border-gray-300 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <h4 className="font-bold text-gray-900 mb-4">{stage.stage}</h4>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 hover:border-white transition-all duration-300 group">
+                    <h4 className="font-bold text-white mb-4">{stage.stage}</h4>
                     <ul className="space-y-2">
                       {stage.points.map((point, pidx) => (
-                        <li key={pidx} className="text-gray-700 flex items-center gap-2">
-                          <span className="text-black">✓</span> {point}
+                        <li key={pidx} className="text-white/70 flex items-center gap-2">
+                          <span className="text-white/40">✓</span> {point}
                         </li>
                       ))}
                     </ul>

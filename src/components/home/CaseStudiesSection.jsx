@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ChevronLeft,
@@ -78,7 +78,7 @@ function CaseStudiesSection({ caseStudies }) {
           {/* Main Carousel Card */}
           <div className="relative h-[600px] md:h-[400px]">
             <AnimatePresence initial={false} custom={direction}>
-              <motion.div
+              <Motion.div
                 key={currentIndex}
                 custom={direction}
                 variants={slideVariants}
@@ -143,7 +143,7 @@ function CaseStudiesSection({ caseStudies }) {
                       opacity-0 group-hover:opacity-100 
                       transition-opacity duration-300 pointer-events-none"
                         >
-                          <motion.a
+                          <Motion.a
                             href={caseStudies[currentIndex].link}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -156,13 +156,13 @@ function CaseStudiesSection({ caseStudies }) {
                           >
                             <ExternalLink className="w-4 h-4" />
                             Live Preview
-                          </motion.a>
+                          </Motion.a>
                         </div>
                       )}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </Motion.div>
             </AnimatePresence>
           </div>
 
@@ -201,7 +201,7 @@ function CaseStudiesSection({ caseStudies }) {
                 style={{ width: index === currentIndex ? "2rem" : "1rem" }}
               >
                 {index === currentIndex && (
-                  <motion.div
+                  <Motion.div
                     layoutId="active-pill"
                     className="absolute inset-0 bg-emerald-500"
                   />

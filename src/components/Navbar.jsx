@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import emailjs from '@emailjs/browser';
-import { Menu, X, Mail, ArrowRight, User, Phone, DollarSign, MessageSquare, Briefcase, ChevronDown, Check, Globe, Smartphone, Video, Palette, PenTool, BarChart, Loader2 } from "lucide-react";
+import { Menu, X, Mail, ArrowRight, User, Phone, DollarSign, MessageSquare, Briefcase, ChevronDown, Check, Globe, Smartphone, Video, Palette, PenTool, BarChart, Loader2, GraduationCap, BookOpen } from "lucide-react";
 import { menuItems } from "../const";
 import toast, { Toaster } from 'react-hot-toast'; // Import toast
 
@@ -10,7 +10,7 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const handleOptionClick = (optionValue, optionLabel) => {
+  const handleOptionClick = (optionValue) => {
     onChange(optionValue);
     setIsOpen(false);
   };
@@ -133,9 +133,16 @@ function Navbar() {
       description: "Responsive & modern websites"
     },
     { 
+      value: "app", 
+      label: "Android & iOS Development", 
+      icon: Smartphone,
+      bgColor: "bg-zinc-900",
+      description: "Native & cross-platform apps"
+    },
+    { 
       value: "social-media", 
       label: "Social Media Management", 
-      icon: Smartphone,
+      icon: MessageSquare,
       bgColor: "bg-purple-500",
       description: "Engagement & growth strategies"
     },
@@ -154,18 +161,18 @@ function Navbar() {
       description: "Visual branding & design"
     },
     { 
-      value: "content", 
-      label: "Content Writing", 
-      icon: PenTool,
-      bgColor: "bg-yellow-500",
-      description: "SEO-optimized content"
-    },
-    { 
       value: "marketing", 
       label: "Digital Marketing", 
       icon: BarChart,
       bgColor: "bg-indigo-500",
       description: "Campaigns & analytics"
+    },
+    { 
+      value: "academic-project", 
+      label: "Academic Projects", 
+      icon: GraduationCap,
+      bgColor: "bg-blue-400",
+      description: "Mini & Major project solutions"
     },
   ];
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Phone, MapPin, CheckCircle, MessageSquareDot, Send } from 'lucide-react';
-import { socialLinks, footerCompanyInfo, footerLinks, footerTrustBadges, footerContactInfo } from '../const';
+import { socialLinks, footerCompanyInfo, footerLinks, footerContactInfo } from '../const';
 import ContactForm from '../components/ContactForm';
 
 function Footer() {
@@ -18,11 +18,6 @@ function Footer() {
   // });
   // const [formErrors, setFormErrors] = useState({});
   // const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const handleContactClick = () => {
-    setShowContactForm(true);
-    // setFormErrors({});
-  };
 
   const handleCloseForm = () => {
     setShowContactForm(false);

@@ -1,31 +1,105 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Code, TrendingUp, Film, Palette, MessageSquare, Globe, CheckCircle, ArrowRight, Mail, Target, Zap, Rocket } from 'lucide-react';
-import { services, processSteps, faqs } from '../../const';
+import { motion as Motion, useScroll, useTransform } from 'framer-motion';
+import { Smartphone, Globe, Zap, Film, Palette, MessageSquare, TrendingUp, CheckCircle, ArrowRight, Target, Rocket, GraduationCap, BookOpen, Clock, ShieldCheck, Cpu, Layout, Share2, Clapperboard, PenTool, FileText, Megaphone, Monitor, Code, Sparkles } from 'lucide-react';
+import { services as servicesData, processSteps, faqs, features } from '../../const';
 import FAQSection from '../../components/FAQSection';
 import ContactForm from '../../components/ContactForm';
+import ServiceProcessMap from '../../components/ServiceProcessMap';
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { AnimatePresence } from 'framer-motion';
+
+function Word({ children, progress, range }) {
+  const opacity = useTransform(progress, range, [0.2, 1]);
+  return (
+    <span className="relative inline-block mr-4 last:mr-0 font-inter">
+      <span className="absolute opacity-20 text-slate-900">{children}</span>
+      <Motion.span style={{ opacity }} className="text-slate-900">
+        {children}
+      </Motion.span>
+    </span>
+  );
+}
 
 function Services() {
-  const routerNavigate = useNavigate();
-  const servicePaths = [
-    '/services/website-development',
-    '/services/social-media-management',
-    '/services/video-editing',
-    '/services/graphic-design',
-    '/services/content-writing',
-    '/services/digital-marketing'
-  ];
   const [showContactForm, setShowContactForm] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [isVisible, setIsVisible] = useState({});
+  const [selectedService, setSelectedService] = useState(null);
   const observerRefs = useRef([]);
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "center start"]
+  });
+
+  const title = "Professional IT Solutions";
+  const words = title.split(" ");
+
+  const getIcon = (title) => {
+    const iconClass = "w-8 h-8 transition-transform duration-500 group-hover:scale-110";
+    switch (title) {
+      case "Website Development": 
+        return { 
+          icon: <Layout className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Social Media Management": 
+        return { 
+          icon: <Share2 className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Video Editing": 
+        return { 
+          icon: <Clapperboard className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Graphic Design": 
+        return { 
+          icon: <PenTool className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Content Writing": 
+        return { 
+          icon: <FileText className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Digital Marketing": 
+        return { 
+          icon: <Megaphone className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Android & iOS Development": 
+        return { 
+          icon: <Smartphone className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      case "Academic Projects": 
+        return { 
+          icon: <GraduationCap className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+      default: 
+        return { 
+          icon: <Monitor className={iconClass} />, 
+          bg: "bg-white/5 text-white",
+          gradient: "group-hover:bg-white group-hover:text-black"
+        };
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
+            // isVisible logic if needed
           }
         });
       },
@@ -39,18 +113,22 @@ function Services() {
     return () => observer.disconnect();
   }, []);
 
-  const handleGetStartedClick = () => {
+  const handleGetStartedClick = (e) => {
+    e.stopPropagation();
     setShowContactForm(true);
+  };
+
+  const handleServiceClick = (service) => {
+    setSelectedService(service);
   };
 
   const handleCloseForm = () => {
     setShowContactForm(false);
   };
 
-  const servicesWithIcons = services.map((service, index) => ({
-    ...service,
-    icon: [<Code className="w-12 h-12" />, <TrendingUp className="w-12 h-12" />, <Film className="w-12 h-12" />, <Palette className="w-12 h-12" />, <MessageSquare className="w-12 h-12" />, <Globe className="w-12 h-12" />][index]
-  }));
+  const handleCloseMap = () => {
+    setSelectedService(null);
+  };
 
   const processStepsWithIcons = processSteps.map((step, index) => ({
     ...step,
@@ -61,209 +139,172 @@ function Services() {
     <>
       <div className="pt-16 bg-white">
         {/* Hero Section */}
-        <section className="py-20 px-6 bg-linear-to-b from-slate-50 to-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-2">
-                Professional IT Solutions 
-              </h1>
-                                            <div className="w-28 h-1 bg-gray-600 mx-auto rounded-full mb-6"></div>
+        <section ref={containerRef} className="pt-8 pb-24 px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-inter">
+          {/* Decorative Background Grid */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div className="text-left lg:pr-10">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-10 tracking-tighter uppercase relative inline-block font-inter">
+                  {words.map((word, i) => {
+                    const start = i / words.length;
+                    const end = start + (1 / words.length);
+                    return (
+                      <Word key={i} progress={scrollYProgress} range={[start, end]}>
+                        {word}
+                      </Word>
+                    );
+                  })}
+                </h1>
+                <Motion.div 
+                  style={{ width: useTransform(scrollYProgress, [0, 0.8], [0, 250]) }}
+                  className="h-2.5 bg-slate-900 rounded-full mb-12 origin-left"
+                ></Motion.div>
+                <p className="text-2xl text-slate-600 max-w-xl font-medium leading-relaxed font-inter">
+                  Transforming vision into digital reality through specialized expertise and precision execution.
+                </p>
+              </div>
 
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-                Whether you need a stunning website, powerful marketing strategy, or creative brand identity, we have the expertise to deliver excellence across all disciplines.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                {
-                  icon: "🎯",
-                  title: "Results-Focused",
-                  desc: "Every service designed to drive measurable business results"
-                },
-                {
-                  icon: "⚡",
-                  title: "Lightning Fast",
-                  desc: "Efficient processes without compromising on quality"
-                },
-                {
-                  icon: "👥",
-                  title: "Expert Team",
-                  desc: "Certified professionals with 1+ years of experience"
-                }
-              ].map((item, index) => (
-                <div key={index} className="bg-white border-slate-200 rounded-xl p-8 h-full border  shadow-lg group-hover:shadow-2lg group-hover:border-slate-200 transition-all duration-300 hover:-translate-y-2">
-                  <div className="text-4xl mb-3">{item.icon}</div>
-                  <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-slate-600">{item.desc}</p>
+              <div className="relative h-[600px] w-full flex items-center justify-end pr-10">
+                {/* Connection Lines (Map/Graph Style) */}
+                <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 500 600" preserveAspectRatio="none">
+                  <Motion.path 
+                    d="M300 150 L425 300 L300 450" 
+                    stroke="currentColor" 
+                    strokeWidth="3" 
+                    fill="none"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <circle cx="300" cy="150" r="5" fill="currentColor" />
+                  <circle cx="425" cy="300" r="5" fill="currentColor" />
+                  <circle cx="300" cy="450" r="5" fill="currentColor" />
+                </svg>
+
+                <div className="relative w-full h-full">
+                  {features.map((feature, idx) => {
+                    const positions = [
+                      "top-[25%] left-[60%]",
+                      "top-[50%] left-[85%]",
+                      "top-[75%] left-[60%]"
+                    ];
+                    return (
+                      <Motion.div 
+                        key={idx} 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.2 }}
+                        className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[idx]} bg-white p-6 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-72`}
+                      >
+                        <div className="w-14 h-14 bg-slate-900 text-white rounded-xl flex items-center justify-center group-hover:bg-slate-800 transition-colors shadow-lg">
+                          <CheckCircle className="w-7 h-7" />
+                        </div>
+                        <div>
+                          <span className="font-black text-xl text-slate-900 uppercase tracking-tighter leading-none block mb-1">{feature.text}</span>
+                          <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Validated</span>
+                        </div>
+                        <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-900 rounded-full scale-0 group-hover:scale-100 transition-transform"></div>
+                      </Motion.div>
+                    );
+                  })}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* All Services */}
-        <section 
-          id="all-services"
-          ref={(el) => (observerRefs.current[0] = el)}
-          className="py-10 px-6 bg-white"
-        >
+        {/* All Services Grid */}
+        <section id="all-services" className="py-24 px-6 bg-white relative">
           <div className="max-w-7xl mx-auto">
-            <div className="space-y-12">
-              {servicesWithIcons.map((service, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg overflow-hidden hover:shadow-lg transition-all">
-                  <div className="grid md:grid-cols-2 gap-8 p-8">
-                    <div>
-                      <div className="text-slate-900 mb-4 text-5xl">{service.icon}</div>
-                      <h3 className="text-3xl font-bold text-slate-900 mb-4">{service.title}</h3>
-                      <p className="text-lg text-slate-600 mb-6">{service.description}</p>
-                      <p className="text-slate-700 leading-relaxed mb-6">{service.longDescription}</p>
-                      
-                      <div className="flex items-center justify-between pt-4 border-t border-slate-200">
-                        {/* <div>
-                          <div className="text-3xl font-bold text-slate-900">{service.price}</div>
-                        </div> */}
-                        <div className="flex gap-2">
-                          <button 
-                            onClick={() => routerNavigate(servicePaths[index])}
-                            className="bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition-colors flex items-center gap-2"
-                          >
-                            Learn More
-                            <ArrowRight className="w-4 h-4" />
-                          </button>
-                          <button 
+            <div className="flex flex-col  mb-20">
+            
+              <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter  uppercase ">
+                Our <span className="text-slate-400">Services</span>
+              </h2>
+              <div className="w-24 h-2 bg-slate-900 mt-8 rounded-full"></div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {servicesData.map((service, index) => {
+                const iconData = getIcon(service.title);
+                return (
+                  <Card 
+                    key={index} 
+                    onClick={() => handleServiceClick(service)}
+                    className="group relative border-white/10 hover:border-white transition-all duration-500 shadow-none hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] flex flex-col h-full overflow-hidden cursor-pointer bg-black rounded-[2.5rem]"
+                  >
+                    <CardHeader className="p-8 pb-4">
+                      <div className={`w-20 h-20 ${iconData.bg} ${iconData.gradient} rounded-3xl flex items-center justify-center mb-8 transition-all duration-500 shadow-sm`}>
+                        {iconData.icon}
+                      </div>
+                      <CardTitle className="text-2xl font-black text-white mb-2 leading-tight uppercase tracking-tight group-hover:text-white transition-colors">
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-8 pb-8 pt-0 flex flex-col flex-grow">
+                      <div className="flex flex-col h-full justify-between">
+                        <div className="text-lg font-bold text-white/50 mb-8 flex items-center gap-2">
+                          <span className="w-4 h-[1px] bg-white/20"></span>
+                          {service.price}
+                        </div>
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-2 text-[10px] font-black text-white/60 uppercase tracking-[0.2em] bg-white/10 py-2.5 px-4 rounded-xl w-fit group-hover:bg-white group-hover:text-black transition-all">
+                            <Clock className="w-3.5 h-3.5" />
+                            View Strategy
+                          </div>
+                          <button
                             onClick={handleGetStartedClick}
-                            className="bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2"
+                            className="w-full bg-white text-black px-6 py-4 rounded-2xl font-black uppercase tracking-tighter flex items-center justify-center gap-2 hover:bg-slate-200 transition-all active:scale-95 shadow-lg"
                           >
                             Get Started
-                            <ArrowRight className="w-4 h-4" />
+                            <ArrowRight className="w-5 h-5" />
                           </button>
                         </div>
                       </div>
+                    </CardContent>
+                    
+                    {/* Subtle Number Watermark */}
+                    <div className="absolute top-8 right-8 text-6xl font-black text-white/5 pointer-events-none group-hover:text-white/10 transition-colors">
+                      0{index + 1}
                     </div>
-
-                    <div className="space-y-8">
-                      <div>
-                        <h4 className="text-lg font-bold text-slate-900 mb-4">✨ Key Features</h4>
-                        <ul className="space-y-3">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-slate-700">
-                              <CheckCircle className="w-5 h-5 text-slate-900 shrink-0 mt-0.5" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-
-                    </div>
-                  </div>
-                </div>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* Process Section */}
-       <section className="py-16 px-6 bg-gradient-to-b from-white to-blue-50">
-  <div className="max-w-6xl mx-auto">
-    {/* Heading */}
-    <div className="text-center mb-20">
-       <div className="inline-flex items-center gap-3 mb-4">
-                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-                                <span className="text-base font-semibold text-slate-600 tracking-normal">OUR APPROACH</span>
-                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-                            </div>
-      <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mt-3 mb-3">
-        Our Process
-      </h2>
-                                    <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full mb-4"></div>
-
-      <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
-        A refined workflow that ensures clarity, quality, and seamless delivery.
-      </p>
-    </div>
-
-    {/* Steps */}
-    <div className="grid md:grid-cols-4 gap-10">
-      {processStepsWithIcons.map((step, index) => (
-        <div
-          key={index}
-          className="relative flex flex-col items-center text-center"
-        >
-          {/* Step Number */}
-          <div className="bg-gradient-to-br from-black to-gray-800 text-white rounded-full w-14 h-14 flex items-center justify-center text-lg font-semibold shadow-md">
-            {step.step}
-          </div>
-
-          {/* Icon */}
-          <div className="mt-6 mb-4 text-gray-800 flex justify-center">
-            {step.icon}
-          </div>
-
-          {/* Text */}
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            {step.title}
-          </h3>
-          <p className="text-gray-600 leading-relaxed">
-            {step.desc}
-          </p>
-
-          {/* Line Indicator */}
-          {index < processStepsWithIcons.length - 1 && (
-            <div className="hidden md:block absolute top-1/2 right-[-2rem] w-10 h-[1px] bg-gradient-to-r from-gray-300 to-gray-100"></div>
-          )}
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-        {/* Client Benefits */}
-        <section className="py-14 px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-3 mb-4">
-                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-                                <span className="text-base font-semibold text-slate-600 tracking-normal">WHY CLIENTS CHOOSE US</span>
-                                <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-                            </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-5">
-                Partnership That Delivers
+        <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
+              <span className="text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-4 block">Our Approach</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Our Process
               </h2>
-                                            <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full mb-4"></div>
-
+              <div className="w-20 h-1 bg-slate-900 mx-auto rounded-full mt-6"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {[
-                {
-                  title: "Strategic Approach",
-                  points: ["Deep understanding of your business", "Market research & competitor analysis", "Custom strategy tailored to goals"]
-                },
-                {
-                  title: "Quality Execution",
-                  points: ["Expert team with proven track record", "Latest technologies & best practices", "Meticulous attention to detail"]
-                },
-                {
-                  title: "Transparent Communication",
-                  points: ["Regular updates and reporting", "Clear milestones & deliverables", "Direct access to your project manager"]
-                },
-                {
-                  title: "Long-Term Support",
-                  points: ["Post-launch optimization", "Ongoing support & maintenance", "Continuous improvement strategies"]
-                }
-              ].map((item, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">{item.title}</h3>
-                  <ul className="space-y-3">
-                    {item.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-slate-700">
-                        <span className="text-slate-900 font-bold mt-1">✓</span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+            <div className="grid md:grid-cols-4 gap-12">
+              {processStepsWithIcons.map((step, index) => (
+                <div key={index} className="relative flex flex-col items-center text-center">
+                  <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl w-16 h-16 flex items-center justify-center text-xl font-bold shadow-sm mb-6 z-10">
+                    {step.step}
+                  </div>
+                  <div className="mb-4 text-slate-400">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-slate-500 leading-relaxed font-light">
+                    {step.desc}
+                  </p>
+                  {index < processStepsWithIcons.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-[60%] w-full h-[1px] bg-slate-200 -z-0"></div>
+                  )}
                 </div>
               ))}
             </div>
@@ -274,23 +315,43 @@ function Services() {
         <FAQSection faqs={faqs} handleGetStartedClick={handleGetStartedClick} />
       </div>
 
+      {/* Service Roadmap Modal */}
+      <AnimatePresence>
+        {selectedService && (
+          <ServiceProcessMap 
+            service={selectedService} 
+            onClose={handleCloseMap} 
+          />
+        )}
+      </AnimatePresence>
+
       {/* Contact Form Modal */}
-      {showContactForm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div 
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-            onClick={handleCloseForm}
-          ></div>
-          <div className="relative z-50">
-            <ContactForm 
-              onClose={handleCloseForm}
-              defaultService=""
-              showCloseButton={true}
-              compact={false}
-            />
+      <AnimatePresence>
+        {showContactForm && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <Motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              onClick={handleCloseForm}
+            ></Motion.div>
+            <Motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative z-50"
+            >
+              <ContactForm 
+                onClose={handleCloseForm}
+                defaultService=""
+                showCloseButton={true}
+                compact={false}
+              />
+            </Motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 }

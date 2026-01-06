@@ -1,6 +1,6 @@
 import { Award, TrendingUp, Rocket, Users, CheckCircle, Shield, ArrowRight } from 'lucide-react';
 
-function WhyChooseUsSection({ handleGetStartedClick }) {
+function WhyChooseUsSection() {
   const reasons = [
     {
       icon: <Award className="w-8 h-8" />,
