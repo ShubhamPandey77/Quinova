@@ -140,17 +140,13 @@ export const faqs = [
     category: "Pricing & Payment",
     questions: [
       {
-        q: "Do you offer payment plans?",
-        a: "Yes! We're flexible:\n• 50% upfront, 50% on delivery\n• Monthly retainers (preferred)\n• Milestone-based payments\n• Custom arrangements\n\nWe work with your budget and cashflow."
+        q: "How do you determine project costs?",
+        a: "We provide custom quotes based on your specific requirements, project scope, and goals. Contact us for a free consultation to get a detailed proposal."
       },
       {
-        q: "What's included in the price?",
-        a: "Our pricing includes:\n• Project management\n• Quality assurance\n• Deployment/Launch\n• Initial training (if needed)\n\nNo hidden charges. Transparent pricing."
-      },
-      // {
-      //   q: "Can you provide a refund?",
-      //   a: "Our refund policy:\n• 100% satisfaction guarantee\n• Full refund if not satisfied\n• Or we redo the work free\n• Refund within 30 days\n• No questions asked\n\nYour satisfaction is our priority."
-      // }
+        q: "What is included in your services?",
+        a: "Our services include end-to-end project management, quality assurance, deployment/launch, and initial training or support to ensure your success."
+      }
     ]
   }
 ];
@@ -176,7 +172,41 @@ export const stats = [
 export const services = [
   {
     title: "Website Development",
-    price: "Starting at ₹9999",
+    content: "Professional Web Development",
+    longDescription: "We build high-performance, conversion-optimized websites that work 24/7 to generate leads and sales for your business.",
+    features: [
+      "Custom UI/UX Design",
+      "Responsive Layouts",
+      "SEO Optimization",
+      "E-commerce Integration",
+      "CMS Implementation",
+      "Performance Tuning"
+    ],
+    benefits: [
+      "Increased Lead Generation",
+      "Enhanced Brand Credibility",
+      "Better User Experience",
+      "Higher Search Rankings",
+      "Mobile-First Approach",
+      "24/7 Business Presence"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Legacy Website",
+        description: "Slow, outdated, and non-responsive design that was losing customers.",
+        metrics: ["8s Load Time", "15% Mobile Users", "2% Conversion Rate"]
+      },
+      after: {
+        title: "Quinova Redesign",
+        description: "Modern, ultra-fast, and conversion-focused digital experience.",
+        metrics: ["1.2s Load Time", "95% Mobile Score", "12% Conversion Rate"]
+      }
+    },
+    caseStudy: {
+      client: "Nagomi Wellness",
+      results: "+280% Sales",
+      metrics: ["45% Lower Bounce Rate", "3x User Engagement", "Mobile Revenue Doubled"]
+    },
     process: [
       { step: "01", title: "Initial Meeting", desc: "Discuss Requirements", icon: "Users" },
       { step: "02", title: "Project Planning", desc: "Define Deliverables", icon: "ClipboardList" },
@@ -191,7 +221,41 @@ export const services = [
   },
   {
     title: "Social Media Management",
-    price: "Starting at ₹9999/mo",
+    content: "Growth-Driven Social Strategy",
+    longDescription: "Transform your social media channels into powerful growth engines with our data-driven management and creative content strategies.",
+    features: [
+      "Content Strategy",
+      "Visual Design",
+      "Copywriting",
+      "Community Management",
+      "Ad Management",
+      "Performance Analytics"
+    ],
+    benefits: [
+      "Brand Awareness",
+      "Customer Loyalty",
+      "Targeted Reach",
+      "Expert Management",
+      "Consistent Presence",
+      "Measurable Growth"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Inconsistent Presence",
+        description: "Random posts, low engagement, and no clear brand voice.",
+        metrics: ["1k Monthly Reach", "0.5% Engagement", "No Leads"]
+      },
+      after: {
+        title: "Managed Strategy",
+        description: "Engaging content, strategic growth, and clear brand identity.",
+        metrics: ["500k Monthly Reach", "8.5% Engagement", "Consistent Leads"]
+      }
+    },
+    caseStudy: {
+      client: "Fashion Retail Co.",
+      results: "500K Reach",
+      metrics: ["Brand Identity Revived", "24/7 Engagement", "Viral Content Strategy"]
+    },
     process: [
       { step: "01", title: "Strategy Session", desc: "Define Goals & Audience", icon: "Target" },
       { step: "02", title: "Platform Audit", desc: "Analyze Existing Presence", icon: "Search" },
@@ -206,7 +270,41 @@ export const services = [
   },
   {
     title: "Video Editing",
-    price: "Starting at ₹1999",
+    content: "Cinematic Video Production",
+    longDescription: "Professional video editing that tells your story with cinematic quality, perfect for YouTube, social media, and corporate branding.",
+    features: [
+      "Color Grading",
+      "Motion Graphics",
+      "Sound Design",
+      "Transitions",
+      "Storyboarding",
+      "4K Rendering"
+    ],
+    benefits: [
+      "Professional Look",
+      "Better Storytelling",
+      "Higher Retention",
+      "Engagement Boost",
+      "Multi-platform Ready",
+      "Fast Turnaround"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Raw Footage",
+        description: "Unedited clips with poor lighting and inconsistent sound.",
+        metrics: ["20% Retention", "Low Shares", "Mobile Viewers Drop"]
+      },
+      after: {
+        title: "Polished Video",
+        description: "Cinematic, engaging, and professional video content.",
+        metrics: ["85% Retention", "High Virality", "Premium Brand Feel"]
+      }
+    },
+    caseStudy: {
+      client: "Creative Agency",
+      results: "Viral Growth",
+      metrics: ["Premium Aesthetic", "Seamless Storytelling", "Audience Engagement"]
+    },
     process: [
       { step: "01", title: "Footage Transfer", desc: "Receive & Organize Clips", icon: "Upload" },
       { step: "02", title: "Storyboarding", desc: "Define Video Narrative", icon: "Film" },
@@ -221,7 +319,41 @@ export const services = [
   },
   {
     title: "Graphic Design",
-    price: "Starting at ₹499",
+    content: "Impactful Visual Identity",
+    longDescription: "We create stunning visual identities that capture your brand's essence and make a lasting impression on your audience.",
+    features: [
+      "Logo Design",
+      "Brand Identity",
+      "Social Media Graphics",
+      "Print Design",
+      "UI Design",
+      "Infographics"
+    ],
+    benefits: [
+      "Professional Image",
+      "Visual Consistency",
+      "Better Engagement",
+      "Brand Recognition",
+      "Unique Identity",
+      "Creative Solutions"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Generic Design",
+        description: "Stock graphics and inconsistent branding across platforms.",
+        metrics: ["Unclear Brand", "Low Trust", "Inconsistent Colors"]
+      },
+      after: {
+        title: "Premium Identity",
+        description: "Custom, cohesive, and professional brand visual system.",
+        metrics: ["Premium Status", "High Trust", "Cohesive Presence"]
+      }
+    },
+    caseStudy: {
+      client: "TechStartup Inc.",
+      results: "Brand Revamp",
+      metrics: ["Global Appeal", "Modern Aesthetics", "Design Scalability"]
+    },
     process: [
       { step: "01", title: "Design Brief", desc: "Understand Visual Needs", icon: "FileText" },
       { step: "02", title: "Research", desc: "Competitor & Trend Analysis", icon: "Search" },
@@ -236,7 +368,41 @@ export const services = [
   },
   {
     title: "Content Writing",
-    price: "Starting at ₹499/article",
+    content: "Persuasive Content Strategy",
+    longDescription: "High-quality, SEO-optimized content that informs your audience and drives conversions through persuasive storytelling.",
+    features: [
+      "SEO Writing",
+      "Blog Management",
+      "Copywriting",
+      "Ghostwriting",
+      "Technical Writing",
+      "Newsletter Design"
+    ],
+    benefits: [
+      "Organic Traffic",
+      "Authority Building",
+      "Higher Conversions",
+      "Better Engagement",
+      "SEO Rankings",
+      "Brand Storytelling"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Thin Content",
+        description: "Short articles with no SEO value or clear call-to-action.",
+        metrics: ["No Rankings", "High Bounce Rate", "No Organic Traffic"]
+      },
+      after: {
+        title: "Strategic Content",
+        description: "Long-form, keyword-rich content that provides real value.",
+        metrics: ["Page 1 Rankings", "High Read Time", "300% Traffic Growth"]
+      }
+    },
+    caseStudy: {
+      client: "Educational Trust",
+      results: "3x Traffic",
+      metrics: ["Keyword Leadership", "Audience Trust", "Higher Enrollments"]
+    },
     process: [
       { step: "01", title: "Topic Research", desc: "Identify Key Themes", icon: "BookOpen" },
       { step: "02", title: "SEO Strategy", desc: "Keyword Integration Plan", icon: "Target" },
@@ -251,7 +417,41 @@ export const services = [
   },
   {
     title: "Digital Marketing",
-    price: "Starting at ₹19999/mo",
+    content: "Predictable Revenue Growth",
+    longDescription: "Comprehensive digital marketing strategies that combine paid ads, SEO, and funnels to scale your business predictably.",
+    features: [
+      "PPC Management",
+      "SEO Strategy",
+      "Lead Generation",
+      "Email Funnels",
+      "Market Research",
+      "Conversion Ops"
+    ],
+    benefits: [
+      "Direct ROI",
+      "Scalable Growth",
+      "Market Dominance",
+      "Data Insights",
+      "Qualified Leads",
+      "Full Funnel Mastery"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Wasted Spend",
+        description: "Ad campaigns with no tracking and high cost per lead.",
+        metrics: ["₹500 Per Lead", "No Tracking", "Low ROI"]
+      },
+      after: {
+        title: "Optimized Funnel",
+        description: "Highly targeted campaigns with end-to-end tracking.",
+        metrics: ["₹120 Per Lead", "Full Attribution", "450% ROI Growth"]
+      }
+    },
+    caseStudy: {
+      client: "Digital Solutions Ltd.",
+      results: "450% ROI",
+      metrics: ["Lower Lead Cost", "Quality Targeting", "Scalable System"]
+    },
     process: [
       { step: "01", title: "Market Research", desc: "Analyze Competition", icon: "BarChart" },
       { step: "02", title: "Campaign Strategy", desc: "Define Ad Objectives", icon: "Compass" },
@@ -266,7 +466,41 @@ export const services = [
   },
   {
     title: "Android & iOS Development",
-    price: "Starting at ₹25999",
+    content: "Native Mobile Experience",
+    longDescription: "We build powerful, scalable, and user-friendly mobile applications for both Android and iOS that drive business value.",
+    features: [
+      "Custom App Design",
+      "Native Development",
+      "Cross-platform Apps",
+      "API Integration",
+      "Push Notifications",
+      "App Store Support"
+    ],
+    benefits: [
+      "Better User Loyalty",
+      "Direct Communication",
+      "Premium User UX",
+      "Offline Access",
+      "App Store Presence",
+      "Modern Technology"
+    ],
+    beforeAfter: {
+      before: {
+        title: "No Mobile Access",
+        description: "Customers couldn't access services easily on the go.",
+        metrics: ["Mobile Drop-offs", "Lower Retention", "No App Presence"]
+      },
+      after: {
+        title: "Full App Suite",
+        description: "Highly engaging and fast mobile applications.",
+        metrics: ["70% Higher Usage", "5-Star Rating", "Push Sales Growth"]
+      }
+    },
+    caseStudy: {
+      client: "GoHomies",
+      results: "App Launched",
+      metrics: ["Native Performance", "User-friendly Flow", "Increased Bookings"]
+    },
     process: [
       { step: "01", title: "Concept Discovery", desc: "Define App Features", icon: "Lightbulb" },
       { step: "02", title: "Wireframing", desc: "Map User Journey", icon: "Map" },
@@ -281,7 +515,41 @@ export const services = [
   },
   {
     title: "Academic Projects",
-    price: "Mini: ₹4999 | Major: ₹9999",
+    content: "Professional Project Support",
+    longDescription: "Expert guidance and development support for academic projects, from requirement analysis to final documentation.",
+    features: [
+      "Full Development",
+      "Source Code",
+      "Project Reports",
+      "Viva Preparation",
+      "Diagrams & UML",
+      "Deployment Guide"
+    ],
+    benefits: [
+      "Academic Success",
+      "Practical Knowledge",
+      "Timely Submission",
+      "Quality Documentation",
+      "Expert Mentoring",
+      "Complete Solution"
+    ],
+    beforeAfter: {
+      before: {
+        title: "Stuck Project",
+        description: "Incomplete code and poor documentation facing rejection.",
+        metrics: ["Errors in Code", "No Diagrams", "Submission Risk"]
+      },
+      after: {
+        title: "Premium Project",
+        description: "A+ grade project with complete professional documentation.",
+        metrics: ["Bug-free Code", "Full UML Suite", "98% Score Record"]
+      }
+    },
+    caseStudy: {
+      client: "Student Success",
+      results: "A+ Grade",
+      metrics: ["Professional Code", "Clean Documentation", "Mentoring Success"]
+    },
     process: [
       { step: "01", title: "Requirement Analysis", desc: "Understand Guidelines", icon: "FileQuestion" },
       { step: "02", title: "Literature Survey", desc: "Existing Work Review", icon: "Search" },

@@ -73,58 +73,67 @@ function FAQSection({ faqs, handleGetStartedClick }) {
         {/* FAQ Items */}
         <div className="space-y-4">
           <AnimatePresence mode="wait">
-            {currentFAQs.map((item, index) => (
-              <motion.div
-                key={`${selectedCategory}-${index}`}
-                custom={index}
-                variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all"
-              >
-                <motion.button
-                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  className="w-full px-6 py-4 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
-                  whileHover={{ backgroundColor: "#f8fafc" }}
+            <motion.div
+              key={selectedCategory}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
+              {currentFAQs.map((item, index) => (
+                <motion.div
+                  key={`${selectedCategory}-${index}`}
+                  custom={index}
+                  variants={itemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  className="bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all"
                 >
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 pr-4">
-                    {item.q}
-                  </h3>
-                  <motion.div
-                    animate={{ rotate: expandedIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="flex-shrink-0"
+                  <motion.button
+                    onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                    className="w-full px-6 py-4 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
+                    whileHover={{ backgroundColor: "#f8fafc" }}
                   >
-                    <ChevronDown className="w-6 h-6 text-slate-600" />
-                  </motion.div>
-                </motion.button>
-
-                <AnimatePresence>
-                  {expandedIndex === index && (
+                    <h3 className="text-lg md:text-xl font-bold text-slate-900 pr-4">
+                      {item.q}
+                    </h3>
                     <motion.div
-                      variants={expandVariants}
-                      initial="collapsed"
-                      animate="expanded"
-                      exit="collapsed"
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                      animate={{ rotate: expandedIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex-shrink-0"
                     >
-                      <div className="px-6 md:px-8 pb-6 md:pb-8 border-t border-slate-100">
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.1, duration: 0.3 }}
-                          className="text-slate-700 leading-relaxed whitespace-pre-line"
-                        >
-                          {item.a}
-                        </motion.div>
-                      </div>
+                      <ChevronDown className="w-6 h-6 text-slate-600" />
                     </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+                  </motion.button>
+
+                  <AnimatePresence>
+                    {expandedIndex === index && (
+                      <motion.div
+                        variants={expandVariants}
+                        initial="collapsed"
+                        animate="expanded"
+                        exit="collapsed"
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 md:px-8 pb-6 md:pb-8 border-t border-slate-100">
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.1, duration: 0.3 }}
+                            className="text-slate-700 leading-relaxed whitespace-pre-line"
+                          >
+                            {item.a}
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </motion.div>
           </AnimatePresence>
         </div>
 
@@ -134,7 +143,7 @@ function FAQSection({ faqs, handleGetStartedClick }) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-slate-900 to-slate-800 rounded-lg p-8 md:p-12 text-white text-center"
+          className="mt-16 bg-gradient-to-r from-slate-900 to-slate-800 rounded-lg p-8 md:p-12 text-white text-center relative"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Didn't find your answer?

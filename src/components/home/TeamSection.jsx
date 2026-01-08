@@ -13,7 +13,7 @@ const TeamSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="py-32 px-12 bg-white overflow-hidden"
+            className="py-32 px-12 bg-white overflow-hidden relative"
         >
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-20">

@@ -39,27 +39,27 @@ function ServicesSection({ navigate }) {
           {servicesData.slice(0, 3).map((service, index) => (
             <Card 
               key={index} 
-              className="group border-white/10 hover:border-white transition-all duration-300 shadow-none hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] flex flex-col h-full overflow-hidden bg-black"
+              className="group border-slate-100 hover:border-slate-900 transition-all duration-300 shadow-sm hover:shadow-2xl flex flex-col h-full overflow-hidden bg-slate-50"
             >
               <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-slate-900 shadow-sm">
                   {getIcon(service.title)}
                 </div>
-                <CardTitle className="text-xl font-bold text-white relative inline-block">
+                <CardTitle className="text-xl font-bold text-slate-900 relative inline-block uppercase tracking-tight">
                   {service.title}
-                  <div className="absolute -bottom-1 left-0 w-1/2 h-[1px] bg-white opacity-20"></div>
+                  <div className="absolute -bottom-1 left-0 w-1/2 h-1 bg-slate-900 opacity-20 rounded-full"></div>
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col flex-grow pt-0">
                 <div className="flex flex-col h-full justify-between">
-                  <div className="text-lg font-medium text-white/50 mb-6">
-                    {service.price}
+                  <div className="text-sm font-medium text-slate-500 mb-8 line-clamp-2">
+                    {service.description}
                   </div>
                   <button
                     onClick={() => navigate("services")}
-                    className="text-white font-bold flex items-center gap-2 hover:gap-4 transition-all w-fit cursor-pointer mt-auto"
+                    className="text-slate-900 font-black uppercase tracking-tighter flex items-center gap-2 hover:gap-4 transition-all w-fit cursor-pointer mt-auto text-sm"
                   >
-                    Details
+                    Explore Service
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>

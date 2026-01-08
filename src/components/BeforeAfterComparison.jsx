@@ -41,8 +41,8 @@ function BeforeAfterComparison({ beforeData, afterData }) {
   );
 
   return (
-    <div className="py-20 px-6 bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-6xl mx-auto">
+    <div className="py-20 px-6 bg-gradient-to-b from-white to-slate-50 relative">
+      <div className="max-w-6xl mx-auto relative">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -61,8 +61,12 @@ function BeforeAfterComparison({ beforeData, afterData }) {
             </motion.div>
 
             <div className="grid md:grid-cols-4 gap-4">
-              {beforeData.stats.map((stat, index) => (
-                <StatCard key={index} stat={stat} isAfter={false} />
+              {(beforeData.stats || beforeData.metrics || []).map((stat, index) => (
+                <StatCard 
+                  key={index} 
+                  stat={typeof stat === 'string' ? { value: stat, label: '', icon: '❌' } : stat} 
+                  isAfter={false} 
+                />
               ))}
             </div>
           </div>
@@ -95,8 +99,12 @@ function BeforeAfterComparison({ beforeData, afterData }) {
             </motion.div>
 
             <div className="grid md:grid-cols-4 gap-4">
-              {afterData.stats.map((stat, index) => (
-                <StatCard key={index} stat={stat} isAfter={true} />
+              {(afterData.stats || afterData.metrics || []).map((stat, index) => (
+                <StatCard 
+                  key={index} 
+                  stat={typeof stat === 'string' ? { value: stat, label: '', icon: '✅' } : stat} 
+                  isAfter={true} 
+                />
               ))}
             </div>
           </div>

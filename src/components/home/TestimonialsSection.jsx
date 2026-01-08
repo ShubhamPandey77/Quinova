@@ -95,7 +95,7 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
     >
       <div className="max-w-7xl mx-auto relative z-10">
         {eventType!=="About" &&
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 relative">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
             <span className="text-base font-semibold text-slate-600 tracking-normal">

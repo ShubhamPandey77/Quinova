@@ -168,9 +168,7 @@ function SocialMediaManagement() {
             </div>
 
             <div className="bg-black text-white rounded-2xl p-12 text-center shadow-2xl animate-slideUp hover:shadow-3xl transition-shadow duration-300" style={{ animationDelay: '0.6s' }}>
-              <h3 className="text-3xl font-bold mb-6">Ready to Grow?</h3>
-              <div className="text-5xl font-bold mb-4">{service.price}</div>
-              <p className="text-gray-300 mb-8 text-lg">Monthly retainer for complete management</p>
+              <h3 className="text-3xl font-bold mb-8">Ready to Grow?</h3>
               <button
                 onClick={() => setShowContactForm(true)}
                 className="bg-white text-black px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-lg"

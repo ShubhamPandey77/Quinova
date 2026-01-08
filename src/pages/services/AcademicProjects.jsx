@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Globe, CheckCircle, ArrowRight, X, Mail, Code, Zap, Smartphone, ChevronLeft } from 'lucide-react';
+import { GraduationCap, CheckCircle, ArrowRight, X, Mail, Code, Zap, ChevronLeft, BookOpen, FileText } from 'lucide-react';
 import BeforeAfterComparison from '../../components/BeforeAfterComparison';
 import { services } from '../../const';
 
-function WebsiteDevelopment() {
+function AcademicProjects() {
   const routerNavigate = useNavigate();
-  const service = services[0];
+  const service = services[7]; // Academic Projects
   const [showContactForm, setShowContactForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: 'Website Development',
+    service: 'Academic Projects',
     budget: '',
     message: ''
   });
@@ -20,7 +20,7 @@ function WebsiteDevelopment() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Thank you! We will contact you soon.');
-    setFormData({ name: '', email: '', phone: '', service: 'Website Development', budget: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', service: 'Academic Projects', budget: '', message: '' });
     setShowContactForm(false);
   };
 
@@ -49,25 +49,25 @@ function WebsiteDevelopment() {
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="space-y-6 animate-fadeIn">
                 <div className="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold border border-gray-300">
-                  🌐 Professional Web Development
+                  🎓 Professional Academic Support
                 </div>
                 <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
-                  Your Website is Your Business
+                  Professional Project Support
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  We build high-performance, conversion-optimized websites that work 24/7 to generate leads and sales for your business.
+                  Expert guidance and development support for academic projects, from requirement analysis to final documentation.
                 </p>
                 <button
                   onClick={() => setShowContactForm(true)}
                   className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-lg shadow-lg"
                 >
-                  Get Your Website Built
+                  Start Your Project
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
               <div className="hidden md:flex justify-center animate-slideUp">
                 <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center border border-gray-300 shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <Globe className="w-40 h-40 text-gray-500 hover:scale-110 transition-transform duration-300" />
+                  <GraduationCap className="w-40 h-40 text-gray-500 hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ function WebsiteDevelopment() {
 
             {/* Key Features */}
             <div className="grid md:grid-cols-2 gap-12 mb-20 py-16">
-              <div className="space-y-6 animate-slideUp" style={{ animationDelay: '0.1s' }}>
+              <div className="space-y-6 animate-slideUp">
                 <h3 className="text-3xl font-bold">✨ Key Features</h3>
                 <ul className="space-y-4">
                   {service.features.map((feature, idx) => (
@@ -99,8 +99,8 @@ function WebsiteDevelopment() {
                 </ul>
               </div>
 
-              <div className="space-y-6 animate-slideUp" style={{ animationDelay: '0.2s' }}>
-                <h3 className="text-3xl font-bold">📈 Business Benefits</h3>
+              <div className="space-y-6 animate-slideUp">
+                <h3 className="text-3xl font-bold">📈 Success Benefits</h3>
                 <ul className="space-y-4">
                   {service.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
@@ -114,93 +114,46 @@ function WebsiteDevelopment() {
               </div>
             </div>
 
-            {/* Tech Stack */}
-            <div className="bg-gray-100 rounded-2xl p-12 mb-20 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slideUp" style={{ animationDelay: '0.3s' }}>
-              <h3 className="text-3xl font-bold mb-10">🛠️ Our Tech Stack</h3>
+            {/* Tech & Documentation */}
+            <div className="bg-gray-100 rounded-2xl p-12 mb-20 border border-gray-200 shadow-lg animate-slideUp">
+              <h3 className="text-3xl font-bold mb-10">🛠️ Technical Support</h3>
               <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-4">
                   <h4 className="font-bold text-lg flex items-center gap-2">
                     <Code className="w-6 h-6 text-gray-700" />
-                    Frontend Technologies
+                    Development
                   </h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> React.js for dynamic interfaces</li>
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Tailwind CSS for responsive design</li>
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Next.js for SEO optimization</li>
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> TypeScript for type safety</li>
+                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Python, Java, C++ Implementation</li>
+                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Web & Mobile Project Support</li>
+                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Database & Backend Design</li>
                   </ul>
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-bold text-lg flex items-center gap-2">
-                    <Zap className="w-6 h-6 text-gray-700" />
-                    Backend & Infrastructure
+                    <FileText className="w-6 h-6 text-gray-700" />
+                    Documentation
                   </h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Node.js or Python backends</li>
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> MongoDB or PostgreSQL databases</li>
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> AWS or Vercel hosting</li>
-                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> RESTful API design</li>
+                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Detailed Project Reports</li>
+                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> UML Diagrams & Flowcharts</li>
+                    <li className="flex items-center gap-2 hover:translate-x-1 transition-transform"><span className="text-black">→</span> Presentation & Viva Preparation</li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* Website Types */}
-            <div className="mb-20 py-16 animate-slideUp" style={{ animationDelay: '0.4s' }}>
-              <h3 className="text-3xl font-bold mb-12">💡 Types of Websites We Build</h3>
-              <div className="grid md:grid-cols-3 gap-8">
-                {[
-                  {
-                    title: "E-Commerce Sites",
-                    desc: "Online stores with payment integration, inventory management, and order tracking",
-                    icon: "🛍️"
-                  },
-                  {
-                    title: "Corporate Websites",
-                    desc: "Professional brand presence with portfolio, services, and lead generation",
-                    icon: "🏢"
-                  },
-                  {
-                    title: "SaaS Platforms",
-                    desc: "Scalable web applications with user authentication and subscription management",
-                    icon: "⚙️"
-                  },
-                  {
-                    title: "Portfolio Sites",
-                    desc: "Showcase your work and attract clients with stunning visual presentations",
-                    icon: "🎨"
-                  },
-                  {
-                    title: "Lead Generation Sites",
-                    desc: "Optimized to capture leads with strategic CTAs and conversion funnels",
-                    icon: "📝"
-                  },
-                  {
-                    title: "Content Blogs",
-                    desc: "SEO-optimized blogs that drive organic traffic and establish thought leadership",
-                    icon: "📚"
-                  }
-                ].map((type, idx) => (
-                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
-                    <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">{type.icon}</div>
-                    <h4 className="font-bold text-white mb-3 text-lg">{type.title}</h4>
-                    <p className="text-gray-400">{type.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Case Study */}
-            <div className="bg-gradient-to-br from-gray-200 to-gray-100 rounded-2xl p-12 border border-gray-300 mb-20 shadow-xl animate-slideUp" style={{ animationDelay: '0.5s' }}>
-              <h3 className="text-3xl font-bold mb-10 text-gray-900">📊 Case Study: {service.caseStudy.client}</h3>
+            <div className="bg-gradient-to-br from-gray-200 to-gray-100 rounded-2xl p-12 border border-gray-300 mb-20 shadow-xl animate-slideUp">
+              <h3 className="text-3xl font-bold mb-10 text-gray-900">📊 Success Story: {service.caseStudy.client}</h3>
               <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-6">
                   <p className="text-xl mb-6 leading-relaxed text-gray-700">
-                    We redesigned the website for a growing e-commerce store, focusing on user experience and conversion optimization. The result was a massive increase in sales and customer satisfaction.
+                    We provided end-to-end support for a complex final-year project, ensuring the student understood every aspect for a successful viva.
                   </p>
                   <div className="space-y-2">
                     <div className="text-5xl font-bold text-black">{service.caseStudy.results}</div>
-                    <p className="text-gray-600">In the first 6 months</p>
+                    <p className="text-gray-600">Average student score</p>
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-8 border border-gray-300 shadow-md">
@@ -216,40 +169,14 @@ function WebsiteDevelopment() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-black text-white rounded-2xl p-12 text-center shadow-2xl animate-slideUp hover:shadow-3xl transition-shadow duration-300" style={{ animationDelay: '0.6s' }}>
-              <h3 className="text-3xl font-bold mb-8">Ready to Get Started?</h3>
+            <div className="bg-black text-white rounded-2xl p-12 text-center shadow-2xl animate-slideUp">
+              <h3 className="text-3xl font-bold mb-8">Ready to Ace Your Project?</h3>
               <button
                 onClick={() => setShowContactForm(true)}
                 className="bg-white text-black px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-lg"
               >
-                Get Free Consultation
+                Book Free Consultation
                 <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-24 px-6 border-t border-gray-200 bg-gradient-to-b from-gray-50 to-black">
-          <div className="max-w-4xl mx-auto text-center animate-slideUp">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Transform Your Online Presence Today
-            </h2>
-            <p className="text-xl text-gray-600 mb-10">
-              Join 100+ businesses that have already transformed their digital presence. Schedule a free consultation and let's discuss your project.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button
-                onClick={() => setShowContactForm(true)}
-                className="bg-black text-white px-10 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg"
-              >
-                Get Free Consultation
-              </button>
-              <button
-                onClick={() => routerNavigate('/services')}
-                className="border-2 border-gray-800 text-gray-900 px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300"
-              >
-                View Other Services
               </button>
             </div>
           </div>
@@ -263,7 +190,7 @@ function WebsiteDevelopment() {
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setShowContactForm(false)}
           ></div>
-          <div className="bg-white border border-gray-300 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative hover:shadow-3xl transition-shadow duration-300">
+          <div className="bg-white border border-gray-300 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
             <button
               onClick={() => setShowContactForm(false)}
               className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-lg transition-colors z-10 text-gray-700"
@@ -277,7 +204,7 @@ function WebsiteDevelopment() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Get Free Consultation</h2>
-                <p className="text-gray-600">Let's discuss your website needs and create a custom plan for you.</p>
+                <p className="text-gray-600">Let's discuss your project requirements and how we can support you.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -287,7 +214,7 @@ function WebsiteDevelopment() {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition-colors"
                     required
                   />
                   <input
@@ -295,43 +222,38 @@ function WebsiteDevelopment() {
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition-colors"
                     required
                   />
                 </div>
-
                 <input
                   type="tel"
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition-colors"
                 />
-
                 <select
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition-colors"
                   required
                 >
-                  <option value="" className="bg-white">Select Budget Range</option>
-                  <option value="under-50k" className="bg-white">Under ₹50K</option>
-                  <option value="50k-100k" className="bg-white">₹50K - ₹100K</option>
-                  <option value="100k-500k" className="bg-white">₹100K - ₹500K</option>
-                  <option value="500k+" className="bg-white">₹500K+</option>
+                  <option value="">Select Project Type</option>
+                  <option value="mini">Mini Project</option>
+                  <option value="major">Major Project</option>
+                  <option value="other">Other Academic Work</option>
                 </select>
-
                 <textarea
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us about your project requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows="4"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all resize-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition-colors"
                 ></textarea>
-
                 <button
                   type="submit"
-                  className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105"
+                  className="w-full bg-black text-white py-4 rounded-lg font-bold hover:bg-gray-800 transition-all active:scale-95"
                 >
                   Send Message
                 </button>
@@ -344,4 +266,4 @@ function WebsiteDevelopment() {
   );
 }
 
-export default WebsiteDevelopment;
+export default AcademicProjects;

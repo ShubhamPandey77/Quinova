@@ -50,18 +50,15 @@ export function ServiceCard({ icon, title, description, features, price, onGetSt
           ))}
         </ul>
       )}
-      {price && (
-        <div className="border-t border-gray-200 pt-6 flex items-center justify-between">
-          <span className="text-xl font-bold text-black">{price}</span>
-          {onGetStarted && (
-            <button 
-              onClick={onGetStarted}
-              className="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition-all flex items-center gap-2"
-            >
-              Get Started
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          )}
+      {onGetStarted && (
+        <div className="border-t border-gray-200 pt-6">
+          <button 
+            onClick={onGetStarted}
+            className="w-full bg-black text-white px-6 py-4 rounded-full font-bold hover:bg-gray-800 transition-all flex items-center gap-2 justify-center"
+          >
+            Get Started
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       )}
     </div>
