@@ -125,23 +125,22 @@ function CaseStudiesSection({ caseStudies }) {
                     </div>
                   </div>
 
-                  {/* Right Side: Website Preview */}
-                  <div className="w-full md:w-[60%] h-96 md:h-full p-2 bg-slate-50 flex items-center justify-center">
-                    
-                    <div className="relative w-full h-full overflow-hidden rounded-xl group">
+                  {/* Right Side: Website Preview with hover effect */}
+                  <div className="w-full md:w-[60%] h-96 md:h-full p-2 bg-slate-50 flex items-center justify-center group/right-side">
+                    <div className="relative w-full h-full overflow-hidden rounded-xl">
                       {/* Image */}
                       <img
                         src={caseStudies[currentIndex].image}
                         alt={caseStudies[currentIndex].title}
-                        className="w-full h-full object-fill transition-opacity duration-300 group-hover:opacity-40"
+                        className="w-full h-full object-fill transition-all duration-300 group-hover/right-side:opacity-40 group-hover/right-side:scale-105"
                       />
 
-                      {/* Overlay */}
+                      {/* Overlay - Only shows on right side hover */}
                       {caseStudies[currentIndex].link && (
                         <div
                           className="absolute inset-0 flex items-center justify-center 
-                      opacity-0 group-hover:opacity-100 
-                      transition-opacity duration-300 pointer-events-none"
+                          opacity-0 group-hover/right-side:opacity-100 
+                          transition-all duration-300 bg-gradient-to-br from-slate-900/20 to-slate-900/10"
                         >
                           <Motion.a
                             href={caseStudies[currentIndex].link}
@@ -150,9 +149,10 @@ function CaseStudiesSection({ caseStudies }) {
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             whileHover={{ scale: 1.05 }}
-                            className="pointer-events-auto bg-white text-slate-900 
-                     px-6 py-3 rounded-xl font-bold text-sm 
-                     flex items-center gap-2 shadow-xl"
+                            className="bg-white text-slate-900 
+                             px-6 py-3 rounded-xl font-bold text-sm 
+                             flex items-center gap-2 shadow-xl hover:shadow-2xl
+                             transition-shadow duration-300"
                           >
                             <ExternalLink className="w-4 h-4" />
                             Live Preview
