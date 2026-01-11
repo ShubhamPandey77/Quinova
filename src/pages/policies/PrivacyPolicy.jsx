@@ -85,7 +85,7 @@ function PrivacyPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For privacy-related inquiries or to exercise your rights, contact us at:',
       contact: {
-        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
+        email: ['solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }

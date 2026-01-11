@@ -143,7 +143,7 @@ function ContactUs() {
 
                 <div className="space-y-6">
                   {[
-                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"], color: "from-emerald-500 to-teal-600", href: "mailto:QuinovaITSolutions@gmail.com?cc=solutions@quinova.tech" },
+                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["solutions@quinova.tech"], color: "from-emerald-500 to-teal-600", href: "mailto:QuinovaITSolutions@gmail.com?cc=solutions@quinova.tech" },
                     { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+91 7991214170", "Mon-Fri, 9AM - 9PM ISM"], color: "from-green-500 to-emerald-600", href: "tel:+917991214170" },
                     { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["Quinova IT Solutions", "Lucknow, India"], color: "from-teal-500 to-cyan-600", href: "https://maps.google.com/?q=Quinova+IT+Solutions+Lucknow" }
                   ].map((item, index) => (

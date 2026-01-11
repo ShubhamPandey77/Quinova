@@ -4,7 +4,7 @@ export const contactInfo = [
   {
     icon: null, 
     title: "Email Us",
-    details: ["QuinovaITSolutions@gmail.com"],
+    details: ["solutions@quinova.tech"],
     color: "from-emerald-500 to-teal-600"
   },
   {

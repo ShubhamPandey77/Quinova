@@ -114,7 +114,7 @@ function TermsOfService() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For questions regarding these Terms of Service:',
       contact: {
-        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
+        email: ['solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }

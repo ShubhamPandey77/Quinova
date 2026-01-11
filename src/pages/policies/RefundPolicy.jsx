@@ -46,7 +46,7 @@ function RefundPolicy() {
       subsections: [
         {
           heading: 'Step 1: Submit Request',
-          content: 'Contact us at QuinovaITSolutions@gmail.com or solutions@quinova.tech with your project details and reason for the refund request.'
+          content: 'Contact us at solutions@quinova.tech with your project details and reason for the refund request.'
         },
         {
           heading: 'Step 2: Review',
@@ -153,7 +153,7 @@ function RefundPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'Have questions? Contact us:',
       contact: {
-        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
+        email: ['solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }
