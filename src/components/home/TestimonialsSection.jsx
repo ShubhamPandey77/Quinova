@@ -91,14 +91,14 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
     <section 
       id="testimonials-section"
       ref={ref}
-      className={`px-6  relative overflow-hidden ${eventType === "About" ? "py-12" : "bg-[#FAFAFA] py-16"}`}
+      className={`px-4 sm:px-6 relative overflow-hidden ${eventType === "About" ? "py-10 sm:py-12" : "bg-[#FAFAFA] py-12 sm:py-16"}`}
     >
       <div className="max-w-7xl mx-auto relative z-10">
         {eventType!=="About" &&
-        <div className="text-center mb-10 relative">
+        <div className="text-center mb-8 sm:mb-10 relative">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-            <span className="text-base font-semibold text-slate-600 tracking-normal">
+            <span className="text-sm sm:text-base font-semibold text-slate-600 tracking-normal">
               TESTIMONIALS
             </span>
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
@@ -107,11 +107,11 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4"
           >
             What our clients think !!
           </Motion.h2>
-          <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full"></div>
+          <div className="w-16 sm:w-20 h-1 bg-gray-600 mx-auto rounded-full"></div>
         </div>
 }
 
@@ -132,7 +132,7 @@ const TestimonialsSection = forwardRef(({ testimonials ,eventType=""}, ref) => {
 
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none pointer-events-none opacity-[0.02]">
-        <span className="text-[20rem] font-black whitespace-nowrap">REVIEWS</span>
+        <span className="text-[10rem] sm:text-[15rem] lg:text-[20rem] font-black whitespace-nowrap">REVIEWS</span>
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ function SocialMediaManagement() {
                 <div className="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold border border-gray-300">
                   📱 Social Media Management
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-gray-900">
                   Build Your Engaged Community
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">

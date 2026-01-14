@@ -105,7 +105,7 @@ function ContactUs() {
                 Get In Touch
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6 animate-fade-in-up">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6 animate-fade-in-up">
               <span className="block">Contact</span>
               <span className="block bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent animate-gradient-x">
                 Our Team

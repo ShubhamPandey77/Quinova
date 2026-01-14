@@ -60,7 +60,7 @@ function BeforeAfterComparison({ beforeData, afterData }) {
               <p className="text-slate-600">What your business looks like without professional digital services</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {(beforeData.stats || beforeData.metrics || []).map((stat, index) => (
                 <StatCard 
                   key={index} 
@@ -80,10 +80,10 @@ function BeforeAfterComparison({ beforeData, afterData }) {
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
               </div>
-              <div className="relative bg-white px-6 flex items-center gap-2">
-                <ArrowRight className="w-6 h-6 text-slate-900 font-bold" />
-                <span className="font-bold text-slate-900">TRANSFORMATION</span>
-                <ArrowRight className="w-6 h-6 text-slate-900 font-bold" />
+              <div className="relative bg-white px-4 sm:px-6 flex items-center gap-2">
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-900 font-bold" />
+                <span className="font-bold text-slate-900 text-sm sm:text-base">TRANSFORMATION</span>
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-900 font-bold" />
               </div>
             </div>
           </motion.div>
@@ -94,11 +94,11 @@ function BeforeAfterComparison({ beforeData, afterData }) {
               <div className="inline-block bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 ✅ With Our Solution
               </div>
-              <h3 className="text-3xl font-bold text-slate-900 mb-2">{afterData.title}</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">{afterData.title}</h3>
               <p className="text-slate-600">The exponential growth you can achieve with our proven digital strategy</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {(afterData.stats || afterData.metrics || []).map((stat, index) => (
                 <StatCard 
                   key={index} 
@@ -112,20 +112,20 @@ function BeforeAfterComparison({ beforeData, afterData }) {
           {/* Impact Summary */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg p-8 text-white text-center"
+            className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg p-6 sm:p-8 text-white text-center"
           >
-            <h4 className="text-2xl font-bold mb-3">Average Results Clients See</h4>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h4 className="text-xl sm:text-2xl font-bold mb-6">Average Results Clients See</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl font-bold mb-2">10x</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">10x</div>
                 <div className="text-emerald-100">Increase in Results</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">3-6mo</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">3-6mo</div>
                 <div className="text-emerald-100">Time to ROI</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">300%+</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">300%+</div>
                 <div className="text-emerald-100">ROI on Investment</div>
               </div>
             </div>

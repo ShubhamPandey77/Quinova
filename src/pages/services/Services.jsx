@@ -165,14 +165,14 @@ function Services() {
     <>
       <div className="pt-16 bg-white">
         {/* Hero Section */}
-        <section ref={containerRef} className="pt-8 pb-24 px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-inter">
+        <section ref={containerRef} className="pt-8 pb-16 sm:pb-24 px-4 sm:px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-inter">
           {/* Decorative Background Grid */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
           
           <div className="max-w-7xl mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="text-left lg:pr-10">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-10 tracking-tighter uppercase relative inline-block font-inter">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-6 sm:mb-10 tracking-tighter uppercase relative inline-block font-inter">
                   {words.map((word, i) => {
                     const start = i / words.length;
                     const end = start + (1 / words.length);
@@ -185,16 +185,16 @@ function Services() {
                 </h1>
                 <Motion.div 
                   style={{ width: useTransform(scrollYProgress, [0, 0.8], [0, 250]) }}
-                  className="h-2.5 bg-slate-900 rounded-full mb-12 origin-left"
+                  className="h-2.5 bg-slate-900 rounded-full mb-8 sm:mb-12 origin-left hidden sm:block"
                 ></Motion.div>
-                <p className="text-2xl text-slate-600 max-w-xl font-medium leading-relaxed font-inter">
+                <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-xl font-medium leading-relaxed font-inter">
                   Transforming vision into digital reality through specialized expertise and precision execution.
                 </p>
               </div>
 
-              <div className="relative h-[600px] w-full flex items-center justify-end pr-10">
+              <div className="relative h-[350px] sm:h-[450px] md:h-[600px] w-full flex items-center justify-center lg:justify-end md:pr-10 mt-12 lg:mt-0">
                 {/* Connection Lines (Map/Graph Style) */}
-                <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 500 600" preserveAspectRatio="none">
+                <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none hidden sm:block" viewBox="0 0 500 600" preserveAspectRatio="none">
                   <Motion.path 
                     d="M300 150 L425 300 L300 450" 
                     stroke="currentColor" 
@@ -212,9 +212,9 @@ function Services() {
                 <div className="relative w-full h-full">
                   {features.map((feature, idx) => {
                     const positions = [
-                      "top-[25%] left-[60%]",
-                      "top-[50%] left-[85%]",
-                      "top-[75%] left-[60%]"
+                      "top-[20%] left-[50%] sm:left-[50%] md:left-[60%]",
+                      "top-[50%] left-[50%] sm:left-[50%] md:left-[85%]",
+                      "top-[80%] left-[50%] sm:left-[50%] md:left-[60%]"
                     ];
                     return (
                       <Motion.div 
@@ -222,14 +222,14 @@ function Services() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.2 }}
-                        className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[idx]} bg-white p-6 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-72`}
+                        className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[idx]} bg-white p-4 md:p-6 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-3 md:gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-[240px] sm:w-64 md:w-72`}
                       >
-                        <div className="w-14 h-14 bg-slate-900 text-white rounded-xl flex items-center justify-center group-hover:bg-slate-800 transition-colors shadow-lg">
-                          <CheckCircle className="w-7 h-7" />
+                        <div className="w-10 h-10 md:w-14 md:h-14 bg-slate-900 text-white rounded-xl flex items-center justify-center group-hover:bg-slate-800 transition-colors shadow-lg shrink-0">
+                          <CheckCircle className="w-5 h-5 md:w-7 md:h-7" />
                         </div>
                         <div>
-                          <span className="font-black text-xl text-slate-900 uppercase tracking-tighter leading-none block mb-1">{feature.text}</span>
-                          <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Validated</span>
+                          <span className="font-black text-sm sm:text-base md:text-xl text-slate-900 uppercase tracking-tighter leading-none block mb-1">{feature.text}</span>
+                          <span className="text-[9px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Validated</span>
                         </div>
                         <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-900 rounded-full scale-0 group-hover:scale-100 transition-transform"></div>
                       </Motion.div>
@@ -242,7 +242,7 @@ function Services() {
         </section>
 
         {/* All Services Split View */}
-        <section id="all-services" className="py-24 px-6 bg-white relative overflow-hidden">
+        <section id="all-services" className="py-16 sm:py-24 px-4 sm:px-6 bg-white relative overflow-hidden">
           {/* Background Abstract Shapes */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
             <Motion.div 
@@ -253,7 +253,7 @@ function Services() {
                 y: [0, -30, 0]
               }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/4 -left-20 w-96 h-96 bg-slate-100 rounded-full blur-3xl"
+              className="absolute top-1/4 -left-20 w-72 h-72 sm:w-96 sm:h-96 bg-slate-100 rounded-full blur-3xl"
             />
             <Motion.div 
               animate={{ 
@@ -263,33 +263,33 @@ function Services() {
                 y: [0, 40, 0]
               }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-slate-50 rounded-full blur-3xl"
+              className="absolute bottom-1/4 -right-20 w-80 h-80 sm:w-[30rem] sm:h-[30rem] bg-slate-50 rounded-full blur-3xl"
             />
           </div>
 
           <div className="max-w-7xl mx-auto relative z-10">
-            <div className="flex flex-col mb-16">
+            <div className="flex flex-col mb-10 sm:mb-16">
               <Motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+                <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none">
                   Our <span className="text-slate-300">Services</span>
                 </h2>
                 <Motion.div 
                   initial={{ width: 0 }}
-                  whileInView={{ width: 96 }}
+                  whileInView={{ width: 64 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="h-2 bg-slate-900 mt-8 rounded-full"
+                  className="h-1.5 sm:h-2 bg-slate-900 mt-6 sm:mt-8 rounded-full"
                 ></Motion.div>
               </Motion.div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-10 bg-white/40 backdrop-blur-md p-4 md:p-10 rounded-[4rem] border border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] min-h-[750px]">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 bg-white/40 backdrop-blur-md p-4 sm:p-6 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[4rem] border border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] min-h-[auto] lg:min-h-[750px]">
               {/* Left Sidebar - Service List */}
-              <div className="w-full lg:w-[35%] space-y-4 overflow-y-auto pr-3 max-h-[750px] custom-scrollbar py-2">
+              <div className="w-full lg:w-[35%] space-y-3 sm:space-y-4 overflow-y-auto lg:pr-3 max-h-[300px] sm:max-h-[400px] lg:max-h-[750px] custom-scrollbar py-2">
                 {servicesData.map((service, index) => {
                   const iconData = getIcon(service.title);
                   const isSelected = selectedServiceForDetail?.title === service.title;
@@ -306,30 +306,30 @@ function Services() {
                       {isSelected && (
                         <Motion.div 
                           layoutId="active-pill"
-                          className="absolute inset-0 bg-slate-900 rounded-[2rem] shadow-xl"
+                          className="absolute inset-0 bg-slate-900 rounded-xl sm:rounded-[1.5rem] md:rounded-[2rem] shadow-xl"
                           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                       )}
                       
-                      <div className={`relative z-10 p-6 rounded-[2rem] transition-all duration-300 flex items-center gap-5 ${
+                      <div className={`relative z-10 p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-[1.5rem] md:rounded-[2rem] transition-all duration-300 flex items-center gap-3 sm:gap-4 md:gap-5 ${
                         isSelected 
                           ? 'text-white' 
                           : 'bg-white/50 hover:bg-white text-slate-900 border border-transparent hover:border-slate-100 hover:shadow-lg'
                       }`}>
-                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ${
+                        <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ${
                           isSelected ? 'bg-white/10' : 'bg-slate-100'
                         } ${!isSelected && 'group-hover:scale-110 shadow-sm'}`}>
-                          <div className={isSelected ? 'text-white' : 'text-slate-600'}>
+                          <div className={`${isSelected ? 'text-white' : 'text-slate-600'} scale-75 sm:scale-90 md:scale-100`}>
                             {iconData.icon}
                           </div>
                         </div>
                         <div className="flex-grow">
-                          <h3 className="font-black uppercase tracking-tight text-lg leading-tight mb-1">
+                          <h3 className="font-black uppercase tracking-tight text-xs sm:text-sm md:text-lg leading-tight mb-0.5 sm:mb-1">
                             {service.title}
                           </h3>
                         </div>
                         <div className={`transition-all duration-500 ${isSelected ? 'rotate-0 scale-110' : '-rotate-45 opacity-0 group-hover:opacity-100 group-hover:scale-100'}`}>
-                          <ArrowRight className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-slate-300'}`} />
+                          <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${isSelected ? 'text-white' : 'text-slate-300'}`} />
                         </div>
                       </div>
                     </Motion.div>
@@ -338,7 +338,7 @@ function Services() {
               </div>
 
               {/* Right Panel - Service Detail */}
-              <div className="w-full lg:w-[65%] bg-slate-50 rounded-[3.5rem] p-8 md:p-14 shadow-2xl border border-white flex flex-col relative overflow-hidden group/detail">
+              <div className="w-full lg:w-[65%] bg-slate-50 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-8 md:p-14 shadow-2xl border border-white flex flex-col relative overflow-hidden group/detail">
                 {/* Decorative Elements */}
                 {(() => {
                   const accentColors = {
@@ -372,16 +372,16 @@ function Services() {
                           transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                           className="flex flex-col h-full relative z-10"
                         >
-                          <div className="flex flex-col gap-8 mb-14">
-                            <div className="space-y-6">
-                              <div className="flex flex-wrap items-center gap-4">
+                          <div className="flex flex-col gap-6 sm:gap-8 mb-10 sm:mb-14">
+                            <div className="space-y-4 sm:space-y-6">
+                              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                                 <Motion.div 
                                   initial={{ opacity: 0, y: 10 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ delay: 0.2 }}
-                                  className={`inline-flex items-center gap-2 px-4 py-2 ${colors.bg} rounded-xl text-[10px] font-black uppercase tracking-[0.25em] ${colors.text}`}
+                                  className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 ${colors.bg} rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.25em] ${colors.text}`}
                                 >
-                                  <Sparkles className="w-3.5 h-3.5" />
+                                  <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                                   Industry Standard
                                 </Motion.div>
 
@@ -392,9 +392,9 @@ function Services() {
                                   whileHover={{ scale: 1.05 }}
                                   whileTap={{ scale: 0.95 }}
                                   onClick={() => handleServiceClick(selectedServiceForDetail)}
-                                  className={`inline-flex items-center gap-2 px-4 py-2 bg-slate-900 text-white rounded-xl text-[10px] font-black uppercase tracking-[0.25em] cursor-pointer shadow-lg hover:bg-slate-800 transition-colors`}
+                                  className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-900 text-white rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.25em] cursor-pointer shadow-lg hover:bg-slate-800 transition-colors`}
                                 >
-                                  <Clock className="w-3.5 h-3.5" />
+                                  <Clock className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                                   View Strategy
                                 </Motion.button>
                               </div>
@@ -403,35 +403,35 @@ function Services() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] pr-10"
+                                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] pr-0 sm:pr-10"
                               >
                                 {selectedServiceForDetail?.title}
                               </Motion.h2>
                             </div>
                           </div>
 
-                          <div className="grid md:grid-cols-2 gap-12 mb-14">
+                          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-14">
                             <Motion.div 
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: 0.5 }}
-                              className="space-y-8"
+                              className="space-y-6 sm:space-y-8"
                             >
-                              <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
+                              <h4 className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
                                 <div className={`w-2 h-2 rounded-full bg-slate-900`}></div>
                                 Core Capabilities
                               </h4>
-                              <ul className="space-y-5">
+                              <ul className="space-y-4 sm:space-y-5">
                                 {selectedServiceForDetail?.features?.slice(0, 5).map((feature, i) => (
                                   <Motion.li 
                                     key={i} 
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.6 + (i * 0.1) }}
-                                    className="flex items-start gap-4 text-slate-700 font-semibold group/item"
+                                    className="flex items-start gap-3 sm:gap-4 text-slate-700 font-semibold group/item"
                                   >
                                     <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/item:bg-slate-900 transition-colors shrink-0"></div>
-                                    <span className="text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{feature}</span>
+                                    <span className="text-base sm:text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{feature}</span>
                                   </Motion.li>
                                 ))}
                               </ul>
@@ -441,23 +441,23 @@ function Services() {
                               initial={{ opacity: 0, x: 20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: 0.5 }}
-                              className="space-y-8"
+                              className="space-y-6 sm:space-y-8"
                             >
-                              <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
+                              <h4 className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
                                 <div className={`w-2 h-2 rounded-full bg-slate-300`}></div>
                                 Business Impact
                               </h4>
-                              <ul className="space-y-5">
+                              <ul className="space-y-4 sm:space-y-5">
                                 {selectedServiceForDetail?.benefits?.slice(0, 5).map((benefit, i) => (
                                   <Motion.li 
                                     key={i} 
                                     initial={{ opacity: 0, x: 10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.6 + (i * 0.1) }}
-                                    className="flex items-start gap-4 text-slate-600 font-medium group/item"
+                                    className="flex items-start gap-3 sm:gap-4 text-slate-600 font-medium group/item"
                                   >
-                                    <ArrowRight className="w-5 h-5 mt-0.5 text-slate-300 group-hover/item:text-slate-900 transition-colors shrink-0" />
-                                    <span className="text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{benefit}</span>
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 text-slate-300 group-hover/item:text-slate-900 transition-colors shrink-0" />
+                                    <span className="text-base sm:text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{benefit}</span>
                                   </Motion.li>
                                 ))}
                               </ul>
@@ -468,20 +468,20 @@ function Services() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8 }}
-                            className="mt-auto pt-10 border-t border-slate-100 flex flex-col xl:flex-row items-center justify-between gap-10"
+                            className="mt-auto pt-8 sm:pt-10 border-t border-slate-100 flex flex-col xl:flex-row items-center justify-between gap-8 sm:gap-10"
                           >
-                            <div className="flex flex-col gap-4 max-w-lg">
+                            <div className="flex flex-col gap-3 sm:gap-4 max-w-lg w-full">
                               <div className="flex items-center gap-3">
                                 <div className="flex -space-x-2">
                                   {[1, 2, 3, 4].map(i => (
-                                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-400">
+                                    <div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-400">
                                       {String.fromCharCode(64 + i)}
                                     </div>
                                   ))}
                                 </div>
-                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Trusted by 50+ partners</p>
+                                <p className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Trusted by 50+ partners</p>
                               </div>
-                              <p className="text-slate-500 italic font-medium leading-relaxed">
+                              <p className="text-sm sm:text-base text-slate-500 italic font-medium leading-relaxed">
                                 "{selectedServiceForDetail?.longDescription?.slice(0, 160)}..."
                               </p>
                             </div>
@@ -491,18 +491,18 @@ function Services() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={handleGetStartedClick}
-                                className="bg-slate-900 text-white px-10 py-5 rounded-[2rem] font-black uppercase tracking-tighter flex items-center justify-center gap-3 hover:bg-slate-800 transition-all shadow-2xl relative overflow-hidden group/btn"
+                                className="bg-slate-900 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-[2rem] font-black uppercase tracking-tighter flex items-center justify-center gap-3 hover:bg-slate-800 transition-all shadow-2xl relative overflow-hidden group/btn"
                               >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
-                                <span className="relative z-10">Get Started</span>
-                                <ArrowRight className="w-6 h-6 relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+                                <span className="relative z-10 text-sm sm:text-base">Get Started</span>
+                                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 group-hover/btn:translate-x-1 transition-transform" />
                               </Motion.button>
                               
                               <Motion.button 
                                 whileHover={{ scale: 1.02, backgroundColor: '#f8fafc' }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => navigate(getServicePath(selectedServiceForDetail?.title))}
-                                className="bg-white text-slate-900 border-2 border-slate-900 px-10 py-5 rounded-[2rem] font-black uppercase tracking-tighter flex items-center justify-center gap-3 transition-all cursor-pointer"
+                                className="bg-white text-slate-900 border-2 border-slate-900 px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-[2rem] font-black uppercase tracking-tighter flex items-center justify-center gap-3 transition-all cursor-pointer text-sm sm:text-base"
                               >
                                 View Detail
                               </Motion.button>
@@ -514,7 +514,7 @@ function Services() {
                             key={`watermark-${selectedServiceForDetail?.title}`}
                             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                             animate={{ opacity: 0.03, scale: 1, rotate: 0 }}
-                            className="absolute -bottom-20 -right-20 text-[25rem] font-black text-slate-900 pointer-events-none z-0 select-none leading-none"
+                            className="absolute -bottom-10 sm:-bottom-20 -right-10 sm:-right-20 text-[12rem] sm:text-[20rem] md:text-[25rem] font-black text-slate-900 pointer-events-none z-0 select-none leading-none"
                           >
                             {servicesData.indexOf(selectedServiceForDetail) + 1}
                           </Motion.div>
@@ -529,29 +529,29 @@ function Services() {
         </section>
 
         {/* Process Section */}
-        <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50 border-y border-slate-100">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
-              <span className="text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-4 block">Our Approach</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            <div className="text-center mb-16 sm:mb-20">
+              <span className="text-[12px] sm:text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-4 block">Our Approach</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
                 Our Process
               </h2>
-              <div className="w-20 h-1 bg-slate-900 mx-auto rounded-full mt-6"></div>
+              <div className="w-16 sm:w-20 h-1 bg-slate-900 mx-auto rounded-full mt-4 sm:mt-6"></div>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
               {processStepsWithIcons.map((step, index) => (
                 <div key={index} className="relative flex flex-col items-center text-center">
-                  <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl w-16 h-16 flex items-center justify-center text-xl font-bold shadow-sm mb-6 z-10">
+                  <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center text-lg sm:text-xl font-bold shadow-sm mb-6 z-10">
                     {step.step}
                   </div>
                   <div className="mb-4 text-slate-400">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-slate-500 leading-relaxed font-light">
+                  <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-light">
                     {step.desc}
                   </p>
                   {index < processStepsWithIcons.length - 1 && (

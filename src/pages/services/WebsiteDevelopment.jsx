@@ -41,33 +41,33 @@ function WebsiteDevelopment() {
         </div>
 
         {/* Hero Section */}
-        <section className="py-24 px-6 relative overflow-hidden">
+        <section className="py-12 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-black/5 rounded-full blur-3xl pointer-events-none"></div>
           
           <div className="max-w-6xl mx-auto relative z-10">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6 animate-fadeIn">
+            <div className="grid md:grid-cols-2 gap-12 sm:gap-16 items-center">
+              <div className="space-y-6 animate-fadeIn text-center md:text-left">
                 <div className="inline-block bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold border border-gray-300">
                   🌐 Professional Web Development
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-gray-900">
                   Your Website is Your Business
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto md:mx-0">
                   We build high-performance, conversion-optimized websites that work 24/7 to generate leads and sales for your business.
                 </p>
                 <button
                   onClick={() => setShowContactForm(true)}
-                  className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-lg shadow-lg"
+                  className="w-full sm:w-auto bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 inline-flex items-center justify-center gap-2 text-lg shadow-lg"
                 >
                   Get Your Website Built
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
               <div className="hidden md:flex justify-center animate-slideUp">
-                <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center border border-gray-300 shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <Globe className="w-40 h-40 text-gray-500 hover:scale-110 transition-transform duration-300" />
+                <div className="w-full h-80 sm:h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center border border-gray-300 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <Globe className="w-32 h-32 sm:w-40 sm:h-40 text-gray-500 hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
             </div>
@@ -78,36 +78,36 @@ function WebsiteDevelopment() {
         <BeforeAfterComparison beforeData={service.beforeAfter.before} afterData={service.beforeAfter.after} />
 
         {/* Service Content */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <div className="mb-16">
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">{service.content}</h2>
-              <p className="text-xl text-gray-600 leading-relaxed">{service.longDescription}</p>
+            <div className="mb-12 sm:mb-16 text-center md:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900">{service.content}</h2>
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">{service.longDescription}</p>
             </div>
 
             {/* Key Features */}
-            <div className="grid md:grid-cols-2 gap-12 mb-20 py-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 mb-16 sm:mb-20 py-12 sm:py-16">
               <div className="space-y-6 animate-slideUp" style={{ animationDelay: '0.1s' }}>
-                <h3 className="text-3xl font-bold">✨ Key Features</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold">✨ Key Features</h3>
                 <ul className="space-y-4">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
                       <CheckCircle className="w-6 h-6 text-gray-700 flex-shrink-0 mt-0.5 group-hover:text-black transition-colors" />
-                      <span className="text-lg text-gray-700">{feature}</span>
+                      <span className="text-base sm:text-lg text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="space-y-6 animate-slideUp" style={{ animationDelay: '0.2s' }}>
-                <h3 className="text-3xl font-bold">📈 Business Benefits</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold">📈 Business Benefits</h3>
                 <ul className="space-y-4">
                   {service.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-3 group hover:translate-x-2 transition-transform duration-300">
                       <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border border-gray-400 group-hover:bg-black group-hover:border-black group-hover:text-white transition-all">
                         <span className="text-sm font-bold">→</span>
                       </div>
-                      <span className="text-lg text-gray-700">{benefit}</span>
+                      <span className="text-base sm:text-lg text-gray-700">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -115,9 +115,9 @@ function WebsiteDevelopment() {
             </div>
 
             {/* Tech Stack */}
-            <div className="bg-gray-100 rounded-2xl p-12 mb-20 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slideUp" style={{ animationDelay: '0.3s' }}>
-              <h3 className="text-3xl font-bold mb-10">🛠️ Our Tech Stack</h3>
-              <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-gray-100 rounded-2xl p-6 sm:p-12 mb-16 sm:mb-20 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slideUp" style={{ animationDelay: '0.3s' }}>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10 text-center md:text-left">🛠️ Our Tech Stack</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12">
                 <div className="space-y-4">
                   <h4 className="font-bold text-lg flex items-center gap-2">
                     <Code className="w-6 h-6 text-gray-700" />
@@ -146,9 +146,9 @@ function WebsiteDevelopment() {
             </div>
 
             {/* Website Types */}
-            <div className="mb-20 py-16 animate-slideUp" style={{ animationDelay: '0.4s' }}>
-              <h3 className="text-3xl font-bold mb-12">💡 Types of Websites We Build</h3>
-              <div className="grid md:grid-cols-3 gap-8">
+            <div className="mb-16 sm:mb-20 py-12 sm:py-16 animate-slideUp" style={{ animationDelay: '0.4s' }}>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 text-center md:text-left">💡 Types of Websites We Build</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {[
                   {
                     title: "E-Commerce Sites",
@@ -181,34 +181,34 @@ function WebsiteDevelopment() {
                     icon: "📚"
                   }
                 ].map((type, idx) => (
-                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
-                    <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">{type.icon}</div>
+                  <div key={idx} className="bg-black border border-white/10 rounded-xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                    <div className="text-4xl sm:text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">{type.icon}</div>
                     <h4 className="font-bold text-white mb-3 text-lg">{type.title}</h4>
-                    <p className="text-gray-400">{type.desc}</p>
+                    <p className="text-sm sm:text-base text-gray-400">{type.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Case Study */}
-            <div className="bg-gradient-to-br from-gray-200 to-gray-100 rounded-2xl p-12 border border-gray-300 mb-20 shadow-xl animate-slideUp" style={{ animationDelay: '0.5s' }}>
-              <h3 className="text-3xl font-bold mb-10 text-gray-900">📊 Case Study: {service.caseStudy.client}</h3>
-              <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-6">
-                  <p className="text-xl mb-6 leading-relaxed text-gray-700">
+            <div className="bg-gradient-to-br from-gray-200 to-gray-100 rounded-2xl p-6 sm:p-12 border border-gray-300 mb-16 sm:mb-20 shadow-xl animate-slideUp" style={{ animationDelay: '0.5s' }}>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10 text-gray-900 text-center md:text-left">📊 Case Study: {service.caseStudy.client}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12">
+                <div className="space-y-6 text-center md:text-left">
+                  <p className="text-lg sm:text-xl mb-6 leading-relaxed text-gray-700">
                     We redesigned the website for a growing e-commerce store, focusing on user experience and conversion optimization. The result was a massive increase in sales and customer satisfaction.
                   </p>
                   <div className="space-y-2">
-                    <div className="text-5xl font-bold text-black">{service.caseStudy.results}</div>
+                    <div className="text-4xl sm:text-5xl font-bold text-black">{service.caseStudy.results}</div>
                     <p className="text-gray-600">In the first 6 months</p>
                   </div>
                 </div>
-                <div className="bg-white rounded-xl p-8 border border-gray-300 shadow-md">
+                <div className="bg-white rounded-xl p-6 sm:p-8 border border-gray-300 shadow-md">
                   <h4 className="font-bold text-gray-900 mb-6 text-lg">Key Metrics</h4>
                   {service.caseStudy.metrics.map((metric, idx) => (
                     <div key={idx} className="flex items-center gap-3 mb-4 hover:translate-x-2 transition-transform">
                       <div className="w-2 h-2 bg-black rounded-full flex-shrink-0"></div>
-                      <span className="text-gray-700">{metric}</span>
+                      <span className="text-sm sm:text-base text-gray-700">{metric}</span>
                     </div>
                   ))}
                 </div>
@@ -216,11 +216,11 @@ function WebsiteDevelopment() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-black text-white rounded-2xl p-12 text-center shadow-2xl animate-slideUp hover:shadow-3xl transition-shadow duration-300" style={{ animationDelay: '0.6s' }}>
-              <h3 className="text-3xl font-bold mb-8">Ready to Get Started?</h3>
+            <div className="bg-black text-white rounded-2xl p-8 sm:p-12 text-center shadow-2xl animate-slideUp hover:shadow-3xl transition-shadow duration-300" style={{ animationDelay: '0.6s' }}>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-8">Ready to Get Started?</h3>
               <button
                 onClick={() => setShowContactForm(true)}
-                className="bg-white text-black px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-lg"
+                className="w-full sm:w-auto bg-white text-black px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-105 inline-flex items-center justify-center gap-2 text-lg"
               >
                 Get Free Consultation
                 <ArrowRight className="w-5 h-5" />
@@ -229,25 +229,25 @@ function WebsiteDevelopment() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 px-6 border-t border-gray-200 bg-gradient-to-b from-gray-50 to-black">
+        {/* Bottom CTA Section */}
+        <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-gray-200 bg-gradient-to-b from-gray-50 to-black">
           <div className="max-w-4xl mx-auto text-center animate-slideUp">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
               Transform Your Online Presence Today
             </h2>
-            <p className="text-xl text-gray-600 mb-10">
+            <p className="text-lg sm:text-xl text-gray-600 mb-10">
               Join 100+ businesses that have already transformed their digital presence. Schedule a free consultation and let's discuss your project.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => setShowContactForm(true)}
-                className="bg-black text-white px-10 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg"
+                className="w-full sm:w-auto bg-black text-white px-10 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 Get Free Consultation
               </button>
               <button
                 onClick={() => routerNavigate('/services')}
-                className="border-2 border-gray-800 text-gray-900 px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300"
+                className="w-full sm:w-auto border-2 border-gray-800 text-gray-900 px-10 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300"
               >
                 View Other Services
               </button>

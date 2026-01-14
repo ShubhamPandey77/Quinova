@@ -128,7 +128,7 @@ function TermsOfService() {
           <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg text-sm font-semibold mb-6">
             Legal Agreement
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
             Terms of Service
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">

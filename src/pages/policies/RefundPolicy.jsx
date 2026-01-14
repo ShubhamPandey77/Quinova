@@ -167,7 +167,7 @@ function RefundPolicy() {
           <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-lg text-sm font-semibold mb-6">
             Transparent & Fair
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
             Refund Policy
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">

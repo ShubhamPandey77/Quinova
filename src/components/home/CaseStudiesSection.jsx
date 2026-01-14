@@ -76,7 +76,7 @@ function CaseStudiesSection({ caseStudies }) {
 
         <div className="relative group max-w-7xl mx-auto">
           {/* Main Carousel Card */}
-          <div className="relative h-[600px] md:h-[400px]">
+          <div className="relative h-[700px] sm:h-[600px] md:h-[400px]">
             <AnimatePresence initial={false} custom={direction}>
               <Motion.div
                 key={currentIndex}
@@ -93,30 +93,21 @@ function CaseStudiesSection({ caseStudies }) {
               >
                 <div className="bg-white rounded-[1.5rem] border border-slate-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] overflow-hidden h-full flex flex-col-reverse md:flex-row">
                   {/* Left Side: Content */}
-                  <div className="md:w-[40%] p-8 md:p-8 flex flex-col justify-center bg-white mt-8 md:mt-0">
+                  <div className="w-full md:w-[40%] p-6 md:p-8 flex flex-col justify-center bg-white">
                     <div>
-                      {/* <div className="flex items-center gap-2.5 mt-2 mb-4">
-                        <div className="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center font-bold text-slate-900 text-sm">
-                          {caseStudies[currentIndex].client[0]}
-                        </div>
-                        <span className="text-slate-500 font-bold tracking-wider uppercase text-[10px]">
-                          {caseStudies[currentIndex].client}
-                        </span>
-                      </div> */}
-
                       <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-tight">
                         {caseStudies[currentIndex].title}
                       </h4>
 
-                      <p className="text-slate-600 text-sm leading-relaxed mb-8">
+                      <p className="text-slate-600 text-sm leading-relaxed mb-6 md:mb-8">
                         {caseStudies[currentIndex].description}
                       </p>
 
-                      <div className="space-y-3 mb-8">
+                      <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                         {caseStudies[currentIndex].metrics.map((metric, i) => (
                           <div key={i} className="flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                            <span className="text-slate-700 font-medium text-sm">
+                            <span className="text-slate-700 font-medium text-xs md:text-sm">
                               {metric}
                             </span>
                           </div>
@@ -125,17 +116,14 @@ function CaseStudiesSection({ caseStudies }) {
                     </div>
                   </div>
 
-                  {/* Right Side: Website Preview with hover effect */}
-                  <div className="w-full md:w-[60%] h-96 md:h-full p-2 bg-slate-50 flex items-center justify-center group/right-side">
+                  {/* Right Side: Website Preview */}
+                  <div className="w-full md:w-[60%] h-64 sm:h-80 md:h-full p-2 bg-slate-50 flex items-center justify-center group/right-side">
                     <div className="relative w-full h-full overflow-hidden rounded-xl">
-                      {/* Image */}
                       <img
                         src={caseStudies[currentIndex].image}
                         alt={caseStudies[currentIndex].title}
                         className="w-full h-full object-fill transition-all duration-300 group-hover/right-side:opacity-40 group-hover/right-side:scale-105"
                       />
-
-                      {/* Overlay - Only shows on right side hover */}
                       {caseStudies[currentIndex].link && (
                         <div
                           className="absolute inset-0 flex items-center justify-center 
@@ -166,23 +154,23 @@ function CaseStudiesSection({ caseStudies }) {
             </AnimatePresence>
           </div>
 
-          {/* Improved Control Buttons - More Compact */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-6 z-20">
+          {/* Improved Control Buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-2 sm:-left-4 md:-left-6 z-20">
             <button
               onClick={prevSlide}
-              className="p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg transition-all active:scale-90"
+              className="p-2 sm:p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg transition-all active:scale-90 shadow-md"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
-          <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-6 z-20">
+          <div className="absolute top-1/2 -translate-y-1/2 -right-2 sm:-right-4 md:-right-6 z-20">
             <button
               onClick={nextSlide}
-              className="p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg transition-all active:scale-90"
+              className="p-2 sm:p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg transition-all active:scale-90 shadow-md"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
