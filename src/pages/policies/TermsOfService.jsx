@@ -114,7 +114,7 @@ function TermsOfService() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For questions regarding these Terms of Service:',
       contact: {
-        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
+        email: ['quinovaitsolutions@gmail.com'],
         phone: '+91 7991214170'
       }
     }
@@ -125,7 +125,7 @@ function TermsOfService() {
       {/* Hero Section */}
       <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg text-sm font-semibold mb-6">
+          <div className="inline-block bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-sm font-semibold mb-6 border border-slate-200">
             Legal Agreement
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
@@ -161,7 +161,7 @@ function TermsOfService() {
           {sections.map((section) => (
             <div key={section.id} id={section.id} className="scroll-mt-32">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 flex-shrink-0">
+                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center text-white flex-shrink-0">
                   {section.icon}
                 </div>
                 <h2 className="text-3xl font-bold text-slate-900 pt-2">{section.title}</h2>
@@ -175,7 +175,7 @@ function TermsOfService() {
                 <ul className="space-y-3 mb-6">
                   {section.list.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span className="text-slate-700">{item}</span>
                     </li>
                   ))}
@@ -185,7 +185,7 @@ function TermsOfService() {
               {section.subsections && (
                 <div className="space-y-6 mb-6">
                   {section.subsections.map((subsection, index) => (
-                    <div key={index} className="pl-6 border-l-2 border-purple-200">
+                    <div key={index} className="pl-6 border-l-2 border-slate-200">
                       <h3 className="font-semibold text-slate-900 mb-2">{subsection.heading}</h3>
                       <p className="text-slate-700">{subsection.content}</p>
                     </div>
@@ -194,21 +194,21 @@ function TermsOfService() {
               )}
 
               {section.contact && (
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
                   <p className="text-slate-800 font-semibold mb-3">
                     Email: {Array.isArray(section.contact.email) ? (
                       section.contact.email.map((email, idx) => (
                         <span key={idx}>
-                          <a href={`mailto:${email}`} className="text-purple-600 hover:text-purple-800 hover:underline">{email}</a>
+                          <a href={`mailto:${email}`} className="text-slate-900 hover:underline">{email}</a>
                           {idx < section.contact.email.length - 1 && " / "}
                         </span>
                       ))
                     ) : (
-                      <a href={`mailto:${section.contact.email}`} className="text-purple-600 hover:text-purple-800 hover:underline">{section.contact.email}</a>
+                      <a href={`mailto:${section.contact.email}`} className="text-slate-900 hover:underline">{section.contact.email}</a>
                     )}
                   </p>
                   <p className="text-slate-800 font-semibold">
-                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-purple-600 hover:text-purple-800 hover:underline">{section.contact.phone}</a>
+                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-slate-900 hover:underline">{section.contact.phone}</a>
                   </p>
                 </div>
               )}
@@ -216,12 +216,12 @@ function TermsOfService() {
           ))}
 
           {/* Important Notice */}
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-8 mt-12">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 mt-12">
             <div className="flex items-start gap-4">
-              <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
+              <AlertCircle className="w-6 h-6 text-slate-900 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-bold text-amber-900 mb-2">Important Notice</h3>
-                <p className="text-amber-800 text-sm">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Important Notice</h3>
+                <p className="text-slate-700 text-sm">
                   These terms constitute the entire agreement between you and Quinova IT Solutions. Individual project agreements and statements of work may contain additional terms specific to your project. In case of conflict, project-specific terms will prevail.
                 </p>
               </div>

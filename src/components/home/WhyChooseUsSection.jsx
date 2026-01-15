@@ -50,7 +50,7 @@ function WhyChooseUsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {reasons.map((item, index) => (
             <div key={index} className="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-all group">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-900 mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-900 mb-4 group-hover:bg-slate-900 group-hover:text-white transition-colors">
                 {item.icon}
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>

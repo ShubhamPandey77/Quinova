@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion as Motion, useScroll, useTransform } from 'framer-motion';
-import { Award, Users, Target, Heart, Zap, Shield, ArrowRight, Star, ChevronRight, Sparkles, TrendingUp, Globe, Clock, CheckCircle, ChevronDown } from 'lucide-react';
+import { Award, Users, Target, Heart, Zap, Shield, ArrowRight, ChevronRight, TrendingUp, Globe, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 import { values, stats, testimonials } from '../../const';
 import ContactForm from "../../components/ContactForm";
 import TestimonialsSection from '@/components/home/TestimonialsSection';
@@ -9,7 +9,7 @@ import TeamSection from '../../components/home/TeamSection';
 function Word({ children, progress, range }) {
     const opacity = useTransform(progress, range, [0.2, 1]);
     return (
-        <span className="relative inline-block mr-4 last:mr-0 font-inter">
+        <span className="relative inline-block mr-4 last:mr-0 font-sans">
             <span className="absolute opacity-20 text-slate-900">{children}</span>
             <Motion.span style={{ opacity }} className="text-slate-900">
                 {children}
@@ -80,12 +80,12 @@ function AboutUs({ navigate = () => {} }) {
         <>
             <div className="pt-16 bg-white overflow-hidden">
                 {/* Hero Section - Premium */}
-                <section ref={containerRef} className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100 font-inter">
+                <section ref={containerRef} className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50 border-b border-slate-100 font-sans">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
                     <div className="max-w-7xl mx-auto relative">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div className="text-left">
-                                <h1 className="text-6xl md:text-8xl font-black leading-none mb-8 tracking-tighter uppercase relative inline-block font-inter">
+                                <h1 className="text-6xl md:text-8xl font-black leading-none mb-8 tracking-tighter uppercase relative inline-block font-sans">
                                     {words.map((word, i) => {
                                         const start = i / words.length;
                                         const end = start + (1 / words.length);
@@ -100,7 +100,7 @@ function AboutUs({ navigate = () => {} }) {
                                     style={{ width: useTransform(scrollYProgress, [0, 0.8], [0, 200]) }}
                                     className="h-2 bg-slate-900 rounded-full mb-10 origin-left"
                                 ></Motion.div>
-                                <p className="text-xl text-slate-600 max-w-2xl mb-12 leading-relaxed font-medium font-inter">
+                                <p className="text-xl text-slate-600 max-w-2xl mb-12 leading-relaxed font-medium font-sans">
                                     Where strategic innovation meets exceptional execution to transform businesses through digital mastery
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-start items-center">

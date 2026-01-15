@@ -55,24 +55,6 @@ function TrustSection() {
         </div>
         
 
-        {/* <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
-          <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
-            <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">10+</div>
-            <p className="text-slate-700 font-semibold text-lg">Projects Delivered</p>
-            <p className="text-sm text-slate-600 mt-2">Across all sectors and scales</p>
-          </div>
-          <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
-            <div className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-slate-900 bg-clip-text text-transparent mb-2">98%</div>
-            <p className="text-slate-700 font-semibold text-lg">Client Satisfaction</p>
-            <p className="text-sm text-slate-600 mt-2">Consistently exceeding expectations</p>
-          </div>
-          <div className="bg-white rounded-lg p-8 border border-slate-200 hover:shadow-lg transition-shadow">
-            <div className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-2">1+</div>
-            <p className="text-slate-700 font-semibold text-lg">Years Experience</p>
-            <p className="text-sm text-slate-600 mt-2">Evolved expertise in digital solutions</p>
-          </div>
-        </div> */}
-
         {/* Stats Bar - Premium */}
                         <section className="relative mt-10 px-6 mb-20">
                             <div className="max-w-7xl mx-auto">
@@ -99,7 +81,7 @@ function TrustSection() {
             {trustPoints.map((point, index) => (
               <div key={index} className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-sm">✓</div>
+                  <div className="w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm">✓</div>
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">{point.title}</p>

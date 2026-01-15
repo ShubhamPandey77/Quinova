@@ -1,18 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion as Motion, useScroll, useTransform } from 'framer-motion';
-import { Smartphone, Globe, Zap, Film, Palette, MessageSquare, TrendingUp, CheckCircle, ArrowRight, Target, Rocket, GraduationCap, BookOpen, Clock, ShieldCheck, Cpu, Layout, Share2, Clapperboard, PenTool, FileText, Megaphone, Monitor, Code, Sparkles } from 'lucide-react';
+import { Smartphone, Globe, Zap, Film, Palette, MessageSquare, TrendingUp, CheckCircle, ArrowRight, Target, Rocket, GraduationCap, BookOpen, Clock, ShieldCheck, Cpu, Layout, Share2, Clapperboard, PenTool, FileText, Megaphone, Monitor, Code, Sparkles, X } from 'lucide-react';
 import { services as servicesData, processSteps, faqs, features } from '../../const';
 import FAQSection from '../../components/FAQSection';
 import ContactForm from '../../components/ContactForm';
 import ServiceProcessMap from '../../components/ServiceProcessMap';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { AnimatePresence } from 'framer-motion';
+import { Toaster } from 'react-hot-toast';
 
 function Word({ children, progress, range }) {
   const opacity = useTransform(progress, range, [0.2, 1]);
   return (
-    <span className="relative inline-block mr-4 last:mr-0 font-inter">
+    <span className="relative inline-block mr-4 last:mr-0 font-sans">
       <span className="absolute opacity-20 text-slate-900">{children}</span>
       <Motion.span style={{ opacity }} className="text-slate-900">
         {children}
@@ -39,70 +40,31 @@ function Services() {
 
   const getIcon = (title) => {
     const iconClass = "w-8 h-8 transition-transform duration-500 group-hover:scale-110";
+    const baseStyle = { 
+      bg: "bg-slate-50 text-slate-600",
+      accent: "slate",
+      gradient: "from-slate-600 to-slate-900"
+    };
+
     switch (title) {
       case "Website Development": 
-        return { 
-          icon: <Layout className={iconClass} />, 
-          bg: "bg-blue-50 text-blue-600",
-          accent: "blue",
-          gradient: "from-blue-600 to-indigo-600"
-        };
+        return { ...baseStyle, icon: <Layout className={iconClass} /> };
       case "Social Media Management": 
-        return { 
-          icon: <Share2 className={iconClass} />, 
-          bg: "bg-pink-50 text-pink-600",
-          accent: "pink",
-          gradient: "from-pink-600 to-rose-600"
-        };
+        return { ...baseStyle, icon: <Share2 className={iconClass} /> };
       case "Video Editing": 
-        return { 
-          icon: <Clapperboard className={iconClass} />, 
-          bg: "bg-purple-50 text-purple-600",
-          accent: "purple",
-          gradient: "from-purple-600 to-violet-600"
-        };
+        return { ...baseStyle, icon: <Clapperboard className={iconClass} /> };
       case "Graphic Design": 
-        return { 
-          icon: <PenTool className={iconClass} />, 
-          bg: "bg-amber-50 text-amber-600",
-          accent: "amber",
-          gradient: "from-amber-600 to-orange-600"
-        };
+        return { ...baseStyle, icon: <PenTool className={iconClass} /> };
       case "Content Writing": 
-        return { 
-          icon: <FileText className={iconClass} />, 
-          bg: "bg-emerald-50 text-emerald-600",
-          accent: "emerald",
-          gradient: "from-emerald-600 to-teal-600"
-        };
+        return { ...baseStyle, icon: <FileText className={iconClass} /> };
       case "Digital Marketing": 
-        return { 
-          icon: <Megaphone className={iconClass} />, 
-          bg: "bg-rose-50 text-rose-600",
-          accent: "rose",
-          gradient: "from-rose-600 to-red-600"
-        };
+        return { ...baseStyle, icon: <Megaphone className={iconClass} /> };
       case "Android & iOS Development": 
-        return { 
-          icon: <Smartphone className={iconClass} />, 
-          bg: "bg-cyan-50 text-cyan-600",
-          accent: "cyan",
-          gradient: "from-cyan-600 to-blue-600"
-        };
+        return { ...baseStyle, icon: <Smartphone className={iconClass} /> };
       case "Academic Projects": 
-        return { 
-          icon: <GraduationCap className={iconClass} />, 
-          bg: "bg-indigo-50 text-indigo-600",
-          accent: "indigo",
-          gradient: "from-indigo-600 to-blue-700"
-        };
+        return { ...baseStyle, icon: <GraduationCap className={iconClass} /> };
       default: 
-        return { 
-          icon: <Monitor className={iconClass} />, 
-          bg: "bg-slate-50 text-slate-600",
-          accent: "slate",
-          gradient: "from-slate-600 to-slate-800"
-        };
+        return { ...baseStyle, icon: <Monitor className={iconClass} /> };
     }
   };
 
@@ -130,9 +92,6 @@ function Services() {
     setShowContactForm(true);
   };
 
-  const handleServiceClick = (service) => {
-    setSelectedService(service);
-  };
 
   const handleCloseForm = () => {
     setShowContactForm(false);
@@ -163,16 +122,16 @@ function Services() {
 
   return (
     <>
-      <div className="pt-16 bg-white">
+      <div className="pt-16 bg-white font-sans">
         {/* Hero Section */}
-        <section ref={containerRef} className="pt-8 pb-24 px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-inter">
+        <section ref={containerRef} className="pt-8 pb-24 px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-sans">
           {/* Decorative Background Grid */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div className="text-left lg:pr-10">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-10 tracking-tighter uppercase relative inline-block font-inter">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-10 tracking-tighter uppercase relative inline-block">
                   {words.map((word, i) => {
                     const start = i / words.length;
                     const end = start + (1 / words.length);
@@ -187,7 +146,7 @@ function Services() {
                   style={{ width: useTransform(scrollYProgress, [0, 0.8], [0, 250]) }}
                   className="h-2.5 bg-slate-900 rounded-full mb-12 origin-left"
                 ></Motion.div>
-                <p className="text-2xl text-slate-600 max-w-xl font-medium leading-relaxed font-inter">
+                <p className="text-2xl text-slate-600 max-w-xl font-medium leading-relaxed italic">
                   Transforming vision into digital reality through specialized expertise and precision execution.
                 </p>
               </div>
@@ -340,270 +299,187 @@ function Services() {
               {/* Right Panel - Service Detail */}
               <div className="w-full lg:w-[65%] bg-slate-50 rounded-[3.5rem] p-8 md:p-14 shadow-2xl border border-white flex flex-col relative overflow-hidden group/detail">
                 {/* Decorative Elements */}
-                {(() => {
-                  const accentColors = {
-                    blue: { bg: 'bg-blue-50', text: 'text-blue-600', dot: 'bg-blue-200' },
-                    pink: { bg: 'bg-pink-50', text: 'text-pink-600', dot: 'bg-pink-200' },
-                    purple: { bg: 'bg-purple-50', text: 'text-purple-600', dot: 'bg-purple-200' },
-                    amber: { bg: 'bg-amber-50', text: 'text-amber-600', dot: 'bg-amber-200' },
-                    emerald: { bg: 'bg-emerald-50', text: 'text-emerald-600', dot: 'bg-emerald-200' },
-                    rose: { bg: 'bg-rose-50', text: 'text-rose-600', dot: 'bg-rose-200' },
-                    cyan: { bg: 'bg-cyan-50', text: 'text-cyan-600', dot: 'bg-cyan-200' },
-                    indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', dot: 'bg-indigo-200' },
-                    slate: { bg: 'bg-slate-50', text: 'text-slate-600', dot: 'bg-slate-200' },
-                  };
-                  const colors = accentColors[getIcon(selectedServiceForDetail?.title).accent] || accentColors.slate;
+                <div className="absolute top-0 right-0 w-64 h-64 bg-slate-200/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-slate-200/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
 
-                  return (
-                    <>
-                      <div className={`absolute -top-24 -right-24 w-64 h-64 ${colors.bg} rounded-full blur-3xl opacity-60 transition-colors duration-700`}></div>
-                      <div className="absolute top-10 right-10 flex gap-2">
-                        {[1, 2, 3].map(i => (
-                          <div key={i} className={`w-1.5 h-1.5 rounded-full ${colors.dot}`}></div>
-                        ))}
+                <AnimatePresence mode="wait">
+                  <Motion.div 
+                    key={selectedServiceForDetail.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="relative z-10 flex flex-col h-full"
+                  >
+                    <div className="flex items-center gap-6 mb-10">
+                      <div className="w-20 h-20 bg-slate-900 text-white rounded-3xl flex items-center justify-center shadow-xl">
+                        {getIcon(selectedServiceForDetail.title).icon}
                       </div>
+                      <div>
+                        <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-slate-900 leading-none mb-2 italic">
+                          {selectedServiceForDetail.title}
+                        </h3>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-slate-900 rounded-full animate-pulse"></div>
+                          <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Specialized Solution</span>
+                        </div>
+                      </div>
+                    </div>
 
-                      <AnimatePresence mode="wait">
-                        <Motion.div
-                          key={selectedServiceForDetail?.title}
-                          initial={{ opacity: 0, scale: 0.98, y: 10 }}
-                          animate={{ opacity: 1, scale: 1, y: 0 }}
-                          exit={{ opacity: 0, scale: 1.02, y: -10 }}
-                          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                          className="flex flex-col h-full relative z-10"
-                        >
-                          <div className="flex flex-col gap-8 mb-14">
-                            <div className="space-y-6">
-                              <div className="flex flex-wrap items-center gap-4">
-                                <Motion.div 
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.2 }}
-                                  className={`inline-flex items-center gap-2 px-4 py-2 ${colors.bg} rounded-xl text-[10px] font-black uppercase tracking-[0.25em] ${colors.text}`}
-                                >
-                                  <Sparkles className="w-3.5 h-3.5" />
-                                  Industry Standard
-                                </Motion.div>
+                    <p className="text-xl text-slate-600 font-medium mb-12 leading-relaxed max-w-2xl italic">
+                      "{selectedServiceForDetail.longDescription}"
+                    </p>
 
-                                <Motion.button 
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.25 }}
-                                  whileHover={{ scale: 1.05 }}
-                                  whileTap={{ scale: 0.95 }}
-                                  onClick={() => handleServiceClick(selectedServiceForDetail)}
-                                  className={`inline-flex items-center gap-2 px-4 py-2 bg-slate-900 text-white rounded-xl text-[10px] font-black uppercase tracking-[0.25em] cursor-pointer shadow-lg hover:bg-slate-800 transition-colors`}
-                                >
-                                  <Clock className="w-3.5 h-3.5" />
-                                  View Strategy
-                                </Motion.button>
-                              </div>
-
-                              <Motion.h2 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] pr-10"
-                              >
-                                {selectedServiceForDetail?.title}
-                              </Motion.h2>
+                    <div className="grid md:grid-cols-2 gap-8 mb-12">
+                      <div className="space-y-6">
+                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 border-b border-slate-200 pb-2">Core Features</h4>
+                        <div className="space-y-3">
+                          {selectedServiceForDetail.features.slice(0, 4).map((feature, i) => (
+                            <div key={i} className="flex items-center gap-3 group/item">
+                              <div className="w-1.5 h-1.5 bg-slate-900 rounded-full group-hover/item:scale-150 transition-transform"></div>
+                              <span className="text-sm font-bold uppercase tracking-tight text-slate-600">{feature}</span>
                             </div>
-                          </div>
-
-                          <div className="grid md:grid-cols-2 gap-12 mb-14">
-                            <Motion.div 
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.5 }}
-                              className="space-y-8"
-                            >
-                              <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
-                                <div className={`w-2 h-2 rounded-full bg-slate-900`}></div>
-                                Core Capabilities
-                              </h4>
-                              <ul className="space-y-5">
-                                {selectedServiceForDetail?.features?.slice(0, 5).map((feature, i) => (
-                                  <Motion.li 
-                                    key={i} 
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.6 + (i * 0.1) }}
-                                    className="flex items-start gap-4 text-slate-700 font-semibold group/item"
-                                  >
-                                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/item:bg-slate-900 transition-colors shrink-0"></div>
-                                    <span className="text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{feature}</span>
-                                  </Motion.li>
-                                ))}
-                              </ul>
-                            </Motion.div>
-
-                            <Motion.div 
-                              initial={{ opacity: 0, x: 20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.5 }}
-                              className="space-y-8"
-                            >
-                              <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
-                                <div className={`w-2 h-2 rounded-full bg-slate-300`}></div>
-                                Business Impact
-                              </h4>
-                              <ul className="space-y-5">
-                                {selectedServiceForDetail?.benefits?.slice(0, 5).map((benefit, i) => (
-                                  <Motion.li 
-                                    key={i} 
-                                    initial={{ opacity: 0, x: 10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.6 + (i * 0.1) }}
-                                    className="flex items-start gap-4 text-slate-600 font-medium group/item"
-                                  >
-                                    <ArrowRight className="w-5 h-5 mt-0.5 text-slate-300 group-hover/item:text-slate-900 transition-colors shrink-0" />
-                                    <span className="text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{benefit}</span>
-                                  </Motion.li>
-                                ))}
-                              </ul>
-                            </Motion.div>
-                          </div>
-
-                          <Motion.div 
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8 }}
-                            className="mt-auto pt-10 border-t border-slate-100 flex flex-col xl:flex-row items-center justify-between gap-10"
-                          >
-                            <div className="flex flex-col gap-4 max-w-lg">
-                              <div className="flex items-center gap-3">
-                                <div className="flex -space-x-2">
-                                  {[1, 2, 3, 4].map(i => (
-                                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-400">
-                                      {String.fromCharCode(64 + i)}
-                                    </div>
-                                  ))}
-                                </div>
-                                <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Trusted by 50+ partners</p>
-                              </div>
-                              <p className="text-slate-500 italic font-medium leading-relaxed">
-                                "{selectedServiceForDetail?.longDescription?.slice(0, 160)}..."
-                              </p>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="space-y-6">
+                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 border-b border-slate-200 pb-2">Business ROI</h4>
+                        <div className="space-y-3">
+                          {selectedServiceForDetail.benefits.slice(0, 4).map((benefit, i) => (
+                            <div key={i} className="flex items-center gap-3">
+                              <CheckCircle className="w-4 h-4 text-slate-900" />
+                              <span className="text-sm font-bold uppercase tracking-tight text-slate-600">{benefit}</span>
                             </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
 
-                            <div className="flex flex-col sm:flex-row gap-4 w-full xl:w-auto">
-                              <Motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                onClick={handleGetStartedClick}
-                                className="bg-slate-900 text-white px-10 py-5 rounded-[2rem] font-black uppercase tracking-tighter flex items-center justify-center gap-3 hover:bg-slate-800 transition-all shadow-2xl relative overflow-hidden group/btn"
-                              >
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
-                                <span className="relative z-10">Get Started</span>
-                                <ArrowRight className="w-6 h-6 relative z-10 group-hover/btn:translate-x-1 transition-transform" />
-                              </Motion.button>
-                              
-                              <Motion.button 
-                                whileHover={{ scale: 1.02, backgroundColor: '#f8fafc' }}
-                                whileTap={{ scale: 0.98 }}
-                                onClick={() => navigate(getServicePath(selectedServiceForDetail?.title))}
-                                className="bg-white text-slate-900 border-2 border-slate-900 px-10 py-5 rounded-[2rem] font-black uppercase tracking-tighter flex items-center justify-center gap-3 transition-all cursor-pointer"
-                              >
-                                View Detail
-                              </Motion.button>
-                            </div>
-                          </Motion.div>
-
-                          {/* Watermark */}
-                          <Motion.div 
-                            key={`watermark-${selectedServiceForDetail?.title}`}
-                            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                            animate={{ opacity: 0.03, scale: 1, rotate: 0 }}
-                            className="absolute -bottom-20 -right-20 text-[25rem] font-black text-slate-900 pointer-events-none z-0 select-none leading-none"
-                          >
-                            {servicesData.indexOf(selectedServiceForDetail) + 1}
-                          </Motion.div>
-                        </Motion.div>
-                      </AnimatePresence>
-                    </>
-                  );
-                })()}
+                    <div className="mt-auto flex flex-wrap gap-4">
+                      <button 
+                        onClick={() => navigate(getServicePath(selectedServiceForDetail.title))}
+                        className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-slate-800 transition-all hover:scale-105 shadow-xl flex items-center gap-3 group/btn"
+                      >
+                        Explore Service
+                        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                      <button 
+                        onClick={() => setSelectedService(selectedServiceForDetail)}
+                        className="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-slate-50 transition-all shadow-lg flex items-center gap-2"
+                      >
+                        <Zap className="w-4 h-4" />
+                        View Roadmap
+                      </button>
+                      <button 
+                        onClick={handleGetStartedClick}
+                        className="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-slate-50 transition-all shadow-lg"
+                      >
+                        Quick Quote
+                      </button>
+                    </div>
+                  </Motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Process Section */}
+        {/* Process Roadmap */}
         <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
-              <span className="text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-4 block">Our Approach</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
-                Our Process
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col items-center text-center mb-20">
+              <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none mb-6 italic">
+                Our <span className="text-slate-300">Execution</span>
               </h2>
-              <div className="w-20 h-1 bg-slate-900 mx-auto rounded-full mt-6"></div>
+              <p className="text-xl text-slate-500 font-medium max-w-2xl italic">
+                A streamlined, data-driven methodology that ensures project success from conception to deployment.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {processStepsWithIcons.map((step, index) => (
-                <div key={index} className="relative flex flex-col items-center text-center">
-                  <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl w-16 h-16 flex items-center justify-center text-xl font-bold shadow-sm mb-6 z-10">
-                    {step.step}
-                  </div>
-                  <div className="mb-4 text-slate-400">
+                <Motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-xl hover:shadow-2xl transition-all group hover:-translate-y-2"
+                >
+                  <div className="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-500 leading-relaxed font-light">
-                    {step.desc}
-                  </p>
-                  {index < processStepsWithIcons.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-[60%] w-full h-[1px] bg-slate-200 -z-0"></div>
-                  )}
-                </div>
+                  <span className="text-xs font-black uppercase tracking-[0.3em] text-slate-300 mb-4 block">Phase 0{index + 1}</span>
+                  <h3 className="text-2xl font-black uppercase tracking-tighter text-slate-900 mb-4 italic">{step.title}</h3>
+                  <p className="text-slate-500 font-medium leading-relaxed italic">{step.description}</p>
+                </Motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <FAQSection faqs={faqs} handleGetStartedClick={handleGetStartedClick} />
-      </div>
+        {/* Dynamic Service Map Overlay */}
+        <AnimatePresence>
+          {selectedService && (
+            <ServiceProcessMap 
+              service={selectedService} 
+              onClose={handleCloseMap} 
+            />
+          )}
+        </AnimatePresence>
 
-      {/* Service Roadmap Modal */}
-      <AnimatePresence>
-        {selectedService && (
-          <ServiceProcessMap 
-            service={selectedService} 
-            onClose={handleCloseMap} 
-          />
-        )}
-      </AnimatePresence>
+        {/* FAQs */}
+        <FAQSection faqs={faqs} />
 
-      {/* Contact Form Modal */}
-      <AnimatePresence>
-        {showContactForm && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <Motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-              onClick={handleCloseForm}
-            ></Motion.div>
-            <Motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="relative z-50"
-            >
-              <ContactForm 
-                onClose={handleCloseForm}
-                defaultService=""
-                showCloseButton={true}
-                compact={false}
-              />
-            </Motion.div>
+        {/* CTA */}
+        <section className="py-32 px-6 bg-slate-900 text-white text-center overflow-hidden relative">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white rounded-full blur-[120px]"></div>
           </div>
-        )}
-      </AnimatePresence>
+          
+          <div className="max-w-4xl mx-auto relative z-10 space-y-12">
+            <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none italic">
+              Ready to <br /> <span className="text-white/20">Dominate?</span>
+            </h2>
+            <p className="text-2xl text-white/60 font-medium italic">
+              Experience the Quinova edge. Let's build something extraordinary together.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <button 
+                onClick={handleGetStartedClick}
+                className="bg-white text-slate-900 px-12 py-6 rounded-[2.5rem] font-black uppercase tracking-widest text-lg hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl flex items-center gap-4 group"
+              >
+                Get Started
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form Modal */}
+        <AnimatePresence>
+          {showContactForm && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+              <Motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={handleCloseForm}
+                className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
+              />
+              <Motion.div 
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[3rem] shadow-2xl custom-scrollbar"
+              >
+                <ContactForm onClose={handleCloseForm} />
+              </Motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
+      <Toaster position="bottom-right" />
     </>
   );
 }

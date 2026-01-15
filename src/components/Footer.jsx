@@ -86,11 +86,11 @@ function Footer() {
                   href={href}
                   target={info.icon === 'location' ? undefined : '_blank'}
                   rel={info.icon === 'location' ? undefined : 'noopener noreferrer'}
-                  className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:bg-slate-800 transition-all cursor-pointer"
+                  className="flex items-start gap-4 p-6 rounded-lg bg-slate-900 border border-slate-800 hover:border-white hover:bg-slate-800 transition-all cursor-pointer"
                 >
                   <div className="shrink-0">
-                    {info.icon === 'phone' && <Phone className="w-6 h-6 text-white hover:text-emerald-400 transition-colors" />}
-                    {info.icon === 'email' && <Mail className="w-6 h-6 text-white hover:text-emerald-400 transition-colors" />}
+                    {info.icon === 'phone' && <Phone className="w-6 h-6 text-white transition-colors" />}
+                    {info.icon === 'email' && <Mail className="w-6 h-6 text-white transition-colors" />}
                     {info.icon === 'location' && <MapPin className="w-6 h-6 text-white" />}
                   </div>
                   <div>
@@ -106,8 +106,8 @@ function Footer() {
           <div className="grid md:grid-cols-5 gap-8 mb-12">
             {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-9 bg-white rounded-lg flex items-center justify-center">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-16 h-14 bg-[#F2F2F2] rounded-lg flex items-center justify-center">
                   <img src="Logo.png" alt="logo" className="w-full h-full object-contain p-1" />
                 </div>
                 <div>
@@ -215,7 +215,7 @@ function Footer() {
       href="https://wa.me/917991214170"
       target="_blank"
       rel="noopener noreferrer"
-      className="pointer-events-auto w-12 h-12 rounded-full bg-green-500 
+      className="pointer-events-auto w-12 h-12 rounded-full bg-slate-900 border border-slate-700
                  flex items-center justify-center shadow-lg 
                  hover:scale-110 transition"
       title="WhatsApp"
@@ -225,10 +225,10 @@ function Footer() {
 
     {/* Mail */}
     <a
-      href="mailto:QuinovaITSolutions@gmail.com?cc=solutions@quinova.tech"
+      href="mailto:quinovaitsolutions@gmail.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="pointer-events-auto w-12 h-12 rounded-full bg-blue-600 
+      className="pointer-events-auto w-12 h-12 rounded-full bg-slate-800 border border-slate-700
                  flex items-center justify-center shadow-lg 
                  hover:scale-110 transition"
       title="Email"

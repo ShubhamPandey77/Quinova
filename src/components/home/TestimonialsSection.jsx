@@ -1,16 +1,16 @@
 import { forwardRef } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { Star, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { FaRegUser } from "react-icons/fa";
 
 const getAvatarData = (name) => {
   const colors = [
-    { bg: 'bg-blue-50', text: 'text-blue-500', border: 'border-blue-100' },
-    { bg: 'bg-emerald-50', text: 'text-emerald-500', border: 'border-emerald-100' },
-    { bg: 'bg-violet-50', text: 'text-violet-500', border: 'border-violet-100' },
-    { bg: 'bg-amber-50', text: 'text-amber-500', border: 'border-amber-100' },
-    { bg: 'bg-rose-50', text: 'text-rose-500', border: 'border-rose-100' },
-    { bg: 'bg-indigo-50', text: 'text-indigo-500', border: 'border-indigo-100' },
+    { bg: 'bg-slate-50', text: 'text-slate-500', border: 'border-slate-100' },
+    { bg: 'bg-slate-100', text: 'text-slate-600', border: 'border-slate-200' },
+    { bg: 'bg-slate-50', text: 'text-slate-400', border: 'border-slate-100' },
+    { bg: 'bg-slate-200', text: 'text-slate-700', border: 'border-slate-300' },
+    { bg: 'bg-slate-50', text: 'text-slate-600', border: 'border-slate-200' },
+    { bg: 'bg-slate-100', text: 'text-slate-500', border: 'border-slate-100' },
   ];
   
   const index = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;
@@ -29,15 +29,10 @@ const TestimonialCard = ({ testimonial }) => {
         <div className="overflow-hidden">
           <div className="flex items-center gap-1">
             <h4 className="font-bold text-slate-900 text-sm truncate">{testimonial.name}</h4>
-            <ShieldCheck className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+            <ShieldCheck className="w-3.5 h-3.5 text-slate-900 shrink-0" />
           </div>
           <p className="text-[12px] text-slate-500 font-medium truncate">@{testimonial.company.toLowerCase().replace(/\s+/g, '')}</p>
         </div>
-        {/* <div className="ml-auto flex gap-0.5">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
-          ))}
-        </div> */}
       </div>
       
       <blockquote className="text-slate-700 text-[14px] leading-relaxed italic">
@@ -46,8 +41,8 @@ const TestimonialCard = ({ testimonial }) => {
 
       {testimonial.result && (
         <div className="mt-4 pt-3 border-t border-slate-50 ">
-          <div className="animate-pulse inline-flex items-center gap-1.5 px-3 py-1 bg-blue-100 text-gray-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
-            <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-pulse"></span>
+          <div className="animate-pulse inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900 text-white rounded-full text-[10px] font-bold uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
             {testimonial.result}
           </div>
         </div>

@@ -28,10 +28,10 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
   }, []);
 
   return (
-    <div className="group">
-      <label className="block text-sm font-semibold text-slate-900 mb-2 tracking-wide">
+    <div className="group font-sans">
+      <label className="block text-sm font-semibold text-slate-900 mb-2 tracking-wide uppercase">
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="text-slate-400 ml-1">*</span>}
       </label>
       <div className="relative" ref={dropdownRef}>
         {/* Custom Dropdown Trigger */}
@@ -48,7 +48,7 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
             <div className="text-slate-400">
               <Briefcase className="w-4 h-4" />
             </div>
-            <span className={`${value ? 'text-slate-900' : 'text-slate-400'}`}>
+            <span className={`${value ? 'text-slate-900' : 'text-slate-400'} font-medium`}>
               {selectedOption?.label || "Select service"}
             </span>
           </div>
@@ -77,9 +77,9 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
                         <IconComponent className="w-4 h-4 text-white" />
                       </div>
                       <div className="flex flex-col items-start">
-                        <span className="font-medium">{option.label}</span>
+                        <span className="font-medium text-sm">{option.label}</span>
                         {option.description && (
-                          <span className="text-xs text-slate-500 mt-0.5">{option.description}</span>
+                          <span className="text-[10px] text-slate-500 font-medium">{option.description}</span>
                         )}
                       </div>
                     </div>
@@ -129,49 +129,49 @@ function Navbar() {
       value: "website", 
       label: "Website Development", 
       icon: Globe,
-      bgColor: "bg-blue-500",
+      bgColor: "bg-slate-900",
       description: "Responsive & modern websites"
     },
     { 
       value: "app", 
       label: "Android & iOS Development", 
       icon: Smartphone,
-      bgColor: "bg-zinc-900",
+      bgColor: "bg-slate-800",
       description: "Native & cross-platform apps"
     },
     { 
       value: "social-media", 
       label: "Social Media Management", 
       icon: MessageSquare,
-      bgColor: "bg-purple-500",
+      bgColor: "bg-slate-900",
       description: "Engagement & growth strategies"
     },
     { 
       value: "video", 
       label: "Video Editing", 
       icon: Video,
-      bgColor: "bg-red-500",
+      bgColor: "bg-slate-800",
       description: "Professional video production"
     },
     { 
       value: "design", 
       label: "Graphic Design", 
       icon: Palette,
-      bgColor: "bg-green-500",
+      bgColor: "bg-slate-900",
       description: "Visual branding & design"
     },
     { 
       value: "marketing", 
       label: "Digital Marketing", 
       icon: BarChart,
-      bgColor: "bg-indigo-500",
+      bgColor: "bg-slate-800",
       description: "Campaigns & analytics"
     },
     { 
       value: "academic-project", 
       label: "Academic Projects", 
       icon: GraduationCap,
-      bgColor: "bg-blue-400",
+      bgColor: "bg-slate-900",
       description: "Mini & Major project solutions"
     },
   ];
@@ -209,7 +209,7 @@ function Navbar() {
 
       // Prepare email template parameters
       const templateParams = {
-        to_email: "ashutoshsingh6307@gmail.com",
+        to_email: "quinovaitsolutions@gmail.com",
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone || "Not provided",
@@ -254,7 +254,7 @@ function Navbar() {
       }
     } catch (error) {
       console.error("Email sending error:", error);
-      toast.error("Oops! Something went wrong. Please try again or contact us directly at ashutoshsingh6307@gmail.com");
+      toast.error("Oops! Something went wrong. Please try again or contact us directly at quinovaitsolutions@gmail.com");
     } finally {
       setIsSubmitting(false);
     }
@@ -267,25 +267,25 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 font-sans ${
         scrolled 
-          ? 'bg-white shadow-md border-b border-slate-200' 
-          : 'bg-white border-b border-slate-100'
+          ? 'bg-[#F2F2F2]/70 backdrop-blur-md shadow-md border-b border-slate-200' 
+          : 'bg-[#F2F2F2] border-b border-slate-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-7xl mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <Link
               to="/"
-              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <div className="w-16 h-14 flex items-center justify-center">
+              <div className="w-24 h-18 flex items-center justify-center">
                 <img src="Logo.png" alt="Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <div className="text-slate-900 text-xl font-bold tracking-tight">
                   Quinova
                 </div>
-                <div className="text-slate-600 text-xs font-semibold">
+                <div className="text-slate-600 text-[10px] font-medium tracking-wide">
                   IT Solutions
                 </div>
               </div>
@@ -299,7 +299,7 @@ function Navbar() {
                   className={`text-sm font-medium transition-colors ${
                     location.pathname === item.path
                       ? "text-slate-900"
-                      : "text-slate-600 hover:text-slate-900"
+                      : "text-slate-500 hover:text-slate-900"
                   }`}
                 >
                   {item.name}
@@ -308,7 +308,7 @@ function Navbar() {
 
               <button
                 onClick={handleGetStartedClick}
-                className="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-medium hover:bg-slate-800 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="bg-slate-900 text-white px-5 py-2 rounded-lg font-medium text-sm hover:bg-slate-800 transition-all duration-300 shadow-sm"
               >
                 Contact Us
               </button>
@@ -329,9 +329,9 @@ function Navbar() {
                   key={item.path}
                   to={item.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block w-full text-left py-2 px-4 rounded-lg font-medium transition-colors ${
+                  className={`block w-full text-left py-3 px-4 rounded-lg font-medium text-sm transition-colors ${
                     location.pathname === item.path
-                      ? 'bg-slate-900 text-white'
+                      ? 'bg-slate-900 text-white shadow-md'
                       : 'text-slate-600 hover:bg-slate-100'
                   }`}
                 >
@@ -341,7 +341,7 @@ function Navbar() {
 
               <button
                 onClick={handleGetStartedClick}
-                className="w-full bg-slate-900 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors"
+                className="w-full bg-slate-900 text-white py-3 rounded-lg font-medium text-sm hover:bg-slate-800 transition-colors shadow-md"
               >
                 Contact Us
               </button>
@@ -352,119 +352,94 @@ function Navbar() {
 
       {showContactForm && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 font-sans"
           onClick={handleCloseForm}
         >
           <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity duration-300"
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity duration-300"
           ></div>
 
           <div 
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-auto max-h-[85vh] relative transform transition-all duration-300 scale-100"
+            className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-4xl h-auto max-h-[85vh] relative transform transition-all duration-300 scale-100 overflow-y-auto custom-scrollbar"
             onClick={handleFormClick}
             ref={formRef}
           >
             <button
               onClick={handleCloseForm}
               disabled={isSubmitting}
-              className="absolute top-4 right-4 z-50 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute top-6 right-6 z-50 w-10 h-10 flex items-center justify-center bg-slate-50 rounded-full shadow-sm hover:bg-slate-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <X className="w-4 h-4 text-slate-600" />
+              <X className="w-5 h-5 text-slate-600" />
             </button>
 
-            <div className="p-6 md:p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            <div className="p-6 md:p-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 {/* Left Column - Branding & Info */}
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div>
-                    <div className="w-12 h-12 bg-gradient-to-br from-slate-900 to-slate-700 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                      <Mail className="w-6 h-6 text-white" />
+                    <div className="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
+                      <Mail className="w-7 h-7 text-white" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 tracking-tight">
-                      Start Your Project
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight uppercase italic leading-none">
+                      Start Your <br /><span className="text-slate-300">Project</span>
                     </h2>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-500 leading-relaxed font-medium italic">
                       Let's discuss your vision. Share your details and we'll craft the perfect solution.
                     </p>
                   </div>
 
-                  <div className="space-y-4 pt-4 border-t border-slate-100">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <MessageSquare className="w-4 h-4 text-slate-600" />
+                  <div className="space-y-6 pt-6 border-t border-slate-100">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <MessageSquare className="w-5 h-5 text-slate-900" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-900 mb-1 text-sm">Quick Response</h4>
-                        <p className="text-xs text-slate-600">We'll get back to you within 24 hours</p>
+                        <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Quick Response</h4>
+                        <p className="text-xs text-slate-500 font-medium">We'll get back to you within 24 hours</p>
                       </div>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Briefcase className="w-4 h-4 text-slate-600" />
+                    
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Briefcase className="w-5 h-5 text-slate-900" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-900 mb-1 text-sm">Expert Consultation</h4>
-                        <p className="text-xs text-slate-600">Free initial consultation with our specialists</p>
+                        <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Expert Consultation</h4>
+                        <p className="text-xs text-slate-500 font-medium">Free initial consultation with our specialists</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Right Column - Form */}
-                <div className="space-y-4">
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="bg-slate-50/50 p-6 md:p-8 rounded-[2rem] border border-slate-100">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     {[
-                      { 
-                        id: "name", 
-                        label: "Full Name", 
-                        type: "text", 
-                        placeholder: "John Doe",
-                        icon: <User className="w-4 h-4" />,
-                        required: true
-                      },
-                      { 
-                        id: "email", 
-                        label: "Email Address", 
-                        type: "email", 
-                        placeholder: "john@example.com",
-                        icon: <Mail className="w-4 h-4" />,
-                        required: true
-                      },
-                      { 
-                        id: "phone", 
-                        label: "Phone Number", 
-                        type: "tel", 
-                        placeholder: "+91 98765 43210",
-                        icon: <Phone className="w-4 h-4" />,
-                        required: false
-                      },
+                      { id: "name", label: "Full Name", type: "text", placeholder: "John Doe", icon: <User className="w-4 h-4" />, required: true },
+                      { id: "email", label: "Email Address", type: "email", placeholder: "john@example.com", icon: <Mail className="w-4 h-4" />, required: true },
+                      { id: "phone", label: "Phone Number", type: "tel", placeholder: "+91 98765 43210", icon: <Phone className="w-4 h-4" />, required: false },
                     ].map(({ id, label, type, placeholder, icon, required }) => (
                       <div key={id} className="group">
-                        <label className="block text-xs font-semibold text-slate-900 mb-1.5 tracking-wide">
-                          {label}
-                          {required && <span className="text-red-500 ml-1">*</span>}
+                        <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2 ml-1">
+                          {label} {required && <span className="text-slate-300">*</span>}
                         </label>
                         <div className="relative">
-                          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400">
+                          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-slate-900 transition-colors">
                             {icon}
                           </div>
                           <input
                             type={type}
                             required={required}
                             value={formData[id]}
-                            onChange={(e) =>
-                              setFormData({ ...formData, [id]: e.target.value })
-                            }
+                            onChange={(e) => setFormData({ ...formData, [id]: e.target.value })}
                             disabled={isSubmitting}
-                            className="w-full pl-10 pr-3 py-2.5 text-sm border border-slate-200 rounded-lg bg-slate-50/50 focus:outline-none group-hover:bg-white group-hover:border-slate-300 transition-all duration-200 focus:bg-white focus:shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full pl-12 pr-4 py-3 text-sm border-2 border-transparent rounded-2xl bg-white focus:outline-none focus:border-slate-900 shadow-sm transition-all font-medium"
                             placeholder={placeholder}
                           />
                         </div>
                       </div>
                     ))}
 
-                    {/* Custom Service Dropdown */}
                     <ServiceDropdown
                       value={formData.service}
                       onChange={(value) => setFormData({ ...formData, service: value })}
@@ -474,45 +449,37 @@ function Navbar() {
                     />
 
                     <div className="group">
-                      <label className="block text-xs font-semibold text-slate-900 mb-1.5 tracking-wide">
-                        Project Details <span className="text-red-500 ml-1">*</span>
+                      <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2 ml-1">
+                        Project Details <span className="text-slate-300">*</span>
                       </label>
                       <textarea
                         required
-                        rows={3}
+                        rows="3"
                         value={formData.message}
-                        onChange={(e) =>
-                          setFormData({ ...formData, message: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         disabled={isSubmitting}
-                        className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-lg bg-slate-50/50 resize-none group-hover:bg-white group-hover:border-slate-300 transition-all duration-200 focus:bg-white focus:border-slate-900 focus:shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                        placeholder="Describe your project goals, requirements, and timeline..."
+                        className="w-full px-4 py-3 text-sm border-2 border-transparent rounded-2xl bg-white focus:outline-none focus:border-slate-900 shadow-sm resize-none transition-all font-medium"
+                        placeholder="Describe your project goals..."
                       ></textarea>
                     </div>
 
-                    <div className="space-y-3 pt-2">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-slate-900 to-slate-800 text-white py-3 rounded-lg font-semibold hover:from-slate-800 hover:to-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] flex items-center justify-center gap-2 text-sm group disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:from-slate-900 disabled:hover:to-slate-800"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                            <span>Sending...</span>
-                          </>
-                        ) : (
-                          <>
-                            <span>Submit Project Request</span>
-                            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
-                          </>
-                        )}
-                      </button>
-
-                      <p className="text-xs text-slate-500 text-center leading-relaxed px-2">
-                        By submitting, you agree to our Privacy Policy. We respect your confidentiality and never share your information.
-                      </p>
-                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-slate-900 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-800 transition-all active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed shadow-xl mt-4"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Request
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
                   </form>
                 </div>
               </div>
@@ -520,6 +487,7 @@ function Navbar() {
           </div>
         </div>
       )}
+      <Toaster position="bottom-right" />
     </>
   );
 }

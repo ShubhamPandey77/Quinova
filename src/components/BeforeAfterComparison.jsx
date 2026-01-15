@@ -28,15 +28,15 @@ function BeforeAfterComparison({ beforeData, afterData }) {
       variants={itemVariants}
       className={`p-6 rounded-lg border-2 transform transition-all hover:scale-105 ${
         isAfter
-          ? 'bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-300'
-          : 'bg-gradient-to-br from-slate-100 to-slate-50 border-slate-300'
+          ? 'bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700 text-white'
+          : 'bg-gradient-to-br from-slate-50 to-white border-slate-200'
       }`}
     >
       <div className="text-3xl mb-2">{stat.icon}</div>
-      <div className={`text-2xl font-bold mb-1 ${isAfter ? 'text-emerald-600' : 'text-slate-500'}`}>
+      <div className={`text-2xl font-bold mb-1 ${isAfter ? 'text-white' : 'text-slate-900'}`}>
         {stat.value}
       </div>
-      <div className="text-sm text-slate-600">{stat.label}</div>
+      <div className={`text-sm ${isAfter ? 'text-slate-300' : 'text-slate-600'}`}>{stat.label}</div>
     </motion.div>
   );
 
@@ -53,7 +53,7 @@ function BeforeAfterComparison({ beforeData, afterData }) {
           {/* Before Section */}
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="text-center md:text-left">
-              <div className="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-block bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-slate-200">
                 ❌ Without Solution
               </div>
               <h3 className="text-3xl font-bold text-slate-900 mb-2">{beforeData.title}</h3>
@@ -91,7 +91,7 @@ function BeforeAfterComparison({ beforeData, afterData }) {
           {/* After Section */}
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="text-center md:text-left">
-              <div className="inline-block bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-block bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 ✅ With Our Solution
               </div>
               <h3 className="text-3xl font-bold text-slate-900 mb-2">{afterData.title}</h3>
@@ -112,21 +112,21 @@ function BeforeAfterComparison({ beforeData, afterData }) {
           {/* Impact Summary */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg p-8 text-white text-center"
+            className="bg-gradient-to-r from-slate-900 via-slate-800 to-black rounded-lg p-8 text-white text-center border border-slate-700 shadow-2xl"
           >
             <h4 className="text-2xl font-bold mb-3">Average Results Clients See</h4>
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <div className="text-4xl font-bold mb-2">10x</div>
-                <div className="text-emerald-100">Increase in Results</div>
+                <div className="text-slate-400">Increase in Results</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">3-6mo</div>
-                <div className="text-emerald-100">Time to ROI</div>
+                <div className="text-slate-400">Time to ROI</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">300%+</div>
-                <div className="text-emerald-100">ROI on Investment</div>
+                <div className="text-slate-400">ROI on Investment</div>
               </div>
             </div>
           </motion.div>

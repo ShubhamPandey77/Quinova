@@ -5,7 +5,7 @@ function CTASection({ navigate, handleGetStartedClick }) {
     <section className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          <span className="inline-block bg-emerald-500/20 text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">Limited Time Offer</span>
+          <span className="inline-block bg-slate-500/20 text-slate-100 px-4 py-2 rounded-full text-sm font-semibold mb-6">Limited Time Offer</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
           Ready to Accelerate Your Business Growth?

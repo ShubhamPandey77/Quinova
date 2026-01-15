@@ -4,29 +4,29 @@ export const contactInfo = [
   {
     icon: null, 
     title: "Email Us",
-    details: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
-    color: "from-emerald-500 to-teal-600"
+    details: ["quinovaitsolutions@gmail.com"],
+    color: "from-slate-900 to-black"
   },
   {
     icon: null, 
     title: "Call Us",
     details: ["+91 7991214170", "Mon-Sun, 9AM - 9PM ISM"],
-    color: "from-green-500 to-emerald-600"
+    color: "from-slate-800 to-slate-900"
   },
   {
     icon: null, 
     title: "Visit Us",
     details: ["Quinova IT Solutions", "Lucknow, India"],
-    color: "from-teal-500 to-cyan-600"
+    color: "from-slate-700 to-slate-800"
   }
 ];
 
 // Why Choose Us
 export const whyChooseUs = [
-  { icon: null, text: "1+ Years of Experience", color: "from-emerald-500 to-teal-600" },
-  { icon: null, text: "10+ Happy Clients", color: "from-green-500 to-emerald-600" },
-  { icon: null, text: "24/7 Support Available", color: "from-teal-500 to-cyan-600" },
-  { icon: null, text: "98% Satisfaction Guaranteed", color: "from-lime-500 to-green-600" }
+  { icon: null, text: "1+ Years of Experience", color: "from-slate-900 to-black" },
+  { icon: null, text: "10+ Happy Clients", color: "from-slate-800 to-slate-900" },
+  { icon: null, text: "24/7 Support Available", color: "from-slate-700 to-slate-800" },
+  { icon: null, text: "98% Satisfaction Guaranteed", color: "from-slate-900 to-black" }
 ];
 
 // FAQs
@@ -153,11 +153,11 @@ export const faqs = [
 
 // Social Icons
 export const socialIcons = [
-  { Icon: null, color: "from-emerald-500 to-teal-600" },
-  { Icon: null, color: "from-green-500 to-emerald-600" },
-  { Icon: null, color: "from-teal-500 to-cyan-600" },
-  { Icon: null, color: "from-lime-500 to-green-600" },
-  { Icon: null, color: "from-emerald-500 to-teal-600" }
+  { Icon: null, color: "from-slate-900 to-black" },
+  { Icon: null, color: "from-slate-800 to-slate-900" },
+  { Icon: null, color: "from-slate-700 to-slate-800" },
+  { Icon: null, color: "from-slate-900 to-black" },
+  { Icon: null, color: "from-slate-800 to-slate-900" }
 ];
 
 // Stats
@@ -172,6 +172,7 @@ export const stats = [
 export const services = [
   {
     title: "Website Development",
+    image: "/services/website development .webp",
     content: "Professional Web Development",
     longDescription: "We build high-performance, conversion-optimized websites that work 24/7 to generate leads and sales for your business.",
     features: [
@@ -221,6 +222,7 @@ export const services = [
   },
   {
     title: "Social Media Management",
+    image: "/services/social media.webp",
     content: "Growth-Driven Social Strategy",
     longDescription: "Transform your social media channels into powerful growth engines with our data-driven management and creative content strategies.",
     features: [
@@ -270,6 +272,7 @@ export const services = [
   },
   {
     title: "Video Editing",
+    image: "/services/video editing.webp",
     content: "Cinematic Video Production",
     longDescription: "Professional video editing that tells your story with cinematic quality, perfect for YouTube, social media, and corporate branding.",
     features: [
@@ -319,6 +322,7 @@ export const services = [
   },
   {
     title: "Graphic Design",
+    image: "/services/graphic designer.webp",
     content: "Impactful Visual Identity",
     longDescription: "We create stunning visual identities that capture your brand's essence and make a lasting impression on your audience.",
     features: [
@@ -368,6 +372,7 @@ export const services = [
   },
   {
     title: "Content Writing",
+    image: "/services/content writing.webp",
     content: "Persuasive Content Strategy",
     longDescription: "High-quality, SEO-optimized content that informs your audience and drives conversions through persuasive storytelling.",
     features: [
@@ -417,6 +422,7 @@ export const services = [
   },
   {
     title: "Digital Marketing",
+    image: "/services/digital marketing.webp",
     content: "Predictable Revenue Growth",
     longDescription: "Comprehensive digital marketing strategies that combine paid ads, SEO, and funnels to scale your business predictably.",
     features: [
@@ -456,7 +462,7 @@ export const services = [
       { step: "01", title: "Market Research", desc: "Analyze Competition", icon: "BarChart" },
       { step: "02", title: "Campaign Strategy", desc: "Define Ad Objectives", icon: "Compass" },
       { step: "03", title: "Audience Targeting", desc: "Segment Demographics", icon: "Users" },
-      { step: "04", title: "Ad Creation", desc: "Design Visuals & Copy", icon: "Sparkles" },
+      { step: "04", title: "Ad Creation", desc: "Design Visuals & Copy", icon: "Palette" },
       { step: "05", title: "Landing Page", desc: "Optimize for Conversions", icon: "MousePointer" },
       { step: "06", title: "Campaign Launch", desc: "Go Live on Ad Networks", icon: "Play" },
       { step: "07", title: "A/B Testing", desc: "Test Different Variations", icon: "FlaskConical" },
@@ -466,6 +472,7 @@ export const services = [
   },
   {
     title: "Android & iOS Development",
+    image: "/services/android.webp",
     content: "Native Mobile Experience",
     longDescription: "We build powerful, scalable, and user-friendly mobile applications for both Android and iOS that drive business value.",
     features: [
@@ -493,7 +500,7 @@ export const services = [
       after: {
         title: "Full App Suite",
         description: "Highly engaging and fast mobile applications.",
-        metrics: ["70% Higher Usage", "5-Star Rating", "Push Sales Growth"]
+        metrics: ["70% Higher Usage", "Top-Tier Rating", "Push Sales Growth"]
       }
     },
     caseStudy: {
@@ -515,6 +522,7 @@ export const services = [
   },
   {
     title: "Academic Projects",
+    image: "/services/academic project.webp",
     content: "Professional Project Support",
     longDescription: "Expert guidance and development support for academic projects, from requirement analysis to final documentation.",
     features: [
@@ -724,37 +732,37 @@ export const whyChooseUsDetailed = [
     icon: null, 
     title: "1+ Years Experience", 
     description: "Decade of proven expertise across multiple industries",
-    color: "from-emerald-500 to-teal-600" 
+    color: "from-slate-900 to-black" 
   },
   { 
     icon: null, 
     title: "10+ Successful Projects", 
     description: "Delivered excellence across diverse project types and scales",
-    color: "from-green-500 to-emerald-600" 
+    color: "from-slate-800 to-slate-900" 
   },
   { 
     icon: null, 
     title: "24/7 Support Available", 
     description: "Always here when you need us, round-the-clock assistance",
-    color: "from-teal-500 to-cyan-600" 
+    color: "from-slate-700 to-slate-800" 
   },
   { 
     icon: null, 
     title: "100% Satisfaction Guaranteed", 
     description: "Your success is our success - we deliver results or refund",
-    color: "from-lime-500 to-green-600" 
+    color: "from-slate-900 to-black" 
   },
   { 
     icon: null, 
     title: "Fast Turnaround Time", 
     description: "Efficient processes that don't compromise on quality",
-    color: "from-amber-500 to-orange-600" 
+    color: "from-slate-800 to-slate-900" 
   },
   { 
     icon: null, 
     title: "Data-Driven Approach", 
     description: "Every decision backed by analytics and market insights",
-    color: "from-rose-500 to-pink-600" 
+    color: "from-slate-700 to-slate-800" 
   }
 ];
 
@@ -767,10 +775,10 @@ export const features = [
 
 // Values
 export const values = [
-  { icon: null, title: "Excellence First", desc: "Every project is treated as our own. We maintain unwavering commitment to quality, attention to detail, and delivering results that exceed expectations. Your success metrics become our success metrics.", color: "from-emerald-500 to-teal-600" },
-  { icon: null, title: "Client Partnership", desc: "We don't just provide services—we become your strategic partner. We invest time understanding your business, challenges, and goals to deliver solutions that drive real business impact and long-term growth.", color: "from-green-500 to-emerald-600" },
-  { icon: null, title: "Cutting-Edge Innovation", desc: "We stay ahead of industry trends, continuously learning latest technologies and methodologies. From AI integration to modern frameworks, we bring the best tools and knowledge to solve your unique business challenges.", color: "from-teal-500 to-cyan-600" },
-  { icon: null, title: "Unwavering Trust", desc: "Consistency, transparency, and reliability form the foundation of our relationships. We deliver on commitments, communicate openly, and stand behind our work with a 100% satisfaction guarantee.", color: "from-lime-500 to-green-600" }
+  { icon: null, title: "Excellence First", desc: "Every project is treated as our own. We maintain unwavering commitment to quality, attention to detail, and delivering results that exceed expectations. Your success metrics become our success metrics.", color: "from-slate-900 to-black" },
+  { icon: null, title: "Client Partnership", desc: "We don't just provide services—we become your strategic partner. We invest time understanding your business, challenges, and goals to deliver solutions that drive real business impact and long-term growth.", color: "from-slate-800 to-slate-900" },
+  { icon: null, title: "Cutting-Edge Innovation", desc: "We stay ahead of industry trends, continuously learning latest technologies and methodologies. From AI integration to modern frameworks, we bring the best tools and knowledge to solve your unique business challenges.", color: "from-slate-700 to-slate-800" },
+  { icon: null, title: "Unwavering Trust", desc: "Consistency, transparency, and reliability form the foundation of our relationships. We deliver on commitments, communicate openly, and stand behind our work with a 100% satisfaction guarantee.", color: "from-slate-900 to-black" }
 ];
 
 // Team
@@ -799,9 +807,9 @@ export const menuItems = [
 
 // Social Links
 export const socialLinks = [
-  { Icon: null, link: 'https://www.facebook.com/quinova.official/', color: 'hover:bg-blue-600' },
-  { Icon: null, link: 'https://www.instagram.com/quinova.official/', color: 'hover:bg-pink-600' },
-  { Icon: null, link: 'https://www.linkedin.com/company/quinova/', color: 'hover:bg-blue-500' }
+  { Icon: null, link: 'https://www.facebook.com/quinova.official/', color: 'hover:bg-slate-900' },
+  { Icon: null, link: 'https://www.instagram.com/quinova.official/', color: 'hover:bg-slate-900' },
+  { Icon: null, link: 'https://www.linkedin.com/company/quinova/', color: 'hover:bg-slate-900' }
 ];
 
 // Testimonials for About Page
@@ -896,7 +904,7 @@ export const footerContactInfo = [
   {
     icon: "email",
     title: "Email Us",
-    value: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
+    value: ["quinovaitsolutions@gmail.com"],
     subtext: "Response within 24 hours"
   },
   {

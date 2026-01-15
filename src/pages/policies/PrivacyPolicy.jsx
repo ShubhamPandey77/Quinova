@@ -85,7 +85,7 @@ function PrivacyPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For privacy-related inquiries or to exercise your rights, contact us at:',
       contact: {
-        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
+        email: ['quinovaitsolutions@gmail.com'],
         phone: '+91 7991214170'
       }
     }
@@ -96,7 +96,7 @@ function PrivacyPolicy() {
       {/* Hero Section */}
       <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm font-semibold mb-6">
+          <div className="inline-block bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-sm font-semibold mb-6 border border-slate-200">
             Your Privacy Matters
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
@@ -132,7 +132,7 @@ function PrivacyPolicy() {
           {sections.map((section) => (
             <div key={section.id} id={section.id} className="scroll-mt-32">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0">
+                <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center text-white flex-shrink-0">
                   {section.icon}
                 </div>
                 <h2 className="text-3xl font-bold text-slate-900 pt-2">{section.title}</h2>
@@ -146,7 +146,7 @@ function PrivacyPolicy() {
                 <ul className="space-y-3 mb-6">
                   {section.list.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span className="text-slate-700">{item}</span>
                     </li>
                   ))}
@@ -156,7 +156,7 @@ function PrivacyPolicy() {
               {section.subsections && (
                 <div className="space-y-6 mb-6">
                   {section.subsections.map((subsection, index) => (
-                    <div key={index} className="pl-6 border-l-2 border-blue-200">
+                    <div key={index} className="pl-6 border-l-2 border-slate-200">
                       <h3 className="font-semibold text-slate-900 mb-2">{subsection.heading}</h3>
                       <p className="text-slate-700">{subsection.content}</p>
                     </div>
@@ -165,21 +165,21 @@ function PrivacyPolicy() {
               )}
 
               {section.contact && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
                   <p className="text-slate-800 font-semibold mb-3">
                     Email: {Array.isArray(section.contact.email) ? (
                       section.contact.email.map((email, idx) => (
                         <span key={idx}>
-                          <a href={`mailto:${email}`} className="text-blue-600 hover:text-blue-800 hover:underline">{email}</a>
+                          <a href={`mailto:${email}`} className="text-slate-900 hover:underline">{email}</a>
                           {idx < section.contact.email.length - 1 && " / "}
                         </span>
                       ))
                     ) : (
-                      <a href={`mailto:${section.contact.email}`} className="text-blue-600 hover:text-blue-800 hover:underline">{section.contact.email}</a>
+                      <a href={`mailto:${section.contact.email}`} className="text-slate-900 hover:underline">{section.contact.email}</a>
                     )}
                   </p>
                   <p className="text-slate-800 font-semibold">
-                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-blue-600 hover:text-blue-800 hover:underline">{section.contact.phone}</a>
+                    Phone: <a href={`tel:${section.contact.phone.replace(/\s/g, '')}`} className="text-slate-900 hover:underline">{section.contact.phone}</a>
                   </p>
                 </div>
               )}
@@ -187,7 +187,7 @@ function PrivacyPolicy() {
           ))}
 
           {/* Additional Info */}
-          <div className="bg-gradient-to-r from-slate-50 to-blue-50 border border-slate-200 rounded-xl p-8 mt-12">
+          <div className="bg-gradient-to-r from-slate-50 to-white border border-slate-200 rounded-xl p-8 mt-12">
             <h3 className="text-xl font-bold text-slate-900 mb-4">Policy Updates</h3>
             <p className="text-slate-700 mb-4">
               We reserve the right to update this Privacy Policy at any time. Changes will be effective immediately upon posting to the website. Your continued use of our services constitutes acceptance of the updated policy.

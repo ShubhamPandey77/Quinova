@@ -69,9 +69,6 @@ export function TestimonialCard({ name, company, text, rating, avatar, className
   return (
     <div className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all ${className}`}>
       <div className="flex gap-1 mb-4">
-        {[...Array(rating)].map((_, i) => (
-          <span key={i} className="text-black text-xl">★</span>
-        ))}
       </div>
       <p className="text-gray-700 mb-6 italic">"{text}"</p>
       <div className="flex items-center gap-4">

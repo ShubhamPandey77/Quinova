@@ -53,7 +53,7 @@ function CaseStudiesSection({ caseStudies }) {
   return (
     <section className="py-16 px-6 bg-white overflow-hidden relative">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-emerald-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-slate-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -95,15 +95,6 @@ function CaseStudiesSection({ caseStudies }) {
                   {/* Left Side: Content */}
                   <div className="md:w-[40%] p-8 md:p-8 flex flex-col justify-center bg-white mt-8 md:mt-0">
                     <div>
-                      {/* <div className="flex items-center gap-2.5 mt-2 mb-4">
-                        <div className="w-8 h-8 bg-emerald-50 rounded-lg flex items-center justify-center font-bold text-slate-900 text-sm">
-                          {caseStudies[currentIndex].client[0]}
-                        </div>
-                        <span className="text-slate-500 font-bold tracking-wider uppercase text-[10px]">
-                          {caseStudies[currentIndex].client}
-                        </span>
-                      </div> */}
-
                       <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-tight">
                         {caseStudies[currentIndex].title}
                       </h4>
@@ -115,7 +106,7 @@ function CaseStudiesSection({ caseStudies }) {
                       <div className="space-y-3 mb-8">
                         {caseStudies[currentIndex].metrics.map((metric, i) => (
                           <div key={i} className="flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
                             <span className="text-slate-700 font-medium text-sm">
                               {metric}
                             </span>
@@ -170,7 +161,7 @@ function CaseStudiesSection({ caseStudies }) {
           <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-6 z-20">
             <button
               onClick={prevSlide}
-              className="p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg transition-all active:scale-90"
+              className="p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-slate-900 hover:border-slate-300 hover:shadow-lg transition-all active:scale-90"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -179,7 +170,7 @@ function CaseStudiesSection({ caseStudies }) {
           <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-6 z-20">
             <button
               onClick={nextSlide}
-              className="p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:shadow-lg transition-all active:scale-90"
+              className="p-3.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-slate-900 hover:border-slate-300 hover:shadow-lg transition-all active:scale-90"
               aria-label="Next slide"
             >
               <ChevronRight className="w-5 h-5" />
@@ -203,7 +194,7 @@ function CaseStudiesSection({ caseStudies }) {
                 {index === currentIndex && (
                   <Motion.div
                     layoutId="active-pill"
-                    className="absolute inset-0 bg-emerald-500"
+                    className="absolute inset-0 bg-slate-900"
                   />
                 )}
               </button>
