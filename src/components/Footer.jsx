@@ -188,7 +188,7 @@ function Footer() {
           {/* Bottom Section - Copyright & Legal Links */}
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-slate-400 text-sm">
-              © 2024 {footerCompanyInfo.name}. All rights reserved. Built with excellence.
+              © {new Date().getFullYear()} {footerCompanyInfo.name}. All rights reserved. Built with excellence.
             </div>
             <div className="flex gap-6 text-sm flex-wrap justify-center">
               {footerLinks.legal.map((legal, index) => (
