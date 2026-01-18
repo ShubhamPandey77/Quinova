@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { Menu, X, Mail, ArrowRight, User, Phone, DollarSign, MessageSquare, Briefcase, ChevronDown, Check, Globe, Smartphone, Video, Palette, PenTool, BarChart, Loader2, GraduationCap, BookOpen } from "lucide-react";
 import { menuItems } from "../const";
 import toast, { Toaster } from 'react-hot-toast'; // Import toast
+import LogoIcon from "@/LogoIcon";
 
 // Custom Dropdown Component
 const ServiceDropdown = ({ value, onChange, label, required, options }) => {
@@ -272,14 +273,16 @@ function Navbar() {
           ? 'bg-white shadow-md border-b border-slate-200' 
           : 'bg-white border-b border-slate-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-7xl mx-auto px-0 py-4">
           <div className="flex items-center justify-between">
             <Link
               to="/"
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
               <div className="w-16 h-14 flex items-center justify-center">
-                <img src="Logo.png" alt="Logo" className="w-full h-full object-contain" />
+                {/* <img src="QuinovaIcon.svg" alt="Logo" className="w-full h-full object-contain" /> */}
+                <LogoIcon width={40} height={40} className="text-black" />
+
               </div>
               <div>
                 <div className="text-slate-900 text-xl font-bold tracking-tight">

@@ -39,7 +39,7 @@ function ServicesSection({ navigate }) {
           {servicesData.slice(0, 3).map((service, index) => (
             <Card 
               key={index} 
-              className="group border-slate-100 hover:border-slate-900 transition-all duration-300 shadow-sm hover:shadow-2xl flex flex-col h-full overflow-hidden bg-slate-50"
+              className="group border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-2xl flex flex-col h-full overflow-hidden bg-slate-50"
             >
               <CardHeader className="pb-4">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-slate-900 shadow-sm">

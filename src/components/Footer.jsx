@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Phone, MapPin, CheckCircle, MessageSquareDot, Send } from 'lucide-react';
 import { socialLinks, footerCompanyInfo, footerLinks, footerContactInfo } from '../const';
 import ContactForm from '../components/ContactForm';
+import LogoIcon from '@/LogoIcon';
 
 function Footer() {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -108,7 +109,9 @@ function Footer() {
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-9 bg-white rounded-lg flex items-center justify-center">
-                  <img src="Logo.png" alt="logo" className="w-full h-full object-contain p-1" />
+                  {/* <img src="Logo.png" alt="logo" className="w-full h-full object-contain p-1" /> */}
+                                  <LogoIcon width={30} height={30} className="text-black" />
+                  
                 </div>
                 <div>
                   <div className="text-lg font-bold text-white">{footerCompanyInfo.name}</div>
