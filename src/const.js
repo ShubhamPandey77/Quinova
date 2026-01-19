@@ -780,7 +780,8 @@ export const team = [
     role: "🌐 Web Development",
     image: "Ashish Quinova.jpg",
     expertise: ["React", "Node.js", "PostgreSQL"],
-    bio: "Focused on building scalable, high-performance web platforms"
+    bio: "Focused on building scalable, high-performance web platforms",
+    linkedin: "https://www.linkedin.com/in/ashish-dubey-77265222a/"
   },
   {
     name: "Shubham Pandey",
@@ -819,7 +820,8 @@ export const team = [
     role: "Content & Creative Production",
     image: "Priyanshu Quinova.jpeg",
     expertise: ["Content Writing", "Storytelling", "Creative Direction"],
-    bio: "Crafting compelling content that connects brands with audiences"
+    bio: "Crafting compelling content that connects brands with audiences",
+    linkedin: "https://www.linkedin.com/in/priyanshu-jaiswal-83764b227/"
   }
 ];
 

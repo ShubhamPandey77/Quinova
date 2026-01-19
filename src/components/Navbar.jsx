@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import emailjs from '@emailjs/browser';
 import { Menu, X, Mail, ArrowRight, User, Phone, DollarSign, MessageSquare, Briefcase, ChevronDown, Check, Globe, Smartphone, Video, Palette, PenTool, BarChart, Loader2, GraduationCap, BookOpen } from "lucide-react";
 import { menuItems } from "../const";
 import toast, { Toaster } from 'react-hot-toast'; // Import toast
@@ -114,15 +113,6 @@ function Navbar() {
     message: "",
   });
 
-  // EmailJS configuration
-  const SERVICE_ID = 'service_u3b22ps';
-  const TEMPLATE_ID = 'template_36xnu7f';
-  const PUBLIC_KEY = 'oQs_jZRCMrC3szklC';
-
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init(PUBLIC_KEY);
-  }, []);
 
   // Service options with icons and descriptions
   const serviceOptions = [
@@ -178,6 +168,17 @@ function Navbar() {
   ];
 
   useEffect(() => {
+    if (showContactForm || mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showContactForm, mobileMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -208,48 +209,45 @@ function Navbar() {
       const selectedService = serviceOptions.find(opt => opt.value === formData.service);
       const serviceLabel = selectedService ? selectedService.label : formData.service;
 
-      // Prepare email template parameters
-      const templateParams = {
-        to_email: "ashutoshsingh6307@gmail.com",
-        from_name: formData.name,
-        from_email: formData.email,
+      // Prepare data for PHP script
+      const postData = {
+        name: formData.name,
+        email: formData.email,
         phone: formData.phone || "Not provided",
         service: serviceLabel,
         budget: formData.budget || "Not specified",
         message: formData.message,
-        subject: `New Project Request from ${formData.name}`,
-        reply_to: formData.email,
-        date: new Date().toLocaleDateString('en-US', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
+        date: new Date().toLocaleString('en-US')
       };
 
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        templateParams
-      );
+      // Send email using PHP script
+      const response = await fetch('/send-mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
 
-      if (response.status === 200) {
-        toast.success("Thank you! We will contact you soon.");
-        
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          budget: "",
-          message: "",
-        });
-        
-        setShowContactForm(false);
+      if (response.ok) {
+        const result = await response.json();
+        if (result.status === 'success') {
+          toast.success("Thank you! We will contact you soon.");
+          
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            service: "",
+            budget: "",
+            message: "",
+          });
+          
+          setShowContactForm(false);
+        } else {
+          throw new Error(result.message || "Failed to send email");
+        }
       } else {
         throw new Error("Failed to send email");
       }
@@ -273,7 +271,7 @@ function Navbar() {
           ? 'bg-white shadow-md border-b border-slate-200' 
           : 'bg-white border-b border-slate-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-0 py-4">
+        <div className="max-w-7xl mx-auto px-2  md:px-0 py-4">
           <div className="flex items-center justify-between">
             <Link
               to="/"
@@ -319,9 +317,9 @@ function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-slate-900 hover:text-slate-600 transition-colors"
+              className="md:hidden text-slate-900 hover:text-slate-600 transition-colors pr-3"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
 
@@ -355,7 +353,7 @@ function Navbar() {
 
       {showContactForm && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-y-auto"
           onClick={handleCloseForm}
         >
           <div
@@ -363,7 +361,7 @@ function Navbar() {
           ></div>
 
           <div 
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-auto max-h-[85vh] relative transform transition-all duration-300 scale-100"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-auto relative transform transition-all duration-300 scale-100 my-auto"
             onClick={handleFormClick}
             ref={formRef}
           >

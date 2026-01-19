@@ -1,5 +1,4 @@
-import { useState, useRef, useEffect } from "react";
-import emailjs from '@emailjs/browser';
+import { useState, useRef } from "react";
 import { 
   Mail, ArrowRight, User, Phone, MessageSquare, 
   Briefcase, ChevronDown, Check, Globe, Smartphone, 
@@ -106,14 +105,6 @@ const ContactForm = ({
     message: "",
   });
 
-  // EmailJS configuration
-  const SERVICE_ID = 'service_u3b22ps';
-  const TEMPLATE_ID = 'template_36xnu7f';
-  const PUBLIC_KEY = 'oQs_jZRCMrC3szklC';
-
-  useEffect(() => {
-    emailjs.init(PUBLIC_KEY);
-  }, []);
 
   // Service options with icons and descriptions
   const serviceOptions = [
@@ -184,52 +175,53 @@ const ContactForm = ({
       const selectedService = serviceOptions.find(opt => opt.value === formData.service);
       const serviceLabel = selectedService ? selectedService.label : formData.service;
 
-      // Prepare email template parameters
-      const templateParams = {
-        to_email: "ashutoshsingh6307@gmail.com",
-        from_name: formData.name,
-        from_email: formData.email,
+      // Prepare data for PHP script
+      const postData = {
+        name: formData.name,
+        email: formData.email,
         phone: formData.phone || "Not provided",
         service: serviceLabel,
         budget: formData.budget || "Not specified",
         message: formData.message,
-        subject: `New Project Request from ${formData.name}`,
-        reply_to: formData.email,
-        date: new Date().toLocaleDateString('en-US', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
+        date: new Date().toLocaleString('en-US')
       };
 
-      // Send email using EmailJS
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        templateParams,
-        PUBLIC_KEY
-      );
-
-      toast.success("Thank you! We will contact you soon.");
-      
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: defaultService,
-        budget: "",
-        message: "",
+      // Send email using PHP script
+      const response = await fetch('/send-mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
       });
-      
-      // Close modal if onClose function is provided
-      if (onClose) {
-        setTimeout(() => {
-          onClose();
-        }, 1500);
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        toast.success("Thank you! We will contact you soon.");
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: defaultService,
+          budget: "",
+          message: "",
+        });
+        
+        // Close modal if onClose function is provided
+        if (onClose) {
+          setTimeout(() => {
+            onClose();
+          }, 1500);
+        }
+      } else {
+        throw new Error(result.message || 'Failed to send email');
       }
     } catch (error) {
       console.error("Email sending error:", error);
