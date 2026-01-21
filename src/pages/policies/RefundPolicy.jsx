@@ -46,7 +46,7 @@ function RefundPolicy() {
       subsections: [
         {
           heading: 'Step 1: Submit Request',
-          content: 'Contact us at quinovaitsolutions@gmail.com with your project details and reason for the refund request.'
+          content: 'Contact us at QuinovaITSolutions@gmail.com or solutions@quinova.tech with your project details and reason for the refund request.'
         },
         {
           heading: 'Step 2: Review',
@@ -153,7 +153,7 @@ function RefundPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'Have questions? Contact us:',
       contact: {
-        email: ['quinovaitsolutions@gmail.com'],
+        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }
@@ -167,7 +167,7 @@ function RefundPolicy() {
           <div className="inline-block bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-sm font-semibold mb-6 border border-slate-200">
             Transparent & Fair
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
             Refund Policy
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">

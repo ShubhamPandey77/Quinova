@@ -1,4 +1,4 @@
-import { Smartphone, Code, Zap } from 'lucide-react';
+import { Smartphone, Zap, Code } from 'lucide-react';
 import { services } from '../../const';
 import ServiceDetailLayout from '../../components/ServiceDetailLayout';
 
@@ -14,11 +14,11 @@ function AppDevelopment() {
             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-slate-900">Our Tech Stack</h2>
             <div className="w-20 h-1.5 bg-slate-900 mx-auto rounded-full"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 space-y-6">
-              <div className="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center">
-                <Code className="w-7 h-7 text-white" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+                <Smartphone className="w-7 h-7 text-slate-900" />
               </div>
               <h4 className="text-2xl font-black uppercase tracking-tighter">Mobile Frameworks</h4>
               <ul className="space-y-4">

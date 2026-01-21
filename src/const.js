@@ -4,8 +4,8 @@ export const contactInfo = [
   {
     icon: null, 
     title: "Email Us",
-    details: ["quinovaitsolutions@gmail.com"],
-    color: "from-slate-900 to-black"
+    details: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
+    color: "from-emerald-500 to-teal-600"
   },
   {
     icon: null, 
@@ -904,7 +904,7 @@ export const footerContactInfo = [
   {
     icon: "email",
     title: "Email Us",
-    value: ["quinovaitsolutions@gmail.com"],
+    value: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
     subtext: "Response within 24 hours"
   },
   {

@@ -272,14 +272,14 @@ function Navbar() {
           ? 'bg-[#F2F2F2]/70 backdrop-blur-md shadow-md border-b border-slate-200' 
           : 'bg-[#F2F2F2] border-b border-slate-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 py-2">
+        <div className="max-w-7xl mx-auto px-3 py-1">
           <div className="flex items-center justify-between">
             <Link
               to="/"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              className="flex items-center gap-0 hover:opacity-80 transition-opacity"
             >
-              <div className="w-24 h-18 flex items-center justify-center">
-                <img src="Logo.png" alt="Logo" className="w-full h-full object-contain" />
+              <div className="w-11 h-25 flex items-center justify-center">
+                <img src="RealLogo.png" alt="Logo" className="w-11 h-12 object-contain mr-7" />
               </div>
               <div>
                 <div className="text-slate-900 text-xl font-bold tracking-tight">

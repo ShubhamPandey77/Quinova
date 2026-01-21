@@ -17,16 +17,20 @@ function DigitalMarketing() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Search Engine Ads", desc: "Target customers at the moment they search for you.", icon: <Target className="w-8 h-8 text-slate-900" /> },
-              { title: "Performance Marketing", desc: "Data-driven campaigns focused on ROI and scale.", icon: <TrendingUp className="w-8 h-8 text-slate-900" /> },
-              { title: "Funnel Optimization", desc: "Converting traffic into loyal, paying customers.", icon: <BarChart className="w-8 h-8 text-slate-900" /> }
+              { title: "Search Engine Ads", desc: "Target customers at the moment they search for you.", icon: <Target className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> },
+              { title: "Performance Marketing", desc: "Data-driven campaigns focused on ROI and scale.", icon: <TrendingUp className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> },
+              { title: "Funnel Optimization", desc: "Converting traffic into loyal, paying customers.", icon: <BarChart className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> }
             ].map((type, i) => (
               <div key={i} className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 space-y-6 hover:bg-slate-900 transition-all duration-500 group">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-white/10 transition-colors">
                   {type.icon}
                 </div>
-                <h4 className="text-2xl font-black uppercase tracking-tighter group-hover:text-white transition-colors">{type.title}</h4>
-                <p className="text-slate-500 font-medium italic group-hover:text-white/60 transition-colors">{type.desc}</p>
+                <h3 className="text-2xl font-black uppercase tracking-tighter text-slate-900 group-hover:text-white transition-colors">
+                  {type.title}
+                </h3>
+                <p className="text-lg text-slate-600 font-medium italic group-hover:text-slate-400 transition-colors">
+                  {type.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -52,7 +56,7 @@ function DigitalMarketing() {
             ].map((channel, i) => (
               <div key={i} className="p-8 bg-white rounded-[2.5rem] border border-slate-100 hover:border-slate-900 transition-all group">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">{channel.icon}</div>
-                <h4 className="text-xl font-black uppercase tracking-tighter mb-2">{channel.title}</h4>
+                <h4 className="text-xl font-black uppercase tracking-tighter mb-2 text-slate-900">{channel.title}</h4>
                 <p className="text-slate-500 font-medium italic">{channel.desc}</p>
               </div>
             ))}

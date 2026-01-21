@@ -85,7 +85,7 @@ function PrivacyPolicy() {
       icon: <Mail className="w-6 h-6" />,
       content: 'For privacy-related inquiries or to exercise your rights, contact us at:',
       contact: {
-        email: ['quinovaitsolutions@gmail.com'],
+        email: ['QuinovaITSolutions@gmail.com', 'solutions@quinova.tech'],
         phone: '+91 7991214170'
       }
     }
@@ -99,7 +99,7 @@ function PrivacyPolicy() {
           <div className="inline-block bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-sm font-semibold mb-6 border border-slate-200">
             Your Privacy Matters
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
             Privacy Policy
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">

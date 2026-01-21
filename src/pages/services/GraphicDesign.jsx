@@ -25,8 +25,12 @@ function GraphicDesign() {
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-white/10 transition-colors">
                   {type.icon}
                 </div>
-                <h4 className="text-2xl font-black uppercase tracking-tighter group-hover:text-white transition-colors">{type.title}</h4>
-                <p className="text-slate-500 font-medium italic group-hover:text-white/60 transition-colors">{type.desc}</p>
+                <h3 className="text-2xl font-black uppercase tracking-tighter text-slate-900 group-hover:text-white transition-colors">
+                  {type.title}
+                </h3>
+                <p className="text-lg text-slate-600 font-medium italic group-hover:text-slate-400 transition-colors">
+                  {type.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -52,7 +56,7 @@ function GraphicDesign() {
             ].map((philosophy, i) => (
               <div key={i} className="p-8 bg-white rounded-[2.5rem] border border-slate-100 hover:border-slate-900 transition-all group">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">{philosophy.icon}</div>
-                <h4 className="text-xl font-black uppercase tracking-tighter mb-2">{philosophy.title}</h4>
+                <h4 className="text-xl font-black uppercase tracking-tighter mb-2 text-slate-900">{philosophy.title}</h4>
                 <p className="text-slate-500 font-medium italic">{philosophy.desc}</p>
               </div>
             ))}

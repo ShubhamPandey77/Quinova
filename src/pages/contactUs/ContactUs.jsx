@@ -105,7 +105,7 @@ function ContactUs() {
                 Get In Touch
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6 animate-fade-in-up">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6 animate-fade-in-up">
               <span className="block">Contact</span>
               <span className="block bg-gradient-to-r from-slate-900 via-slate-700 to-black bg-clip-text text-transparent animate-gradient-x">
                 Our Team
@@ -143,9 +143,9 @@ function ContactUs() {
 
                 <div className="space-y-6">
                   {[
-                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["quinovaitsolutions@gmail.com"], color: "from-slate-900 to-black", href: "mailto:quinovaitsolutions@gmail.com" },
-                    { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+91 7991214170", "Mon-Fri, 9AM - 9PM ISM"], color: "from-slate-800 to-slate-900", href: "tel:+917991214170" },
-                    { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["Quinova IT Solutions", "Lucknow, India"], color: "from-slate-700 to-slate-800", href: "https://maps.google.com/?q=Quinova+IT+Solutions+Lucknow" }
+                    { icon: <Mail className="w-6 h-6" />, title: "Email Us", details: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"], color: "from-emerald-500 to-teal-600", href: "mailto:QuinovaITSolutions@gmail.com?cc=solutions@quinova.tech" },
+                    { icon: <Phone className="w-6 h-6" />, title: "Call Us", details: ["+91 7991214170", "Mon-Fri, 9AM - 9PM ISM"], color: "from-green-500 to-emerald-600", href: "tel:+917991214170" },
+                    { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", details: ["Quinova IT Solutions", "Lucknow, India"], color: "from-teal-500 to-cyan-600", href: "https://maps.google.com/?q=Quinova+IT+Solutions+Lucknow" }
                   ].map((item, index) => (
                     <a
                       key={index}

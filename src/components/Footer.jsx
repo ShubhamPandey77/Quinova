@@ -107,8 +107,8 @@ function Footer() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-16 h-14 bg-[#F2F2F2] rounded-lg flex items-center justify-center">
-                  <img src="Logo.png" alt="logo" className="w-full h-full object-contain p-1" />
+                <div className="w-14 h-14 bg-[#F2F2F2] rounded-lg flex items-center justify-center">
+                  <img src="RealLogo.png" alt="logo" className="w-full h-full object-contain p-1" />
                 </div>
                 <div>
                   <div className="text-lg font-bold text-white">{footerCompanyInfo.name}</div>

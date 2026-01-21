@@ -17,16 +17,18 @@ function SocialMediaManagement() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: 'Instagram', icon: Instagram, color: 'text-slate-900', bg: 'bg-slate-100' },
-              { name: 'Facebook', icon: Facebook, color: 'text-slate-900', bg: 'bg-slate-100' },
-              { name: 'LinkedIn', icon: Linkedin, color: 'text-slate-900', bg: 'bg-slate-100' },
-              { name: 'Twitter', icon: Twitter, color: 'text-slate-900', bg: 'bg-slate-100' }
+              { name: 'Instagram', icon: Instagram },
+              { name: 'Facebook', icon: Facebook },
+              { name: 'LinkedIn', icon: Linkedin },
+              { name: 'Twitter', icon: Twitter }
             ].map((platform, i) => (
               <div key={i} className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 flex flex-col items-center gap-4 group hover:bg-slate-900 transition-all duration-500">
-                <div className={`w-16 h-16 ${platform.bg} rounded-2xl flex items-center justify-center group-hover:bg-white transition-colors`}>
-                  <platform.icon className={`w-8 h-8 ${platform.color}`} />
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center group-hover:bg-white transition-colors">
+                  <platform.icon className="w-8 h-8 text-slate-900" />
                 </div>
-                <span className="font-black uppercase tracking-tighter group-hover:text-white transition-colors">{platform.name}</span>
+                <h4 className="text-xl font-black uppercase tracking-tighter text-slate-900 group-hover:text-white transition-colors text-center">
+                  {platform.name}
+                </h4>
               </div>
             ))}
           </div>
@@ -52,7 +54,7 @@ function SocialMediaManagement() {
             ].map((type, i) => (
               <div key={i} className="p-8 bg-white rounded-[2.5rem] border border-slate-100 hover:border-slate-900 transition-all group">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">{type.icon}</div>
-                <h4 className="text-xl font-black uppercase tracking-tighter mb-2">{type.title}</h4>
+                <h4 className="text-xl font-black uppercase tracking-tighter mb-2 text-slate-900">{type.title}</h4>
                 <p className="text-slate-500 font-medium italic">{type.desc}</p>
               </div>
             ))}

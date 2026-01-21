@@ -1,4 +1,4 @@
-import { GraduationCap, Code, BookOpen, Rocket } from 'lucide-react';
+import { GraduationCap, Code, Rocket, BookOpen } from 'lucide-react';
 import { services } from '../../const';
 import ServiceDetailLayout from '../../components/ServiceDetailLayout';
 
@@ -17,16 +17,32 @@ function AcademicProjects() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Web Technologies", desc: "Full-stack applications using modern MERN/Next.js stacks.", icon: <Code className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> },
-              { title: "Machine Learning", desc: "Data analysis, prediction models, and AI integrations.", icon: <Rocket className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> },
-              { title: "Mobile Apps", desc: "Native and cross-platform mobile solutions for Android/iOS.", icon: <BookOpen className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> }
+              { 
+                title: "Web Technologies", 
+                desc: "Full-stack applications using modern MERN/Next.js stacks.", 
+                icon: <Code className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> 
+              },
+              { 
+                title: "Machine Learning", 
+                desc: "Data analysis, prediction models, and AI integrations.", 
+                icon: <Rocket className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> 
+              },
+              { 
+                title: "Mobile Apps", 
+                desc: "Native and cross-platform mobile solutions for Android/iOS.", 
+                icon: <BookOpen className="w-8 h-8 text-slate-900 group-hover:text-white transition-colors" /> 
+              }
             ].map((type, i) => (
               <div key={i} className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 space-y-6 hover:bg-slate-900 transition-all duration-500 group">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-white/10 transition-colors">
                   {type.icon}
                 </div>
-                <h4 className="text-2xl font-black uppercase tracking-tighter group-hover:text-white transition-colors">{type.title}</h4>
-                <p className="text-slate-500 font-medium italic group-hover:text-white/60 transition-colors">{type.desc}</p>
+                <h3 className="text-2xl font-black uppercase tracking-tighter text-slate-900 group-hover:text-white transition-colors">
+                  {type.title}
+                </h3>
+                <p className="text-lg text-slate-600 font-medium italic group-hover:text-slate-400 transition-colors">
+                  {type.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -52,7 +68,7 @@ function AcademicProjects() {
             ].map((support, i) => (
               <div key={i} className="p-8 bg-white rounded-[2.5rem] border border-slate-100 hover:border-slate-900 transition-all group">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500">{support.icon}</div>
-                <h4 className="text-xl font-black uppercase tracking-tighter mb-2">{support.title}</h4>
+                <h4 className="text-xl font-black uppercase tracking-tighter mb-2 text-slate-900">{support.title}</h4>
                 <p className="text-slate-500 font-medium italic">{support.desc}</p>
               </div>
             ))}
