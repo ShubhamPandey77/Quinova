@@ -69,6 +69,17 @@ function Services() {
   };
 
   useEffect(() => {
+    if (showContactForm) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showContactForm]);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -124,14 +135,14 @@ function Services() {
     <>
       <div className="pt-16 bg-white font-sans">
         {/* Hero Section */}
-        <section ref={containerRef} className="pt-8 pb-24 px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-sans">
+        <section ref={containerRef} className="pt-8 pb-16 sm:pb-16 px-4 sm:px-6 bg-slate-50 border-b border-slate-100 overflow-hidden relative font-inter">
           {/* Decorative Background Grid */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div className="text-left lg:pr-10">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-10 tracking-tighter uppercase relative inline-block">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-6 sm:mb-10 tracking-tight uppercase relative inline-block font-inter mt-10 sm:mt-0">
                   {words.map((word, i) => {
                     const start = i / words.length;
                     const end = start + (1 / words.length);
@@ -151,7 +162,7 @@ function Services() {
                 </p>
               </div>
 
-              <div className="relative h-[600px] w-full flex items-center justify-end pr-10">
+              <div className="relative h-[350px] sm:h-[450px] md:h-[600px] w-full flex items-center justify-center lg:justify-end md:pr-10 mt-2 lg:mt-0">
                 {/* Connection Lines (Map/Graph Style) */}
                 <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 500 600" preserveAspectRatio="none">
                   <Motion.path 
@@ -181,14 +192,14 @@ function Services() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.2 }}
-                        className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[idx]} bg-white p-6 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-72`}
+                        className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[idx]} bg-white p-4 md:p-5 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-3 md:gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-[240px] sm:w-64 md:w-72`}
                       >
                         <div className="w-14 h-14 bg-slate-900 text-white rounded-xl flex items-center justify-center group-hover:bg-slate-800 transition-colors shadow-lg">
                           <CheckCircle className="w-7 h-7" />
                         </div>
                         <div>
-                          <span className="font-black text-xl text-slate-900 uppercase tracking-tighter leading-none block mb-1">{feature.text}</span>
-                          <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Validated</span>
+                          <span className="font-black text-sm sm:text-base md:text-xl text-slate-900 uppercase tracking-tight leading-none block mb-1">{feature.text}</span>
+                          <span className="text-[9px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Validated</span>
                         </div>
                         <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-900 rounded-full scale-0 group-hover:scale-100 transition-transform"></div>
                       </Motion.div>
@@ -233,8 +244,8 @@ function Services() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-                  Our <span className="text-slate-300">Services</span>
+                <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-slate-900 tracking-normal uppercase leading-none">
+                  Our <span className="text-slate-300"> Services</span>
                 </h2>
                 <Motion.div 
                   initial={{ width: 0 }}
@@ -275,7 +286,7 @@ function Services() {
                           ? 'text-white' 
                           : 'bg-white/50 hover:bg-white text-slate-900 border border-transparent hover:border-slate-100 hover:shadow-lg'
                       }`}>
-                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ${
+                        <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center shrink-0 transition-all duration-400 ${
                           isSelected ? 'bg-white/10' : 'bg-slate-100'
                         } ${!isSelected && 'group-hover:scale-110 shadow-sm'}`}>
                           <div className={isSelected ? 'text-white' : 'text-slate-600'}>
@@ -283,7 +294,7 @@ function Services() {
                           </div>
                         </div>
                         <div className="flex-grow">
-                          <h3 className="font-black uppercase tracking-tight text-lg leading-tight mb-1">
+                          <h3 className="font-black uppercase tracking-normal text-xs sm:text-sm md:text-lg leading-tight mb-0.5 sm:mb-1">
                             {service.title}
                           </h3>
                         </div>
@@ -311,49 +322,104 @@ function Services() {
                     transition={{ duration: 0.4 }}
                     className="relative z-10 flex flex-col h-full"
                   >
-                    <div className="flex items-center gap-6 mb-10">
-                      <div className="w-20 h-20 bg-slate-900 text-white rounded-3xl flex items-center justify-center shadow-xl">
-                        {getIcon(selectedServiceForDetail.title).icon}
-                      </div>
-                      <div>
-                        <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-slate-900 leading-none mb-2 italic">
-                          {selectedServiceForDetail.title}
-                        </h3>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-slate-900 rounded-full animate-pulse"></div>
-                          <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Specialized Solution</span>
-                        </div>
-                      </div>
-                    </div>
+                    {(() => {
+                      const colors = getIcon(selectedServiceForDetail.title);
+                      return (
+                        <>
+                          <div className="flex flex-col gap-6 sm:gap-8 mb-10 sm:mb-14">
+                            <div className="space-y-4 sm:space-y-6">
+                              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                                <Motion.div 
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.2 }}
+                                  className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 ${colors.bg} rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-widest ${colors.text || 'text-slate-900'}`}
+                                >
+                                  <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                                  Industry Standard
+                                </Motion.div>
 
-                    <p className="text-xl text-slate-600 font-medium mb-12 leading-relaxed max-w-2xl italic">
-                      "{selectedServiceForDetail.longDescription}"
-                    </p>
+                                <Motion.button 
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.25 }}
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  onClick={() => setSelectedService(selectedServiceForDetail)}
+                                  className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-900 text-white rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-widest cursor-pointer shadow-lg hover:bg-slate-800 transition-colors`}
+                                >
+                                  <Clock className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                                  View Strategy
+                                </Motion.button>
+                              </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 mb-12">
-                      <div className="space-y-6">
-                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 border-b border-slate-200 pb-2">Core Features</h4>
-                        <div className="space-y-3">
-                          {selectedServiceForDetail.features.slice(0, 4).map((feature, i) => (
-                            <div key={i} className="flex items-center gap-3 group/item">
-                              <div className="w-1.5 h-1.5 bg-slate-900 rounded-full group-hover/item:scale-150 transition-transform"></div>
-                              <span className="text-sm font-bold uppercase tracking-tight text-slate-600">{feature}</span>
+                              <Motion.h2 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase tracking-tight leading-[0.9] pr-0 sm:pr-10"
+                              >
+                                {selectedServiceForDetail?.title}
+                              </Motion.h2>
                             </div>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="space-y-6">
-                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 border-b border-slate-200 pb-2">Business ROI</h4>
-                        <div className="space-y-3">
-                          {selectedServiceForDetail.benefits.slice(0, 4).map((benefit, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                              <CheckCircle className="w-4 h-4 text-slate-900" />
-                              <span className="text-sm font-bold uppercase tracking-tight text-slate-600">{benefit}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-14">
+                            <Motion.div 
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.5 }}
+                              className="space-y-6 sm:space-y-8"
+                            >
+                              <h4 className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
+                                <div className={`w-2 h-2 rounded-full bg-slate-900`}></div>
+                                Core Capabilities
+                              </h4>
+                              <ul className="space-y-4 sm:space-y-5">
+                                {selectedServiceForDetail?.features?.slice(0, 5).map((feature, i) => (
+                                  <Motion.li 
+                                    key={i}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.6 + (i * 0.1) }}
+                                    className="flex items-start gap-3 sm:gap-4 text-slate-700 font-semibold group/item"
+                                  >
+                                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/item:bg-slate-900 transition-colors shrink-0"></div>
+                                    <span className="text-base sm:text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{feature}</span>
+                                  </Motion.li>
+                                ))}
+                              </ul>
+                            </Motion.div>
+
+                            <Motion.div 
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.5 }}
+                              className="space-y-6 sm:space-y-8"
+                            >
+                              <h4 className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-3">
+                                <div className={`w-2 h-2 rounded-full bg-slate-300`}></div>
+                                Business Impact
+                              </h4>
+                              <ul className="space-y-4 sm:space-y-5">
+                                {selectedServiceForDetail?.benefits?.slice(0, 5).map((benefit, i) => (
+                                  <Motion.li 
+                                    key={i} 
+                                    initial={{ opacity: 0, x: 10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.6 + (i * 0.1) }}
+                                    className="flex items-start gap-3 sm:gap-4 text-slate-600 font-medium group/item"
+                                  >
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 text-slate-300 group-hover/item:text-slate-900 transition-colors shrink-0" />
+                                    <span className="text-base sm:text-lg leading-tight group-hover/item:text-slate-900 transition-colors">{benefit}</span>
+                                  </Motion.li>
+                                ))}
+                              </ul>
+                            </Motion.div>
+                          </div>
+                        </>
+                      );
+                    })()}
 
                     <div className="mt-auto flex flex-wrap gap-4">
                       <button 
@@ -384,12 +450,17 @@ function Services() {
           </div>
         </section>
 
-        {/* Process Roadmap */}
-        <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col items-center text-center mb-20">
-              <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none mb-6 italic">
-                Our <span className="text-slate-300">Execution</span>
+        {/* Process Section */}
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50 border-y border-slate-100">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16 sm:mb-20">
+               <div className="inline-flex items-center gap-3 mb-4">
+                                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                                <span className="text-[12px] sm:text-sm font-bold tracking-[0.2em] text-slate-400 uppercase">OUR APPROACH</span>
+                                <div className="w-12 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                            </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Our Process
               </h2>
               <p className="text-xl text-slate-500 font-medium max-w-2xl italic">
                 A streamlined, data-driven methodology that ensures project success from conception to deployment.

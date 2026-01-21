@@ -19,6 +19,17 @@ function Home({ navigate = () => {} }) {
   const observerRefs = useRef([]);
 
   useEffect(() => {
+    if (showContactForm) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showContactForm]);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -83,12 +94,12 @@ function Home({ navigate = () => {} }) {
       </div>
 
       {showContactForm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-y-auto">
           <div 
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={handleCloseForm}
           ></div>
-          <div className="relative z-50">
+          <div className="relative z-50 my-auto">
             <ContactForm 
               onClose={handleCloseForm}
               defaultService=""

@@ -8,7 +8,7 @@ import {
 import ContactForm from './ContactForm';
 import BeforeAfterComparison from './BeforeAfterComparison';
 
-const ServiceDetailLayout = ({ service, icon:  extraSections }) => {
+const ServiceDetailLayout = ({ service, icon: Icon, extraSections }) => {
   const navigate = useNavigate();
   const [showContactForm, setShowContactForm] = useState(false);
   const [activeStep, setActiveStep] = useState(0);

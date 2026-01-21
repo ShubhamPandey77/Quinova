@@ -1,11 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight, X, Phone, MapPin, CheckCircle, MessageSquareDot, Send } from 'lucide-react';
 import { socialLinks, footerCompanyInfo, footerLinks, footerContactInfo } from '../const';
 import ContactForm from '../components/ContactForm';
 
+
 function Footer() {
   const [showContactForm, setShowContactForm] = useState(false);
+  const [isContactOptionsOpen, setIsContactOptionsOpen] = useState(false);
+
+  useEffect(() => {
+    if (showContactForm) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showContactForm]);
   // const [newsletterEmail, setNewsletterEmail] = useState('');
   // const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
   // const [formData, setFormData] = useState({
@@ -106,9 +119,9 @@ function Footer() {
           <div className="grid md:grid-cols-5 gap-8 mb-12">
             {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-14 h-14 bg-[#F2F2F2] rounded-lg flex items-center justify-center">
-                  <img src="RealLogo.png" alt="logo" className="w-full h-full object-contain p-1" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-9 bg-white rounded-lg flex items-center justify-center">
+                  <img src="Logo.png" alt="logo" className="w-full h-full object-contain p-1" />
                 </div>
                 <div>
                   <div className="text-lg font-bold text-white">{footerCompanyInfo.name}</div>
@@ -185,7 +198,7 @@ function Footer() {
           {/* Bottom Section - Copyright & Legal Links */}
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-slate-400 text-sm">
-              © 2024 {footerCompanyInfo.name}. All rights reserved. Built with excellence.
+              © {new Date().getFullYear()} {footerCompanyInfo.name}. All rights reserved. Built with excellence.
             </div>
             <div className="flex gap-6 text-sm flex-wrap justify-center">
               {footerLinks.legal.map((legal, index) => (
@@ -202,20 +215,18 @@ function Footer() {
         </div>
 
         {/* Floating Contact Button */}
-       <div className="fixed bottom-6 right-6 z-50 group">
+       <div className="fixed bottom-6 right-6 z-50">
 
   {/* Expanded Options */}
-  <div className="absolute bottom-16 right-0 flex flex-col gap-3 
-                  opacity-0 scale-95 
-                  group-hover:opacity-100 group-hover:scale-100
-                  transition-all duration-300 pointer-events-none">
+  <div className={`absolute bottom-16 right-1 flex flex-col gap-3 transition-all duration-300 
+                  ${isContactOptionsOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
 
     {/* WhatsApp */}
     <a
       href="https://wa.me/917991214170"
       target="_blank"
       rel="noopener noreferrer"
-      className="pointer-events-auto w-12 h-12 rounded-full bg-slate-900 border border-slate-700
+      className="pointer-events-auto w-12 h-12 rounded-full bg-green-500 
                  flex items-center justify-center shadow-lg 
                  hover:scale-110 transition"
       title="WhatsApp"
@@ -239,12 +250,13 @@ function Footer() {
 
   {/* Main Floating Button */}
   <button
+    onClick={() => setIsContactOptionsOpen(!isContactOptionsOpen)}
     className="w-14 h-14 rounded-full bg-white text-slate-900 
                flex items-center justify-center shadow-xl 
                hover:scale-110 transition border-2 border-gray-700"
     title="Contact Us"
   >
-    <MessageSquareDot className="w-6 h-6 " />
+    {isContactOptionsOpen ? <X className="w-6 h-6" /> : <MessageSquareDot className="w-6 h-6" />}
   </button>
 
 </div>
@@ -255,15 +267,17 @@ function Footer() {
                       {/* Contact Form Modal */}
                       {showContactForm && (
                           <div 
-                              className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+                              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-y-auto"
                               onClick={handleCloseForm}
                           >
                               <div className="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity duration-300"></div>
-                              <ContactForm 
-                                  onClose={handleCloseForm}
-                                  // You can optionally pre-select a service if needed:
-                                  // defaultService="website"
-                              />
+                              <div className="relative z-[10000] w-full max-w-4xl my-auto">
+                                  <ContactForm 
+                                      onClose={handleCloseForm}
+                                      // You can optionally pre-select a service if needed:
+                                      // defaultService="website"
+                                  />
+                              </div>
                           </div>
                       )}
     </>

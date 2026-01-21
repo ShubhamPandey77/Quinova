@@ -783,11 +783,54 @@ export const values = [
 
 // Team
 export const team = [
-  { name: "Ashish Dubey", role: "Full Stack Developer", image: "Ashish Quinova.jpg", expertise: ["React", "Node.js", "PostgreSQL"], bio: "1+ years building scalable web applications" },
-  { name: "Shubham Pandey", role: "Full Stack Developer", image: "Shubham Quinova.jpg", expertise: ["MongoDb", "React.Js", "Gentic Ai"], bio: "Expert in delivering enterprise solutions", linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/" },
-  { name: "Priyesh Singh", role: "Python Developer & Marketing Expert", image: "Priyesh Quinova.jpg", expertise: ["Python", "SEO", "Data Analytics"], bio: "Expert in development and digital strategy", linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/" },
-  { name: "Vinayak Singh", role: "Social Media Manager & Content Writer", image: "Vinayak Quinova.jpg", expertise: ["Cyber Security", "AWS", "Block Chain"], bio: "Expert in creating Blockchain-based solutions", linkedin: "https://www.linkedin.com/in/vinayak-singh-a9aa5b26" },
-  { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh Quinova.jpg", expertise: ["JavaScript", "Mobile Apps", "UI/UX"], bio: "1+ years crafting user-centric digital experiences", linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/" }
+  {
+    name: "Ashish Dubey",
+    role: "🌐 Web Development",
+    image: "Ashish Quinova.jpg",
+    expertise: ["React", "Node.js", "PostgreSQL"],
+    bio: "Focused on building scalable, high-performance web platforms",
+    linkedin: "https://www.linkedin.com/in/ashish-dubey-77265222a/"
+  },
+  {
+    name: "Shubham Pandey",
+    role: "Mobile App Development",
+    image: "shubham1.png",
+    expertise: ["MongoDB", "React.js", "Generative AI"],
+    bio: "Specialist in crafting robust and intelligent mobile solutions",
+    linkedin: "https://www.linkedin.com/in/shubham-pandey-b17ab3262/"
+  },
+  {
+    name: "Priyesh Singh",
+    role: "Digital Marketing",
+    image: "Priyesh Quinova.jpg",
+    expertise: ["Python", "SEO", "Data Analytics"],
+    bio: "Driving growth through data-backed digital strategies",
+    linkedin: "https://www.linkedin.com/in/priyesh-singh-13356624b/"
+  },
+  {
+    name: "Vinayak Singh",
+    role: "Social Media Management",
+    image: "Vinayak Quinova.jpeg",
+    expertise: ["Content Strategy", "Brand Communication", "Platform Growth"],
+    bio: "Managing brand presence with consistency, clarity, and impact",
+    linkedin: "https://www.linkedin.com/in/vinayak-singh-a9aa5b26"
+  },
+  {
+    name: "Ashutosh Singh",
+    role: "Branding & Graphic Design",
+    image: "Ashutosh Quinova.jpg",
+    expertise: ["UI/UX", "Visual Design", "Creative Systems"],
+    bio: "Designing user-centric visuals with a premium brand aesthetic",
+    linkedin: "https://www.linkedin.com/in/ashutosh-singh-355059293/"
+  },
+  {
+    name: "Priyanshu Jaiswal",
+    role: "Content & Creative Production",
+    image: "Priyanshu Quinova.jpeg",
+    expertise: ["Content Writing", "Storytelling", "Creative Direction"],
+    bio: "Crafting compelling content that connects brands with audiences",
+    linkedin: "https://www.linkedin.com/in/priyanshu-jaiswal-83764b227/"
+  }
 ];
 
 // Process Steps
@@ -851,7 +894,7 @@ export const trustTestimonials = [
 // Footer Data
 export const footerCompanyInfo = {
   name: "Quinova",
-  tagline: "Digital Excellence",
+  tagline: "IT Solutions",
   description: "Transforming businesses through exceptional digital solutions. We combine cutting-edge technology with strategic thinking to deliver results that exceed expectations.",
   taglineDetail: "Your trusted partner for digital transformation"
 };
@@ -904,7 +947,7 @@ export const footerContactInfo = [
   {
     icon: "email",
     title: "Email Us",
-    value: ["QuinovaITSolutions@gmail.com", "solutions@quinova.tech"],
+    value: ["quinovaitsolutions@gmail.com"],
     subtext: "Response within 24 hours"
   },
   {

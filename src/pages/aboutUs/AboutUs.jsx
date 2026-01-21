@@ -34,6 +34,17 @@ function AboutUs({ navigate = () => {} }) {
     const words = title.split(" ");
 
     useEffect(() => {
+        if (showContactForm) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [showContactForm]);
+
+    useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -140,13 +151,13 @@ function AboutUs({ navigate = () => {} }) {
                 {/* Contact Form Modal */}
                 {showContactForm && (
                     <div 
-                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-y-auto"
                     >
                         <div 
                             className="absolute inset-0 bg-black/50 backdrop-blur-md transition-opacity duration-300"
                             onClick={handleCloseForm}
                         ></div>
-                        <div className="relative z-[10000] w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                        <div className="relative z-[10000] w-full max-w-2xl my-auto">
                             <ContactForm 
                                 onClose={handleCloseForm}
                                 showCloseButton={true}

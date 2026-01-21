@@ -46,7 +46,7 @@ function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
       <div className="max-w-7xl relative z-10 mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl font-black leading-none mb-8 tracking-tighter uppercase relative inline-block font-inter">
+            <h1 className="text-4xl md:text-7xl font-black leading-none mb-8 tracking-tighter uppercase relative inline-block font-inter">
               {words.map((word, i) => {
                 const start = i / words.length;
                 const end = start + (1 / words.length);
@@ -92,7 +92,7 @@ function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
             </div>
           </div>
 
-          <div className="relative h-[400px] md:h-[650px] w-full flex items-start justify-end mt-12 md:-mt-20">
+          <div className="relative h-[400px] md:h-[550px] w-full flex items-start justify-end mt-2 md:-mt-48">
             {/* Connection Lines (Map/Graph Style) */}
             <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 500 600" preserveAspectRatio="none">
               <Motion.path 
@@ -130,13 +130,13 @@ function HeroSection({ navigate, handleGetStartedClick, statsWithIcons }) {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.2 }}
                     onClick={() => item.navigateTo && navigate(item.navigateTo)}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[index]} bg-white p-4 md:p-6 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-3 md:gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-64 md:w-72 cursor-pointer`}
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 ${positions[index]} bg-white p-4 md:p-5 rounded-2xl border border-slate-200 shadow-2xl transition-all duration-500 flex items-center gap-3 md:gap-4 group hover:scale-105 hover:z-20 hover:border-slate-900 w-64 md:w-72 cursor-pointer`}
                   >
                     <div className="w-10 h-10 md:w-14 md:h-14 bg-slate-900 text-white rounded-xl flex items-center justify-center group-hover:bg-slate-800 transition-colors shadow-lg shrink-0">
                       {item.icon}
                     </div>
                     <div>
-                      <span className="font-black text-base md:text-xl text-slate-900 uppercase tracking-tighter leading-none block mb-1">{item.title}</span>
+                      <span className="font-black text-base md:text-xl text-slate-900 uppercase tracking-normal leading-none block mb-1">{item.title}</span>
                       <span className="text-[9px] md:text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Validated</span>
                     </div>
                     <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-900 rounded-full scale-0 group-hover:scale-100 transition-transform"></div>
