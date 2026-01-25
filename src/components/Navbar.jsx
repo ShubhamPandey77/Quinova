@@ -31,7 +31,7 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
     <div className="group font-sans">
       <label className="block text-sm font-semibold text-slate-900 mb-2 tracking-wide uppercase">
         {label}
-        {required && <span className="text-slate-400 ml-1">*</span>}
+        {required && <span className="text-slate-100 ml-1">*</span>}
       </label>
       <div className="relative" ref={dropdownRef}>
         {/* Custom Dropdown Trigger */}
@@ -45,7 +45,7 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
             }`}
         >
           <div className="flex items-center gap-3">
-            <div className="text-slate-400">
+            <div className="text-slate-100">
               <Briefcase className="w-4 h-4" />
             </div>
             <span className={`${value ? 'text-slate-900' : 'text-slate-400'} font-medium`}>

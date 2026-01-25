@@ -502,30 +502,7 @@ function Services() {
         {/* FAQs */}
         <FAQSection faqs={faqs} />
 
-        {/* CTA */}
-        <section className="py-32 px-6 bg-slate-900 text-white text-center overflow-hidden relative">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white rounded-full blur-[120px]"></div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto relative z-10 space-y-12">
-            <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none italic">
-              Ready to <br /> <span className="text-white/20">Dominate?</span>
-            </h2>
-            <p className="text-2xl text-white/60 font-medium italic">
-              Experience the Quinova edge. Let's build something extraordinary together.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <button 
-                onClick={handleGetStartedClick}
-                className="bg-white text-slate-900 px-12 py-6 rounded-[2.5rem] font-black uppercase tracking-widest text-lg hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl flex items-center gap-4 group"
-              >
-                Get Started
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-              </button>
-            </div>
-          </div>
-        </section>
+      
 
         {/* Contact Form Modal */}
         <AnimatePresence>
