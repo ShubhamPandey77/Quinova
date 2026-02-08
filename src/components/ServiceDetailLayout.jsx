@@ -119,6 +119,7 @@ const ServiceDetailLayout = ({ service, icon: Icon, extraSections }) => {
         </section>
 
         {/* Stats Section */}
+        {service.beforeAfter && (
         <section className="py-12 px-6 border-y border-slate-100 bg-slate-50/50">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -137,6 +138,7 @@ const ServiceDetailLayout = ({ service, icon: Icon, extraSections }) => {
             </div>
           </div>
         </section>
+        )}
 
         {/* Before/After Section */}
         {service.beforeAfter && (
@@ -200,61 +202,87 @@ const ServiceDetailLayout = ({ service, icon: Icon, extraSections }) => {
         </section>
 
         {/* Process Section */}
-        {service.process && (
-          <section className="py-24 px-6 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div className="space-y-4">
-                  <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
-                    Simple <br /> <span className="text-slate-200">Execution.</span>
-                  </h2>
-                  <p className="text-slate-500 font-medium max-w-sm italic">Our proven method for taking projects from concept to reality.</p>
-                </div>
-                <div className="flex gap-2">
-                  {service.process.map((_, i) => (
-                    <button 
-                      key={i}
-                      onClick={() => setActiveStep(i)}
-                      className={`h-2 transition-all rounded-full ${activeStep === i ? 'w-12 bg-slate-900' : 'w-4 bg-slate-200'}`}
-                    />
-                  ))}
-                </div>
-              </div>
+{service.process && (
+  <section className="py-28 px-6 bg-white">
+    <div className="max-w-7xl mx-auto">
 
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="relative aspect-square md:aspect-video bg-slate-900 rounded-[3rem] p-12 overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900"></div>
-                  <div className="relative h-full flex flex-col justify-between z-10">
-                    <span className="text-8xl font-black text-white/5 italic">{service.process[activeStep].step}</span>
-                    <div>
-                      <h4 className="text-4xl font-black text-white uppercase tracking-tighter mb-4">{service.process[activeStep].title}</h4>
-                      <p className="text-xl text-slate-400 font-medium italic">{service.process[activeStep].desc}</p>
-                    </div>
-                  </div>
-                  {/* Decorative animate-pulse circles */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
-                </div>
+      {/* Header */}
+      <div className="mb-20 max-w-2xl">
+        <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight leading-none mb-6">
+          Simple <br />
+          <span className="text-slate-300">Execution.</span>
+        </h2>
+        <p className="text-slate-500 text-lg font-medium italic">
+          Our proven method for taking projects from concept to reality.
+        </p>
+      </div>
+      
+      {/* Progress Bar */}
+<div className="mb-8">
+  <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+    <div
+      className="h-full bg-slate-900 rounded-full transition-all duration-500 ease-out"
+      style={{
+        width: `${(activeStep / (service.process.length - 1)) * 100}%`
+      }}
+    />
+  </div>
+</div>
 
-                <div className="grid grid-cols-1 gap-4">
-                  {service.process.map((step, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveStep(i)}
-                      className={`flex items-center gap-6 p-6 rounded-3xl border transition-all text-left ${
-                        activeStep === i 
-                        ? 'bg-slate-50 border-slate-200 shadow-inner translate-x-4' 
-                        : 'bg-white border-transparent hover:border-slate-100 hover:bg-slate-50/50'
-                      }`}
-                    >
-                      <span className={`text-xl font-black italic ${activeStep === i ? 'text-slate-900' : 'text-slate-200'}`}>{step.step}</span>
-                      <span className={`text-lg font-bold uppercase tracking-tight ${activeStep === i ? 'text-slate-900' : 'text-slate-400'}`}>{step.title}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+
+      <div className="grid lg:grid-cols-2 gap-20 items-start">
+
+        {/* Active Step Card */}
+        <div className="border border-slate-200 rounded-3xl p-12 bg-slate-50 min-h-[380px]">
+          <span className="text-7xl font-black italic text-slate-200 block mb-10">
+            {service.process[activeStep].step}
+          </span>
+
+          <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-6 text-slate-900">
+            {service.process[activeStep].title}
+          </h4>
+
+          <p className="text-lg text-slate-500 font-medium italic leading-relaxed">
+            {service.process[activeStep].desc}
+          </p>
+        </div>
+
+        {/* Compact Step Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {service.process.map((step, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveStep(i)}
+              className={`p-5 rounded-2xl border text-left transition-all ${
+                activeStep === i
+                  ? "border-slate-500 bg-white shadow-sm"
+                  : "border-slate-200 hover:border-slate-400 bg-white"
+              }`}
+            >
+              <span
+                className={`block text-sm font-black italic mb-2 ${
+                  activeStep === i ? "text-slate-900" : "text-slate-300"
+                }`}
+              >
+                {step.step}
+              </span>
+
+              <span
+                className={`text-sm font-bold uppercase tracking-tight ${
+                  activeStep === i ? "text-slate-900" : "text-slate-500"
+                }`}
+              >
+                {step.title}
+              </span>
+            </button>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+)}
+
 
         {/* Extra Sections (e.g., Tech Stack) */}
         {extraSections && extraSections}

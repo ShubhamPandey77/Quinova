@@ -429,18 +429,18 @@ function Services() {
                         Explore Service
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                       </button>
-                      <button 
+                      {/* <button 
                         onClick={() => setSelectedService(selectedServiceForDetail)}
                         className="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-slate-50 transition-all shadow-lg flex items-center gap-2"
                       >
                         <Zap className="w-4 h-4" />
                         View Roadmap
-                      </button>
+                      </button> */}
                       <button 
                         onClick={handleGetStartedClick}
                         className="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-slate-50 transition-all shadow-lg"
                       >
-                        Quick Quote
+                        Let's Connect
                       </button>
                     </div>
                   </Motion.div>

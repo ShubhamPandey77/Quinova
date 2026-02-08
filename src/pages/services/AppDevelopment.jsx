@@ -1,4 +1,5 @@
 import { Smartphone, Zap, Code } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { services } from '../../const';
 import ServiceDetailLayout from '../../components/ServiceDetailLayout';
 

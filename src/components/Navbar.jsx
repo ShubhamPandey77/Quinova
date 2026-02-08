@@ -57,7 +57,7 @@ const ServiceDropdown = ({ value, onChange, label, required, options }) => {
 
         {/* Custom Dropdown Menu */}
         {isOpen && (
-          <div className="absolute z-50 w-full mt-1 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+          <div className="absolute z-50 w-full mt-1 bg-white rounded-xl shadow-xl max-h-[200px] border border-slate-200 overflow-auto">
             <div className="grid grid-cols-1 py-1">
               {options.map((option) => {
                 const IconComponent = option.icon;

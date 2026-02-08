@@ -541,18 +541,6 @@ export const services = [
       "Expert Mentoring",
       "Complete Solution"
     ],
-    beforeAfter: {
-      before: {
-        title: "Stuck Project",
-        description: "Incomplete code and poor documentation facing rejection.",
-        metrics: ["Errors in Code", "No Diagrams", "Submission Risk"]
-      },
-      after: {
-        title: "Premium Project",
-        description: "A+ grade project with complete professional documentation.",
-        metrics: ["Bug-free Code", "Full UML Suite", "98% Score Record"]
-      }
-    },
     caseStudy: {
       client: "Student Success",
       results: "A+ Grade",

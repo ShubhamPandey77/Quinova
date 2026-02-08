@@ -51,7 +51,7 @@ function BeforeAfterComparison({ beforeData, afterData }) {
           className="space-y-16"
         >
           {/* Before Section */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <motion.div variants={itemVariants} className="text-center md:text-left">
               <div className="inline-block bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-slate-200">
                 ❌ Without Solution
@@ -69,10 +69,10 @@ function BeforeAfterComparison({ beforeData, afterData }) {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Arrow Transition */}
-          <motion.div
+          {/* <motion.div
             variants={itemVariants}
             className="flex justify-center items-center"
           >
@@ -86,10 +86,10 @@ function BeforeAfterComparison({ beforeData, afterData }) {
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-900 font-bold" />
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* After Section */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <motion.div variants={itemVariants} className="text-center md:text-left">
               <div className="inline-block bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 ✅ With Our Solution
@@ -107,7 +107,7 @@ function BeforeAfterComparison({ beforeData, afterData }) {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Impact Summary */}
           <motion.div
