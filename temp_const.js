@@ -133,7 +133,7 @@ export const team = [
   { name: "Ashish Dubey", role: "Full Stack Developer", image: "Quinova-main/public/Ashish Quinova.jpg" },
   { name: "Shubham Pandey", role: "Full Stack Developer", image: "shubham1.png" },
   { name: "Priyesh Singh", role: "Python Developer And Marketing Expert", image: "Priyesh Quinova.jpg" },
-  { name: "Jigyasa Pandey", role: "Social Media Manager And Content Writer", image: "Jigyasa.jpg" },
+  // { name: "Jigyasa Pandey", role: "Social Media Manager And Content Writer", image: "Jigyasa.jpg" },
   { name: "Ashutosh Singh", role: "Full Stack Developer", image: "Ashutosh Quinova.jpg" }
 ];
 
