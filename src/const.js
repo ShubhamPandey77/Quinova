@@ -689,15 +689,15 @@ export const caseStudies = [
     link: "https://electro-storee.vercel.app/",
     image: "/CaseStudy/electrostore.png"
   },
-  {
-    title: "TJF Digital - Digital Marketing Agency",
-    client: "TJF Digital",
-    result: "Agency services showcase website",
-    description: "Built a comprehensive digital marketing agency website showcasing WordPress development, custom coding, SEO, and advertising services. Features service details, portfolio, and contact forms.",
-    metrics: ["Service Showcase", "Portfolio Display", "Testimonials", "Contact Forms"],
-    link: "https://tjfdigital.com/",
-    image: "/CaseStudy/tjfdigital.png"
-  },
+  // {
+  //   title: "TJF Digital - Digital Marketing Agency",
+  //   client: "TJF Digital",
+  //   result: "Agency services showcase website",
+  //   description: "Built a comprehensive digital marketing agency website showcasing WordPress development, custom coding, SEO, and advertising services. Features service details, portfolio, and contact forms.",
+  //   metrics: ["Service Showcase", "Portfolio Display", "Testimonials", "Contact Forms"],
+  //   link: "https://tjfdigital.com/",
+  //   image: "/CaseStudy/tjfdigital.png"
+  // },
   {
     title: "Studio Labs - Creative Design Agency",
     client: "Studio Labs",
@@ -835,7 +835,8 @@ export const processSteps = [
 export const menuItems = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
-  { name: "About", path: "/about" }
+  { name: "About", path: "/about" },
+  { name: "Training", path: "/careers" },
 ];
 
 // Social Links
